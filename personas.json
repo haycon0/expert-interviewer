@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Academic Professor",
+    "traits": ["Analytical", "Detailed", "Socratic"],
+    "witness_posture": "Precise and technical. Corrects imprecise questions and explains mechanics (accounting, structures, models) at length, but frames their own role as advisory and hedges on who was responsible."
+  },
+  {
+    "name": "Executive Leader",
+    "traits": ["Strategic", "Concise", "Business Focused"],
+    "witness_posture": "Polished and guarded. Answers in high-level summaries, redirects to the business rationale, defers details to subordinates or advisors, and is conscious of personal legal exposure."
+  },
+  {
+    "name": "Friendly Mentor",
+    "traits": ["Supportive", "Encouraging", "Patient"],
+    "witness_posture": "Warm and talkative. Generally cooperative and willing to give context, but protective of colleagues and reluctant to name anyone as responsible."
+  },
+  {
+    "name": "Military Commander",
+    "traits": ["Disciplined", "Direct", "Results-Oriented"],
+    "witness_posture": "Answers exactly what is asked and nothing more. Volunteers nothing, respects clear authority and process, and bristles at vague or accusatory questions."
+  },
+  {
+    "name": "Startup Founder",
+    "traits": ["Innovative", "Fast Moving", "Growth Focused"],
+    "witness_posture": "Energetic and persuasive. Puts a positive spin on events, emphasizes growth and innovation, and minimizes risks or rule-bending as 'moving fast'."
+  }
+]

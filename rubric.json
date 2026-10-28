@@ -1,0 +1,89 @@
+{
+  "name": "Investigative Witness Interview Rubric",
+  "version": "draft-2",
+  "scale": {
+    "excellent": "90-100",
+    "proficient": "70-89",
+    "developing": "50-69",
+    "insufficient": "0-49"
+  },
+  "criteria": [
+    {
+      "name": "Opening, Closing & Protocol",
+      "weight": 10,
+      "description": "Sets ground rules at the start and closes the interview properly.",
+      "levels": {
+        "excellent": "Identifies self and role, explains the purpose, gives an Upjohn warning if acting as company counsel (represents the company, privilege belongs to the company and may be waived, keep the interview confidential), and notes non-retaliation. Closes by asking for anything else, other people with knowledge, and relevant documents, and reminds the witness about document preservation and confidentiality.",
+        "proficient": "Covers most of the opening and closing elements; one or two are missing or vague.",
+        "developing": "Thin opening (e.g. no explanation of whom the interviewer represents) or an abrupt close with no request for other witnesses or documents.",
+        "insufficient": "No ground rules and no deliberate close, or misstates whom the interviewer represents."
+      }
+    },
+    {
+      "name": "Preparation & Case Knowledge",
+      "weight": 15,
+      "description": "Questions show command of the allegations, the timeline, the witness's role, and the key documents.",
+      "levels": {
+        "excellent": "Accurately uses specific dates, transactions, people, and documents tied to this witness to frame precise questions.",
+        "proficient": "Knows the allegations and the witness's role; occasionally generic or imprecise.",
+        "developing": "Mostly generic questions that could be asked of any employee; little use of the case facts.",
+        "insufficient": "No evidence of preparation, or misstates key facts."
+      }
+    },
+    {
+      "name": "Questioning Technique",
+      "weight": 20,
+      "description": "Uses a funnel: open narrative questions first, then specific and closed questions to pin details down. Questions are clear, single-issue, neutral, and do not reveal the case theory or other witnesses' evidence prematurely.",
+      "levels": {
+        "excellent": "Consistently funnels from open to closed, asks one thing at a time, avoids leading questions during fact-gathering, and keeps evidence in reserve until the right moment.",
+        "proficient": "Mostly open and clear; some compound or leading questions, or evidence revealed a bit early.",
+        "developing": "Frequent leading, compound, or yes/no questions that let the witness give minimal answers.",
+        "insufficient": "Questions are confusing, accusatory, or tell the witness what the investigation knows."
+      }
+    },
+    {
+      "name": "Fact Development & Follow-Up",
+      "weight": 20,
+      "description": "Pins down who, what, when, where, and how; separates firsthand knowledge from hearsay; follows up on vague answers.",
+      "levels": {
+        "excellent": "Pursues specifics after every important answer (names, dates, amounts, documents), asks how the witness knows each fact, and does not let 'I don't recall' or 'that's normal' pass without probing.",
+        "proficient": "Follows up on most important answers; some vague answers left unexplored.",
+        "developing": "Rarely follows up; moves through a prepared list regardless of the answers.",
+        "insufficient": "No follow-up; accepts generalities at face value."
+      }
+    },
+    {
+      "name": "Testing Credibility & Inconsistencies",
+      "weight": 15,
+      "description": "Notices evasions and inconsistencies, then tests them fairly with documents or other facts, giving the witness a chance to explain and locking in the answer.",
+      "levels": {
+        "excellent": "Identifies the key inconsistencies or evasions, confronts the witness at the right time with specific documents or facts, stays non-hostile, and pins down the explanation.",
+        "proficient": "Tests at least one inconsistency or evasion; confrontation is somewhat early, vague, or not locked in.",
+        "developing": "Notices problems but doesn't test them, or tests in a way that lets the witness off the hook.",
+        "insufficient": "Misses obvious evasions, or confronts in a hostile, unfounded, or premature way."
+      }
+    },
+    {
+      "name": "Coverage of Allegations",
+      "weight": 10,
+      "description": "Covers the allegations and the areas this witness actually has knowledge of.",
+      "levels": {
+        "excellent": "Covers each allegation the witness can speak to and the witness's key areas of knowledge.",
+        "proficient": "Covers the main allegation and some related areas.",
+        "developing": "Narrow coverage; major allegations or knowledge areas untouched.",
+        "insufficient": "Too short or unfocused to learn anything material."
+      }
+    },
+    {
+      "name": "Professionalism & Adaptability",
+      "weight": 10,
+      "description": "Stays neutral, respectful, and non-coercive, makes no improper promises, and adjusts to the witness's demeanor (which is not disclosed in advance).",
+      "levels": {
+        "excellent": "Builds enough rapport to keep the witness talking, never threatens or promises (e.g. leniency or confidentiality it can't guarantee), and clearly adapts to the witness's style.",
+        "proficient": "Professional throughout with some adjustment to the witness's style.",
+        "developing": "Little adaptation, or occasional lapses in neutrality or tone.",
+        "insufficient": "Coercive, accusatory, or improper promises, or a style mismatch that shuts the witness down."
+      }
+    }
+  ]
+}
