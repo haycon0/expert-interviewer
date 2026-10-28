@@ -122,6 +122,7 @@ The **examples/enron-fastow** folder has a complete practice run. You interview 
 | App says **"Mock mode (no API key)"** but you entered a key | Delete the file named **.env** in the app folder (on Mac, press **Cmd+Shift+.** to show hidden files), then start the app again and re-enter your key. |
 | Error when starting an interview, mentioning **credit** or **billing** | Add credit in the Anthropic Console (Step 3). |
 | Error mentioning **authentication** or **invalid x-api-key** | The key was mistyped or deleted. Delete **.env** as above and enter the key again. |
+| You typed `start` in PowerShell and it asks for **FilePath:** | PowerShell has its own `start` command. Press **Ctrl+C**, then type `.\start.bat` and press Enter. Or just double-click **start.bat** in File Explorer. |
 | **"Address already in use"** in the black/Terminal window | The app is already running in another window. Use that one, or close all of them and start again. |
 | On Mac, nothing happens when you open **start.command** | Open the **Terminal** app (search for it with Cmd+Space), type `bash ` (with a space), drag **start.command** into the Terminal window, and press Return. |
 | Sessions disappear after you close the app | That's expected in this version. Each interview lasts only while the app is running. |
