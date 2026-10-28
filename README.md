@@ -22,6 +22,10 @@ Open http://127.0.0.1:8000. With no API key it runs in **mock mode** (canned age
 
 [`examples/enron-fastow/`](examples/enron-fastow/README.md) is a practice interview with Enron's CFO, Andrew Fastow: setup fields, a case file to upload, and a 30-question script that should score well.
 
+## How it was built
+
+[docs/DEVELOPMENT.md](docs/DEVELOPMENT.md) walks through the build, from an AI-generated handoff doc ([docs/handoff-doc.md](docs/handoff-doc.md)) to the published tool, with every prompt used and the feedback given at each step.
+
 ## Files
 
 | File | What it is |
