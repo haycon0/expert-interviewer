@@ -1,8 +1,14 @@
-# Manual test script: Andrew Fastow (Enron)
+# Practice interview: Andrew Fastow (Enron)
 
-Facts below are taken from [`Enron_Sample_Events_Log.csv`](Enron_Sample_Events_Log.csv) in this folder, mostly the Powers Report entries (source S077) and the June 28, 1999 board materials (S003).
+In this practice run, you are a lawyer investigating Enron in late 2001, and you interview Andrew Fastow, the company's Chief Financial Officer. Everything you need is below: what to type into the app, which file to upload, and 30 questions to ask.
 
-## 1. Setup fields
+**Before you start:** set up and open the app by following [SETUP.md](../../SETUP.md).
+
+The facts in this script come from [`Enron_Sample_Events_Log.csv`](Enron_Sample_Events_Log.csv) in this folder, a spreadsheet of 518 dated events drawn mostly from the Special Investigative Committee's report (the "Powers Report") and the Enron board's June 28, 1999 meeting materials.
+
+> **Tip for copying text:** on the GitHub website, each grey box below has a small copy button in its top-right corner. Click it, then paste into the matching box in the app.
+
+## 1. What to enter on the setup page
 
 **Witness name**
 ```
@@ -23,11 +29,13 @@ The Committee is investigating transactions between Enron and partnerships run b
 The interviewer is outside counsel retained by the Special Committee.
 ```
 
-**Case file:** click "Choose file" and pick `examples/enron-fastow/Enron_Sample_Events_Log.csv`.
+**Case file:** click **Choose file** (or **Browse**), go to the **expert-interviewer-main** folder you downloaded, open **examples**, then **enron-fastow**, and pick **Enron_Sample_Events_Log.csv**.
+
+Then click **Research & start interview** and wait about 30 seconds. Fastow will say a first line. Send each question below as its own message.
 
 ## 2. How to score well
 
-The rubric rewards *how* you ask as much as *what* you ask:
+The grader rewards *how* you ask as much as *what* you ask:
 
 - **One question per message.** Compound questions cost points.
 - **Start with open questions, then narrow down.** Begin with "walk me through...", then pin down names, dates and amounts.

@@ -1,14 +1,36 @@
-# Expert Interviewer (MVP prototype)
+# Expert Interviewer
 
-Multi-agent interview simulator for investigations: practice interviewing an expert employee inside a company under investigation for a whistleblower complaint or suspected white-collar misconduct. Research Agent → Synthetic Expert (the witness, multi-turn) → Criteria Agent → Grader, orchestrated with LangGraph.
+**Practice investigative interviews with an AI witness, then get graded and coached.**
 
-- The witness's demeanor (persona) is drawn at random and revealed only with the grade.
-- Grading uses a fixed, tool-defined rubric (`rubric.json`), not user input. The Criteria Agent only adds case-specific "look-fors" under each fixed criterion.
-- An optional case file (.txt/.csv/.md/.json, e.g. an events log) feeds the Research Agent; large files are trimmed to the rows that mention the witness.
+You play an investigator looking into a whistleblower complaint or suspected white-collar crime. You interview an employee of the company, played by AI. The tool:
 
-## Quick start
+1. **Researches the witness** and gives you a prep file: their role, a timeline, key documents, and red flags.
+2. **Plays the witness** in a live chat, with a personality chosen at random and kept secret. Some witnesses are cooperative, some guarded, some evasive.
+3. **Grades your interview** against a fixed rubric: your opening, questioning technique, follow-up, testing the witness's story, coverage, and professionalism. Then it coaches you and reveals the witness's personality.
 
-Full step-by-step instructions (Windows and macOS) are in **[SETUP.md](SETUP.md)**.
+It runs on your own computer, in your web browser. An interview costs roughly $0.40–$0.75 in AI usage, and there's a free demo mode for trying it out.
+
+## Get started
+
+**New to this? Start here → [SETUP.md](SETUP.md).** It walks you through everything step by step, with no coding experience needed. Once it's set up, you start the app by double-clicking a file.
+
+## Try the practice interview
+
+[`examples/enron-fastow`](examples/enron-fastow/README.md) is a ready-made practice run: you interview Andrew Fastow, Enron's former CFO. It tells you exactly what to enter and gives you 30 questions to ask.
+
+## How this was built
+
+[docs/DEVELOPMENT.md](docs/DEVELOPMENT.md) tells how the tool was built entirely with AI tools and plain-English requests, starting from an AI-written plan ([docs/handoff-doc.md](docs/handoff-doc.md)). It includes every prompt used, what the AI did in response, and how to do the same yourself.
+
+---
+
+## For developers
+
+A LangGraph multi-agent app (Research → Synthetic Expert (multi-turn) → Criteria → Grader) with a FastAPI backend and a single-page UI.
+
+- The witness persona is drawn at random and revealed only with the grade.
+- Grading uses a fixed rubric (`rubric.json`). The Criteria Agent only adds case-specific "look-fors" under each criterion.
+- An optional case file (.txt/.csv/.md/.json) feeds the Research Agent; large files are trimmed to rows mentioning the witness.
 
 ```
 pip install -r requirements.txt
@@ -16,33 +38,18 @@ copy .env.example .env      # then add your API key
 python -m uvicorn server:app --reload
 ```
 
-Open http://127.0.0.1:8000. With no API key it runs in **mock mode** (canned agent output) so you can click through the flow.
-
-## Try the example
-
-[`examples/enron-fastow/`](examples/enron-fastow/README.md) is a practice interview with Enron's CFO, Andrew Fastow: setup fields, a case file to upload, and a 30-question script that should score well.
-
-## How it was built
-
-[docs/DEVELOPMENT.md](docs/DEVELOPMENT.md) walks through the build, from an AI-generated handoff doc ([docs/handoff-doc.md](docs/handoff-doc.md)) to the published tool, with every prompt used and the feedback given at each step.
-
-## Files
-
 | File | What it is |
 |---|---|
-| `graph.py` | `InterviewState` + LangGraph (Master Agent orchestration). The interview loop pauses with `interrupt()` and resumes on each API call. |
-| `agents.py` | Research, Criteria Creator, Synthetic Expert, Grader agents (structured outputs via Pydantic). |
-| `server.py` | FastAPI endpoints from the handoff doc + UI route. |
-| `personas.json` | Persona library (style traits + witness posture) — add entries here, no code changes needed. |
-| `rubric.json` | The grading rubric: criteria, weights, and level descriptions. Edit to change grading. |
+| `start.bat` / `start.command` | Double-click launchers (Windows / Mac): first-time setup, API key prompt, start server, open browser. |
+| `graph.py` | `InterviewState` + LangGraph orchestration. The interview loop pauses with `interrupt()` and resumes on each API call. |
+| `agents.py` | Research, Criteria, Synthetic Expert, and Grader agents (structured outputs via Pydantic); per-agent `EFFORT` settings. |
+| `server.py` | FastAPI endpoints + UI route. |
+| `personas.json` | Persona library (style traits + witness posture). |
+| `rubric.json` | Grading rubric: criteria, weights, level descriptions. |
 | `static/index.html` | Single-page UI: setup → interview → results. |
 | `examples/` | Worked practice interviews with case files. |
-| `sessions/` | JSON snapshot of each session (metadata, research, rubric, transcript, assessment). Not committed to git. |
+| `sessions/` | JSON snapshot of each session. Not committed to git. |
 
-## LLM provider
+**Model:** set `MODEL` in `.env` to any LangChain `init_chat_model` string, e.g. `anthropic:claude-sonnet-5-5` (default) or `azure_openai:gpt-4o` (also set `AZURE_OPENAI_ENDPOINT`, `AZURE_OPENAI_API_KEY`, `OPENAI_API_VERSION`, and `pip install langchain-openai`).
 
-Set `MODEL` in `.env` to any `init_chat_model` string, e.g. `anthropic:claude-sonnet-5-5` (default) or `azure_openai:gpt-4o` (also set `AZURE_OPENAI_ENDPOINT`, `AZURE_OPENAI_API_KEY`, `OPENAI_API_VERSION`, and install `langchain-openai`).
-
-## Not yet built (per handoff doc)
-
-PostgreSQL/Redis persistence (currently in-memory `MemorySaver` + JSON files, so sessions are lost on server restart), web research tools/citations, Azure services, Dataverse, voice, multi-expert panels.
+**Not yet built (from the handoff doc):** PostgreSQL/Redis persistence (sessions are in memory plus JSON files, so they're lost on restart), web research and citations, Azure services, Dataverse, voice, multi-expert panels.
