@@ -18,6 +18,10 @@ It runs on your own computer, in your web browser. An interview costs roughly $0
 
 [`examples/enron-fastow`](examples/enron-fastow/README.md) is a ready-made practice run: you interview Andrew Fastow, Enron's former CFO. It tells you exactly what to enter and gives you 30 questions to ask.
 
+## How it works
+
+[docs/HOW-IT-WORKS.md](docs/HOW-IT-WORKS.md) explains what happens behind the scenes: the four AI agents and what each one sees, how the witness behaves, how grading and scoring work, what stays hidden until the end, where your information goes, and what each step costs. It's written in plain language first, with technical details for developers at the end.
+
 ## How this was built
 
 [docs/DEVELOPMENT.md](docs/DEVELOPMENT.md) tells how the tool was built entirely with AI tools and plain-English requests, starting from an AI-written plan ([docs/handoff-doc.md](docs/handoff-doc.md)). It includes every prompt used, what the AI did in response, and how to do the same yourself.
