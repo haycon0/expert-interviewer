@@ -5,7 +5,11 @@ Then open http://127.0.0.1:8000
 """
 
 import json
+import os
+import threading
 import uuid
+import webbrowser
+from contextlib import asynccontextmanager
 from pathlib import Path
 
 try:
@@ -22,7 +26,15 @@ from pydantic import BaseModel
 import agents
 from graph import build_graph
 
-app = FastAPI(title="Expert Interviewer")
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # The launchers set OPEN_BROWSER=1 so the page opens only once the server is ready.
+    if os.getenv("OPEN_BROWSER") == "1":
+        threading.Timer(1.0, webbrowser.open, ["http://127.0.0.1:8000"]).start()
+    yield
+
+
+app = FastAPI(title="Expert Interviewer", lifespan=lifespan)
 graph = build_graph()
 
 # Transcript store (mocked): a JSON snapshot per session, rewritten after every exchange.

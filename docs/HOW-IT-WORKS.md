@@ -153,7 +153,7 @@ These files can be edited in Notepad (Windows) or TextEdit (Mac). Restart the ap
 | `rubric.json` | Fixed rubric (`name`, `version`, `scale`, `criteria[]` with `name`, `weight`, `description`, `levels`). |
 | `personas.json` | Persona library (`name`, `traits[]`, `witness_posture`). |
 | `static/index.html` | Setup → interview → results UI. |
-| `start.bat`, `start.command` | Launchers: create `.venv`, install requirements, prompt for and save the key, start uvicorn, open the browser. |
+| `start.bat`, `start.command` | Launchers. They keep the virtual environment outside the project, in `%LOCALAPPDATA%\ExpertInterviewer\env` (Windows) or `~/Library/Application Support/ExpertInterviewer/env` (Mac), so OneDrive or iCloud sync can't corrupt it. They rebuild it when there's no completed-install marker (a copy of `requirements.txt` written only after `pip install` succeeds) or when `requirements.txt` changes. They prompt for and save the key, then start uvicorn with `OPEN_BROWSER=1`. If uvicorn exits with an error, they delete the marker so the next run reinstalls. |
 
 ## The graph
 

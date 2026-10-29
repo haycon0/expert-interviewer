@@ -69,18 +69,18 @@ An API key is like a password that lets the app use Anthropic's Claude AI model,
 1. Open the **expert-interviewer-main** folder.
 2. Double-click **start** (it may show as **start.bat**, with a gear icon).
 3. If a blue box says **"Windows protected your PC"**, click **More info**, then **Run anyway**. Windows shows this for any downloaded file it doesn't recognize.
-4. A black window opens. **The first time only**, it spends 1–3 minutes installing what the app needs. Wait until it asks for your key.
+4. A black window opens. **The first time only**, it spends 2–5 minutes installing what the app needs. You'll see lines of text scrolling past as it downloads. **Don't close the window during this step.** Wait until it says **Install complete** and asks for your key.
 5. When it says **API key:**, paste your key (**right-click** inside the black window to paste) and press **Enter**. Or just press **Enter** to use demo mode.
-6. Your web browser opens the app after a few seconds.
+6. It says **Starting Expert Interviewer** and takes about 10–30 seconds. Your web browser opens the app automatically when it's ready.
 
 ### Mac
 
 1. Open the **expert-interviewer-main** folder.
 2. **Right-click** (or Control-click) **start.command** and choose **Open**.
 3. If a message says it's from an unidentified developer, click **Open**. (Double-clicking the first time may only offer **Cancel**; that's why you right-click.)
-4. A Terminal window opens. **The first time only**, it spends 1–3 minutes installing. Wait until it asks for your key.
+4. A Terminal window opens. **The first time only**, it spends 2–5 minutes installing, with lines of text scrolling past. **Don't close the window during this step.** Wait until it says **Install complete** and asks for your key.
 5. When it says **API key:**, paste your key (**Cmd+V**) and press **Return**. Or just press **Return** to use demo mode.
-6. Your web browser opens the app after a few seconds.
+6. It says **Starting Expert Interviewer** and takes about 10–30 seconds. Your web browser opens the app automatically when it's ready.
 
 ### While you use the app
 
@@ -90,7 +90,9 @@ An API key is like a password that lets the app use Anthropic's Claude AI model,
 
 ### Next time
 
-Just double-click **start** (Windows) or **start.command** (Mac) again. It skips the installing and opens straight away.
+Just double-click **start** (Windows) or **start.command** (Mac) again. It skips the installing, and the app opens in about 10–30 seconds.
+
+> **Where the app's support files go:** the installed packages are kept outside the app folder, in your user account's hidden app-data folder (Windows: `%LOCALAPPDATA%\ExpertInterviewer`; Mac: `~/Library/Application Support/ExpertInterviewer`). This keeps them out of OneDrive and iCloud syncing, which can slow installs and corrupt them. To remove the app completely, delete that folder as well as the app folder.
 
 ---
 
@@ -118,6 +120,8 @@ The **examples/enron-fastow** folder has a complete practice run. You interview 
 |---|---|
 | **"Python is not installed, or Windows can't find it"** | Reinstall Python (Step 1) and make sure you tick **"Add python.exe to PATH"**. Then restart your computer and try again. |
 | **"Setup failed"** | Check your internet connection and double-click the start file again. If you're on a work or school network, try a home network; some block software downloads. |
+| A long error ending in **ImportError** or **"The app stopped because of an error"** | Usually a damaged install, e.g. the window was closed while installing. Double-click the start file again. It detects the problem and reinstalls automatically (2–5 minutes). |
+| The window seems stuck with nothing happening | On the first run, installing can pause for a minute between lines while it downloads. Give it up to 5 minutes. If nothing has changed after that, close the window and double-click the start file again; it will start the install over cleanly. |
 | Browser shows **"This site can't be reached"** | The app may still be starting. Wait 10 seconds and refresh the page. Check that the black/Terminal window is still open. |
 | App says **"Mock mode (no API key)"** but you entered a key | Delete the file named **.env** in the app folder (on Mac, press **Cmd+Shift+.** to show hidden files), then start the app again and re-enter your key. |
 | Error when starting an interview, mentioning **credit** or **billing** | Add credit in the Anthropic Console (Step 3). |

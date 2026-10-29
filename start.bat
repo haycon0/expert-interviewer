@@ -3,6 +3,13 @@ REM Double-click this file to set up (first time) and start Expert Interviewer.
 cd /d "%~dp0"
 title Expert Interviewer
 
+REM The app's Python packages live outside this folder (in your local AppData),
+REM because folders synced by OneDrive make installs slow and can corrupt them.
+set "ENVDIR=%LOCALAPPDATA%\ExpertInterviewer\env"
+set "PY=%ENVDIR%\Scripts\python.exe"
+set "MARKER=%ENVDIR%\installed-requirements.txt"
+
+echo Checking for Python...
 python --version >nul 2>&1
 if errorlevel 1 (
   echo.
@@ -15,14 +22,10 @@ if errorlevel 1 (
   exit /b 1
 )
 
-if not exist ".venv\Scripts\python.exe" (
-  echo First-time setup: installing what the app needs. This takes 1-3 minutes...
-  python -m venv .venv
-  if errorlevel 1 goto :setupfailed
-)
-set "PY=.venv\Scripts\python.exe"
-"%PY%" -m pip install --quiet --disable-pip-version-check -r requirements.txt
-if errorlevel 1 goto :setupfailed
+REM Reinstall if there's no finished install, or requirements.txt has changed.
+REM (The marker file is only written after an install completes successfully.)
+fc /b requirements.txt "%MARKER%" >nul 2>&1
+if errorlevel 1 call :install || goto :setupfailed
 
 findstr /b /c:"ANTHROPIC_API_KEY=sk-" .env >nul 2>&1
 if errorlevel 1 (
@@ -38,15 +41,34 @@ if errorlevel 1 (
 )
 
 echo.
-echo Starting Expert Interviewer...
-echo Your browser will open in a few seconds at http://127.0.0.1:8000
+echo Starting Expert Interviewer. This takes about 10-30 seconds...
+echo Your browser will open automatically when it's ready.
 echo KEEP THIS WINDOW OPEN while you use the app. Close it when you're done.
 echo.
-if not defined NO_BROWSER start "" cmd /c "timeout /t 5 >nul & start http://127.0.0.1:8000"
+if not defined NO_BROWSER set "OPEN_BROWSER=1"
 "%PY%" -m uvicorn server:app --port 8000
-echo.
-echo The app has stopped.
+if errorlevel 1 (
+  REM Force a clean reinstall next time in case the install was damaged.
+  del "%MARKER%" >nul 2>&1
+  echo.
+  echo The app stopped because of an error ^(see above^).
+  echo Double-click start.bat again to repair it. It will reinstall, which takes 2-5 minutes.
+  echo If the error says "address already in use", the app is already open in another window.
+)
 pause
+exit /b 0
+
+:install
+echo.
+echo Installing what the app needs. This takes 2-5 minutes the first time,
+echo and you'll see progress below. Please don't close this window.
+echo.
+if exist "%ENVDIR%" rmdir /s /q "%ENVDIR%"
+python -m venv "%ENVDIR%" || exit /b 1
+"%PY%" -m pip install --disable-pip-version-check --progress-bar on -r requirements.txt || exit /b 1
+copy /y requirements.txt "%MARKER%" >nul
+echo.
+echo Install complete.
 exit /b 0
 
 :savekey
@@ -58,7 +80,7 @@ exit /b 0
 
 :setupfailed
 echo.
-echo Setup failed. Check your internet connection and try again.
-echo If it keeps failing, see the Troubleshooting section in SETUP.md.
+echo Setup failed. Check your internet connection and double-click start.bat again.
+echo If it keeps failing, see the troubleshooting section in SETUP.md.
 pause
 exit /b 1
