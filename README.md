@@ -22,6 +22,10 @@ It runs on your own computer, in your web browser. An interview costs roughly $0
 
 [docs/HOW-IT-WORKS.md](docs/HOW-IT-WORKS.md) explains what happens behind the scenes: the four AI agents and what each one sees, how the witness behaves, how grading and scoring work, what stays hidden until the end, where your information goes, and what each step costs. It's written in plain language first, with technical details for developers at the end.
 
+## How interviews are graded
+
+[docs/ASSESSMENT.md](docs/ASSESSMENT.md) is a one-page summary of how the tool assesses an interview: what the grader reads, the criteria and weights, how the score is calculated, and the limitations.
+
 ## How this was built
 
 [docs/DEVELOPMENT.md](docs/DEVELOPMENT.md) tells how the tool was built entirely with AI tools and plain-English requests, starting from an AI-written plan ([docs/handoff-doc.md](docs/handoff-doc.md)). It includes every prompt used, what the AI did in response, and how to do the same yourself.
