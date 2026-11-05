@@ -52,6 +52,16 @@
   @media (max-width: 760px) { .grid2 { grid-template-columns:1fr; } }
   .error { color:var(--bad); margin-top:10px; }
   .reveal { background:var(--you); border-radius:8px; padding:10px 14px; margin-bottom:12px; }
+  #review { max-width:760px; margin:0 auto; }
+  .doc { border:1px solid var(--line); border-radius:8px; padding:12px 14px; margin-top:12px; }
+  .doc.flagged { border-color:#e0b4a8; background:#fdf7f5; }
+  .doc h4 { margin:0 0 4px; font-size:15px; overflow-wrap:anywhere; }
+  .doc .flag { color:var(--bad); font-size:13px; font-weight:600; }
+  .doc pre { white-space:pre-wrap; overflow-wrap:anywhere; background:#fff; border:1px solid var(--line); border-radius:6px; padding:8px; font-size:12px; max-height:200px; overflow-y:auto; }
+  .choice { display:flex; gap:18px; margin-top:8px; }
+  .choice label { display:flex; align-items:center; gap:6px; margin:0; font-weight:600; }
+  .choice input { width:auto; }
+  .docrow { border-top:1px solid var(--line); padding:8px 0; font-size:13px; overflow-wrap:anywhere; }
 </style>
 </head>
 <body>
@@ -71,16 +81,27 @@
     <div class="traits">The witness's demeanor is chosen at random and revealed with your grade.</div>
     <label for="background">Case background</label>
     <textarea id="background" placeholder="The complaint or suspected misconduct, the time period, and what prompted the investigation..."></textarea>
-    <label for="caseFile">Case file (optional)</label>
-    <input type="file" id="caseFile" accept=".txt,.csv,.md,.json">
-    <div class="traits">Text files only (.txt, .csv, .md, .json), e.g. an events log or interview notes. Large files are trimmed to the parts that mention the witness.</div>
-    <div style="margin-top:18px"><button id="startBtn">Research &amp; start interview</button></div>
+    <label for="caseFiles">Case documents</label>
+    <input type="file" id="caseFiles" multiple accept=".txt,.csv,.md,.json,.pdf,.docx">
+    <div class="traits">Choose one or more files: PDF, Word (.docx), or text (.txt, .csv, .md, .json). The witness knows only the case background and the documents you keep. Each document is checked first, and you'll be asked about any that look like they don't belong.</div>
+    <ul id="fileList" class="traits"></ul>
+    <div style="margin-top:18px"><button id="startBtn">Check documents &amp; start interview</button></div>
     <div class="error" id="setupError"></div>
   </section>
 
   <section id="preparing" class="card loading hidden">
     <div class="spinner"></div>
-    <div>Researching the witness and the case...</div>
+    <div id="prepText">Checking your documents...</div>
+  </section>
+
+  <!-- Document review -->
+  <section id="review" class="card hidden">
+    <h2 style="margin-top:0">Check these documents</h2>
+    <p class="traits" style="margin-top:0">These documents may have been added by mistake. Review each one and choose whether to keep it. Kept documents become part of what the witness knows.</p>
+    <div id="flaggedList"></div>
+    <div id="passedList"></div>
+    <div style="margin-top:18px"><button id="continueBtn" disabled>Continue to interview</button></div>
+    <div class="error" id="reviewError"></div>
   </section>
 
   <!-- Interview -->
@@ -97,7 +118,7 @@
       </div>
     </div>
     <aside>
-      <div class="card" id="researchCard"></div>
+      <div class="card" id="docsCard"></div>
       <div class="card" id="rubricCard"></div>
     </aside>
   </section>
@@ -118,7 +139,7 @@ const list = (items) => items?.length ? `<ul>${items.map(i => `<li>${esc(i)}</li
 let sessionId = null, expertName = "";
 
 function show(id) {
-  for (const s of ["setup","preparing","interview","grading","results"]) $(s).classList.toggle("hidden", s !== id);
+  for (const s of ["setup","preparing","review","interview","grading","results"]) $(s).classList.toggle("hidden", s !== id);
 }
 
 async function api(path, body) {
@@ -147,42 +168,98 @@ function renderRubric(rubric) {
     `<div class="crit"><b>${esc(c.name)}</b> <span class="badge">${c.weight}%</span><div>${esc(c.description)}</div></div>`).join("");
 }
 
-function renderSidebar(r, rubric) {
-  $("researchCard").innerHTML = `<h3>Witness file</h3>
-    <div><b>${esc(r.role)}</b>, ${esc(r.organization)}</div>
-    <div style="margin-top:6px">${esc(r.biography)}</div>
-    <div class="k">Allegations</div>${list(r.allegations)}
-    <div class="k">Key events</div>${list(r.key_events)}
-    <div class="k">Relevant documents</div>${list(r.relevant_documents)}
-    <div class="k">Areas of knowledge</div>${list(r.areas_of_knowledge)}
-    <div class="k">Red flags to probe</div>${list(r.red_flags)}
-    <div class="k">Sensitive areas</div>${list(r.sensitive_areas)}
-    <div class="k">Recommended topics</div>${list(r.recommended_topics)}
-    <div class="k">Sources</div>${list(r.source_material)}`;
-  renderRubric(rubric);
+const FLAG_LABELS = {
+  addressed_to_someone_else: "Addressed to someone else",
+  unrelated_to_case: "Unrelated to this case",
+  other_irrelevant: "May not belong here",
+};
+const kb = (n) => n >= 1000 ? `${Math.round(n / 1000)}K characters` : `${n} characters`;
+
+function renderDocs(docs) {
+  const kept = docs.filter(d => d.keep), removed = docs.length - kept.length;
+  $("docsCard").innerHTML = `<h3>Case documents</h3>` + (kept.length
+    ? kept.map(d => `<div class="docrow"><b>${esc(d.name)}</b>
+        <div class="badge">${esc(d.kind.toUpperCase())} · ${kb(d.chars)}${d.trimmed ? " · only the parts mentioning the witness were included" : ""}</div>
+        <div>${esc(d.check.summary)}</div></div>`).join("")
+    : `<div class="badge">No documents. The witness knows only the case background.</div>`)
+    + (removed ? `<div class="badge" style="margin-top:8px">${removed} document${removed > 1 ? "s" : ""} removed during review.</div>` : "");
 }
+
+function startInterview(data) {
+  $("expertTitle").textContent = expertName;
+  $("messages").innerHTML = "";
+  data.transcript.forEach(addMsg);
+  renderDocs(data.documents);
+  renderRubric(data.rubric);
+  show("interview");
+  $("input").focus();
+}
+
+function renderReview(data) {
+  const flagged = data.documents.filter(d => !d.check.relevant);
+  const passed = data.documents.filter(d => d.check.relevant);
+  $("flaggedList").innerHTML = flagged.map(d => `
+    <div class="doc flagged">
+      <h4>${esc(d.name)}</h4>
+      <div class="flag">${esc(FLAG_LABELS[d.check.category] || "May not belong here")}</div>
+      <div class="k">What it contains</div><div>${esc(d.check.summary)}</div>
+      <div class="k">Why it was flagged</div><div>${esc(d.check.reason)}</div>
+      ${d.preview ? `<details><summary class="badge">Show the opening text</summary><pre>${esc(d.preview)}</pre></details>` : ""}
+      <div class="choice">
+        <label><input type="radio" name="keep-${d.id}" value="keep"> Keep it</label>
+        <label><input type="radio" name="keep-${d.id}" value="remove"> Remove it</label>
+      </div>
+    </div>`).join("");
+  $("passedList").innerHTML = passed.length ? `<div class="k" style="margin-top:18px">Passed the check</div>` +
+    passed.map(d => `<div class="docrow"><b>${esc(d.name)}</b>: ${esc(d.check.summary)}</div>`).join("") : "";
+  const ready = () => flagged.every(d => document.querySelector(`input[name="keep-${d.id}"]:checked`));
+  $("flaggedList").onchange = () => { $("continueBtn").disabled = !ready(); };
+  $("continueBtn").disabled = true;
+  $("reviewError").textContent = "";
+  $("continueBtn").onclick = async () => {
+    const keep = Object.fromEntries(flagged.map(d =>
+      [d.id, document.querySelector(`input[name="keep-${d.id}"]:checked`).value === "keep"]));
+    $("prepText").textContent = "Starting the interview...";
+    show("preparing");
+    try { startInterview(await api(`/session/${sessionId}/documents`, {keep})); }
+    catch (e) { show("review"); $("reviewError").textContent = e.message; }
+  };
+  show("review");
+}
+
+async function toBase64(file) {
+  const bytes = new Uint8Array(await file.arrayBuffer());
+  let s = "";
+  for (let i = 0; i < bytes.length; i += 0x8000) s += String.fromCharCode(...bytes.subarray(i, i + 0x8000));
+  return btoa(s);
+}
+
+$("caseFiles").onchange = () => {
+  $("fileList").innerHTML = [...$("caseFiles").files].map(f => `<li>${esc(f.name)}</li>`).join("");
+};
 
 $("startBtn").onclick = async () => {
   expertName = $("expert").value.trim();
+  const background = $("background").value.trim();
+  const files = [...$("caseFiles").files];
   if (!expertName) { $("setupError").textContent = "Enter the witness's name."; return; }
-  const file = $("caseFile").files[0];
-  if (file && file.size > 5_000_000) { $("setupError").textContent = "Case file is over 5 MB."; return; }
+  if (!background) { $("setupError").textContent = "Describe the case background. It's what documents are checked against."; return; }
+  if (files.reduce((n, f) => n + f.size, 0) > 25_000_000) { $("setupError").textContent = "The documents are over 25 MB in total."; return; }
   $("setupError").textContent = "";
+  $("prepText").textContent = files.length
+    ? `Checking ${files.length} document${files.length > 1 ? "s" : ""} against the case...`
+    : "Starting the interview...";
   show("preparing");
   try {
     const data = await api("/session/create", {
       expert_name: expertName,
       expert_role: $("role").value,
-      case_background: $("background").value,
-      case_file: file ? await file.text() : "",
+      case_background: background,
+      documents: await Promise.all(files.map(async f => ({name: f.name, data_base64: await toBase64(f)}))),
     });
     sessionId = data.session_id;
-    $("expertTitle").textContent = expertName;
-    $("messages").innerHTML = "";
-    data.transcript.forEach(addMsg);
-    renderSidebar(data.research_package, data.rubric);
-    show("interview");
-    $("input").focus();
+    if (data.phase === "reviewing_documents") renderReview(data);
+    else startInterview(data);
   } catch (e) { show("setup"); $("setupError").textContent = e.message; }
 };
 

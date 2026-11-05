@@ -6,3 +6,4 @@ pydantic>=2.12
 fastapi>=0.135
 uvicorn>=0.42
 python-dotenv>=1.2
+pypdf>=6.0

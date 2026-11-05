@@ -29,9 +29,11 @@ The Committee is investigating transactions between Enron and partnerships run b
 The interviewer is outside counsel retained by the Special Committee.
 ```
 
-**Case file:** click **Choose file** (or **Browse**), go to the **expert-interviewer-main** folder you downloaded, open **examples**, then **enron-fastow**, and pick **Enron_Sample_Events_Log.csv**.
+**Case documents:** click **Choose Files** (or **Browse**), go to the **expert-interviewer-main** folder you downloaded, open **examples**, then **enron-fastow**, and pick **Enron_Sample_Events_Log.csv**. This log is everything the witness will know, so it's required for this script.
 
-Then click **Research & start interview** and wait about 30 seconds. Fastow will say a first line. Send each question below as its own message.
+> **Want to see the document check work?** Also pick **decoy_catering_email.txt** from the same folder (hold Ctrl or Cmd to pick both). It's an email between two bakery employees with nothing to do with Enron, so the app should flag it as **Addressed to someone else** and ask whether to keep it. Choose **Remove it**.
+
+Then click **Check documents & start interview** and wait about 20–30 seconds. Fastow will say a first line. Send each question below as its own message.
 
 ## 2. How to score well
 

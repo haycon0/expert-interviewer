@@ -8,7 +8,7 @@ The rubric is a working draft (`draft-2` in [`rubric.json`](../rubric.json)) and
 
 - **The full transcript** of the interview
 - **The rubric**, plus AI-written notes on what strong work would look like in this case, which the app doesn't show you
-- **The witness file**, which shows what you could have uncovered
+- **The case documents you kept**, which show what you could have uncovered
 - **The case background** you entered
 - **The witness's secret personality**, so it can judge whether you adapted to it
 
@@ -47,7 +47,7 @@ The rubric is a working draft (`draft-2` in [`rubric.json`](../rubric.json)) and
 - Overall score and letter grade
 - A score and explanation for each criterion
 - Strengths and weaknesses
-- Missed opportunities, meaning facts in the witness file you never surfaced
+- Missed opportunities, meaning facts in the documents you never surfaced
 - Questions you could have asked
 - Coaching recommendations
 - The witness's secret personality
@@ -57,5 +57,5 @@ The rubric is a working draft (`draft-2` in [`rubric.json`](../rubric.json)) and
 - **Scores are AI judgments.** Grading the same transcript twice could give different scores. Only the arithmetic and the letter grade are fixed.
 - **The grading hasn't been checked against human graders.** Nobody has compared its scores with how an experienced investigator would score the same interview.
 - **Testing has been light.** On this rubric, the only test we recorded was a 3-question interview, which scored 33 (F). We haven't recorded a full-length interview, so we don't know how strong interviews score.
-- **The witness file can be wrong.** It's AI research, so a "missed opportunity" may rest on a mistaken or incomplete fact. Check important points against the source documents.
+- **The grader sees only part of large document sets.** All documents together are capped at about 60,000 characters (roughly 30 pages). Long ones are cut down to the passages naming the witness, so a "missed opportunity" can only come from what was included.
 - **Witnesses vary in difficulty.** Personalities are random, so two people may face witnesses who are harder or easier to question. The score doesn't adjust for this.

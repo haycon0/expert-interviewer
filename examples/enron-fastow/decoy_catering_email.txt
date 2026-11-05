@@ -1,0 +1,13 @@
+From: Maria Lopez <maria.lopez@example-bakery.com>
+To: Tom Becker <tom.becker@example-bakery.com>
+Date: Thursday, November 8, 2001 9:42 AM
+Subject: Saturday catering order
+
+Hi Tom,
+
+The Hendersons called back. They'd like three dozen croissants, two lemon tarts, and the large fruit platter for their party on Saturday. They'll pick up at 9am.
+
+Can you confirm we have enough butter for the croissants? If not I'll put in an order with the supplier today.
+
+Thanks,
+Maria

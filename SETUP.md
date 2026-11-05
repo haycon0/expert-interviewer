@@ -106,11 +106,12 @@ The **examples/enron-fastow** folder has a complete practice run. You interview 
 
 1. **Witness name:** the employee you're interviewing.
 2. **Role and company:** optional, e.g. "CFO, Enron Corp."
-3. **Case background:** a few sentences on the complaint or suspected misconduct.
-4. **Case file:** optional. Upload a text file of evidence, such as an events log or notes. Only .txt, .csv, .md, and .json files work, not PDFs or Word documents.
-5. Click **Research & start interview** and wait about 30 seconds while the app researches the witness.
-6. Type questions in the box at the bottom and press **Enter** to send. The right side shows the witness file the app prepared, plus the grading criteria.
-7. When you're done, click **End & grade**. You get a score, feedback on each criterion, missed opportunities, and coaching. The witness's hidden personality is revealed here.
+3. **Case background:** required. A few sentences on the complaint or suspected misconduct. Documents are checked against this.
+4. **Case documents:** click **Choose Files** and pick one or more files: PDF, Word (.docx), or text (.txt, .csv, .md, .json). Hold **Ctrl** (Windows) or **Cmd** (Mac) to pick several. **The witness knows only the case background and the documents you keep**, so include everything it should know.
+5. Click **Check documents & start interview**. The app reads each document and checks that it belongs in this case (about 10–20 seconds).
+6. **If any documents are flagged**, you'll see each one, with what it contains, why it was flagged (for example "Addressed to someone else" or "Unrelated to this case"), and its opening text. Choose **Keep it** or **Remove it** for each one, then click **Continue to interview**. If nothing is flagged, this screen is skipped.
+7. Type questions in the box at the bottom and press **Enter** to send. The right side lists the documents the witness knows, plus the grading criteria.
+8. When you're done, click **End & grade**. You get a score, feedback on each criterion, missed opportunities, and coaching. The witness's hidden personality is revealed here.
 
 ---
 
@@ -129,6 +130,8 @@ The **examples/enron-fastow** folder has a complete practice run. You interview 
 | You typed `start` in PowerShell and it asks for **FilePath:** | PowerShell has its own `start` command. Press **Ctrl+C**, then type `.\start.bat` and press Enter. Or just double-click **start.bat** in File Explorer. |
 | **"Address already in use"** in the black/Terminal window | The app is already running in another window. Use that one, or close all of them and start again. |
 | On Mac, nothing happens when you open **start.command** | Open the **Terminal** app (search for it with Cmd+Space), type `bash ` (with a space), drag **start.command** into the Terminal window, and press Return. |
+| A PDF is flagged with **"No readable text could be found"** | It's probably a scanned image of paper, which has no text the app can read. Use a version with selectable text, or copy the text into a .txt file. |
+| The side panel says a document was **"only the parts mentioning the witness were included"** | The documents together were longer than the app can give the witness (about 30 pages), so long ones were cut down to the passages that name the witness. Upload fewer or shorter documents if something important was missed. |
 | Sessions disappear after you close the app | That's expected in this version. Each interview lasts only while the app is running. |
 
 ---

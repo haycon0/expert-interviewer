@@ -4,8 +4,8 @@
 
 You play an investigator looking into a whistleblower complaint or suspected white-collar crime. You interview an employee of the company, played by AI. The tool:
 
-1. **Researches the witness** and gives you a prep file: their role, a timeline, key documents, and red flags.
-2. **Plays the witness** in a live chat, with a personality chosen at random and kept secret. Some witnesses are cooperative, some guarded, some evasive.
+1. **Checks your case documents** (PDF, Word, or text). Anything that looks added by mistake is flagged, such as an email meant for someone else or a file from a different case. You see what it contains and decide whether to keep it.
+2. **Plays the witness** in a live chat. The witness knows only your case background and the documents you kept, and has a personality chosen at random and kept secret. Some witnesses are cooperative, some guarded, some evasive.
 3. **Grades your interview** against a fixed rubric: your opening, questioning technique, follow-up, testing the witness's story, coverage, and professionalism. Then it coaches you and reveals the witness's personality.
 
 It runs on your own computer, in your web browser. An interview costs roughly $0.40–$0.75 in AI usage, and there's a free demo mode for trying it out.
@@ -34,11 +34,12 @@ It runs on your own computer, in your web browser. An interview costs roughly $0
 
 ## For developers
 
-A LangGraph multi-agent app (Research → Synthetic Expert (multi-turn) → Criteria → Grader) with a FastAPI backend and a single-page UI.
+A LangGraph multi-agent app (Document Checker → human review → Synthetic Expert (multi-turn) → Criteria → Grader) with a FastAPI backend and a single-page UI.
 
+- Uploaded documents (.pdf, .docx, .txt, .csv, .md, .json) are checked for relevance in parallel. If any are flagged, the graph pauses (`interrupt`) for the user to keep or remove each one.
+- The witness, criteria, and grader agents read only the case background and the kept documents. There's no research step and no outside knowledge. Large sets are trimmed to about 60K characters, preferring passages that mention the witness.
 - The witness persona is drawn at random and revealed only with the grade.
 - Grading uses a fixed rubric (`rubric.json`). The Criteria Agent only adds case-specific "look-fors" under each criterion.
-- An optional case file (.txt/.csv/.md/.json) feeds the Research Agent; large files are trimmed to rows mentioning the witness.
 
 ```
 pip install -r requirements.txt
@@ -50,7 +51,8 @@ python -m uvicorn server:app --reload
 |---|---|
 | `start.bat` / `start.command` | Double-click launchers (Windows / Mac): first-time setup, API key prompt, start server, open browser. |
 | `graph.py` | `InterviewState` + LangGraph orchestration. The interview loop pauses with `interrupt()` and resumes on each API call. |
-| `agents.py` | Research, Criteria, Synthetic Expert, and Grader agents (structured outputs via Pydantic); per-agent `EFFORT` settings. |
+| `agents.py` | Document Checker, Criteria, Synthetic Expert, and Grader agents (structured outputs via Pydantic); per-agent `EFFORT` settings; prompt caching. |
+| `documents.py` | Text extraction from uploads, and combining kept documents into the agents' case file. |
 | `server.py` | FastAPI endpoints + UI route. |
 | `personas.json` | Persona library (style traits + witness posture). |
 | `rubric.json` | Grading rubric: criteria, weights, level descriptions. |

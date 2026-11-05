@@ -1,10 +1,14 @@
 """LangGraph orchestration for the Expert Interviewer (the "Master Agent").
 
-START -> initialize_session -> run_research -> start_interview
-      -> check_interview_end <-> expert_response   (interview loop, pauses for user input)
+START -> initialize_session -> verify_documents -> review_documents
+      -> start_interview -> check_interview_end <-> expert_response   (interview loop)
       -> generate_rubric -> grade_interview -> finalize_session -> END
 
-The rubric isn't needed until grading, so run_research kicks off the Criteria
+verify_documents checks every uploaded document for relevance. review_documents
+pauses for the interviewer to keep or remove any flagged ones (it passes straight
+through when nothing is flagged), then builds the document text the other agents use.
+
+The rubric isn't needed until grading, so review_documents kicks off the Criteria
 Agent in a background thread and the interview starts right away.
 generate_rubric just collects that result (normally long finished) into state.
 """
@@ -22,6 +26,7 @@ from langgraph.graph import END, START, StateGraph
 from langgraph.types import interrupt
 
 import agents
+import documents
 
 PERSONAS_FILE = Path(__file__).parent / "personas.json"
 
@@ -42,9 +47,10 @@ class InterviewState(TypedDict, total=False):
     persona_profile: dict
     expert_role: str
     user_outline: str  # case background: the complaint or suspected misconduct
-    case_file: str  # optional uploaded evidence; cleared after research
 
-    research_package: dict
+    # Uploaded documents: {id, name, kind, text, check: {...}, keep, included_chars, trimmed}
+    documents: list
+    document_context: str  # kept documents combined, as the agents read them
     rubric: dict
 
     interview_started: bool
@@ -71,27 +77,42 @@ def initialize_session(state: InterviewState) -> dict:
         "persona_profile": persona,
         "interview_started": False,
         "interview_complete": False,
-        "status": "researching",
+        "status": "checking_documents",
         "created_at": now(),
     }
 
 
-_executor = ThreadPoolExecutor(max_workers=4)
+_executor = ThreadPoolExecutor(max_workers=8)
 _rubric_jobs: dict[str, Future] = {}
 
 
-def _build_rubric(state: InterviewState, research_package: dict) -> dict:
-    return agents.create_rubric(research_package)
+def verify_documents(state: InterviewState) -> dict:
+    docs = state.get("documents", [])
+    checks = list(_executor.map(
+        lambda d: agents.check_document(d, state["expert_name"], state.get("expert_role", ""),
+                                        state.get("user_outline", "")),
+        docs,
+    ))
+    return {"documents": [{**d, "check": c} for d, c in zip(docs, checks)]}
 
 
-def run_research(state: InterviewState) -> dict:
-    pkg = agents.research_expert(
-        state["expert_name"], state.get("expert_role", ""),
-        state.get("user_outline", ""), state.get("case_file", ""),
-    )
-    _rubric_jobs[state["session_id"]] = _executor.submit(_build_rubric, state, pkg)
-    # Drop the raw case file so it isn't re-saved with every checkpoint.
-    return {"research_package": pkg, "case_file": "", "status": "starting_interview"}
+def review_documents(state: InterviewState) -> dict:
+    docs = state.get("documents", [])
+    flagged = [d for d in docs if not d["check"]["relevant"]]
+    decisions = {}
+    if flagged:
+        # Pause until the interviewer decides which flagged documents to keep.
+        decisions = interrupt({"awaiting": "document_review", "flagged": [d["id"] for d in flagged]})
+    # Flagged documents are removed unless the interviewer chose to keep them.
+    docs = [{**d, "keep": d["check"]["relevant"] or bool(decisions.get(d["id"]))} for d in docs]
+    kept = [d for d in docs if d["keep"]]
+    context, notes = documents.build_context(kept, state["expert_name"])
+    by_id = {n["id"]: n for n in notes}
+    docs = [{**d, **by_id.get(d["id"], {})} for d in docs]
+
+    _rubric_jobs[state["session_id"]] = _executor.submit(
+        agents.create_rubric, state["expert_name"], state.get("user_outline", ""), context)
+    return {"documents": docs, "document_context": context, "status": "starting_interview"}
 
 
 def generate_rubric(state: InterviewState) -> dict:
@@ -99,18 +120,23 @@ def generate_rubric(state: InterviewState) -> dict:
     try:
         rubric = job.result()  # waits only if the interview was shorter than rubric generation
     except Exception:  # no job (e.g. server restarted) or it failed: build it now
-        rubric = _build_rubric(state, state["research_package"])
+        rubric = agents.create_rubric(state["expert_name"], state.get("user_outline", ""),
+                                      state.get("document_context", ""))
     return {"rubric": rubric}
 
 
-def start_interview(state: InterviewState) -> dict:
-    greeting = agents.expert_reply(
-        state["research_package"], state["persona_profile"], state.get("user_outline", ""), []
+def _reply(state: InterviewState, transcript: list) -> str:
+    return agents.expert_reply(
+        state["expert_name"], state.get("expert_role", ""), state["persona_profile"],
+        state.get("user_outline", ""), state.get("document_context", ""), transcript,
     )
+
+
+def start_interview(state: InterviewState) -> dict:
     return {
         "interview_started": True,
         "status": "interviewing",
-        "transcript": [{"speaker": "expert", "timestamp": now(), "message": greeting}],
+        "transcript": [{"speaker": "expert", "timestamp": now(), "message": _reply(state, [])}],
     }
 
 
@@ -123,17 +149,14 @@ def check_interview_end(state: InterviewState) -> dict:
 
 
 def expert_response(state: InterviewState) -> dict:
-    reply = agents.expert_reply(
-        state["research_package"], state["persona_profile"],
-        state.get("user_outline", ""), state["transcript"],
-    )
-    return {"transcript": [{"speaker": "expert", "timestamp": now(), "message": reply}]}
+    return {"transcript": [{"speaker": "expert", "timestamp": now(),
+                            "message": _reply(state, state["transcript"])}]}
 
 
 def grade_interview(state: InterviewState) -> dict:
     assessment = agents.grade_interview(
-        state["rubric"], state["transcript"], state["research_package"],
-        state.get("user_outline", ""), state["persona_profile"],
+        state["rubric"], state["transcript"], state["expert_name"],
+        state.get("user_outline", ""), state.get("document_context", ""), state["persona_profile"],
     )
     return {"final_assessment": assessment}
 
@@ -152,13 +175,15 @@ def route_after_check(state: InterviewState) -> str:
 
 def build_graph():
     g = StateGraph(InterviewState)
-    for fn in [initialize_session, run_research, generate_rubric, start_interview,
-               check_interview_end, expert_response, grade_interview, finalize_session]:
+    for fn in [initialize_session, verify_documents, review_documents, generate_rubric,
+               start_interview, check_interview_end, expert_response, grade_interview,
+               finalize_session]:
         g.add_node(fn.__name__, fn)
 
     g.add_edge(START, "initialize_session")
-    g.add_edge("initialize_session", "run_research")
-    g.add_edge("run_research", "start_interview")
+    g.add_edge("initialize_session", "verify_documents")
+    g.add_edge("verify_documents", "review_documents")
+    g.add_edge("review_documents", "start_interview")
     g.add_edge("start_interview", "check_interview_end")
     g.add_conditional_edges("check_interview_end", route_after_check,
                             ["expert_response", "generate_rubric"])
