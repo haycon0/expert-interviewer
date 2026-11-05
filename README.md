@@ -22,6 +22,10 @@ It runs on your own computer, in your web browser. An interview costs roughly $0
 
 [docs/HOW-IT-WORKS.md](docs/HOW-IT-WORKS.md) explains what happens behind the scenes: the four AI agents and what each one sees, how the witness behaves, how grading and scoring work, what stays hidden until the end, where your information goes, and what each step costs. It's written in plain language first, with technical details for developers at the end.
 
+## Cheaper models and other AI providers
+
+[docs/MODELS.md](docs/MODELS.md) explains how to run the tool on a less expensive model, such as Claude Haiku 5.5 for roughly 1/20 the cost, or a budget mix with Sonnet kept for grading. It also covers using different models for different jobs, and switching to OpenAI, Google Gemini, Ollama (free, on your own computer), or other providers.
+
 ## How interviews are graded
 
 [docs/ASSESSMENT.md](docs/ASSESSMENT.md) is a one-page summary of how the tool assesses an interview: what the grader reads, the criteria and weights, how the score is calculated, and the limitations.
@@ -60,6 +64,6 @@ python -m uvicorn server:app --reload
 | `examples/` | Worked practice interviews with case files. |
 | `sessions/` | JSON snapshot of each session. Not committed to git. |
 
-**Model:** set `MODEL` in `.env` to any LangChain `init_chat_model` string, e.g. `anthropic:claude-sonnet-5-5` (default) or `azure_openai:gpt-4o` (also set `AZURE_OPENAI_ENDPOINT`, `AZURE_OPENAI_API_KEY`, `OPENAI_API_VERSION`, and `pip install langchain-openai`).
+**Model:** set `MODEL` in `.env` to any LangChain `init_chat_model` string (default `anthropic:claude-sonnet-5-5`). Override individual agents with `MODEL_WITNESS`, `MODEL_CHECKER`, `MODEL_CRITERIA`, or `MODEL_GRADER`. OpenAI, Azure OpenAI, Google Gemini, and Ollama packages are installed; more providers are commented out in `requirements.txt`. See [docs/MODELS.md](docs/MODELS.md).
 
 **Not yet built (from the handoff doc):** PostgreSQL/Redis persistence (sessions are in memory plus JSON files, so they're lost on restart), web research and citations, Azure services, Dataverse, voice, multi-expert panels.

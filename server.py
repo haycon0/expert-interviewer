@@ -141,7 +141,7 @@ def index():
 @app.get("/config")
 def config():
     return {"model": agents.MODEL, "mock_mode": agents.mock_mode(),
-            "file_types": sorted(documents.SUPPORTED)}
+            "file_types": sorted(documents.SUPPORTED), **agents.model_summary()}
 
 
 @app.post("/session/create")

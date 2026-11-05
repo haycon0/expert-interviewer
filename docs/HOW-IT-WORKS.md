@@ -132,7 +132,7 @@ These files can be edited in Notepad (Windows) or TextEdit (Mac). Restart the ap
 ## Stack
 
 - **Orchestration:** [LangGraph](https://langchain-ai.github.io/langgraph/) `StateGraph` with an in-memory checkpointer (`MemorySaver`).
-- **Model access:** LangChain `init_chat_model`. The model is set by `MODEL` in `.env`; the default is `anthropic:claude-sonnet-5-5`.
+- **Model access:** LangChain `init_chat_model`. The model is set by `MODEL` in `.env` (default `anthropic:claude-sonnet-5-5`), with optional per-agent overrides `MODEL_WITNESS`, `MODEL_CHECKER`, `MODEL_CRITERIA`, and `MODEL_GRADER`. See [MODELS.md](MODELS.md).
 - **Structured output:** Pydantic schemas via `with_structured_output(..., method="json_schema")`. Native JSON-schema output is used because current Claude models reject forced tool calling.
 - **API:** FastAPI (`server.py`), served by uvicorn.
 - **UI:** a single static page (`static/index.html`) with plain JavaScript and no build step.
@@ -231,6 +231,6 @@ Effort maps to Anthropic's `reasoning_effort` and is set in the `EFFORT` table i
 ## Extending it
 
 - **Persistent storage:** swap `MemorySaver` for LangGraph's Postgres checkpointer, and move the rubric job into the graph or a task queue.
-- **Another model provider:** change `MODEL` and add that provider's key variable to `_KEY_BY_PROVIDER` in `agents.py`.
+- **Another model provider:** add its `langchain-*` package to `requirements.txt` and its key variable to `_KEY_BY_PROVIDER` in `agents.py`, then set `MODEL` (see [MODELS.md](MODELS.md)).
 - **More file types or OCR:** extend `documents.extract_text` and add the extension to `SUPPORTED`.
 - **Change what gets flagged:** edit the prompt and the `category` options in `agents.check_document` and `DocumentCheck`, and the labels in `FLAG_LABELS` in `static/index.html`.

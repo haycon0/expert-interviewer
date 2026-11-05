@@ -140,6 +140,7 @@ The **examples/enron-fastow** folder has a complete practice run. You interview 
 
 These files can be opened and edited with **Notepad** (Windows) or **TextEdit** (Mac). Close and restart the app after any change.
 
+- **.env:** which AI model the app uses. Switch to a cheaper model (Claude Haiku 5.5 is about 20 times cheaper) or another company's models by following [docs/MODELS.md](docs/MODELS.md).
 - **rubric.json:** the grading criteria, their weights (must add up to 100), and what each score level means.
 - **personas.json:** the witness personalities the app picks from at random.
 
@@ -149,4 +150,4 @@ Keep the punctuation (quotes, commas, brackets) exactly as it is; only change th
 
 ## For developers
 
-Prefer the command line? Clone the repo, create a virtual environment, `pip install -r requirements.txt`, copy `.env.example` to `.env` and add your key, then run `python -m uvicorn server:app --reload`. Set `MODEL` in `.env` to switch models (e.g. `azure_openai:gpt-4o` with `AZURE_OPENAI_ENDPOINT`, `AZURE_OPENAI_API_KEY`, `OPENAI_API_VERSION`, and `pip install langchain-openai`). Per-agent speed/cost settings are in the `EFFORT` table in `agents.py`.
+Prefer the command line? Clone the repo, create a virtual environment, `pip install -r requirements.txt`, copy `.env.example` to `.env` and add your key, then run `python -m uvicorn server:app --reload`. Set `MODEL` (and optionally `MODEL_WITNESS`, `MODEL_CHECKER`, `MODEL_CRITERIA`, `MODEL_GRADER`) in `.env` to switch models; see [docs/MODELS.md](docs/MODELS.md). Per-agent thinking effort for Claude models is in the `EFFORT` table in `agents.py`.

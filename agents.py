@@ -17,20 +17,56 @@ from typing import Literal
 
 from pydantic import BaseModel, Field
 
+# The model every agent uses, as "provider:model-name" (see docs/MODELS.md).
 MODEL = os.getenv("MODEL", "anthropic:claude-sonnet-5-5")
 
+# Optional per-agent overrides, e.g. MODEL_WITNESS=anthropic:claude-haiku-5-5 to run
+# the many witness replies on a cheaper model while grading stays on MODEL.
+AGENT_MODEL_VARS = {
+    "verify": "MODEL_CHECKER",
+    "rubric": "MODEL_CRITERIA",
+    "greeting": "MODEL_WITNESS",
+    "expert": "MODEL_WITNESS",
+    "grader": "MODEL_GRADER",
+}
+
+# The environment variable holding each provider's API key. Providers not listed
+# here (e.g. ollama, which runs on your own computer) need no key.
 _KEY_BY_PROVIDER = {
     "anthropic": "ANTHROPIC_API_KEY",
     "azure_openai": "AZURE_OPENAI_API_KEY",
     "openai": "OPENAI_API_KEY",
+    "google_genai": "GOOGLE_API_KEY",
+    "groq": "GROQ_API_KEY",
+    "deepseek": "DEEPSEEK_API_KEY",
+    "mistralai": "MISTRAL_API_KEY",
+    "xai": "XAI_API_KEY",
 }
 
 
+def model_for(agent: str) -> str:
+    return os.getenv(AGENT_MODEL_VARS.get(agent, ""), "").strip() or MODEL
+
+
+def _is_anthropic(model: str) -> bool:
+    return model.startswith("anthropic:")
+
+
+def _missing_key(model: str) -> str | None:
+    key_var = _KEY_BY_PROVIDER.get(model.split(":", 1)[0])
+    return key_var if key_var and not os.getenv(key_var) else None
+
+
 def mock_mode() -> bool:
-    if os.getenv("MOCK_LLM") == "1":
-        return True
-    key_var = _KEY_BY_PROVIDER.get(MODEL.split(":", 1)[0])
-    return bool(key_var) and not os.getenv(key_var)
+    """Canned answers when MOCK_LLM=1 or the main model's API key isn't set."""
+    return os.getenv("MOCK_LLM") == "1" or _missing_key(MODEL) is not None
+
+
+def model_summary() -> dict:
+    """Which model each agent uses, plus any override whose API key is missing."""
+    models = {var: model_for(agent) for agent, var in AGENT_MODEL_VARS.items()}
+    warnings = sorted({f"{m} needs {k} in .env" for m in models.values() if (k := _missing_key(m))})
+    return {"models": models, "warnings": [] if mock_mode() else warnings}
 
 
 # Thinking effort per agent (Anthropic only). Lower effort = faster and cheaper.
@@ -47,24 +83,29 @@ _llms: dict = {}
 
 
 def llm(agent: str):
-    effort = EFFORT.get(agent) if MODEL.startswith("anthropic:") else None
-    if effort not in _llms:
+    model = model_for(agent)
+    effort = EFFORT.get(agent) if _is_anthropic(model) else None
+    if (model, effort) not in _llms:
         from langchain.chat_models import init_chat_model
 
-        _llms[effort] = init_chat_model(MODEL, **({"reasoning_effort": effort} if effort else {}))
-    return _llms[effort]
+        _llms[(model, effort)] = init_chat_model(model, **({"reasoning_effort": effort} if effort else {}))
+    return _llms[(model, effort)]
 
 
 def structured(agent: str, schema):
-    # Native JSON-schema output; newer models reject the forced tool-call method.
-    return llm(agent).with_structured_output(schema, method="json_schema")
+    # Native JSON-schema output where the provider supports it (current Claude models
+    # reject the forced tool-call method); otherwise the provider's default method.
+    try:
+        return llm(agent).with_structured_output(schema, method="json_schema")
+    except (ValueError, NotImplementedError, TypeError):
+        return llm(agent).with_structured_output(schema)
 
 
-def _system(text: str):
+def _system(text: str, agent: str):
     """System message; on Anthropic, cached so the documents aren't re-billed in full every turn."""
     from langchain_core.messages import SystemMessage
 
-    if MODEL.startswith("anthropic:"):
+    if _is_anthropic(model_for(agent)):
         return SystemMessage(content=[{"type": "text", "text": text, "cache_control": {"type": "ephemeral"}}])
     return SystemMessage(text)
 
@@ -254,7 +295,8 @@ def expert_reply(expert_name: str, expert_role: str, persona: dict, case_backgro
         f"Case background (what the investigation is about):\n{case_background or '(not given)'}\n\n"
         f"Documents:\n{document_context or '(none provided)'}"
     )
-    messages = [_system(system)]
+    agent = "expert" if user_turns else "greeting"
+    messages = [_system(system, agent)]
     if not user_turns:
         messages.append(HumanMessage(
             "(You have just been brought into the interview room. Say a brief, natural "
@@ -265,7 +307,7 @@ def expert_reply(expert_name: str, expert_role: str, persona: dict, case_backgro
             messages.append(cls(t["message"]))
         if messages[1].type == "ai":  # opening line; most providers want a user turn first
             messages.insert(1, HumanMessage("(The interview begins.)"))
-    return llm("expert" if user_turns else "greeting").invoke(messages).text
+    return llm(agent).invoke(messages).text
 
 
 # --------------------------------------------------------------------------

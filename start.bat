@@ -27,7 +27,8 @@ REM (The marker file is only written after an install completes successfully.)
 fc /b requirements.txt "%MARKER%" >nul 2>&1
 if errorlevel 1 call :install || goto :setupfailed
 
-findstr /b /c:"ANTHROPIC_API_KEY=sk-" .env >nul 2>&1
+REM Skip the key prompt if any provider's key is set, or the model runs locally (Ollama).
+findstr /r /c:"_API_KEY=." /c:"^MODEL=ollama:" .env >nul 2>&1
 if errorlevel 1 (
   echo.
   echo No API key found yet.

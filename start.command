@@ -37,7 +37,8 @@ if ! cmp -s requirements.txt "$MARKER"; then
   fi
 fi
 
-if ! grep -q '^ANTHROPIC_API_KEY=sk-' .env 2>/dev/null; then
+# Skip the key prompt if any provider's key is set, or the model runs locally (Ollama).
+if ! grep -qE '_API_KEY=.|^MODEL=ollama:' .env 2>/dev/null; then
   echo
   echo "No API key found yet."
   echo "Paste your Anthropic API key below and press Enter (Cmd+V to paste)."

@@ -7,3 +7,15 @@ fastapi>=0.135
 uvicorn>=0.42
 python-dotenv>=1.2
 pypdf>=6.0
+
+# AI providers besides Anthropic (see docs/MODELS.md).
+langchain-openai
+langchain-google-genai
+langchain-ollama
+
+# Optional providers: delete the "# " at the start of a line to install it.
+# The start file notices the change and reinstalls automatically.
+# langchain-groq
+# langchain-deepseek
+# langchain-mistralai
+# langchain-xai

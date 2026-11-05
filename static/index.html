@@ -152,7 +152,10 @@ async function api(path, body) {
 
 async function init() {
   const cfg = await api("/config");
-  $("modelBadge").textContent = cfg.mock_mode ? "Mock mode (no API key)" : `Model: ${cfg.model}`;
+  const custom = Object.values(cfg.models || {}).some(m => m !== cfg.model);
+  $("modelBadge").textContent = cfg.mock_mode ? "Mock mode (no API key)"
+    : `Model: ${cfg.model}${custom ? " (some agents use other models)" : ""}`;
+  if (cfg.warnings?.length) $("setupError").textContent = "Setup problem: " + cfg.warnings.join("; ");
 }
 
 function addMsg(t) {
