@@ -1,5 +1,8 @@
 # Choosing the AI model (and cutting cost)
 
+> **On the online version** only the lower-cost options are available. This guide describes the full version, which you can run on your own computer with your own accounts: see the [`local` branch](https://github.com/haycon0/expert-interviewer/tree/local) and its [setup directions](https://github.com/haycon0/expert-interviewer/blob/local/SETUP.md).
+
+
 Expert Interviewer runs on an AI **model**, the "engine" that checks your documents, plays the witness, and grades you. You choose it on the setup page for each interview, from high-powered models to cheap ones, including free models that run on your own computer.
 
 ---

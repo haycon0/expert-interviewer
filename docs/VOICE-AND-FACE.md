@@ -1,5 +1,8 @@
 # Voice and face
 
+> **On the online version** only the lower-cost options are available. This guide describes the full version, which you can run on your own computer with your own accounts: see the [`local` branch](https://github.com/haycon0/expert-interviewer/tree/local) and its [setup directions](https://github.com/haycon0/expert-interviewer/blob/local/SETUP.md).
+
+
 You can interview the witness three ways. Choose under **Conversation** on the setup page:
 
 | Mode | What happens | Needs |

@@ -1,5 +1,8 @@
 # Expert Interviewer
 
+> **This is the online version** (the `online` branch). It's meant to be put on the internet behind a shared password, and offers only the lower-cost options: an economical AI model (Claude Haiku), the browser's built-in voice, and the animated face. The **full version**, with more capable models, natural voices, and lifelike faces, is on the [`local` branch](https://github.com/haycon0/expert-interviewer/tree/local), for running on your own computer. Its [setup directions](https://github.com/haycon0/expert-interviewer/blob/local/SETUP.md) are written for readers without a technical background.
+
+
 **Practice investigative interviews with an AI witness, then get graded and coached.**
 
 You play an investigator looking into a whistleblower complaint or suspected white-collar crime. You interview an employee of the company, played by AI. The tool:
@@ -32,9 +35,7 @@ Interview by **text**, by **voice** (talk to the witness and hear it answer), or
 
 ## Publishing it online
 
-This is the **full version**, for running on your own computer with every model, voice, and face option.
-
-A separate **online version** lives on the [`online` branch](https://github.com/haycon0/expert-interviewer/tree/online). It's the copy that can be put on the internet behind a shared password, and it offers only the lower-cost options (Claude Haiku, the free browser voice, and the free animated face). Its publishing guide is in `docs/PUBLISHING.md` on that branch.
+[docs/PUBLISHING.md](docs/PUBLISHING.md) walks through putting this version on the internet with Render, protected by a shared password, with daily usage limits, costs, and privacy notes.
 
 ## How interviews are graded
 

@@ -1,5 +1,8 @@
 # Setting up Expert Interviewer
 
+> **Setting up on your own computer?** Use the full version on the [`local` branch](https://github.com/haycon0/expert-interviewer/tree/local) instead; these directions are the same there. This branch (`online`) is the lower-cost copy for hosting on the internet; see [docs/PUBLISHING.md](docs/PUBLISHING.md).
+
+
 This guide assumes you have never written code or used a programming tool. If you can download a file and install an app, you can do this. It takes about 15 minutes the first time.
 
 **What you'll do:**
