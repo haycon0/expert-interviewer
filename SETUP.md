@@ -36,12 +36,13 @@ Python is a free program that runs the app behind the scenes. You won't need to 
 
 1. Go to the project page on GitHub: **https://github.com/haycon0/expert-interviewer**
    - If you see "404 – Page not found", the project is private. Ask the owner to invite you; GitHub will email you the invitation, and you'll need a free GitHub account to accept it.
-2. Click the green **Code** button near the top right of the file list.
-3. Click **Download ZIP** at the bottom of the menu that appears.
-4. Unzip it:
-   - **Windows:** open your Downloads folder, right-click **expert-interviewer-main.zip**, choose **Extract All…**, then click **Extract**.
-   - **Mac:** open your Downloads folder and double-click **expert-interviewer-main.zip**.
-5. You now have a folder called **expert-interviewer-main**. Move it somewhere easy to find, such as your Desktop.
+2. Choose the full version: above the list of files, click the button that shows a branch name (it usually says **main**) and pick **local**. (The **online** branch is a lower-cost copy meant for hosting on the internet.)
+3. Click the green **Code** button near the top right of the file list.
+4. Click **Download ZIP** at the bottom of the menu that appears.
+5. Unzip it:
+   - **Windows:** open your Downloads folder, right-click **expert-interviewer-local.zip**, choose **Extract All…**, then click **Extract**.
+   - **Mac:** open your Downloads folder and double-click **expert-interviewer-local.zip**.
+6. You now have a folder called **expert-interviewer-local**. Move it somewhere easy to find, such as your Desktop.
 
 > **Tip:** "GitHub" is a website where people share projects. A "repository" (or "repo") is one project on it. You don't need an account to download a public one.
 
@@ -66,7 +67,7 @@ An API key is like a password that lets the app use Anthropic's Claude AI model,
 
 ### Windows
 
-1. Open the **expert-interviewer-main** folder.
+1. Open the **expert-interviewer-local** folder.
 2. Double-click **start** (it may show as **start.bat**, with a gear icon).
 3. If a blue box says **"Windows protected your PC"**, click **More info**, then **Run anyway**. Windows shows this for any downloaded file it doesn't recognize.
 4. A black window opens. **The first time only**, it spends 2–5 minutes installing what the app needs. You'll see lines of text scrolling past as it downloads. **Don't close the window during this step.** Wait until it says **Install complete** and asks for your key.
@@ -75,7 +76,7 @@ An API key is like a password that lets the app use Anthropic's Claude AI model,
 
 ### Mac
 
-1. Open the **expert-interviewer-main** folder.
+1. Open the **expert-interviewer-local** folder.
 2. **Right-click** (or Control-click) **start.command** and choose **Open**.
 3. If a message says it's from an unidentified developer, click **Open**. (Double-clicking the first time may only offer **Cancel**; that's why you right-click.)
 4. A Terminal window opens. **The first time only**, it spends 2–5 minutes installing, with lines of text scrolling past. **Don't close the window during this step.** Wait until it says **Install complete** and asks for your key.

@@ -29,7 +29,7 @@ The Committee is investigating transactions between Enron and partnerships run b
 The interviewer is outside counsel retained by the Special Committee.
 ```
 
-**Case documents:** click **Choose Files** (or **Browse**), go to the **expert-interviewer-main** folder you downloaded, open **examples**, then **enron-fastow**, and pick **Enron_Sample_Events_Log.csv**. This log is everything the witness will know, so it's required for this script.
+**Case documents:** click **Choose Files** (or **Browse**), go to the **expert-interviewer-local** folder you downloaded, open **examples**, then **enron-fastow**, and pick **Enron_Sample_Events_Log.csv**. This log is everything the witness will know, so it's required for this script.
 
 > **Want to see the document check work?** Also pick **decoy_catering_email.txt** from the same folder (hold Ctrl or Cmd to pick both). It's an email between two bakery employees with nothing to do with Enron, so the app should flag it as **Addressed to someone else** and ask whether to keep it. Choose **Remove it**.
 
