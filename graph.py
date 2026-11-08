@@ -47,6 +47,8 @@ class InterviewState(TypedDict, total=False):
     persona_profile: dict
     expert_role: str
     user_outline: str  # case background: the complaint or suspected misconduct
+    media: dict  # {"mode": "text"|"voice"|"face", "voice": provider, "voice_id", "face": provider}
+    models: dict  # model per agent: {"witness", "checker", "criteria", "grader"} -> "provider:name"
 
     # Uploaded documents: {id, name, kind, text, check: {...}, keep, included_chars, trimmed}
     documents: list
@@ -90,7 +92,7 @@ def verify_documents(state: InterviewState) -> dict:
     docs = state.get("documents", [])
     checks = list(_executor.map(
         lambda d: agents.check_document(d, state["expert_name"], state.get("expert_role", ""),
-                                        state.get("user_outline", "")),
+                                        state.get("user_outline", ""), state["models"]["checker"]),
         docs,
     ))
     return {"documents": [{**d, "check": c} for d, c in zip(docs, checks)]}
@@ -102,7 +104,8 @@ def review_documents(state: InterviewState) -> dict:
     decisions = {}
     if flagged:
         # Pause until the interviewer decides which flagged documents to keep.
-        decisions = interrupt({"awaiting": "document_review", "flagged": [d["id"] for d in flagged]})
+        decisions = interrupt({"awaiting": "document_review",
+                               "flagged": [d["id"] for d in flagged]}).get("keep", {})
     # Flagged documents are removed unless the interviewer chose to keep them.
     docs = [{**d, "keep": d["check"]["relevant"] or bool(decisions.get(d["id"]))} for d in docs]
     kept = [d for d in docs if d["keep"]]
@@ -111,7 +114,8 @@ def review_documents(state: InterviewState) -> dict:
     docs = [{**d, **by_id.get(d["id"], {})} for d in docs]
 
     _rubric_jobs[state["session_id"]] = _executor.submit(
-        agents.create_rubric, state["expert_name"], state.get("user_outline", ""), context)
+        agents.create_rubric, state["expert_name"], state.get("user_outline", ""), context,
+        state["models"]["criteria"])
     return {"documents": docs, "document_context": context, "status": "starting_interview"}
 
 
@@ -121,22 +125,30 @@ def generate_rubric(state: InterviewState) -> dict:
         rubric = job.result()  # waits only if the interview was shorter than rubric generation
     except Exception:  # no job (e.g. server restarted) or it failed: build it now
         rubric = agents.create_rubric(state["expert_name"], state.get("user_outline", ""),
-                                      state.get("document_context", ""))
+                                      state.get("document_context", ""), state["models"]["criteria"])
     return {"rubric": rubric}
 
 
-def _reply(state: InterviewState, transcript: list) -> str:
-    return agents.expert_reply(
+def _reply(state: InterviewState, transcript: list) -> dict:
+    """The witness's next transcript entry, with its mood when a face is shown."""
+    mode = state.get("media", {}).get("mode", "text")
+    text = agents.expert_reply(
         state["expert_name"], state.get("expert_role", ""), state["persona_profile"],
         state.get("user_outline", ""), state.get("document_context", ""), transcript,
+        state["models"]["witness"], mode,
     )
+    text, mood = agents.split_mood(text)
+    entry = {"speaker": "expert", "timestamp": now(), "message": text}
+    if mode == "face":
+        entry["mood"] = mood or "neutral"
+    return entry
 
 
 def start_interview(state: InterviewState) -> dict:
     return {
         "interview_started": True,
         "status": "interviewing",
-        "transcript": [{"speaker": "expert", "timestamp": now(), "message": _reply(state, [])}],
+        "transcript": [_reply(state, [])],
     }
 
 
@@ -149,16 +161,16 @@ def check_interview_end(state: InterviewState) -> dict:
 
 
 def expert_response(state: InterviewState) -> dict:
-    return {"transcript": [{"speaker": "expert", "timestamp": now(),
-                            "message": _reply(state, state["transcript"])}]}
+    return {"transcript": [_reply(state, state["transcript"])]}
 
 
 def grade_interview(state: InterviewState) -> dict:
     assessment = agents.grade_interview(
         state["rubric"], state["transcript"], state["expert_name"],
         state.get("user_outline", ""), state.get("document_context", ""), state["persona_profile"],
+        state["models"]["grader"],
     )
-    return {"final_assessment": assessment}
+    return {"final_assessment": {**assessment, "models": state["models"]}}
 
 
 def finalize_session(state: InterviewState) -> dict:

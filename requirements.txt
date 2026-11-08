@@ -1,20 +1,24 @@
-langgraph>=1.2.18
-langchain>=1.4.7
-langchain-core>=1.7.1
-langchain-anthropic>=1.7.4
-pydantic>=2.12
-fastapi>=0.135
-uvicorn>=0.42
-python-dotenv>=1.2
-pypdf>=6.0
+# Exact versions, tested together. Pinning means a new (possibly broken or
+# compromised) release can't slip into a fresh install. To upgrade, change a
+# version here and test; the start file reinstalls when this file changes.
+langgraph==1.2.20
+langchain==1.4.9
+langchain-core==1.7.6
+langchain-anthropic==1.7.10
+pydantic==2.14.3
+fastapi==0.162.0
+uvicorn==0.54.0
+python-dotenv==1.2.4
+pypdf==6.21.4
 
 # AI providers besides Anthropic (see docs/MODELS.md).
-langchain-openai
-langchain-google-genai
-langchain-ollama
+langchain-openai==1.7.4
+langchain-google-genai==4.4.3
+langchain-ollama==1.1.0
 
 # Optional providers: delete the "# " at the start of a line to install it.
 # The start file notices the change and reinstalls automatically.
+# These aren't pinned because they haven't been tested with the app yet.
 # langchain-groq
 # langchain-deepseek
 # langchain-mistralai

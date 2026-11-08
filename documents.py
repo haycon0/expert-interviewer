@@ -17,6 +17,11 @@ SUPPORTED = TEXT_TYPES | {".pdf", ".docx"}
 MAX_STORED_CHARS = 2_000_000  # per document, to keep sessions a sane size
 CONTEXT_LIMIT = 60_000        # characters (~15K tokens) of all kept documents given to the agents
 
+# Safety limits for untrusted files: a small upload can hide a huge payload
+# (a "zip bomb" inside a .docx) or a PDF with endless pages.
+MAX_DOCX_XML_BYTES = 50_000_000
+MAX_PDF_PAGES = 2_000
+
 _W = "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}"
 
 
@@ -32,10 +37,23 @@ def extract_text(name: str, data: bytes) -> tuple[str, str]:
             from pypdf import PdfReader
 
             reader = PdfReader(io.BytesIO(data))
-            text = "\n".join(page.extract_text() or "" for page in reader.pages)
+            if len(reader.pages) > MAX_PDF_PAGES:
+                return "pdf", ""
+            parts, size = [], 0
+            for page in reader.pages:
+                parts.append(page.extract_text() or "")
+                size += len(parts[-1])
+                if size > MAX_STORED_CHARS:
+                    break
+            text = "\n".join(parts)
         else:  # .docx
             with zipfile.ZipFile(io.BytesIO(data)) as z:
-                root = ElementTree.fromstring(z.read("word/document.xml"))
+                # Read at most the limit, whatever the zip claims the size is.
+                with z.open("word/document.xml") as f:
+                    xml = f.read(MAX_DOCX_XML_BYTES + 1)
+            if len(xml) > MAX_DOCX_XML_BYTES:
+                return "docx", ""
+            root = ElementTree.fromstring(xml)
             text = "\n".join(
                 "".join(t.text or "" for t in p.iter(f"{_W}t")) for p in root.iter(f"{_W}p")
             )

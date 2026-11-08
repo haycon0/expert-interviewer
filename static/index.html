@@ -33,7 +33,8 @@
   .msg .who { font-size:12px; color:var(--muted); margin-bottom:2px; }
   #composer { display:flex; gap:8px; padding:12px; border-top:1px solid var(--line); }
   #composer textarea { min-height:44px; height:44px; }
-  aside .card { margin-bottom:16px; max-height:calc(50vh - 90px); overflow-y:auto; }
+  aside .card { margin-bottom:16px; max-height:calc(100vh - 150px); overflow-y:auto; }
+  .testing { display:inline-block; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.04em; color:#8a5a00; background:#fff3d6; border-radius:4px; padding:2px 6px; margin-bottom:8px; }
   aside h3, #results h3 { margin:0 0 8px; font-size:15px; }
   aside ul { padding-left:18px; margin:4px 0 10px; }
   .k { font-size:12px; text-transform:uppercase; letter-spacing:.04em; color:var(--muted); margin-top:10px; }
@@ -62,17 +63,39 @@
   .choice label { display:flex; align-items:center; gap:6px; margin:0; font-weight:600; }
   .choice input { width:auto; }
   .docrow { border-top:1px solid var(--line); padding:8px 0; font-size:13px; overflow-wrap:anywhere; }
+  .help { border:1px solid #e6c98f; background:#fffaf0; border-radius:8px; padding:12px 14px; margin-top:12px; font-size:14px; }
+  .help h4 { margin:0 0 6px; font-size:15px; }
+  .help ol { margin:6px 0 10px; padding-left:20px; }
+  .help li { margin-bottom:4px; }
+  .help code { background:#fff; border:1px solid var(--line); border-radius:4px; padding:1px 5px; font-size:13px; overflow-wrap:anywhere; }
+  .agentrow { display:grid; grid-template-columns:130px 1fr; gap:8px; align-items:center; margin-top:8px; font-size:13px; }
+  @media (max-width: 560px) { .agentrow { grid-template-columns:1fr; } }
+  /* Voice and face */
+  :root { --face-skin:#f1d7c2; --face-hair:#4a3b32; --face-line:#3a2e28; --face-mouth:#8a3b3b; }
+  #stage { border-bottom:1px solid var(--line); background:#f7f6f2; display:flex; flex-direction:column; align-items:center; padding:10px; }
+  #stage .face { width:180px; height:198px; }
+  #stage .avatar { width:100%; max-width:420px; border-radius:8px; background:#000; }
+  .moodtag { font-size:12px; color:var(--muted); text-transform:capitalize; min-height:16px; }
+  #beginBox { padding:14px 18px; border-bottom:1px solid var(--line); display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
+  #talkBtn.listening { background:var(--bad); color:#fff; border-color:var(--bad); }
+  /* In voice modes the transcript starts hidden; the status line says what's happening. */
+  #messages.collapsed { display:none; }
+  #transcriptCard #messages { padding:0; max-height:50vh; overflow-y:auto; }
+  #transcriptCard .msg { max-width:100%; font-size:14px; }
+  #voiceStatus { padding:10px 18px; color:var(--muted); font-size:14px; flex:1; }
+  #voiceStatus.error { color:var(--bad); }
 </style>
 </head>
 <body>
 <header>
   <h1>Expert Interviewer <span class="badge">Investigations</span></h1>
-  <span class="badge" id="modelBadge"></span>
+  <span><span class="badge" id="modelBadge"></span> <a href="/logout" id="signOut" class="badge hidden" style="margin-left:10px">Sign out</a></span>
 </header>
 <main>
   <!-- Setup -->
   <section id="setup" class="card">
     <h2 style="margin-top:0">New witness interview</h2>
+    <div id="editionNotice" class="help hidden"></div>
     <p class="traits" style="margin-top:0">You are investigating a whistleblower complaint or suspected white-collar misconduct and interviewing an expert employee inside the company.</p>
     <label for="expert">Witness name</label>
     <input id="expert" placeholder="e.g. Andrew Fastow">
@@ -85,6 +108,19 @@
     <input type="file" id="caseFiles" multiple accept=".txt,.csv,.md,.json,.pdf,.docx">
     <div class="traits">Choose one or more files: PDF, Word (.docx), or text (.txt, .csv, .md, .json). The witness knows only the case background and the documents you keep. Each document is checked first, and you'll be asked about any that look like they don't belong.</div>
     <ul id="fileList" class="traits"></ul>
+
+    <label for="modelMain">AI engine</label>
+    <select id="modelMain"></select>
+    <input id="modelCustom" class="hidden" placeholder="provider:model-name, e.g. groq:llama-3.3-70b-versatile" style="margin-top:6px">
+    <div class="traits" id="modelInfo"></div>
+    <details id="advanced" style="margin-top:10px">
+      <summary class="traits">Use different models for different jobs (e.g. grade with a stronger model)</summary>
+      <div id="agentPickers"></div>
+    </details>
+    <div id="setupHelp" class="help hidden"></div>
+
+    <div id="mediaSetup"></div>
+
     <div style="margin-top:18px"><button id="startBtn">Check documents &amp; start interview</button></div>
     <div class="error" id="setupError"></div>
   </section>
@@ -109,17 +145,27 @@
     <div id="chat" class="card">
       <div id="chatHead">
         <div><b id="expertTitle"></b></div>
-        <button class="secondary" id="endBtn">End &amp; grade</button>
+        <div style="display:flex;gap:8px">
+          <button class="secondary hidden" id="transcriptBtn">Show transcript</button>
+          <button class="secondary" id="endBtn">End &amp; grade</button>
+        </div>
       </div>
+      <div id="stage" class="hidden"></div>
+      <div id="beginBox" class="hidden">
+        <button id="beginBtn">Start the conversation</button>
+        <div class="badge" id="beginStatus">Turn your sound on. Click the button, then use <b>Talk</b> to ask each question out loud.</div>
+      </div>
+      <div id="voiceStatus" class="hidden"></div>
       <div id="messages"></div>
       <div id="composer">
+        <button id="talkBtn" class="secondary hidden" title="Click to start talking, click again when you're done">Talk</button>
         <textarea id="input" placeholder="Ask a question... (Enter to send, Shift+Enter for new line)"></textarea>
         <button id="sendBtn">Send</button>
       </div>
     </div>
     <aside>
-      <div class="card" id="docsCard"></div>
-      <div class="card" id="rubricCard"></div>
+      <div class="card hidden" id="transcriptCard"><h3>Transcript</h3></div>
+      <div class="card" id="personaCard"></div>
     </aside>
   </section>
 
@@ -132,6 +178,7 @@
   <section id="results" class="hidden"></section>
 </main>
 
+<script src="/static/media.js"></script>
 <script>
 const $ = (id) => document.getElementById(id);
 const esc = (s) => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -146,16 +193,197 @@ async function api(path, body) {
   const res = await fetch(path, body === undefined ? {} : {
     method: "POST", headers: {"Content-Type":"application/json"}, body: JSON.stringify(body)
   });
+  if (res.status === 401) { location.href = "/login"; throw new Error("Please sign in again."); }
   if (!res.ok) throw new Error((await res.json().catch(() => ({}))).detail || res.statusText);
   return res.json();
 }
 
+// ---------------------------------------------------------------------------
+// Model picker
+// ---------------------------------------------------------------------------
+const AGENTS = {
+  witness: "Witness (answers every question)",
+  checker: "Document checker",
+  criteria: "Grading notes",
+  grader: "Grader",
+};
+const CUSTOM = "__custom", SAME = "__same";
+let catalog = null, customStatus = null;
+
+const modelById = (id) => catalog.models.find(m => m.id === id);
+const labelOf = (id) => modelById(id)?.label || id;
+const money = (n) => `$${n.toFixed(2)}`;
+
+function optionsHtml(extra = "") {
+  const groups = Object.entries(catalog.tiers).map(([tier, name]) => {
+    // In a restricted edition (the online version), only list models that are ready to use.
+    const ms = catalog.models.filter(m => m.tier === tier && (!catalog.edition || m.status.ready));
+    if (!ms.length) return "";
+    return `<optgroup label="${esc(name)}">` + ms.map(m => {
+      const provider = catalog.providers[m.provider]?.name;
+      const cost = m.estimate != null ? ` · about ${money(m.estimate)} per interview` : "";
+      const state = m.status.ready ? "" : " · needs setup";
+      return `<option value="${esc(m.id)}">${esc(m.label)}${provider ? " · " + esc(provider) : ""}${cost}${state}</option>`;
+    }).join("") + `</optgroup>`;
+  }).join("");
+  const custom = catalog.edition && catalog.edition.allow_custom_models === false
+    ? "" : `<option value="${CUSTOM}">Other model (type its ID)...</option>`;
+  return extra + groups + custom;
+}
+
+// The model chosen for each agent, as {witness, checker, criteria, grader}.
+function chosenModels() {
+  const main = $("modelMain").value === CUSTOM ? $("modelCustom").value.trim() : $("modelMain").value;
+  const out = {};
+  for (const a of Object.keys(AGENTS)) {
+    const v = $(`model-${a}`).value;
+    out[a] = v === SAME ? main : v;
+  }
+  return out;
+}
+
+function statusOf(id) {
+  if (!id) return {ready: false, problems: [{type: "unknown", provider: ""}]};
+  const m = modelById(id);
+  if (m) return m.status;
+  return customStatus && customStatus.id === id ? customStatus : null;  // null = not checked yet
+}
+
+function steps(id, problem) {
+  const p = catalog.providers[id.split(":")[0]] || {};
+  const name = esc(p.name || id);
+  const openEnv = `Open the <b>.env</b> file in the app folder. <b>Windows:</b> right-click it, choose <b>Open with</b>, then <b>Notepad</b>. <b>Mac:</b> press <b>Cmd+Shift+.</b> to show hidden files, then open it with <b>TextEdit</b>. If there's no .env file, copy <b>.env.example</b> and rename the copy to <b>.env</b>.`;
+  switch (problem.type) {
+    case "key": return `<h4>${name} needs an API key</h4><ol>
+        <li>Get a key at <a href="${esc(p.key_url)}" target="_blank" rel="noopener">${esc(p.key_url)}</a>. ${esc(p.billing || "")}</li>
+        <li>${openEnv}</li>
+        <li>Add this line, with your key after the <b>=</b> sign (no spaces or quotes): <code>${esc(problem.key_env)}=${esc(p.key_example || "your-key")}</code></li>
+        <li>Save the file, then click <b>Check again</b>. You don't need to restart the app.</li></ol>`;
+    case "package": {
+      const restart = `Close the app's black (Windows) or Terminal (Mac) window and double-click the start file again. It installs the add-on, which takes 2–5 minutes.`;
+      if (problem.requirement === "listed") return `<h4>The ${name} add-on isn't installed yet</h4><ol>
+        <li>It's already listed in <b>requirements.txt</b>, so it just needs installing. ${restart}</li></ol>`;
+      return `<h4>The ${name} add-on isn't installed</h4><ol>
+        <li>Open <b>requirements.txt</b> in the app folder with Notepad (Windows) or TextEdit (Mac).</li>
+        <li>${problem.requirement === "commented"
+          ? `Find the line <code># ${esc(problem.pip)}</code> near the bottom and delete the <code>#</code> and the space after it.`
+          : `Add a new line at the bottom: <code>${esc(problem.pip)}</code>`}</li>
+        <li>Save the file. ${restart}</li></ol>`;
+    }
+    case "ollama_not_running": return `<h4>Ollama isn't running</h4><ol>
+        <li>If you haven't yet, install Ollama from <a href="${esc(p.install_url)}" target="_blank" rel="noopener">${esc(p.install_url)}</a>. It's free.</li>
+        <li>Open the <b>Ollama</b> app and leave it running.</li>
+        <li>Click <b>Check again</b>.</li></ol>`;
+    case "ollama_model_missing": return `<h4>The model "${esc(problem.name)}" isn't downloaded yet</h4><ol>
+        <li>Open <b>Terminal</b> (Mac) or <b>PowerShell</b> (Windows).</li>
+        <li>Type <code>ollama pull ${esc(problem.name)}</code> and press Enter. Large models can take a while to download.</li>
+        <li>When it finishes, click <b>Check again</b>.</li></ol>`;
+    default: return `<h4>"${esc(id)}" isn't a model the app recognizes</h4>
+        <p>Write it as <code>provider:model-name</code>, using one of these providers:
+        ${Object.keys(catalog.providers).map(k => `<code>${esc(k)}</code>`).join(" ")}.
+        Find the model name on the provider's website.</p>`;
+  }
+}
+
+function refreshPicker() {
+  const isCustom = $("modelMain").value === CUSTOM;
+  $("modelCustom").classList.toggle("hidden", !isCustom);
+  const mainId = isCustom ? $("modelCustom").value.trim() : $("modelMain").value;
+  const m = modelById(mainId);
+  $("modelInfo").innerHTML = m
+    ? esc(m.note || "") + (m.price ? ` <span class="badge">Price: $${m.price[0]} / $${m.price[1]} per million tokens (read / written).</span>` : "")
+    : isCustom ? "Type the model's ID, then click outside the box to check it. See docs/MODELS.md for how model IDs are written." : "";
+
+  const models = chosenModels();
+  const unique = [...new Set(Object.values(models))];
+  const notReady = unique.filter(id => !statusOf(id)?.ready);
+  const unchecked = unique.filter(id => statusOf(id) === null);
+  $("modelBadge").textContent = models.witness === "demo" && models.grader === "demo"
+    ? "Demo mode (no AI)" : `AI engine: ${labelOf(models.grader)}${unique.length > 1 ? " + others" : ""}`;
+
+  if (notReady.length) {
+    $("setupHelp").innerHTML = notReady.map(id => {
+      const st = statusOf(id);
+      if (!st) return `<h4>Checking ${esc(id)}...</h4>`;
+      return `<div style="margin-bottom:10px"><div class="badge">To use <b>${esc(labelOf(id))}</b>:</div>` +
+        st.problems.map(p => steps(id, p)).join("") + `</div>`;
+    }).join("") + `<button class="secondary" id="recheckBtn">Check again</button>
+      <span class="badge" style="margin-left:8px">Or choose another engine above, or <b>Demo mode</b> to try the app for free.</span>`;
+    $("setupHelp").classList.remove("hidden");
+    $("recheckBtn").onclick = () => loadCatalog(true);
+  } else {
+    $("setupHelp").classList.add("hidden");
+  }
+  modelsReady = notReady.length === 0;
+  updateStart();
+  unchecked.forEach(checkCustom);
+}
+
+async function checkCustom(id) {
+  if (!id || modelById(id)) return;
+  try { customStatus = {id, ...(await api(`/models/status?id=${encodeURIComponent(id)}`))}; }
+  catch (e) { customStatus = {id, ready: false, problems: [{type: "unknown", provider: ""}]}; }
+  refreshPicker();
+}
+
+async function loadCatalog(keepSelection = false) {
+  const prev = keepSelection && catalog ? {main: $("modelMain").value, custom: $("modelCustom").value,
+    agents: Object.fromEntries(Object.keys(AGENTS).map(a => [a, $(`model-${a}`).value]))} : null;
+  catalog = await api("/models");
+  customStatus = null;
+  renderEditionNotice(catalog.edition);
+  $("modelMain").innerHTML = optionsHtml();
+  $("agentPickers").innerHTML = Object.entries(AGENTS).map(([a, label]) => `
+    <div class="agentrow"><label for="model-${a}" style="margin:0;font-weight:600">${esc(label)}</label>
+      <select id="model-${a}">${optionsHtml(`<option value="${SAME}">Same as AI engine</option>`).replace(`<option value="${CUSTOM}">Other model (type its ID)...</option>`, "")}</select></div>`).join("");
+
+  if (prev) {
+    $("modelMain").value = prev.main; $("modelCustom").value = prev.custom;
+    for (const a in AGENTS) $(`model-${a}`).value = prev.agents[a];
+  } else {
+    // Pre-select from .env: the most common model is the engine; differing agents are overrides.
+    const d = catalog.defaults, counts = {};
+    Object.values(d).forEach(id => counts[id] = (counts[id] || 0) + 1);
+    const main = Object.keys(counts).sort((x, y) => counts[y] - counts[x])[0];
+    if (modelById(main)) $("modelMain").value = main;
+    else { $("modelMain").value = CUSTOM; $("modelCustom").value = main; }
+    for (const a in AGENTS) {
+      const sel = $(`model-${a}`);
+      sel.value = d[a] === main || !modelById(d[a]) ? SAME : d[a];
+      if (d[a] !== main && modelById(d[a])) $("advanced").open = true;
+    }
+  }
+  // A pre-selected model may not be listed (e.g. not offered online): fall back to the first one.
+  if (!$("modelMain").value) $("modelMain").selectedIndex = 0;
+  for (const a in AGENTS) if (!$(`model-${a}`).value) $(`model-${a}`).value = SAME;
+  refreshPicker();
+}
+
+// The online version explains what it leaves out and where to get the full version.
+function renderEditionNotice(ed) {
+  const box = $("editionNotice");
+  if (!ed) { box.classList.add("hidden"); return; }
+  const link = (url, text) => url ? `<a href="${esc(url)}" target="_blank" rel="noopener">${esc(text)}</a>` : esc(text);
+  box.innerHTML = `<h4>${esc(ed.title || "About this online version")}</h4>
+    ${(ed.paragraphs || []).map(p => `<p style="margin:6px 0">${esc(p)}</p>`).join("")}
+    ${ed.repo_url ? `<p style="margin:6px 0">${link(ed.setup_url || ed.repo_url, "Step-by-step setup directions")} ·
+      ${link(ed.repo_url, "The project on GitHub")}</p>` : ""}`;
+  box.classList.remove("hidden");
+}
+
+$("modelMain").onchange = refreshPicker;
+$("modelCustom").onchange = refreshPicker;
+$("agentPickers").onchange = refreshPicker;
+
+// The start button waits for both the AI models and the voice/face choices to be set up.
+let modelsReady = false;
+function updateStart() {
+  $("startBtn").disabled = !(modelsReady && window.Media?.ready());
+}
+
 async function init() {
-  const cfg = await api("/config");
-  const custom = Object.values(cfg.models || {}).some(m => m !== cfg.model);
-  $("modelBadge").textContent = cfg.mock_mode ? "Mock mode (no API key)"
-    : `Model: ${cfg.model}${custom ? " (some agents use other models)" : ""}`;
-  if (cfg.warnings?.length) $("setupError").textContent = "Setup problem: " + cfg.warnings.join("; ");
+  await Promise.all([loadCatalog(), Media.initSetup(updateStart)]);
+  api("/config").then(cfg => $("signOut").classList.toggle("hidden", !cfg.password_protected)).catch(() => {});
 }
 
 function addMsg(t) {
@@ -166,9 +394,21 @@ function addMsg(t) {
   $("messages").scrollTop = $("messages").scrollHeight;
 }
 
-function renderRubric(rubric) {
-  $("rubricCard").innerHTML = `<h3>${esc(rubric.name)}</h3>` + rubric.criteria.map(c =>
-    `<div class="crit"><b>${esc(c.name)}</b> <span class="badge">${c.weight}%</span><div>${esc(c.description)}</div></div>`).join("");
+// The witness's persona. The server only sends it when REVEAL_PERSONA=1 (testing);
+// otherwise the panel explains that it's hidden and revealed with the grade.
+function renderPersona(p) {
+  const about = `<p class="badge" style="margin:10px 0 0">Every witness is given one of five personalities at random. It shapes how they talk and how guarded they are, not the facts they know. Part of your grade is noticing it and adjusting your approach.</p>`;
+  if (!p) {
+    $("personaCard").innerHTML = `<h3>Witness personality</h3>
+      <div>Hidden. You'll see which personality this witness had when you get your grade.</div>${about}`;
+    return;
+  }
+  $("personaCard").innerHTML = `<span class="testing">Shown for testing</span>
+    <h3>Witness personality: ${esc(p.name)}</h3>
+    <div class="badge">${esc(p.traits.join(" · "))}</div>
+    <div class="k">How this witness behaves</div><div>${esc(p.witness_posture)}</div>
+    ${p.interviewer_tip ? `<div class="k">How to adapt</div><div>${esc(p.interviewer_tip)}</div>` : ""}
+    ${about}`;
 }
 
 const FLAG_LABELS = {
@@ -176,26 +416,43 @@ const FLAG_LABELS = {
   unrelated_to_case: "Unrelated to this case",
   other_irrelevant: "May not belong here",
 };
-const kb = (n) => n >= 1000 ? `${Math.round(n / 1000)}K characters` : `${n} characters`;
-
-function renderDocs(docs) {
-  const kept = docs.filter(d => d.keep), removed = docs.length - kept.length;
-  $("docsCard").innerHTML = `<h3>Case documents</h3>` + (kept.length
-    ? kept.map(d => `<div class="docrow"><b>${esc(d.name)}</b>
-        <div class="badge">${esc(d.kind.toUpperCase())} · ${kb(d.chars)}${d.trimmed ? " · only the parts mentioning the witness were included" : ""}</div>
-        <div>${esc(d.check.summary)}</div></div>`).join("")
-    : `<div class="badge">No documents. The witness knows only the case background.</div>`)
-    + (removed ? `<div class="badge" style="margin-top:8px">${removed} document${removed > 1 ? "s" : ""} removed during review.</div>` : "");
-}
-
 function startInterview(data) {
   $("expertTitle").textContent = expertName;
   $("messages").innerHTML = "";
   data.transcript.forEach(addMsg);
-  renderDocs(data.documents);
-  renderRubric(data.rubric);
+  renderPersona(data.persona);
   show("interview");
-  $("input").focus();
+  // Voice modes: the transcript starts hidden (Show transcript brings it back) and a
+  // status line takes its place. Text mode shows the transcript as always.
+  voiceMode = data.media?.mode && data.media.mode !== "text";
+  $("transcriptBtn").classList.toggle("hidden", !voiceMode);
+  // Voice modes keep the transcript in the side bar; text mode keeps it in the main area.
+  if (voiceMode) $("transcriptCard").appendChild($("messages"));
+  else $("chat").insertBefore($("messages"), $("composer"));
+  setTranscript(!voiceMode);
+  setStatus("");
+  // In voice modes, the opening line is spoken once "Start the conversation" is clicked.
+  Media.begin(data,
+    () => { $("input").focus(); setStatus(`${expertName} is speaking...`); },
+    () => setStatus("Click Talk to ask your first question."));
+}
+
+let voiceMode = false;
+
+function setTranscript(visible) {
+  $("messages").classList.toggle("collapsed", !visible);
+  $("transcriptCard").classList.toggle("hidden", !(voiceMode && visible));
+  $("transcriptBtn").textContent = visible ? "Hide transcript" : "Show transcript";
+  if (visible) $("messages").scrollTop = $("messages").scrollHeight;
+}
+$("transcriptBtn").onclick = () => setTranscript($("messages").classList.contains("collapsed"));
+
+// What's happening right now, for voice modes where the transcript may be hidden.
+function setStatus(text, isError = false) {
+  const el = $("voiceStatus");
+  el.classList.toggle("hidden", !voiceMode || !text);
+  el.classList.toggle("error", isError);
+  el.textContent = text;
 }
 
 function renderReview(data) {
@@ -258,6 +515,8 @@ $("startBtn").onclick = async () => {
       expert_name: expertName,
       expert_role: $("role").value,
       case_background: background,
+      models: chosenModels(),
+      media: Media.choice(),
       documents: await Promise.all(files.map(async f => ({name: f.name, data_base64: await toBase64(f)}))),
     });
     sessionId = data.session_id;
@@ -266,27 +525,59 @@ $("startBtn").onclick = async () => {
   } catch (e) { show("setup"); $("setupError").textContent = e.message; }
 };
 
-async function send() {
-  const text = $("input").value.trim();
+// Send what's typed in the box, or `spoken` (words from Talk) without touching the box.
+async function send(spoken) {
+  const text = (typeof spoken === "string" ? spoken : $("input").value).trim();
   if (!text || $("sendBtn").disabled) return;
-  $("input").value = "";
+  if (typeof spoken !== "string") $("input").value = "";
   addMsg({speaker:"user", message:text});
   $("sendBtn").disabled = $("endBtn").disabled = true;
   const typing = document.createElement("div");
   typing.className = "typing"; typing.textContent = `${expertName} is typing...`;
   $("messages").appendChild(typing);
+  $("talkBtn").disabled = true;
+  setStatus(`${expertName} is thinking...`);
   try {
     const data = await api(`/session/${sessionId}/message`, {message:text});
     typing.remove(); addMsg(data.reply);
-  } catch (e) { typing.textContent = "Error: " + e.message; }
-  $("sendBtn").disabled = $("endBtn").disabled = false;
+    setStatus(`${expertName} is speaking...`);
+    await Media.speak(data.reply);  // no-op in text mode
+    setStatus("Click Talk to ask your next question.");
+  } catch (e) {
+    typing.textContent = "Error: " + e.message; typing.isConnected || $("messages").appendChild(typing);
+    setStatus("Error: " + e.message, true);
+  }
+  $("sendBtn").disabled = $("endBtn").disabled = $("talkBtn").disabled = false;
   $("input").focus();
 }
-$("sendBtn").onclick = send;
+$("sendBtn").onclick = () => send();
+
+// Talk: click to start listening, click again to stop and send what was heard.
+$("talkBtn").onclick = async () => {
+  // Your words only appear in the box as you speak when the transcript is showing.
+  const transcriptShown = () => !$("messages").classList.contains("collapsed");
+  const heard = Media.listen((partial) => { if (transcriptShown()) $("input").value = partial; });
+  if (!heard) return;  // this click stopped an active recording
+  $("talkBtn").classList.add("listening");
+  $("talkBtn").textContent = "Stop";
+  setStatus("Listening... click Stop when you're done.");
+  try {
+    const text = await heard;
+    if (transcriptShown()) $("input").value = "";
+    if (text) await send(text);
+    else setStatus("Didn't catch that. Click Talk and try again.");
+  } catch (e) {
+    setStatus(e.message, true);
+  } finally {
+    $("talkBtn").classList.remove("listening");
+    $("talkBtn").textContent = "Talk";
+  }
+};
 $("input").onkeydown = (e) => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); send(); } };
 
 $("endBtn").onclick = async () => {
   if (!confirm("End the interview and get graded?")) return;
+  await Media.stop();  // ends any lifelike-avatar session so it stops using paid minutes
   show("grading");
   try { renderResults(await api(`/session/${sessionId}/end`, {})); }
   catch (e) { show("interview"); alert(e.message); }
@@ -299,6 +590,7 @@ function renderResults(a) {
         <span class="badge">Interview with ${esc(expertName)}</span></div>
       <div class="reveal">Witness demeanor revealed: <b>${esc(a.persona.name)}</b>
         <span class="badge">${esc(a.persona.traits.join(" · "))}</span></div>
+      ${a.models ? `<div class="badge" style="margin-bottom:8px">AI models: witness ${esc(labelOf(a.models.witness))} · grader ${esc(labelOf(a.models.grader))}</div>` : ""}
       ${a.category_scores.map(c => `<div class="crit"><b>${esc(c.name)}</b> <span class="badge">${c.score}/100 · weight ${c.weight}%</span>
         <div class="bar"><div style="width:${c.score}%"></div></div><div>${esc(c.rationale)}</div></div>`).join("")}
     </div>

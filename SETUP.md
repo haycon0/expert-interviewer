@@ -108,10 +108,12 @@ The **examples/enron-fastow** folder has a complete practice run. You interview 
 2. **Role and company:** optional, e.g. "CFO, Enron Corp."
 3. **Case background:** required. A few sentences on the complaint or suspected misconduct. Documents are checked against this.
 4. **Case documents:** click **Choose Files** and pick one or more files: PDF, Word (.docx), or text (.txt, .csv, .md, .json). Hold **Ctrl** (Windows) or **Cmd** (Mac) to pick several. **The witness knows only the case background and the documents you keep**, so include everything it should know.
-5. Click **Check documents & start interview**. The app reads each document and checks that it belongs in this case (about 10–20 seconds).
-6. **If any documents are flagged**, you'll see each one, with what it contains, why it was flagged (for example "Addressed to someone else" or "Unrelated to this case"), and its opening text. Choose **Keep it** or **Remove it** for each one, then click **Continue to interview**. If nothing is flagged, this screen is skipped.
-7. Type questions in the box at the bottom and press **Enter** to send. The right side lists the documents the witness knows, plus the grading criteria.
-8. When you're done, click **End & grade**. You get a score, feedback on each criterion, missed opportunities, and coaching. The witness's hidden personality is revealed here.
+5. **AI engine:** pick the model to use, from high-powered to cost-effective to free. If it says "needs setup", the page shows you how. See [docs/MODELS.md](docs/MODELS.md).
+6. **Conversation:** choose **Text**, **Voice**, or **Voice + face**. The free options (browser voice and animated face) work in Chrome or Edge with no setup. See [docs/VOICE-AND-FACE.md](docs/VOICE-AND-FACE.md).
+7. Click **Check documents & start interview**. The app reads each document and checks that it belongs in this case (about 10–20 seconds).
+8. **If any documents are flagged**, you'll see each one, with what it contains, why it was flagged (for example "Addressed to someone else" or "Unrelated to this case"), and its opening text. Choose **Keep it** or **Remove it** for each one, then click **Continue to interview**. If nothing is flagged, this screen is skipped.
+9. Type questions in the box at the bottom and press **Enter** to send. In a voice mode, click **Start the conversation** first, then **Talk** to ask out loud. The right side explains the witness's personality. Normally it's hidden until your grade; for testing, add `REVEAL_PERSONA=1` to `.env` to show it, with tips on how to adapt.
+10. When you're done, click **End & grade**. You get a score, feedback on each criterion, missed opportunities, and coaching. The witness's hidden personality is revealed here.
 
 ---
 
@@ -131,7 +133,7 @@ The **examples/enron-fastow** folder has a complete practice run. You interview 
 | **"Address already in use"** in the black/Terminal window | The app is already running in another window. Use that one, or close all of them and start again. |
 | On Mac, nothing happens when you open **start.command** | Open the **Terminal** app (search for it with Cmd+Space), type `bash ` (with a space), drag **start.command** into the Terminal window, and press Return. |
 | A PDF is flagged with **"No readable text could be found"** | It's probably a scanned image of paper, which has no text the app can read. Use a version with selectable text, or copy the text into a .txt file. |
-| The side panel says a document was **"only the parts mentioning the witness were included"** | The documents together were longer than the app can give the witness (about 30 pages), so long ones were cut down to the passages that name the witness. Upload fewer or shorter documents if something important was missed. |
+| You'll use real, confidential case files | First move the app folder out of OneDrive or iCloud, e.g. to `C:\ExpertInterviewer`, so your API key isn't synced to the cloud. Check your organization's rules on sending case material to AI companies, or use a free local Ollama model (see docs/MODELS.md). |
 | Sessions disappear after you close the app | That's expected in this version. Each interview lasts only while the app is running. |
 
 ---
@@ -140,7 +142,8 @@ The **examples/enron-fastow** folder has a complete practice run. You interview 
 
 These files can be opened and edited with **Notepad** (Windows) or **TextEdit** (Mac). Close and restart the app after any change.
 
-- **.env:** which AI model the app uses. Switch to a cheaper model (Claude Haiku 5.5 is about 20 times cheaper) or another company's models by following [docs/MODELS.md](docs/MODELS.md).
+- **.env:** your API keys, plus which AI models the setup page starts with. See [docs/MODELS.md](docs/MODELS.md).
+- **models.json:** the list of AI models offered on the setup page, with their prices.
 - **rubric.json:** the grading criteria, their weights (must add up to 100), and what each score level means.
 - **personas.json:** the witness personalities the app picks from at random.
 

@@ -2,26 +2,31 @@
   {
     "name": "Academic Professor",
     "traits": ["Analytical", "Detailed", "Socratic"],
-    "witness_posture": "Precise and technical. Corrects imprecise questions and explains mechanics (accounting, structures, models) at length, but frames their own role as advisory and hedges on who was responsible."
+    "witness_posture": "Precise and technical. Corrects imprecise questions and explains mechanics (accounting, structures, models) at length, but frames their own role as advisory and hedges on who was responsible.",
+    "interviewer_tip": "Let them explain how things worked, then pin down their own role with short, specific questions: what they decided, signed, or approved. Don't accept \"I only advised\" without asking who acted on the advice."
   },
   {
     "name": "Executive Leader",
     "traits": ["Strategic", "Concise", "Business Focused"],
-    "witness_posture": "Polished and guarded. Answers in high-level summaries, redirects to the business rationale, defers details to subordinates or advisors, and is conscious of personal legal exposure."
+    "witness_posture": "Polished and guarded. Answers in high-level summaries, redirects to the business rationale, defers details to subordinates or advisors, and is conscious of personal legal exposure.",
+    "interviewer_tip": "Push past the summary. Name specific documents, dates, and amounts, and ask what they personally knew and approved. When they defer to someone else, ask who, and what they told that person."
   },
   {
     "name": "Friendly Mentor",
     "traits": ["Supportive", "Encouraging", "Patient"],
-    "witness_posture": "Warm and talkative. Generally cooperative and willing to give context, but protective of colleagues and reluctant to name anyone as responsible."
+    "witness_posture": "Warm and talkative. Generally cooperative and willing to give context, but protective of colleagues and reluctant to name anyone as responsible.",
+    "interviewer_tip": "Use the rapport, but steer the conversation back on topic. When they talk about \"the team\" or \"we\", ask for names. Follow up whenever they soften or excuse what a colleague did."
   },
   {
     "name": "Military Commander",
     "traits": ["Disciplined", "Direct", "Results-Oriented"],
-    "witness_posture": "Answers exactly what is asked and nothing more. Volunteers nothing, respects clear authority and process, and bristles at vague or accusatory questions."
+    "witness_posture": "Answers exactly what is asked and nothing more. Volunteers nothing, respects clear authority and process, and bristles at vague or accusatory questions.",
+    "interviewer_tip": "Ask short, precise, one-part questions, and expect to ask for each detail separately. Explain your authority and the process up front, and keep the tone neutral rather than accusatory."
   },
   {
     "name": "Startup Founder",
     "traits": ["Innovative", "Fast Moving", "Growth Focused"],
-    "witness_posture": "Energetic and persuasive. Puts a positive spin on events, emphasizes growth and innovation, and minimizes risks or rule-bending as 'moving fast'."
+    "witness_posture": "Energetic and persuasive. Puts a positive spin on events, emphasizes growth and innovation, and minimizes risks or rule-bending as 'moving fast'.",
+    "interviewer_tip": "Cut through the spin by asking for facts: numbers, dates, and documents. Restate their answer in plain terms and ask them to confirm it, especially when they call a shortcut \"moving fast\"."
   }
 ]

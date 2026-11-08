@@ -24,7 +24,17 @@ It runs on your own computer, in your web browser. An interview costs roughly $0
 
 ## Cheaper models and other AI providers
 
-[docs/MODELS.md](docs/MODELS.md) explains how to run the tool on a less expensive model, such as Claude Haiku 5.5 for roughly 1/20 the cost, or a budget mix with Sonnet kept for grading. It also covers using different models for different jobs, and switching to OpenAI, Google Gemini, Ollama (free, on your own computer), or other providers.
+Choose the AI engine on the setup page for each interview. The list runs from high-powered models (Claude Opus and Fable, GPT-6 Astra, Gemini 4 Argon) to cost-effective ones (Claude Haiku 5.5, GPT-6 Luna, Gemini Flash-Lite, DeepSeek Flash) and free models that run on your own computer through Ollama. If a model isn't set up, the page tells you exactly what to do. [docs/MODELS.md](docs/MODELS.md) covers the options, costs, and setup for each company.
+
+## Voice and face
+
+Interview by **text**, by **voice** (talk to the witness and hear it answer), or by **voice with a face** that reacts with the witness's mood. Free options use your browser's built-in voice and an animated face. Paid options include OpenAI, ElevenLabs, and Deepgram voices, and lifelike faces from Simli, D-ID, Tavus, and HeyGen. See [docs/VOICE-AND-FACE.md](docs/VOICE-AND-FACE.md).
+
+## Publishing it online
+
+This is the **full version**, for running on your own computer with every model, voice, and face option.
+
+A separate **online version** lives on the [`online` branch](https://github.com/haycon0/expert-interviewer/tree/online). It's the copy that can be put on the internet behind a shared password, and it offers only the lower-cost options (Claude Haiku, the free browser voice, and the free animated face). Its publishing guide is in `docs/PUBLISHING.md` on that branch.
 
 ## How interviews are graded
 
@@ -62,7 +72,7 @@ python -m uvicorn server:app --reload
 | `rubric.json` | Grading rubric: criteria, weights, level descriptions. |
 | `static/index.html` | Single-page UI: setup → interview → results. |
 | `examples/` | Worked practice interviews with case files. |
-| `sessions/` | JSON snapshot of each session. Not committed to git. |
+| `models.json`, `model_catalog.py` | The model list for the setup page, and setup-status checks. |
 
 **Model:** set `MODEL` in `.env` to any LangChain `init_chat_model` string (default `anthropic:claude-sonnet-5-5`). Override individual agents with `MODEL_WITNESS`, `MODEL_CHECKER`, `MODEL_CRITERIA`, or `MODEL_GRADER`. OpenAI, Azure OpenAI, Google Gemini, and Ollama packages are installed; more providers are commented out in `requirements.txt`. See [docs/MODELS.md](docs/MODELS.md).
 

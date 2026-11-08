@@ -1,0 +1,96 @@
+{
+  "checked": "2026-11-08",
+  "note": "Voice and face options for the interview. Prices and API details as listed on each provider's site on the date above. Edit names, voices, or notes here; API calls live in media.py.",
+  "voice": {
+    "browser": {
+      "name": "Browser built-in (free)",
+      "price": "Free",
+      "note": "Uses your browser's own speech recognition and voices. Works best in Chrome or Edge; voices sound robotic. Your speech is processed by the browser maker's servers (e.g. Google for Chrome)."
+    },
+    "openai": {
+      "name": "OpenAI",
+      "key_env": "OPENAI_API_KEY",
+      "key_example": "sk-...",
+      "key_url": "https://platform.openai.com/api-keys",
+      "stt_model": "gpt-transcribe",
+      "tts_model": "gpt-4o-mini-tts",
+      "voices": ["marin", "cedar", "alloy", "ash", "ballad", "coral", "echo", "fable", "nova", "onyx", "sage", "shimmer", "verse"],
+      "default_voice": "marin",
+      "price": "Hearing you: $0.0045 per minute. Speaking: $12 per million audio tokens (roughly $0.25-0.50 per interview).",
+      "note": "Natural voices. OpenAI says the gpt-4o-mini-tts speaking model shuts down January 6, 2027; update tts_model in media.json when a successor is announced."
+    },
+    "elevenlabs": {
+      "name": "ElevenLabs",
+      "key_env": "ELEVENLABS_API_KEY",
+      "key_example": "sk_...",
+      "key_url": "https://elevenlabs.io/app/settings/api-keys",
+      "stt_model": "scribe_v2",
+      "tts_model": "eleven_v4_turbo",
+      "voices": [],
+      "default_voice": "JBFqnCBsd6RMkjVDRZzb",
+      "price": "Speaking: $0.04 per 1,000 characters (v4 Turbo). Hearing you: $0.22 per hour.",
+      "note": "The most lifelike voices. Your account's voices are loaded automatically once the key is set."
+    },
+    "deepgram": {
+      "name": "Deepgram",
+      "key_env": "DEEPGRAM_API_KEY",
+      "key_example": "...",
+      "key_url": "https://console.deepgram.com/",
+      "stt_model": "nova-3",
+      "voices": ["aura-2-thalia-en", "aura-2-andromeda-en", "aura-2-helena-en", "aura-2-luna-en", "aura-2-asteria-en", "aura-2-apollo-en", "aura-2-arcas-en", "aura-2-aries-en", "aura-2-orion-en"],
+      "default_voice": "aura-2-thalia-en",
+      "price": "Hearing you: $0.0043 per minute. Speaking: $0.030 per 1,000 characters. New accounts get $200 free credit.",
+      "note": "Fast and inexpensive."
+    }
+  },
+  "face": {
+    "builtin": {
+      "name": "Animated face (free)",
+      "price": "Free",
+      "note": "A cartoon face drawn in your browser. It blinks, moves its mouth while talking, and changes expression with the witness's mood (nervous, defensive, calm...). Works with any voice service."
+    },
+    "simli": {
+      "name": "Simli (lifelike video)",
+      "key_env": "SIMLI_API_KEY",
+      "key_example": "...",
+      "key_url": "https://app.simli.com/",
+      "settings": {"SIMLI_FACE_ID": {"label": "Face ID from Simli's preset faces", "default": "bf13113a-355a-4d97-8b90-4edccd1da7b2"}},
+      "needs_voice_audio": true,
+      "price": "From $0.009 per minute. Free plan: 50 minutes a month.",
+      "note": "Lip-syncs a lifelike face to the witness's voice, so it needs OpenAI, ElevenLabs, or Deepgram as the voice service (not the browser's). Simli's site showed its API as temporarily paused on 2026-11-05; check before relying on it."
+    },
+    "did": {
+      "name": "D-ID (lifelike video)",
+      "key_env": "DID_API_KEY",
+      "key_example": "...",
+      "key_url": "https://studio.d-id.com/account-settings",
+      "settings": {
+        "DID_SOURCE_URL": {"label": "Public web link to a photo of the face to animate (jpg or png)", "required": true},
+        "DID_VOICE_ID": {"label": "Microsoft voice for the avatar", "default": "en-US-JennyNeural"}
+      },
+      "own_voice": true,
+      "price": "Not confirmed. See d-id.com/pricing/api.",
+      "note": "Animates a photo and speaks with D-ID's own voice. Uses D-ID's streaming API, which D-ID now labels as legacy, so it may stop working in future."
+    },
+    "tavus": {
+      "name": "Tavus (lifelike video)",
+      "key_env": "TAVUS_API_KEY",
+      "key_example": "...",
+      "key_url": "https://platform.tavus.io/api-keys",
+      "settings": {"TAVUS_FACE_ID": {"label": "Face ID (or replica ID) from your Tavus account", "required": true}},
+      "own_voice": true,
+      "price": "Plans from $59/month (175 minutes); about $0.26-$0.37 per extra minute.",
+      "note": "Polished lifelike video. The app sends the witness's words for the Tavus face to say (Tavus's \"echo\" messages). Tavus documents echo for custom pipelines; whether it works on every face wasn't confirmed."
+    },
+    "heygen": {
+      "name": "HeyGen (lifelike video, experimental)",
+      "key_env": "HEYGEN_API_KEY",
+      "key_example": "...",
+      "key_url": "https://app.heygen.com/settings?nav=API",
+      "settings": {"HEYGEN_AVATAR_ID": {"label": "Interactive avatar ID (optional; HeyGen picks one if blank)"}},
+      "own_voice": true,
+      "price": "Not confirmed. See heygen.com/api-pricing.",
+      "note": "Built from HeyGen's older Streaming Avatar documentation, because the current docs couldn't be reached. Expect it to need fixes before it works."
+    }
+  }
+}

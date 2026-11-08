@@ -22,7 +22,7 @@ Expert Interviewer isn't one AI doing everything. It's four separate AI helpers,
 | **Criteria agent** | Adds case-specific notes to the fixed grading rubric | A supervisor jotting "what good looks like *for this witness*" next to each criterion |
 | **Grader agent** | Scores your interview and coaches you | A senior investigator reviewing your transcript |
 
-All four agents use the same AI model (Anthropic's Claude, by default). They differ in their instructions, in what information they're shown, and in how hard they're told to "think".
+You choose which AI model runs the agents on the setup page: one model for all four, or a different one for each job, from Claude, OpenAI, Google, and others, or free local models (see [MODELS.md](MODELS.md)). The agents differ in their instructions, in what information they're shown, and in how hard they're told to "think".
 
 **Everything the agents know about the case comes from you:** the case background you type and the documents you keep. The app doesn't add facts from the internet or from the AI's general knowledge.
 
@@ -94,16 +94,22 @@ See [ASSESSMENT.md](ASSESSMENT.md) for a one-page summary. In short: the grading
 
 | Information | During the interview | After grading |
 |---|---|---|
-| Your kept documents (name and a short summary) | Visible in the side panel | Visible |
-| Rubric criteria and weights | Visible in the side panel | Visible |
+| Your kept documents | Shown on the review screen before the interview | Not shown |
+| Rubric criteria and weights | Not shown (see [ASSESSMENT.md](ASSESSMENT.md)) | Visible in your results |
 | Case-specific grading notes | **Hidden** | Used in your feedback |
-| Witness's personality | **Hidden** | Revealed |
+| Witness's personality | **Hidden**: the side panel explains it's a secret. With `REVEAL_PERSONA=1` in `.env` (for testing) it's shown there, with tips on how to adapt | Revealed |
 
 ## Where your information goes
 
 - **The app runs on your computer.** The web page at `http://127.0.0.1:8000` is only reachable from your own machine.
 - **AI requests go to Anthropic.** To make the agents work, the app sends your case background, your documents (the opening of each one for the check, then the kept ones), and the conversation to Anthropic's AI service under your API key. **Before using real confidential, privileged, or client material, check that your organization allows it.** The included Enron example uses public information.
-- **Sessions are saved temporarily.** A copy of each interview, including the text of your documents and the secret personality, is written to the `sessions` folder in the app folder. The live session lasts until you close the app. These files are never uploaded to GitHub. Delete the folder whenever you like.
+- **Sessions are saved on your computer, outside the app folder.** A copy of each interview, including the text of your documents and the secret personality, is saved in your user account's local app-data folder: `%LOCALAPPDATA%\ExpertInterviewer\sessions` on Windows, `~/Library/Application Support/ExpertInterviewer/sessions` on Mac. That keeps case material out of cloud-synced folders like OneDrive and iCloud. The files are never uploaded to GitHub, and you can delete them whenever you like. To stop saving them at all, add `SAVE_SESSIONS=0` to `.env`. The live session lasts until you close the app either way.
+- **Keep `.env` out of cloud sync for real case work.** Your API key is stored in plain text in `.env` in the app folder. If that folder is on a OneDrive- or iCloud-synced Desktop or Documents, the key is copied to the cloud. Move the app folder somewhere unsynced, such as `C:\ExpertInterviewer`.
+- **Built-in protections:**
+  - The app answers only to your own computer (`localhost` / `127.0.0.1`), so other websites can't reach it, even with a "DNS rebinding" trick.
+  - Uploaded files are opened with size limits, so a booby-trapped Word or PDF file can't freeze it.
+  - Every agent is told that document text is evidence, not instructions.
+  - Package versions are pinned in `requirements.txt`, so a fresh install gets the tested versions.
 - **Your API key** is stored in a hidden file named `.env` in the app folder, and is never uploaded to GitHub.
 
 ## Time and cost
@@ -123,7 +129,7 @@ The documents are cached between questions, so after the first answer they cost 
 These files can be edited in Notepad (Windows) or TextEdit (Mac). Restart the app afterwards.
 
 - **`rubric.json`:** the grading criteria, weights (must add up to 100), and level descriptions.
-- **`personas.json`:** the witness personalities. Add one by copying an existing entry and changing the words. Each has a `name`, a list of `traits`, and a `witness_posture` describing how it behaves when questioned.
+- **`personas.json`:** the witness personalities. Add one by copying an existing entry and changing the words. Each has a `name`, a list of `traits`, a `witness_posture` describing how it behaves when questioned, and an `interviewer_tip` on how to adapt (shown only when the persona is revealed).
 
 ---
 
@@ -142,9 +148,11 @@ These files can be edited in Notepad (Windows) or TextEdit (Mac). Restart the ap
 
 | File | Responsibility |
 |---|---|
-| `server.py` | HTTP endpoints. Decodes uploads, extracts text, runs and resumes the graph, hides secret fields and document text from responses, writes JSON snapshots to `sessions/`. |
+| `server.py` | HTTP endpoints. Decodes uploads, extracts text, runs and resumes the graph, hides secret fields and document text from responses, writes JSON snapshots to the sessions folder (see `_sessions_dir`; `SESSIONS_DIR` overrides it, `SAVE_SESSIONS=0` turns it off). Only answers to `localhost`/`127.0.0.1` (`TrustedHostMiddleware`). |
 | `graph.py` | `InterviewState`, the graph nodes, the edges, the parallel document checks, and the background rubric job. This is the "conductor". |
 | `agents.py` | The four agents: prompts, Pydantic output schemas, per-agent effort, prompt caching, mock-mode fallbacks, and score calculation. |
+| `model_catalog.py`, `models.json` | The model list, and checks for whether each model is set up (package installed, API key present, Ollama running with the model downloaded). |
+| `media.py`, `media.json`, `static/media.js` | Voice and face: speech-to-text, text-to-speech, the animated face, and lifelike avatar sessions (see [VOICE-AND-FACE.md](VOICE-AND-FACE.md)). |
 | `documents.py` | Text extraction (`extract_text`) and combining kept documents into the agents' case file (`build_context`, `witness_excerpt`). |
 | `rubric.json` | Fixed rubric (`name`, `version`, `scale`, `criteria[]` with `name`, `weight`, `description`, `levels`). |
 | `personas.json` | Persona library (`name`, `traits[]`, `witness_posture`). |
@@ -174,7 +182,7 @@ flowchart LR
 |---|---|
 | `initialize_session` | `random.choice` over `personas.json`; sets flags and timestamps. |
 | `verify_documents` | Runs `agents.check_document` on every document in a thread pool and stores each result as `doc["check"]` (`relevant`, `category`, `summary`, `reason`). Documents with no extractable text are flagged without a model call. |
-| `review_documents` | If any document is flagged, calls `interrupt()` and resumes with `{doc_id: keep_bool}`. Flagged documents not explicitly kept are dropped. Builds `document_context` from the kept documents with `documents.build_context` and submits `create_rubric` to the thread pool. Passes straight through when nothing is flagged. |
+| `review_documents` | If any document is flagged, calls `interrupt()` and resumes with `{"keep": {doc_id: keep_bool}}`. Flagged documents not explicitly kept are dropped. Builds `document_context` from the kept documents with `documents.build_context` and submits `create_rubric` to the thread pool. Passes straight through when nothing is flagged. |
 | `start_interview` | Generates the witness's opening line (empty transcript). |
 | `check_interview_end` | Calls `interrupt()`. The graph pauses here between turns. Resumed with `{"type": "message", "message": ...}` or `{"type": "end"}`. |
 | `expert_response` | Generates the witness reply from the full transcript. |
@@ -196,7 +204,7 @@ The transcript is append-only: `transcript` is `Annotated[list, operator.add]`, 
 | `GET /session/{id}/results` | Reads state | `final_assessment` (400 if not graded) |
 | `GET /config` | none | model name, whether mock mode is on, supported file types |
 
-The phase comes from the checkpoint: `reviewing_documents` while the graph's next node is `review_documents`, otherwise `status`. After each POST, the full state is written to `sessions/{id}.json`.
+The phase comes from the checkpoint: `reviewing_documents` while the graph's next node is `review_documents`, otherwise `status`. After each POST, the full state is written to `{sessions folder}/{id}.json`.
 
 ## What each agent sees
 
@@ -211,7 +219,7 @@ Effort maps to Anthropic's `reasoning_effort` and is set in the `EFFORT` table i
 
 **Prompt caching:** on Anthropic, the witness's system prompt (persona, background, and documents) is sent with `cache_control: ephemeral`, so after the first reply the documents are read from cache.
 
-**Building `document_context`** (`documents.build_context`): kept documents share a 60,000-character budget, smallest first, so a short document that needs less leaves room for the others. A document over its share is filtered to the rows (CSV) or lines (other text) containing the witness's surname, then truncated. Each document is recorded with `included_chars` and `trimmed`, which the side panel shows.
+**Building `document_context`** (`documents.build_context`): kept documents share a 60,000-character budget, smallest first, so a short document that needs less leaves room for the others. A document over its share is filtered to the rows (CSV) or lines (other text) containing the witness's surname, then truncated. Each document is recorded with `included_chars` and `trimmed`.
 
 **Scoring:** `overall = Σ(score × weight) / Σ(all weights)`. A criterion the grader omits counts as 0. Letter-grade cutoffs are in `_letter()`.
 
