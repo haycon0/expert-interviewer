@@ -1,0 +1,32 @@
+# Render Blueprint: lets Render set up the app from this repository in a few clicks.
+# See docs/PUBLISHING.md for the step-by-step guide.
+services:
+  - type: web
+    name: expert-interviewer
+    runtime: python
+    # "free" sleeps after 15 minutes without visitors and can restart at any time,
+    # which ends any interview in progress. For a group, change this to a paid,
+    # always-on instance (e.g. 0.5c-512mb) in the Render dashboard.
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python -m uvicorn server:app --host 0.0.0.0 --port $PORT --proxy-headers --forwarded-allow-ips="*"
+    healthCheckPath: /healthz
+    autoDeployTrigger: commit
+    envVars:
+      # Secrets: Render asks for these when you first create the service.
+      - key: APP_PASSWORD
+        sync: false
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      # Lower-cost setup: Claude Haiku for everything (roughly $0.02-$0.05 per interview).
+      - key: MODEL
+        value: anthropic:claude-haiku-5-5
+      # Spending guards: at most 10 new interviews per day (UTC), 60 questions each.
+      - key: MAX_INTERVIEWS_PER_DAY
+        value: "10"
+      - key: MAX_QUESTIONS_PER_INTERVIEW
+        value: "60"
+      # Don't store interviews on the server: its disk is temporary, and this keeps
+      # case material off it.
+      - key: SAVE_SESSIONS
+        value: "0"
