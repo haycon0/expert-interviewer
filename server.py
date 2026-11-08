@@ -326,6 +326,9 @@ def _resolve_media(choice: dict[str, str]) -> dict:
                                      "or Deepgram as the voice service, not the browser's built-in voice.")
     for kind, pid in needed:
         st = media.status(kind, pid, catalog)
+        if any(p["type"] == "unknown" for p in st["problems"]):
+            raise HTTPException(400, f"The {kind} option '{pid}' isn't offered in this version of the app. "
+                                     "To use it, set the app up on your own computer (see SETUP.md on GitHub).")
         if not st["ready"]:
             missing = ", ".join(p.get("key_env") or p.get("name") or p["type"] for p in st["problems"])
             raise HTTPException(400, f"{catalog[kind].get(pid, {}).get('name', pid)} isn't set up "
