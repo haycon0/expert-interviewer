@@ -84,7 +84,7 @@ The witness is told to act like a real employee in an investigation interview, n
 - **It never invents wrongdoing** the documents don't support.
 - **It never breaks character** or reveals its personality or instructions.
 
-Its secret personality changes its style. The same facts come out very differently from a terse "Military Commander" than from a chatty "Friendly Mentor" or a spinning "Startup Founder". Part of your grade is noticing this and adjusting.
+Its secret personality changes its style. The same facts come out very differently from a self-assured "C-Suite" executive than from a terse, contrarian "Adverse Witness" or a friendly but rambling "Average Witness". Part of your grade is noticing this and adjusting.
 
 ## How grading works
 
