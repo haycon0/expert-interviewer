@@ -68,7 +68,8 @@ python -m uvicorn server:app --reload
 | `agents.py` | Document Checker, Criteria, Synthetic Expert, and Grader agents (structured outputs via Pydantic); per-agent `EFFORT` settings; prompt caching. |
 | `documents.py` | Text extraction from uploads, and combining kept documents into the agents' case file. |
 | `server.py` | FastAPI endpoints + UI route. |
-| `personas.json` | Persona library (style traits + witness posture). |
+| `personas.json` | Persona library (style traits + witness posture + a personality-specific variation). |
+| `variables.json` | Random variations added to most interviews (communication style, candor, etc.) and how often they appear. |
 | `rubric.json` | Grading rubric: criteria, weights, level descriptions. |
 | `static/index.html` | Single-page UI: setup → interview → results. |
 | `examples/` | Worked practice interviews with case files. |

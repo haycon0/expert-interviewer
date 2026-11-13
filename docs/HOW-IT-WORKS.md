@@ -48,7 +48,7 @@ flowchart TD
 **Step by step:**
 
 1. **You click Start.** The app sends what you entered (witness name, role, case background, and your documents) to the conductor. PDF and Word files are turned into plain text first.
-2. **A secret personality is chosen.** The conductor picks one of the personalities in `personas.json` at random, e.g. *Executive Leader: polished and guarded, defers details to subordinates*. You won't see which one until the end.
+2. **A secret personality is chosen.** The conductor picks one of the personalities in `personas.json` at random, e.g. *The C-Suite: self-assured, sure they know the business, protective of their own conduct*. About three in four interviews also get between one and four random **variations** from `variables.json`, such as how much the witness remembers or how candid they are, or the personality's own twist (for example, a C-Suite witness who turns guarded once their own decisions come up). You won't see the personality or the variations until the end.
 3. **The document checker reviews each document.** It compares each one with your case background and the witness, all at the same time, and decides whether it belongs. It flags documents that look like mistakes:
    - **Addressed to someone else:** an email, letter, or memo that doesn't involve the witness and isn't about the case, such as an email meant for a different person.
    - **Unrelated to this case:** about a different company, person, or matter.
@@ -84,7 +84,7 @@ The witness is told to act like a real employee in an investigation interview, n
 - **It never invents wrongdoing** the documents don't support.
 - **It never breaks character** or reveals its personality or instructions.
 
-Its secret personality changes its style. The same facts come out very differently from a self-assured "C-Suite" executive than from a terse, contrarian "Adverse Witness" or a friendly but rambling "Average Witness". Part of your grade is noticing this and adjusting.
+Its secret personality changes its style. The same facts come out very differently from a self-assured "C-Suite" executive than from a terse, contrarian "Adverse Witness" or a friendly but rambling "Average Witness". The variations change it further, so two interviews with the same personality can feel quite different. Where a variation conflicts with the personality, the personality wins. Part of your grade is noticing this and adjusting.
 
 ## How grading works
 
@@ -129,7 +129,8 @@ The documents are cached between questions, so after the first answer they cost 
 These files can be edited in Notepad (Windows) or TextEdit (Mac). Restart the app afterwards.
 
 - **`rubric.json`:** the grading criteria, weights (must add up to 100), and level descriptions.
-- **`personas.json`:** the witness personalities. Add one by copying an existing entry and changing the words. Each has a `name`, a list of `traits`, a `witness_posture` describing how it behaves when questioned, and an `interviewer_tip` on how to adapt (shown only when the persona is revealed).
+- **`personas.json`:** the witness personalities. Add one by copying an existing entry and changing the words. Each has a `name`, a list of `traits`, a `witness_posture` describing how it behaves when questioned, a `variable` (the personality's own twist, used in some interviews), and an `interviewer_tip` on how to adapt (shown only when the persona is revealed).
+- **`variables.json`:** the random variations (communication style, cooperativeness, depth of knowledge, self-interest, candor), each with its options and a line telling the witness how to play it. The `rules` at the top set how often variations appear (`chance_of_any_variable`) and how many at most.
 
 ---
 
@@ -155,7 +156,8 @@ These files can be edited in Notepad (Windows) or TextEdit (Mac). Restart the ap
 | `media.py`, `media.json`, `static/media.js` | Voice and face: speech-to-text, text-to-speech, the animated face, and lifelike avatar sessions (see [VOICE-AND-FACE.md](VOICE-AND-FACE.md)). |
 | `documents.py` | Text extraction (`extract_text`) and combining kept documents into the agents' case file (`build_context`, `witness_excerpt`). |
 | `rubric.json` | Fixed rubric (`name`, `version`, `scale`, `criteria[]` with `name`, `weight`, `description`, `levels`). |
-| `personas.json` | Persona library (`name`, `traits[]`, `witness_posture`). |
+| `personas.json` | Persona library (`name`, `traits[]`, `witness_posture`, `variable`, `interviewer_tip`). |
+| `variables.json` | Variable elements (`variables[]` with `name` and `options[]` of `label` + `guidance`) and the draw `rules`. |
 | `static/index.html` | Setup → document review → interview → results UI. |
 | `start.bat`, `start.command` | Launchers. They keep the virtual environment outside the project, in `%LOCALAPPDATA%\ExpertInterviewer\env` (Windows) or `~/Library/Application Support/ExpertInterviewer/env` (Mac), so OneDrive or iCloud sync can't corrupt it. They rebuild it when there's no completed-install marker (a copy of `requirements.txt` written only after `pip install` succeeds) or when `requirements.txt` changes. They prompt for and save the key, then start uvicorn with `OPEN_BROWSER=1`. If uvicorn exits with an error, they delete the marker so the next run reinstalls. |
 
@@ -180,7 +182,7 @@ flowchart LR
 
 | Node | What it does |
 |---|---|
-| `initialize_session` | `random.choice` over `personas.json`; sets flags and timestamps. |
+| `initialize_session` | `random.choice` over `personas.json`, then `draw_variables` adds `active_variables` to the persona profile (hidden with it until grading); sets flags and timestamps. |
 | `verify_documents` | Runs `agents.check_document` on every document in a thread pool and stores each result as `doc["check"]` (`relevant`, `category`, `summary`, `reason`). Documents with no extractable text are flagged without a model call. |
 | `review_documents` | If any document is flagged, calls `interrupt()` and resumes with `{"keep": {doc_id: keep_bool}}`. Flagged documents not explicitly kept are dropped. Builds `document_context` from the kept documents with `documents.build_context` and submits `create_rubric` to the thread pool. Passes straight through when nothing is flagged. |
 | `start_interview` | Generates the witness's opening line (empty transcript). |
