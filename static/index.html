@@ -397,7 +397,7 @@ function addMsg(t) {
 // The witness's persona. The server only sends it when REVEAL_PERSONA=1 (testing);
 // otherwise the panel explains that it's hidden and revealed with the grade.
 function renderPersona(p) {
-  const about = `<p class="badge" style="margin:10px 0 0">Every witness is given one of five personalities at random. It shapes how they talk and how guarded they are, not the facts they know. Part of your grade is noticing it and adjusting your approach.</p>`;
+  const about = `<p class="badge" style="margin:10px 0 0">Every witness is given one of three personalities at random, and most also get a few random variations, such as how much they remember or how candid they are. These shape how they talk and how guarded they are, not the facts in the case. Part of your grade is noticing them and adjusting your approach.</p>`;
   if (!p) {
     $("personaCard").innerHTML = `<h3>Witness personality</h3>
       <div>Hidden. You'll see which personality this witness had when you get your grade.</div>${about}`;
@@ -407,7 +407,8 @@ function renderPersona(p) {
     <h3>Witness personality: ${esc(p.name)}</h3>
     <div class="badge">${esc(p.traits.join(" · "))}</div>
     <div class="k">How this witness behaves</div><div>${esc(p.witness_posture)}</div>
-    ${p.interviewer_tip ? `<div class="k">How to adapt</div><div>${esc(p.interviewer_tip)}</div>` : ""}
+    ${variablesHtml(p)}
+    ${p.interviewer_tip ?`<div class="k">How to adapt</div><div>${esc(p.interviewer_tip)}</div>` : ""}
     ${about}`;
 }
 
@@ -583,13 +584,21 @@ $("endBtn").onclick = async () => {
   catch (e) { show("interview"); alert(e.message); }
 };
 
+// The random variable elements this witness played, if any (see variables.json).
+function variablesHtml(p) {
+  const vs = (p && p.active_variables) || [];
+  if (!vs.length) return "";
+  return `<div class="k">Variations in this interview</div><ul>${vs.map(v =>
+    `<li><b>${esc(v.value ? `${v.name}: ${v.value}` : "Personality twist")}</b>: ${esc(v.description)}</li>`).join("")}</ul>`;
+}
+
 function renderResults(a) {
   $("results").innerHTML = `
     <div class="card">
       <div class="score"><span class="big">${a.overall_score}</span><span class="grade">${esc(a.letter_grade)}</span>
         <span class="badge">Interview with ${esc(expertName)}</span></div>
       <div class="reveal">Witness demeanor revealed: <b>${esc(a.persona.name)}</b>
-        <span class="badge">${esc(a.persona.traits.join(" · "))}</span></div>
+        <span class="badge">${esc(a.persona.traits.join(" · "))}</span>${variablesHtml(a.persona)}</div>
       ${a.models ? `<div class="badge" style="margin-bottom:8px">AI models: witness ${esc(labelOf(a.models.witness))} · grader ${esc(labelOf(a.models.grader))}</div>` : ""}
       ${a.category_scores.map(c => `<div class="crit"><b>${esc(c.name)}</b> <span class="badge">${c.score}/100 · weight ${c.weight}%</span>
         <div class="bar"><div style="width:${c.score}%"></div></div><div>${esc(c.rationale)}</div></div>`).join("")}

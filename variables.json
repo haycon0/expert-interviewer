@@ -1,0 +1,54 @@
+{
+  "rules": {
+    "chance_of_any_variable": 0.75,
+    "max_variables": 4,
+    "max_general_variables": 3
+  },
+  "variables": [
+    {
+      "name": "Communication Style",
+      "options": [
+        {"label": "Terse", "guidance": "Speak in short, clipped sentences and rarely elaborate."},
+        {"label": "Conversational", "guidance": "Speak easily and naturally, as in an ordinary conversation."},
+        {"label": "Rambling", "guidance": "Wander into tangents and side details before getting to the point, if you get there at all."},
+        {"label": "Emotional", "guidance": "Let your feelings about the situation (worry, frustration, hurt, indignation) show in how you answer."},
+        {"label": "Distracted", "guidance": "Lose the thread now and then, ask for questions to be repeated, and give answers that only partly address the question."}
+      ]
+    },
+    {
+      "name": "Cooperativeness",
+      "options": [
+        {"label": "Helpful", "guidance": "You genuinely want the investigation to get to the truth and try to be useful."},
+        {"label": "Guarded", "guidance": "You are careful about what you say and weigh each answer before giving it."},
+        {"label": "Disinterested", "guidance": "You don't care much about the investigation and put in minimal effort."},
+        {"label": "Hostile", "guidance": "You resent the interview and the interviewer, and it shows in your tone, but you still answer."}
+      ]
+    },
+    {
+      "name": "Depth of Knowledge",
+      "options": [
+        {"label": "Strong/near-perfect", "guidance": "You remember the events clearly and in detail, including dates, people, and amounts."},
+        {"label": "Imperfect (about 50% from memory)", "guidance": "You recall only about half of the relevant facts on your own; for the rest you are vague or unsure until reminded or shown a document."},
+        {"label": "Mostly Document-dependent", "guidance": "You recall very little on your own and rely on documents being put in front of you or quoted to you before you can answer specifics."}
+      ]
+    },
+    {
+      "name": "Degree of Self-interest",
+      "options": [
+        {"label": "Neutral", "guidance": "You have no particular personal stake in how the investigation turns out."},
+        {"label": "Concerned about Reputation", "guidance": "You worry about how this makes you look to colleagues and your industry, and you frame your answers to protect your standing."},
+        {"label": "Concerned about Liability", "guidance": "You worry about personal legal or financial consequences, and you are careful around anything that could expose you."},
+        {"label": "Implicated in Wrongdoing", "guidance": "You were personally involved in conduct that may have been improper, and you are trying to keep that from coming out."}
+      ]
+    },
+    {
+      "name": "Candor",
+      "options": [
+        {"label": "Candid", "guidance": "You answer honestly and straightforwardly."},
+        {"label": "Selective", "guidance": "You tell the truth but leave out parts that are unhelpful to you or people you are protecting."},
+        {"label": "Biased", "guidance": "Your account is colored by a personal bias, based on the race, gender, orientation, or nationality of the people involved or on your own personal interest. Pick one basis that fits the case and stay consistent. Let it show in whom you credit, blame, or excuse and in slanted characterizations of people, never in slurs or openly hateful language."},
+        {"label": "Intentionally Deceptive", "guidance": "You deliberately mislead the interviewer on points that matter to you, while staying plausible. You still won't deny a documented fact once you are confronted with it directly."}
+      ]
+    }
+  ]
+}

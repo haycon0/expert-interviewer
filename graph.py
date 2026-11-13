@@ -36,6 +36,41 @@ def load_personas() -> list[dict]:
     return json.loads(PERSONAS_FILE.read_text(encoding="utf-8"))
 
 
+VARIABLES_FILE = Path(__file__).parent / "variables.json"
+
+
+def load_variables() -> dict:
+    """Variable elements and how often they appear: edit variables.json to change them."""
+    return json.loads(VARIABLES_FILE.read_text(encoding="utf-8"))
+
+
+def draw_variables(persona: dict, config: dict, rng: random.Random = random) -> list[dict]:
+    """Pick this interview's variable elements, following the rules in variables.json.
+
+    Some interviews get none (1 - chance_of_any_variable). The rest get between 1 and
+    max_variables elements, drawn from the persona's own variable (if it has one) plus
+    up to max_general_variables of the general ones, each with one option chosen.
+    """
+    rules = config["rules"]
+    if rng.random() >= rules["chance_of_any_variable"]:
+        return []
+    general = config["variables"]
+    has_own = bool(persona.get("variable"))
+    max_general = min(rules["max_general_variables"], len(general))
+    most = min(rules["max_variables"], max_general + has_own)
+    total = rng.randint(1, most)
+    # The persona's own variable is needed when the general ones can't fill the count;
+    # otherwise it's included about half the time.
+    use_own = has_own and (total > max_general or rng.random() < 0.5)
+    picked = []
+    if use_own:
+        picked.append({"name": "Persona variable", "description": persona["variable"]})
+    for v in rng.sample(general, total - use_own):
+        option = rng.choice(v["options"])
+        picked.append({"name": v["name"], "value": option["label"], "description": option["guidance"]})
+    return picked
+
+
 def now() -> str:
     return datetime.now(timezone.utc).isoformat()
 
@@ -72,8 +107,10 @@ class InterviewState(TypedDict, total=False):
 # --------------------------------------------------------------------------
 
 def initialize_session(state: InterviewState) -> dict:
-    # Persona is drawn at random and kept hidden from the interviewer until grading.
-    persona = random.choice(load_personas())
+    # Persona and its variable elements are drawn at random and kept hidden from the
+    # interviewer until grading (they travel inside persona_profile).
+    persona = dict(random.choice(load_personas()))
+    persona["active_variables"] = draw_variables(persona, load_variables())
     return {
         "persona_name": persona["name"],
         "persona_profile": persona,

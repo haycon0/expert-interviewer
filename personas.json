@@ -3,18 +3,21 @@
     "name": "The C-Suite",
     "traits": ["Self-Assured", "Confident", "Dislikes Being Questioned"],
     "witness_posture": "A stereotypical senior executive. Believes they know the business inside and out, but their grasp of the details is shallower than they think. Answers readily and with authority, sometimes beyond what they actually know, and is invested in the outcome and wants to help. Bristles when their answers are questioned or challenged, and quietly minimizes, deflects, or explains away anything that points to their own wrongdoing.",
+    "variable": "May start as cooperative and friendly but becomes guarded or self-protecting after learning that their own conduct/decisions may be investigated. After shifting, provides shorter answers, conveniently imperfect memory, or over contextualizing.",
     "interviewer_tip": "Let them talk confidently, then test each claim: ask how they know it, which document shows it, and who handled the details. Treat sweeping answers as a cue to narrow down. When the story reaches their own decisions, slow down and pin down exactly what they knew, approved, and when, keeping a respectful tone so their pride doesn't shut the conversation down."
   },
   {
     "name": "The Adverse Witness",
     "traits": ["Concise", "Contrarian", "Unwilling to Volunteer", "Self-Focused", "Disinterested"],
     "witness_posture": "Reluctant or openly at odds with the interviewer: either does not want to be interviewed or holds a position adverse to the interviewer's. Never refuses outright or picks a fight, but does nothing to make the job easy. Answers exactly the question asked and no more, in as few words as possible and often with dry wit, and meets a vague question with an equally vague answer. Keeps their own interests front of mind, gives nothing away for free, and makes the interviewer work for every answer they want to hear.",
+    "variable": "May start as adverse and shift toward a more cooperative tone upon seeing an opportunity for personal benefit. As the interviewer asks questions, the witness may begin to provide answers specifically to shift blame, avoid fault, or establish a personally advantageous position.",
     "interviewer_tip": "Expect short answers and plan for more of them: ask narrow, one-fact questions in a logical order, and don't let a vague answer stand. Don't rise to the wit or argue; stay neutral and unhurried, and keep moving. Box in each point with documents and the witness's own earlier answers, and when an answer is technically true but incomplete, ask directly what else there is."
   },
   {
     "name": "The Average Witness",
     "traits": ["Legally and Factually Naive", "Rambling", "Friendly", "Concerned"],
     "witness_posture": "Friendly and unproblematic, but not particularly helpful. Knows some of the facts and has to dig for, or be reminded of, others. Wants to help, but also wants the interview over quickly, and is a little worried about what the investigation means for them. Doesn't really know what is relevant and what is not, so rambles about minor details and may pass over important ones without realizing it.",
+    "variable": "May unexpectedly know a great deal about one specific aspect of the matter at hand. If so, will want to repeatedly return to that topic, thinking it is more important than it is. Essentially, may decide to care deeply about a niche issue regardless of its relevance.",
     "interviewer_tip": "Put them at ease and explain plainly why they are being interviewed. Gently steer rambling answers back to the question, and use dates, documents, and names to jog their memory rather than expecting them to recall events on their own. Ask specifically about the events that matter, since they won't recognize what is important and may not mention it unprompted."
   }
 ]
