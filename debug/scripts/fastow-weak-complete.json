@@ -1,0 +1,363 @@
+{
+  "name": "Fastow (Enron): weak, complete",
+  "description": "A complete but weak interview of Andrew Fastow (for grading tests, target ~65): a bare-bones warning (no 'can't give legal advice', no waiver, no questions), no ground rules, mostly leading or compound questions, little follow-up, documents put to him before his account, and an abrupt close.",
+  "persona": "The C-Suite",
+  "variables": "none",
+  "expert_name": "Andrew Fastow",
+  "expert_role": "Executive Vice President and CFO, Enron Corp.",
+  "case_background_file": "examples/enron-fastow/case_background.txt",
+  "documents": [
+    "examples/enron-fastow/Enron_Sample_Events_Log.csv"
+  ],
+  "resume_hint": "This interview is complete, including the close. Click End & grade.",
+  "transcript": [
+    {
+      "speaker": "expert",
+      "message": "Good morning. Andy Fastow. Nobody's told me much about what this is, so I assume you'll fill me in."
+    },
+    {
+      "speaker": "user",
+      "message": "Good morning. I'm Jordan Reyes, outside counsel for the Special Committee. I represent the company, not you. What we discuss is privileged, but the privilege belongs to the company, and the company may decide to share what you tell me. Any questions?"
+    },
+    {
+      "speaker": "expert",
+      "message": "No. Go ahead."
+    },
+    {
+      "speaker": "user",
+      "message": "Let's start with your role. As CFO, what were you responsible for?"
+    },
+    {
+      "speaker": "expert",
+      "message": "Financing the company: raising capital, managing the balance sheet, and our structured finance work."
+    },
+    {
+      "speaker": "user",
+      "message": "Who reported to you in Global Finance in 1999 and 2000?"
+    },
+    {
+      "speaker": "expert",
+      "message": "A good number of people. Ben Glisan, who became Treasurer in 2000. Michael Kopper, a managing director. And a team of deal people under them."
+    },
+    {
+      "speaker": "user",
+      "message": "What was Michael Kopper's role?"
+    },
+    {
+      "speaker": "expert",
+      "message": "Michael ran structured transactions for me. He worked on the partnership deals, among other things."
+    },
+    {
+      "speaker": "user",
+      "message": "How did LJM1 come about in 1999?"
+    },
+    {
+      "speaker": "expert",
+      "message": "Enron had a big gain in Rhythms NetConnections stock that we couldn't sell, and Jeff Skilling wanted it protected. Nobody in the market would hedge a position like that. So Ben Glisan and I designed a vehicle with outside equity that could use value sitting in some Enron stock forward contracts to hedge the Rhythms position. That became LJM."
+    },
+    {
+      "speaker": "user",
+      "message": "Why did you need to be the general partner, rather than someone outside Enron?"
+    },
+    {
+      "speaker": "expert",
+      "message": "The investors needed someone who understood Enron's assets and could move fast. Frankly, my involvement is what made outside money comfortable. I didn't go looking for it."
+    },
+    {
+      "speaker": "user",
+      "message": "Who first suggested that you serve as the general partner?"
+    },
+    {
+      "speaker": "expert",
+      "message": "I raised it with Ken Lay and Jeff Skilling around the middle of June 1999. I presented it as something the deal needed rather than something I wanted, and they agreed to take it to the Board."
+    },
+    {
+      "speaker": "user",
+      "message": "Tell me about the June 28, 1999 Board meeting. What did you present?"
+    },
+    {
+      "speaker": "expert",
+      "message": "Project LJM: the partnership with outside equity, the Rhythms hedge, and the value to Enron. The Board also had to approve a waiver under the Code of Conduct because of my role."
+    },
+    {
+      "speaker": "user",
+      "message": "What did you tell the Board about how you personally would be compensated by LJM?"
+    },
+    {
+      "speaker": "expert",
+      "message": "That I would put in a million dollars of my own money as general partner and would not receive any current or future value from the Enron stock in the partnership."
+    },
+    {
+      "speaker": "user",
+      "message": "At the time, what was your understanding of whether you personally would benefit from the value of the Enron stock held by LJM?"
+    },
+    {
+      "speaker": "expert",
+      "message": "That I wouldn't. The structure said the general partner wouldn't get any current or future value of the Enron stock."
+    },
+    {
+      "speaker": "user",
+      "message": "The Rhythms hedge was unwound in early 2000. Who negotiated it on both sides, and did anyone object?"
+    },
+    {
+      "speaker": "expert",
+      "message": "Rick Causey came to me and said the company wanted to unwind it. I told him I'd negotiate with the limited partners, and we reached terms in March 2000. Causey's team reviewed them and found them fair."
+    },
+    {
+      "speaker": "user",
+      "message": "Chewco was formed in 1997 to buy CalPERS' interest in JEDI, wasn't it?"
+    },
+    {
+      "speaker": "expert",
+      "message": "We needed to buy out CalPERS' interest in JEDI so CalPERS would invest in a larger partnership, and we needed an outside buyer to keep JEDI off the balance sheet. Chewco was set up to buy that interest."
+    },
+    {
+      "speaker": "user",
+      "message": "Who managed Chewco?"
+    },
+    {
+      "speaker": "expert",
+      "message": "Michael Kopper."
+    },
+    {
+      "speaker": "user",
+      "message": "Why Mr. Kopper rather than you?"
+    },
+    {
+      "speaker": "expert",
+      "message": "Michael was well suited to it. There were various considerations at the time."
+    },
+    {
+      "speaker": "user",
+      "message": "What were those considerations?"
+    },
+    {
+      "speaker": "expert",
+      "message": "Our lawyers advised that if a senior officer like me took part, it would have to be disclosed in the proxy statement and approved under the Code of Conduct. Michael wasn't a senior officer, so neither applied."
+    },
+    {
+      "speaker": "user",
+      "message": "Who at Enron knew that Mr. Kopper was involved in Chewco?"
+    },
+    {
+      "speaker": "expert",
+      "message": "Jeff Skilling approved it. I believe he told the Board."
+    },
+    {
+      "speaker": "user",
+      "message": "How do you know Mr. Skilling told the Board?"
+    },
+    {
+      "speaker": "expert",
+      "message": "I don't know that personally. That was my understanding."
+    },
+    {
+      "speaker": "user",
+      "message": "What controls applied to LJM2, and did they actually work?"
+    },
+    {
+      "speaker": "expert",
+      "message": "Every LJM2 transaction had to be approved by Rick Causey and Rick Buy, and the Audit Committee reviewed the LJM2 transactions every year. They were strong controls."
+    },
+    {
+      "speaker": "user",
+      "message": "How do you know they reviewed every transaction?"
+    },
+    {
+      "speaker": "expert",
+      "message": "That was the requirement. I assumed it was followed. I didn't check each one myself."
+    },
+    {
+      "speaker": "user",
+      "message": "How did those reviews work in practice? Take a specific deal."
+    },
+    {
+      "speaker": "expert",
+      "message": "There was an approval sheet for each deal, and the deal team brought it forward. Causey and Buy signed off."
+    },
+    {
+      "speaker": "user",
+      "message": "When did they sign it, relative to the closing?"
+    },
+    {
+      "speaker": "expert",
+      "message": "I'd have to look at the sheet. Some approvals were papered after a deal closed. That happened."
+    },
+    {
+      "speaker": "user",
+      "message": "Turning to the Raptor returns. Tell me what you remember about the return the Board and Finance Committee expected LJM2 to earn on the Raptors."
+    },
+    {
+      "speaker": "expert",
+      "message": "Around 30 percent, plus fees. That was in the May 2000 presentation."
+    },
+    {
+      "speaker": "user",
+      "message": "What returns did LJM2 actually earn on the Raptors?"
+    },
+    {
+      "speaker": "expert",
+      "message": "The returns were good. I don't have the exact figures in front of me."
+    },
+    {
+      "speaker": "user",
+      "message": "Approximately, then. Were they above or below the 30 percent the Board was shown?"
+    },
+    {
+      "speaker": "expert",
+      "message": "Above, on some of them. The early settlements helped."
+    },
+    {
+      "speaker": "user",
+      "message": "How far above, on the best of them?"
+    },
+    {
+      "speaker": "expert",
+      "message": "Significantly. I'd want to see the investor reports before giving a number."
+    },
+    {
+      "speaker": "user",
+      "message": "Now I'd like to ask about any personal interests in these transactions. Did you personally have any financial interest in the Rhythms unwind?"
+    },
+    {
+      "speaker": "expert",
+      "message": "No, not personally."
+    },
+    {
+      "speaker": "user",
+      "message": "Did your family, or any entity connected with you, have one?"
+    },
+    {
+      "speaker": "expert",
+      "message": "My family has a charitable foundation that makes investments from time to time. I'd have to check its records."
+    },
+    {
+      "speaker": "user",
+      "message": "What investments connected to LJM1 did the foundation make in early 2000?"
+    },
+    {
+      "speaker": "expert",
+      "message": "It may have. It was a small amount."
+    },
+    {
+      "speaker": "user",
+      "message": "This is the Southampton Place partnership agreement. It shows a $25,000 contribution from your family foundation, and our information is the foundation received about $4.5 million about six weeks later. Isn't that inconsistent with what you told the Board?"
+    },
+    {
+      "speaker": "expert",
+      "message": "The Foundation isn't me, and what I told the Board was about my economics as general partner. This was a separate investment, made later, on market terms."
+    },
+    {
+      "speaker": "user",
+      "message": "Who decided that the Foundation would invest in Southampton?"
+    },
+    {
+      "speaker": "expert",
+      "message": "I did."
+    },
+    {
+      "speaker": "user",
+      "message": "Did you seek approval under the Code of Conduct for the Foundation's investment?"
+    },
+    {
+      "speaker": "expert",
+      "message": "No. I didn't think the Code applied to the Foundation."
+    },
+    {
+      "speaker": "user",
+      "message": "Who else at Enron invested in Southampton Place?"
+    },
+    {
+      "speaker": "expert",
+      "message": "A few people. Michael Kopper, through an entity of his. Ben Glisan. Kristina Mordaunt. Maybe one or two others."
+    },
+    {
+      "speaker": "user",
+      "message": "LJM2 told its investors the Raptors returned 193, 278, and 2,500 percent. Why didn't you tell the Board?"
+    },
+    {
+      "speaker": "expert",
+      "message": "Those reports were to LJM2's own investors. The Board had the approval sheets and the Audit Committee reviews."
+    },
+    {
+      "speaker": "user",
+      "message": "You negotiated the Chewco buyout yourself, didn't you?"
+    },
+    {
+      "speaker": "expert",
+      "message": "None. Michael was my partner in LJM2 by then, so I stayed out of it. Others at Enron negotiated it."
+    },
+    {
+      "speaker": "user",
+      "message": "What was the final figure?"
+    },
+    {
+      "speaker": "expert",
+      "message": "I understand it ended up higher. Around $10 million."
+    },
+    {
+      "speaker": "user",
+      "message": "This note to \"Andy\" mentions $10.5 million for the buyout. So you were involved, weren't you?"
+    },
+    {
+      "speaker": "expert",
+      "message": "I don't recall receiving it. Michael kept me informed about things generally. Being informed isn't the same as negotiating."
+    },
+    {
+      "speaker": "user",
+      "message": "Did you authorize the $2.6 million tax indemnity payment to Chewco in 2001?"
+    },
+    {
+      "speaker": "expert",
+      "message": "I know it was paid. Michael asked for it after the buyout, and the business unit and legal handled it."
+    },
+    {
+      "speaker": "user",
+      "message": "Who approved the payment?"
+    },
+    {
+      "speaker": "expert",
+      "message": "I don't recall authorizing it. Those decisions went through the business unit and legal."
+    },
+    {
+      "speaker": "user",
+      "message": "Did you speak with in-house counsel about that payment?"
+    },
+    {
+      "speaker": "expert",
+      "message": "I may have had a call with them about it. I don't remember the details."
+    },
+    {
+      "speaker": "user",
+      "message": "Is there anything I haven't asked about that you think the Committee should know?"
+    },
+    {
+      "speaker": "expert",
+      "message": "Only that these structures were reviewed by our accountants and lawyers at every step. I wasn't freelancing."
+    },
+    {
+      "speaker": "user",
+      "message": "Who else should we speak with to understand these transactions?"
+    },
+    {
+      "speaker": "expert",
+      "message": "Rick Causey and Rick Buy on the approvals. Ben Glisan on the Raptors. Michael Kopper on Chewco. And Andersen and Vinson & Elkins reviewed most of it."
+    },
+    {
+      "speaker": "user",
+      "message": "What documents should we look at?"
+    },
+    {
+      "speaker": "expert",
+      "message": "The deal files are at the company: the approval sheets, the Board and Finance Committee materials, and the partnership agreements."
+    },
+    {
+      "speaker": "user",
+      "message": "OK, that's all I have. Please keep any related documents and keep this confidential. Thanks."
+    },
+    {
+      "speaker": "expert",
+      "message": "Sure."
+    }
+  ]
+}

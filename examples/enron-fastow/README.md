@@ -1,6 +1,6 @@
 # Practice interview: Andrew Fastow (Enron)
 
-In this practice run, you are a lawyer investigating Enron in late 2001, and you interview Andrew Fastow, the company's Chief Financial Officer. Everything you need is below: what to type into the app, which file to upload, and 30 questions to ask.
+In this practice run, you are a lawyer investigating Enron in late 2001, and you interview Andrew Fastow, the company's Chief Financial Officer. Everything you need is below: what to type into the app, which file to upload, and 31 questions to ask. The opening and closing follow Dakota's [witness interview outline](../../docs/INTERVIEW-OUTLINE.md).
 
 **Before you start:** set up and open the app by following [SETUP.md](../../SETUP.md).
 
@@ -37,22 +37,26 @@ Then click **Check documents & start interview** and wait about 20–30 seconds.
 
 ## 2. How to score well
 
-The grader rewards *how* you ask as much as *what* you ask:
+The grader rewards *how* you ask as much as *what* you ask (the rubric is summarized in [ASSESSMENT.md](../../docs/ASSESSMENT.md)):
 
-- **One question per message.** Compound questions cost points.
+- **Give the full Upjohn warning first,** including that you can't give him legal advice, then set the ground rules. Skipping the warning, or not explaining privilege, caps your score at 59.
+- **One question per message.** Compound, ambiguous or legalistic questions cost points.
 - **Start with open questions, then narrow down.** Begin with "walk me through...", then pin down names, dates and amounts.
 - **Follow up on every vague answer** ("I don't recall", "that was normal", "the Board approved it") before moving on. The scripted questions below are a backbone. Your follow-ups are what score.
-- **Ask how he knows things.** Separate what he saw himself from what he heard from someone else.
-- **Hold your documents until Part E.** Let him commit to his version first, then confront him calmly and give him a chance to explain.
+- **Ask how he knows things, and how sure he is.** Separate what he knows personally from guesses and things he heard from someone else.
+- **Hold your documents until Part E.** Let him commit to his version first. Then ask whether he recognizes the document, describe it accurately, and give him a fair chance to explain.
 - **Adapt to his demeanor.** It's random. If he is terse, ask shorter, more specific questions. If he spins, ask for specifics. If he's talkative, steer.
-- **Close properly** (Part F).
+- **Ask for other witnesses and records** as they come up, not just at the end.
+- **Close properly** (Part F): anything else, documents, other witnesses, then reminders about confidentiality, keeping records, and not talking to other witnesses.
 
-Expect 20-30 messages in total, counting follow-ups. Placeholders in [brackets] mean "fill in from what he just said."
+Expect 25-35 messages in total, counting follow-ups. Placeholders in [brackets] mean "fill in from what he just said."
 
 ## 3. Questions
 
 ### A. Opening (send as one message)
-1. Good morning, Mr. Fastow. My name is [name]. I'm outside counsel retained by the Special Investigative Committee of Enron's Board. I represent the Committee and the company, not you personally. This conversation is privileged, but the privilege belongs to the company, and the company may decide to waive it and share what you tell me with others, including the government. Please keep the contents of this interview confidential. Enron does not tolerate retaliation against anyone for cooperating. Do you have any questions before we begin?
+1. Good morning, Mr. Fastow. My name is [name]. The Special Investigative Committee of Enron's Board has retained us to investigate the LJM and Chewco transactions and related concerns that have been raised at the company. The purpose of our interview today is to learn the facts so we can give legal advice to the company. To be clear, we represent the Committee and the company only. We do not represent you personally, we are not your attorney, and we can't give you legal advice. This interview is confidential and privileged, but that privilege belongs to the company, not to you or to us. The company decides whether to waive it, and it may disclose what we learn, including to the government, without your consent and without telling you. It's still important that you are fully open and truthful with us, and that you don't share the substance of this interview with anyone. Do you understand? Do you have any questions?
+
+> **Ground rules (send as the next message, after he answers):** "A few ground rules before we start. If you're speculating, assuming, or estimating, please tell me. And if a question is unclear, ask me to clarify. Is that all right?"
 
 > If he asks about his own lawyer, answer briefly and neutrally: "You're free to consult your own counsel. Today I'd like to hear your understanding of these transactions." Then go to question 2.
 
@@ -96,11 +100,12 @@ Expect 20-30 messages in total, counting follow-ups. Placeholders in [brackets] 
 27. Is there anything I haven't asked about that you think the Committee should know?
 28. Who else should we speak with to understand these transactions?
 29. What documents should we look at, and do you have any personal files, notes, or emails related to LJM, Chewco, or Southampton?
-30. Please keep any such documents, including personal emails and files, and don't delete or discard anything. Also, please don't discuss today's interview with anyone else at the company. Is there anything you'd like to add or correct before we finish?
+30. Please keep any such documents, including personal emails and files, and don't delete or discard anything. Please keep today's interview confidential, and don't discuss it with any other witnesses or anyone else at the company. Enron does not tolerate retaliation against anyone for cooperating.
+31. As next steps, we may follow up with you once we've reviewed the documents. Is there anything you'd like to add or correct before we finish?
 
 ## 4. What to expect
 
 - **Opening:** if you deliver Part A as written, he will likely ask about counsel, then cooperate.
-- **Score:** following the script with real follow-ups on his vague answers should land in the B range or better. The biggest swings come from Fact Development & Follow-Up and Testing Credibility (35% of the grade together).
-- **Missed opportunities:** the grade report lists what you didn't get to, so you can rerun and compare.
+- **Score:** following the script with real follow-ups on his vague answers should land in the **Good** band (80+): a thorough interview that follows this script and the outline scored 85–88 on Claude Haiku and 86 on Claude Sonnet, and a longer one that also chases every vague answer scored 93 (Excellent). Skipping the "can't give you legal advice" line, the ground rules, or asking whether he recognizes each document cost a similar interview about 10 points. The biggest area is Fact Development, Source Identification, & Credibility Testing (40 of the 100 marks), so your follow-ups matter most.
+- **Missed chances:** the report lists up to two, with the turn number where each came up, so you can rerun and compare.
 - **Testing the grader:** for a low-score baseline, ask only questions 5, 9, and 13 with no opening, follow-ups, or close.

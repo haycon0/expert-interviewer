@@ -6,7 +6,7 @@ You play an investigator looking into a whistleblower complaint or suspected whi
 
 1. **Checks your case documents** (PDF, Word, or text). Anything that looks added by mistake is flagged, such as an email meant for someone else or a file from a different case. You see what it contains and decide whether to keep it.
 2. **Plays the witness** in a live chat. The witness knows only your case background and the documents you kept, and has a personality chosen at random and kept secret. Some witnesses are cooperative, some guarded, some evasive.
-3. **Grades your interview** against a fixed rubric: your opening, questioning technique, follow-up, testing the witness's story, coverage, and professionalism. Then it coaches you and reveals the witness's personality.
+3. **Grades your interview** against a fixed rubric: 23 skills in four areas (framing and closing, question technique, fact development and credibility testing, and document use), each rated 0 to 4 with the moments in the interview that back it up. Then it gives you tips and reveals the witness's personality.
 
 It runs on your own computer, in your web browser. An interview costs roughly $0.40–$0.75 in AI usage, and there's a free demo mode for trying it out.
 
@@ -36,9 +36,13 @@ This is the **full version**, for running on your own computer with every model,
 
 A separate **online version** lives on the [`online` branch](https://github.com/haycon0/expert-interviewer/tree/online). It's the copy that can be put on the internet behind a shared password, and it offers only the lower-cost options (Claude Haiku, the free browser voice, and the free animated face). Its publishing guide is in `docs/PUBLISHING.md` on that branch.
 
+## Debugging
+
+For testing, click **Debug page** on the setup page (or go to `/debug`): it fills in the Enron example for you. [docs/DEBUGGING.md](docs/DEBUGGING.md) explains it: choose the witness's persona and variations, start from a scripted interview that's halfway through or one question from the end, and skip the document check.
+
 ## How interviews are graded
 
-[docs/ASSESSMENT.md](docs/ASSESSMENT.md) is a one-page summary of how the tool assesses an interview: what the grader reads, the criteria and weights, how the score is calculated, and the limitations.
+[docs/ASSESSMENT.md](docs/ASSESSMENT.md) summarizes how the tool assesses an interview: what the grader reads, the 23 skills and their marks, how the score is calculated, the score caps, and the limitations. [docs/INTERVIEW-OUTLINE.md](docs/INTERVIEW-OUTLINE.md) is a template outline for planning an interview, including the Upjohn warning.
 
 ## How this was built
 
@@ -48,12 +52,12 @@ A separate **online version** lives on the [`online` branch](https://github.com/
 
 ## For developers
 
-A LangGraph multi-agent app (Document Checker → human review → Synthetic Expert (multi-turn) → Criteria → Grader) with a FastAPI backend and a single-page UI.
+A LangGraph multi-agent app (Document Checker → human review → Synthetic Expert (multi-turn) → Grader) with a FastAPI backend and a single-page UI.
 
 - Uploaded documents (.pdf, .docx, .txt, .csv, .md, .json) are checked for relevance in parallel. If any are flagged, the graph pauses (`interrupt`) for the user to keep or remove each one.
-- The witness, criteria, and grader agents read only the case background and the kept documents. There's no research step and no outside knowledge. Large sets are trimmed to about 60K characters, preferring passages that mention the witness.
+- The witness and grader agents read only the case background and the kept documents. There's no research step and no outside knowledge. Large sets are trimmed to about 60K characters, preferring passages that mention the witness.
 - The witness persona is drawn at random and revealed only with the grade.
-- Grading uses a fixed rubric (`rubric.json`). The Criteria Agent only adds case-specific "look-fors" under each criterion.
+- Grading uses a fixed rubric (`rubrics/v2.2.json`). The grader only rates each skill 0–4 and cites turn numbers; `grading_v2.py` computes the marks, caps and band. The previous rubric (`rubric.json`, with the Criteria agent's case-specific look-fors) can be chosen on the debug page for comparison.
 
 ```
 pip install -r requirements.txt
@@ -68,8 +72,11 @@ python -m uvicorn server:app --reload
 | `agents.py` | Document Checker, Criteria, Synthetic Expert, and Grader agents (structured outputs via Pydantic); per-agent `EFFORT` settings; prompt caching. |
 | `documents.py` | Text extraction from uploads, and combining kept documents into the agents' case file. |
 | `server.py` | FastAPI endpoints + UI route. |
-| `personas.json` | Persona library (style traits + witness posture). |
-| `rubric.json` | Grading rubric: criteria, weights, level descriptions. |
+| `personas.json` | Persona library (style traits + witness posture + a personality-specific variation). |
+| `variables.json` | Random variations added to most interviews (communication style, candor, etc.) and how often they appear. |
+| `rubrics/v2.2.json` | The grading rubric: areas, skills and marks, the 0–4 scale, score caps, result bands, and the interview-outline reference. |
+| `grading_v2.py` | Grading with the rubric: the grader's prompt and output schema, and the scoring (marks, caps, band) in code. |
+| `rubric.json` | The previous rubric (draft 2), kept for comparison on the debug page. |
 | `static/index.html` | Single-page UI: setup → interview → results. |
 | `examples/` | Worked practice interviews with case files. |
 | `models.json`, `model_catalog.py` | The model list for the setup page, and setup-status checks. |

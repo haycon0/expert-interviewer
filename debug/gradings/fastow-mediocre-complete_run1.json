@@ -1,0 +1,871 @@
+{
+ "script": "fastow-mediocre-complete",
+ "run": "run1",
+ "model": "anthropic:claude-haiku-5-5",
+ "graded": "2026-11-15 12:46",
+ "seconds": 91,
+ "questions": 79,
+ "closing_added": false,
+ "report": {
+  "rubric_version": "2.2",
+  "status": "SCORED",
+  "status_label": "Scored",
+  "status_reason": "",
+  "overall_score": 78,
+  "score_before_cap": 78.5,
+  "cap": null,
+  "band": "Needs coaching",
+  "letter_grade": "Needs coaching",
+  "areas": [
+   {
+    "name": "Interview Framing, Rapport Building, & Closing",
+    "points": 20,
+    "total": 14.75,
+    "counted": true,
+    "skills": [
+     {
+      "name": "Upjohn",
+      "description": "Properly identifies representation and role with the Company, and that they cannot give the employee legal advice. This must always be part of the very beginning of the interview.",
+      "max_marks": 5,
+      "rating": 4,
+      "marks": 5.0,
+      "reason": "At T2, before any substantive question, the interviewer said counsel represents the Committee and the company, not the witness personally, and cannot give legal advice."
+     },
+     {
+      "name": "Privilege",
+      "description": "Properly explains that the Company controls the privilege and determines how it is shared.",
+      "max_marks": 4,
+      "rating": 4,
+      "marks": 4.0,
+      "reason": "T2 explains that the privilege belongs to the company and that the company may share what the witness says, including with the government."
+     },
+     {
+      "name": "Relationship",
+      "description": "Establishes rapport and interview expectations. This includes: establishes an appropriate professional tone; explains how the interview will proceed; encourages complete answers; instructs the witness that they can speculate, they just need to say when they do; invites the witness to distinguish between recollection and uncertainty.",
+      "max_marks": 4,
+      "rating": 1,
+      "marks": 1.0,
+      "reason": "The tone is professional, but the interviewer never explained how the interview would proceed, asked for complete answers, or set ground rules on speculation, estimates, or distinguishing recollection from uncertainty."
+     },
+     {
+      "name": "Confirmation",
+      "description": "Checks the witness understood the Upjohn warning and answers their questions, if any.",
+      "max_marks": 2,
+      "rating": 2,
+      "marks": 1.0,
+      "reason": "The interviewer asked 'Any questions?' at T2, but when the witness said at T3 that they may want their own counsel, the interviewer did not address it or confirm understanding of the no-personal-representation point."
+     },
+     {
+      "name": "Closing",
+      "description": "Closes by confirming there is \"nothing else\", next steps, a confidentiality reminder, and a reminder to keep records.",
+      "max_marks": 5,
+      "rating": 3,
+      "marks": 3.75,
+      "reason": "T150 asks whether there is anything else, T152-T157 cover other witnesses and documents, and T158 gives a confidentiality reminder and a request to keep documents."
+     }
+    ],
+    "moments": [
+     {
+      "turn": "T2",
+      "kind": "quote",
+      "text": "We represent the Committee and the company, not you personally. We're not your attorney and can't give you legal advice."
+     },
+     {
+      "turn": "T2",
+      "kind": "quote",
+      "text": "This conversation is privileged, but the privilege belongs to the company, and the company may decide to share what you tell us with others, including the government. Any questions?"
+     },
+     {
+      "turn": "T3",
+      "kind": "summary",
+      "text": "The witness said they may want their own counsel involved later, and the interviewer did not respond to it."
+     },
+     {
+      "turn": "T4",
+      "kind": "summary",
+      "text": "The interview moved straight to substance without explaining ground rules on speculation, estimates, or clarification."
+     },
+     {
+      "turn": "T150",
+      "kind": "quote",
+      "text": "Is there anything I haven't asked about that you think the Committee should know?"
+     },
+     {
+      "turn": "T158",
+      "kind": "quote",
+      "text": "Please keep any documents related to this, and don't discuss this interview with anyone."
+     }
+    ]
+   },
+   {
+    "name": "Question Technique",
+    "points": 25,
+    "total": 20.5,
+    "counted": true,
+    "skills": [
+     {
+      "name": "Narrative Development",
+      "description": "Lets the witness walk through what happened.",
+      "max_marks": 7,
+      "rating": 4,
+      "marks": 7.0,
+      "reason": "Open invitations such as T12 'Tell me everything you remember' and T46 were used at each major topic, letting the witness walk through events before narrowing."
+     },
+     {
+      "name": "Funneling",
+      "description": "Moves in a sensible order from general to specific questions.",
+      "max_marks": 7,
+      "rating": 3,
+      "marks": 5.25,
+      "reason": "Questions move from general to specific, for example from the LJM2 controls at T46 to a specific deal at T48 and the Raptor I approval sheet at T50-T54."
+     },
+     {
+      "name": "Clarity",
+      "description": "Asks clear questions and avoids compound, ambiguous, or legalistic questions.",
+      "max_marks": 4,
+      "rating": 3,
+      "marks": 3.0,
+      "reason": "Most questions are clear and single-barreled, such as T80 and T82, though a few carry more than one point, such as T136."
+     },
+     {
+      "name": "Professionalism",
+      "description": "Stays neutral, polite and in control.",
+      "max_marks": 2,
+      "rating": 3,
+      "marks": 1.5,
+      "reason": "The interviewer stayed polite and neutral throughout, for example 'Help me understand how those fit together' at T136, and kept control of the sequence."
+     },
+     {
+      "name": "Adaptability",
+      "description": "Changes technique based on the witness's answers rather than staying only with the outline.",
+      "max_marks": 5,
+      "rating": 3,
+      "marks": 3.75,
+      "reason": "The interviewer followed up on the Foundation's investment (T69-T70), then showed documents when the witness deferred to them, and pivoted to the Raptor returns and the Chewco note, departing from a fixed path."
+     }
+    ],
+    "moments": [
+     {
+      "turn": "T12",
+      "kind": "quote",
+      "text": "Tell me everything you remember about how LJM1 came about in 1999."
+     },
+     {
+      "turn": "T46",
+      "kind": "quote",
+      "text": "Tell me everything you remember about the controls put in place when the Board approved LJM2 in October 1999."
+     },
+     {
+      "turn": "T48",
+      "kind": "quote",
+      "text": "How did those reviews work in practice? Take a specific deal."
+     },
+     {
+      "turn": "T50",
+      "kind": "quote",
+      "text": "Take Raptor I. What did Mr. Causey and Mr. Buy actually review before they signed its approval sheet?"
+     },
+     {
+      "turn": "T116",
+      "kind": "quote",
+      "text": "Help me understand the difference."
+     },
+     {
+      "turn": "T136",
+      "kind": "quote",
+      "text": "Help me understand how those fit together."
+     }
+    ]
+   },
+   {
+    "name": "Fact Development, Source Identification, & Credibility Testing",
+    "points": 40,
+    "total": 31.0,
+    "counted": true,
+    "skills": [
+     {
+      "name": "Ensures Credibility",
+      "description": "Recognizes and follows up on incomplete, evasive, or inconsistent answers.",
+      "max_marks": 8,
+      "rating": 3,
+      "marks": 6.0,
+      "reason": "The interviewer followed up on evasive answers at T36-T38, T84-T89, and T136, but let 'I may have mentioned it to him' at T97 and the 'Michael negotiated hard' answer at T131 pass without pursuit."
+     },
+     {
+      "name": "Material Facts",
+      "description": "Identifies the who, what, when, and how.",
+      "max_marks": 9,
+      "rating": 3,
+      "marks": 6.75,
+      "reason": "The interviewer asked who, what, when, and how for the Chewco manager, the Southampton terms, the Glisan invitation, and the Raptor approvals, though some answers stayed vague."
+     },
+     {
+      "name": "Memory Refreshing",
+      "description": "Tries other ways when the witness can't remember.",
+      "max_marks": 3,
+      "rating": 3,
+      "marks": 2.25,
+      "reason": "Documents were used to refresh memory at T72, T98, and T132 after the witness deferred. However, when the witness said 'I'd have to look at the sheet' at T53 and 'I'd have to check' at T69, the approval sheets and foundation records were not put to them."
+     },
+     {
+      "name": "Establishes Knowledge",
+      "description": "Separates what the witness personally knows from speculation, secondhand information, or inferences.",
+      "max_marks": 4,
+      "rating": 2,
+      "marks": 2.0,
+      "reason": "Some attempts were made, such as asking who decided at T104 and separating 'informed' from 'negotiating' at T136-T137, but the interviewer did not ask how the witness knew secondhand points such as Skilling telling the Board (T41) or McMahon's role (T125)."
+     },
+     {
+      "name": "Other Sources",
+      "description": "Identifies additional witnesses.",
+      "max_marks": 3,
+      "rating": 3,
+      "marks": 2.25,
+      "reason": "T152 asked who else to speak with, which produced Causey, Buy, Glisan, Kopper, Andersen, and V&E."
+     },
+     {
+      "name": "Other Evidence",
+      "description": "Identifies other documents such as communications, reports, notes, or other relevant records.",
+      "max_marks": 3,
+      "rating": 3,
+      "marks": 2.25,
+      "reason": "T154 asked about documents and T156 asked about personal notes and emails, though communications and payment records were not specifically raised."
+     },
+     {
+      "name": "Tests Certainty",
+      "description": "Examines how certain the witness is about their memory or a fact.",
+      "max_marks": 2,
+      "rating": 3,
+      "marks": 1.5,
+      "reason": "The interviewer pushed for an approximate figure at T62 and T80 and pressed on the 'high teens' answer, but accepted 'Something modest' at T127 and 'I don't recall it coming up' at T45 without testing them."
+     },
+     {
+      "name": "Follow-Up",
+      "description": "Recognizes material responses and follows up on them.",
+      "max_marks": 8,
+      "rating": 4,
+      "marks": 8.0,
+      "reason": "Material responses were followed up consistently, including the Foundation's investment (T70-T96), the LJM2 returns (T100-T105), the 17.95% figure (T116-T119), and the Chewco note (T132-T137)."
+     }
+    ],
+    "moments": [
+     {
+      "turn": "T36",
+      "kind": "quote",
+      "text": "Why Mr. Kopper rather than you?"
+     },
+     {
+      "turn": "T38",
+      "kind": "quote",
+      "text": "What were those considerations?"
+     },
+     {
+      "turn": "T62",
+      "kind": "quote",
+      "text": "Approximately, then. Were they above or below the 30 percent the Board was shown?"
+     },
+     {
+      "turn": "T80",
+      "kind": "quote",
+      "text": "Our information is that on May 1, 2000, about six weeks after it invested, the Foundation received roughly $4.5 million on its $25,000. Is that accurate?"
+     },
+     {
+      "turn": "T85",
+      "kind": "quote",
+      "text": "My wife and I."
+     },
+     {
+      "turn": "T97",
+      "kind": "summary",
+      "text": "Asked who invited Mr. Glisan to invest, the witness said 'I may have mentioned it to him,' and the interviewer did not pursue it."
+     },
+     {
+      "turn": "T41",
+      "kind": "summary",
+      "text": "The witness said Skilling approved Chewco and 'I believe he told the Board,' and the interviewer did not ask how the witness knew."
+     },
+     {
+      "turn": "T152",
+      "kind": "quote",
+      "text": "Who else should we speak with to understand these transactions?"
+     },
+     {
+      "turn": "T154",
+      "kind": "quote",
+      "text": "What documents should we look at?"
+     },
+     {
+      "turn": "T156",
+      "kind": "quote",
+      "text": "Do you have any personal files, notes, or emails about LJM, Chewco, or Southampton?"
+     },
+     {
+      "turn": "T136",
+      "kind": "summary",
+      "text": "The interviewer confronted the witness's statement that they stayed out of the buyout with the 'Andy' note, and the witness answered that being informed is not the same as negotiating."
+     }
+    ]
+   },
+   {
+    "name": "Document Use",
+    "points": 15,
+    "total": 12.25,
+    "counted": true,
+    "skills": [
+     {
+      "name": "Effective Selection",
+      "description": "Selects and contextualizes documents effectively, and properly authenticates the document.",
+      "max_marks": 5,
+      "rating": 3,
+      "marks": 3.75,
+      "reason": "Documents were selected for the right points and identified by date and source, such as the March 20, 2000 Southampton agreement at T72, but the witness was not asked to authenticate the handwritten note beyond its description."
+     },
+     {
+      "name": "Narrative",
+      "description": "Gets the witness's story first, before using conflicting evidence.",
+      "max_marks": 5,
+      "rating": 3,
+      "marks": 3.75,
+      "reason": "The witness's story was usually obtained before documents were introduced, for example asking about the Foundation's investments at T70 before showing the agreement at T72, and about Chewco at T32-T46 before showing the note at T132."
+     },
+     {
+      "name": "Accuracy",
+      "description": "Describes the document accurately.",
+      "max_marks": 2,
+      "rating": 4,
+      "marks": 2.0,
+      "reason": "Descriptions were accurate, for example the $25,000 contribution at T74, the roughly $4.5 million return at T80, the 193/278/2,500 percent figures at T100, and the $10.5 million note at T132."
+     },
+     {
+      "name": "Avoid Initial Conclusion",
+      "description": "Separates the document from inferences or conclusions, unless the witness takes an unreasonable stance.",
+      "max_marks": 1,
+      "rating": 3,
+      "marks": 0.75,
+      "reason": "Questions were largely neutral, such as 'Help me understand' at T116 and T136, though 'How does a $4.5 million return fit with that?' at T82 comes close to implying a conclusion."
+     },
+     {
+      "name": "Fairness",
+      "description": "Provides the witness with a fair opportunity to explain any inconsistencies or disagreements with the document.",
+      "max_marks": 2,
+      "rating": 4,
+      "marks": 2.0,
+      "reason": "The witness was given room to explain inconsistencies at T82-T83, T102-T105, T116-T117, and T136-T137 before the interviewer moved on."
+     }
+    ],
+    "moments": [
+     {
+      "turn": "T70",
+      "kind": "summary",
+      "text": "The interviewer asked what investments connected to LJM1 the foundation made before showing any document."
+     },
+     {
+      "turn": "T72",
+      "kind": "quote",
+      "text": "I'd like to show you the Southampton Place partnership agreement, dated March 20, 2000."
+     },
+     {
+      "turn": "T74",
+      "kind": "quote",
+      "text": "It lists a $25,000 contribution from the Fastow Family Foundation."
+     },
+     {
+      "turn": "T98",
+      "kind": "quote",
+      "text": "Here is LJM2's October 2000 report to its investors."
+     },
+     {
+      "turn": "T100",
+      "kind": "quote",
+      "text": "It lists returns of 193, 278, and 2,500 percent on the Raptor transactions, against the roughly 30 percent the Board was shown. Are those the figures?"
+     },
+     {
+      "turn": "T102",
+      "kind": "quote",
+      "text": "Why weren't those returns reported to the Board?"
+     },
+     {
+      "turn": "T132",
+      "kind": "quote",
+      "text": "Here is a handwritten note from Mr. Kopper, addressed to \"Andy,\" that refers to $10.5 million for the Chewco buyout."
+     },
+     {
+      "turn": "T82",
+      "kind": "quote",
+      "text": "How does a $4.5 million return fit with that?"
+     }
+    ]
+   }
+  ],
+  "big_mistakes": [],
+  "missed_opportunities": [
+   "T3: The witness raised wanting their own counsel. The interviewer did not restate that the company, not the witness, is the client, or that the witness should consult their own lawyer before continuing, and moved on to substance at T4.",
+   "T97: The witness admitted only 'I may have mentioned it to him' about inviting Glisan to Southampton, and the interviewer did not press on what was said, when, or whether Glisan was told about the Enron-LJM connection, even though the witness was the senior person involved."
+  ],
+  "tips": [
+   "Before we start the substance, what is your understanding of whether I can give you personal legal advice, and would you like to speak with your own lawyer before we go further?",
+   "How do you know the Board was told about Mr. Kopper's role in Chewco, who told you that, and what exactly were you told?"
+  ],
+  "evaluator_errors": [],
+  "category_scores": [
+   {
+    "name": "Upjohn",
+    "score": 100,
+    "weight": 5,
+    "rationale": "At T2, before any substantive question, the interviewer said counsel represents the Committee and the company, not the witness personally, and cannot give legal advice."
+   },
+   {
+    "name": "Privilege",
+    "score": 100,
+    "weight": 4,
+    "rationale": "T2 explains that the privilege belongs to the company and that the company may share what the witness says, including with the government."
+   },
+   {
+    "name": "Relationship",
+    "score": 25,
+    "weight": 4,
+    "rationale": "The tone is professional, but the interviewer never explained how the interview would proceed, asked for complete answers, or set ground rules on speculation, estimates, or distinguishing recollection from uncertainty."
+   },
+   {
+    "name": "Confirmation",
+    "score": 50,
+    "weight": 2,
+    "rationale": "The interviewer asked 'Any questions?' at T2, but when the witness said at T3 that they may want their own counsel, the interviewer did not address it or confirm understanding of the no-personal-representation point."
+   },
+   {
+    "name": "Closing",
+    "score": 75,
+    "weight": 5,
+    "rationale": "T150 asks whether there is anything else, T152-T157 cover other witnesses and documents, and T158 gives a confidentiality reminder and a request to keep documents."
+   },
+   {
+    "name": "Narrative Development",
+    "score": 100,
+    "weight": 7,
+    "rationale": "Open invitations such as T12 'Tell me everything you remember' and T46 were used at each major topic, letting the witness walk through events before narrowing."
+   },
+   {
+    "name": "Funneling",
+    "score": 75,
+    "weight": 7,
+    "rationale": "Questions move from general to specific, for example from the LJM2 controls at T46 to a specific deal at T48 and the Raptor I approval sheet at T50-T54."
+   },
+   {
+    "name": "Clarity",
+    "score": 75,
+    "weight": 4,
+    "rationale": "Most questions are clear and single-barreled, such as T80 and T82, though a few carry more than one point, such as T136."
+   },
+   {
+    "name": "Professionalism",
+    "score": 75,
+    "weight": 2,
+    "rationale": "The interviewer stayed polite and neutral throughout, for example 'Help me understand how those fit together' at T136, and kept control of the sequence."
+   },
+   {
+    "name": "Adaptability",
+    "score": 75,
+    "weight": 5,
+    "rationale": "The interviewer followed up on the Foundation's investment (T69-T70), then showed documents when the witness deferred to them, and pivoted to the Raptor returns and the Chewco note, departing from a fixed path."
+   },
+   {
+    "name": "Ensures Credibility",
+    "score": 75,
+    "weight": 8,
+    "rationale": "The interviewer followed up on evasive answers at T36-T38, T84-T89, and T136, but let 'I may have mentioned it to him' at T97 and the 'Michael negotiated hard' answer at T131 pass without pursuit."
+   },
+   {
+    "name": "Material Facts",
+    "score": 75,
+    "weight": 9,
+    "rationale": "The interviewer asked who, what, when, and how for the Chewco manager, the Southampton terms, the Glisan invitation, and the Raptor approvals, though some answers stayed vague."
+   },
+   {
+    "name": "Memory Refreshing",
+    "score": 75,
+    "weight": 3,
+    "rationale": "Documents were used to refresh memory at T72, T98, and T132 after the witness deferred. However, when the witness said 'I'd have to look at the sheet' at T53 and 'I'd have to check' at T69, the approval sheets and foundation records were not put to them."
+   },
+   {
+    "name": "Establishes Knowledge",
+    "score": 50,
+    "weight": 4,
+    "rationale": "Some attempts were made, such as asking who decided at T104 and separating 'informed' from 'negotiating' at T136-T137, but the interviewer did not ask how the witness knew secondhand points such as Skilling telling the Board (T41) or McMahon's role (T125)."
+   },
+   {
+    "name": "Other Sources",
+    "score": 75,
+    "weight": 3,
+    "rationale": "T152 asked who else to speak with, which produced Causey, Buy, Glisan, Kopper, Andersen, and V&E."
+   },
+   {
+    "name": "Other Evidence",
+    "score": 75,
+    "weight": 3,
+    "rationale": "T154 asked about documents and T156 asked about personal notes and emails, though communications and payment records were not specifically raised."
+   },
+   {
+    "name": "Tests Certainty",
+    "score": 75,
+    "weight": 2,
+    "rationale": "The interviewer pushed for an approximate figure at T62 and T80 and pressed on the 'high teens' answer, but accepted 'Something modest' at T127 and 'I don't recall it coming up' at T45 without testing them."
+   },
+   {
+    "name": "Follow-Up",
+    "score": 100,
+    "weight": 8,
+    "rationale": "Material responses were followed up consistently, including the Foundation's investment (T70-T96), the LJM2 returns (T100-T105), the 17.95% figure (T116-T119), and the Chewco note (T132-T137)."
+   },
+   {
+    "name": "Effective Selection",
+    "score": 75,
+    "weight": 5,
+    "rationale": "Documents were selected for the right points and identified by date and source, such as the March 20, 2000 Southampton agreement at T72, but the witness was not asked to authenticate the handwritten note beyond its description."
+   },
+   {
+    "name": "Narrative",
+    "score": 75,
+    "weight": 5,
+    "rationale": "The witness's story was usually obtained before documents were introduced, for example asking about the Foundation's investments at T70 before showing the agreement at T72, and about Chewco at T32-T46 before showing the note at T132."
+   },
+   {
+    "name": "Accuracy",
+    "score": 100,
+    "weight": 2,
+    "rationale": "Descriptions were accurate, for example the $25,000 contribution at T74, the roughly $4.5 million return at T80, the 193/278/2,500 percent figures at T100, and the $10.5 million note at T132."
+   },
+   {
+    "name": "Avoid Initial Conclusion",
+    "score": 75,
+    "weight": 1,
+    "rationale": "Questions were largely neutral, such as 'Help me understand' at T116 and T136, though 'How does a $4.5 million return fit with that?' at T82 comes close to implying a conclusion."
+   },
+   {
+    "name": "Fairness",
+    "score": 100,
+    "weight": 2,
+    "rationale": "The witness was given room to explain inconsistencies at T82-T83, T102-T105, T116-T117, and T136-T137 before the interviewer moved on."
+   }
+  ],
+  "recommended_questions": [
+   "Before we start the substance, what is your understanding of whether I can give you personal legal advice, and would you like to speak with your own lawyer before we go further?",
+   "How do you know the Board was told about Mr. Kopper's role in Chewco, who told you that, and what exactly were you told?"
+  ],
+  "strengths": [],
+  "weaknesses": [],
+  "coaching_recommendations": []
+ },
+ "grader_output": {
+  "result": "SCORED",
+  "result_reason": "",
+  "skills": [
+   {
+    "name": "Upjohn",
+    "rating": 4,
+    "reason": "At T2, before any substantive question, the interviewer said counsel represents the Committee and the company, not the witness personally, and cannot give legal advice."
+   },
+   {
+    "name": "Privilege",
+    "rating": 4,
+    "reason": "T2 explains that the privilege belongs to the company and that the company may share what the witness says, including with the government."
+   },
+   {
+    "name": "Relationship",
+    "rating": 1,
+    "reason": "The tone is professional, but the interviewer never explained how the interview would proceed, asked for complete answers, or set ground rules on speculation, estimates, or distinguishing recollection from uncertainty."
+   },
+   {
+    "name": "Confirmation",
+    "rating": 2,
+    "reason": "The interviewer asked 'Any questions?' at T2, but when the witness said at T3 that they may want their own counsel, the interviewer did not address it or confirm understanding of the no-personal-representation point."
+   },
+   {
+    "name": "Closing",
+    "rating": 3,
+    "reason": "T150 asks whether there is anything else, T152-T157 cover other witnesses and documents, and T158 gives a confidentiality reminder and a request to keep documents."
+   },
+   {
+    "name": "Narrative Development",
+    "rating": 4,
+    "reason": "Open invitations such as T12 'Tell me everything you remember' and T46 were used at each major topic, letting the witness walk through events before narrowing."
+   },
+   {
+    "name": "Funneling",
+    "rating": 3,
+    "reason": "Questions move from general to specific, for example from the LJM2 controls at T46 to a specific deal at T48 and the Raptor I approval sheet at T50-T54."
+   },
+   {
+    "name": "Clarity",
+    "rating": 3,
+    "reason": "Most questions are clear and single-barreled, such as T80 and T82, though a few carry more than one point, such as T136."
+   },
+   {
+    "name": "Professionalism",
+    "rating": 3,
+    "reason": "The interviewer stayed polite and neutral throughout, for example 'Help me understand how those fit together' at T136, and kept control of the sequence."
+   },
+   {
+    "name": "Adaptability",
+    "rating": 3,
+    "reason": "The interviewer followed up on the Foundation's investment (T69-T70), then showed documents when the witness deferred to them, and pivoted to the Raptor returns and the Chewco note, departing from a fixed path."
+   },
+   {
+    "name": "Ensures Credibility",
+    "rating": 3,
+    "reason": "The interviewer followed up on evasive answers at T36-T38, T84-T89, and T136, but let 'I may have mentioned it to him' at T97 and the 'Michael negotiated hard' answer at T131 pass without pursuit."
+   },
+   {
+    "name": "Material Facts",
+    "rating": 3,
+    "reason": "The interviewer asked who, what, when, and how for the Chewco manager, the Southampton terms, the Glisan invitation, and the Raptor approvals, though some answers stayed vague."
+   },
+   {
+    "name": "Memory Refreshing",
+    "rating": 3,
+    "reason": "Documents were used to refresh memory at T72, T98, and T132 after the witness deferred. However, when the witness said 'I'd have to look at the sheet' at T53 and 'I'd have to check' at T69, the approval sheets and foundation records were not put to them."
+   },
+   {
+    "name": "Establishes Knowledge",
+    "rating": 2,
+    "reason": "Some attempts were made, such as asking who decided at T104 and separating 'informed' from 'negotiating' at T136-T137, but the interviewer did not ask how the witness knew secondhand points such as Skilling telling the Board (T41) or McMahon's role (T125)."
+   },
+   {
+    "name": "Other Sources",
+    "rating": 3,
+    "reason": "T152 asked who else to speak with, which produced Causey, Buy, Glisan, Kopper, Andersen, and V&E."
+   },
+   {
+    "name": "Other Evidence",
+    "rating": 3,
+    "reason": "T154 asked about documents and T156 asked about personal notes and emails, though communications and payment records were not specifically raised."
+   },
+   {
+    "name": "Tests Certainty",
+    "rating": 3,
+    "reason": "The interviewer pushed for an approximate figure at T62 and T80 and pressed on the 'high teens' answer, but accepted 'Something modest' at T127 and 'I don't recall it coming up' at T45 without testing them."
+   },
+   {
+    "name": "Follow-Up",
+    "rating": 4,
+    "reason": "Material responses were followed up consistently, including the Foundation's investment (T70-T96), the LJM2 returns (T100-T105), the 17.95% figure (T116-T119), and the Chewco note (T132-T137)."
+   },
+   {
+    "name": "Effective Selection",
+    "rating": 3,
+    "reason": "Documents were selected for the right points and identified by date and source, such as the March 20, 2000 Southampton agreement at T72, but the witness was not asked to authenticate the handwritten note beyond its description."
+   },
+   {
+    "name": "Narrative",
+    "rating": 3,
+    "reason": "The witness's story was usually obtained before documents were introduced, for example asking about the Foundation's investments at T70 before showing the agreement at T72, and about Chewco at T32-T46 before showing the note at T132."
+   },
+   {
+    "name": "Accuracy",
+    "rating": 4,
+    "reason": "Descriptions were accurate, for example the $25,000 contribution at T74, the roughly $4.5 million return at T80, the 193/278/2,500 percent figures at T100, and the $10.5 million note at T132."
+   },
+   {
+    "name": "Avoid Initial Conclusion",
+    "rating": 3,
+    "reason": "Questions were largely neutral, such as 'Help me understand' at T116 and T136, though 'How does a $4.5 million return fit with that?' at T82 comes close to implying a conclusion."
+   },
+   {
+    "name": "Fairness",
+    "rating": 4,
+    "reason": "The witness was given room to explain inconsistencies at T82-T83, T102-T105, T116-T117, and T136-T137 before the interviewer moved on."
+   }
+  ],
+  "area_evidence": [
+   {
+    "area": "Interview Framing, Rapport Building, & Closing",
+    "moments": [
+     {
+      "turn": "T2",
+      "kind": "quote",
+      "text": "We represent the Committee and the company, not you personally. We're not your attorney and can't give you legal advice."
+     },
+     {
+      "turn": "T2",
+      "kind": "quote",
+      "text": "This conversation is privileged, but the privilege belongs to the company, and the company may decide to share what you tell us with others, including the government. Any questions?"
+     },
+     {
+      "turn": "T3",
+      "kind": "summary",
+      "text": "The witness said they may want their own counsel involved later, and the interviewer did not respond to it."
+     },
+     {
+      "turn": "T4",
+      "kind": "summary",
+      "text": "The interview moved straight to substance without explaining ground rules on speculation, estimates, or clarification."
+     },
+     {
+      "turn": "T150",
+      "kind": "quote",
+      "text": "Is there anything I haven't asked about that you think the Committee should know?"
+     },
+     {
+      "turn": "T158",
+      "kind": "quote",
+      "text": "Please keep any documents related to this, and don't discuss this interview with anyone."
+     }
+    ]
+   },
+   {
+    "area": "Question Technique",
+    "moments": [
+     {
+      "turn": "T12",
+      "kind": "quote",
+      "text": "Tell me everything you remember about how LJM1 came about in 1999."
+     },
+     {
+      "turn": "T46",
+      "kind": "quote",
+      "text": "Tell me everything you remember about the controls put in place when the Board approved LJM2 in October 1999."
+     },
+     {
+      "turn": "T48",
+      "kind": "quote",
+      "text": "How did those reviews work in practice? Take a specific deal."
+     },
+     {
+      "turn": "T50",
+      "kind": "quote",
+      "text": "Take Raptor I. What did Mr. Causey and Mr. Buy actually review before they signed its approval sheet?"
+     },
+     {
+      "turn": "T116",
+      "kind": "quote",
+      "text": "Help me understand the difference."
+     },
+     {
+      "turn": "T136",
+      "kind": "quote",
+      "text": "Help me understand how those fit together."
+     }
+    ]
+   },
+   {
+    "area": "Fact Development, Source Identification, & Credibility Testing",
+    "moments": [
+     {
+      "turn": "T36",
+      "kind": "quote",
+      "text": "Why Mr. Kopper rather than you?"
+     },
+     {
+      "turn": "T38",
+      "kind": "quote",
+      "text": "What were those considerations?"
+     },
+     {
+      "turn": "T62",
+      "kind": "quote",
+      "text": "Approximately, then. Were they above or below the 30 percent the Board was shown?"
+     },
+     {
+      "turn": "T80",
+      "kind": "quote",
+      "text": "Our information is that on May 1, 2000, about six weeks after it invested, the Foundation received roughly $4.5 million on its $25,000. Is that accurate?"
+     },
+     {
+      "turn": "T85",
+      "kind": "quote",
+      "text": "My wife and I."
+     },
+     {
+      "turn": "T97",
+      "kind": "summary",
+      "text": "Asked who invited Mr. Glisan to invest, the witness said 'I may have mentioned it to him,' and the interviewer did not pursue it."
+     },
+     {
+      "turn": "T41",
+      "kind": "summary",
+      "text": "The witness said Skilling approved Chewco and 'I believe he told the Board,' and the interviewer did not ask how the witness knew."
+     },
+     {
+      "turn": "T152",
+      "kind": "quote",
+      "text": "Who else should we speak with to understand these transactions?"
+     },
+     {
+      "turn": "T154",
+      "kind": "quote",
+      "text": "What documents should we look at?"
+     },
+     {
+      "turn": "T156",
+      "kind": "quote",
+      "text": "Do you have any personal files, notes, or emails about LJM, Chewco, or Southampton?"
+     },
+     {
+      "turn": "T136",
+      "kind": "summary",
+      "text": "The interviewer confronted the witness's statement that they stayed out of the buyout with the 'Andy' note, and the witness answered that being informed is not the same as negotiating."
+     }
+    ]
+   },
+   {
+    "area": "Document Use",
+    "moments": [
+     {
+      "turn": "T70",
+      "kind": "summary",
+      "text": "The interviewer asked what investments connected to LJM1 the foundation made before showing any document."
+     },
+     {
+      "turn": "T72",
+      "kind": "quote",
+      "text": "I'd like to show you the Southampton Place partnership agreement, dated March 20, 2000."
+     },
+     {
+      "turn": "T74",
+      "kind": "quote",
+      "text": "It lists a $25,000 contribution from the Fastow Family Foundation."
+     },
+     {
+      "turn": "T98",
+      "kind": "quote",
+      "text": "Here is LJM2's October 2000 report to its investors."
+     },
+     {
+      "turn": "T100",
+      "kind": "quote",
+      "text": "It lists returns of 193, 278, and 2,500 percent on the Raptor transactions, against the roughly 30 percent the Board was shown. Are those the figures?"
+     },
+     {
+      "turn": "T102",
+      "kind": "quote",
+      "text": "Why weren't those returns reported to the Board?"
+     },
+     {
+      "turn": "T132",
+      "kind": "quote",
+      "text": "Here is a handwritten note from Mr. Kopper, addressed to \"Andy,\" that refers to $10.5 million for the Chewco buyout."
+     },
+     {
+      "turn": "T82",
+      "kind": "quote",
+      "text": "How does a $4.5 million return fit with that?"
+     }
+    ]
+   }
+  ],
+  "big_mistakes": [],
+  "missed_chances": [
+   {
+    "turn": "T3",
+    "description": "The witness raised wanting their own counsel. The interviewer did not restate that the company, not the witness, is the client, or that the witness should consult their own lawyer before continuing, and moved on to substance at T4."
+   },
+   {
+    "turn": "T97",
+    "description": "The witness admitted only 'I may have mentioned it to him' about inviting Glisan to Southampton, and the interviewer did not press on what was said, when, or whether Glisan was told about the Enron-LJM connection, even though the witness was the senior person involved."
+   }
+  ],
+  "tips": [
+   "Before we start the substance, what is your understanding of whether I can give you personal legal advice, and would you like to speak with your own lawyer before we go further?",
+   "How do you know the Board was told about Mr. Kopper's role in Chewco, who told you that, and what exactly were you told?"
+  ]
+ }
+}
