@@ -27,6 +27,7 @@ from langgraph.types import interrupt
 
 import agents
 import documents
+import grading_v2
 
 PERSONAS_FILE = Path(__file__).parent / "personas.json"
 
@@ -34,6 +35,41 @@ PERSONAS_FILE = Path(__file__).parent / "personas.json"
 def load_personas() -> list[dict]:
     """Personas are config-driven: edit personas.json to add more."""
     return json.loads(PERSONAS_FILE.read_text(encoding="utf-8"))
+
+
+VARIABLES_FILE = Path(__file__).parent / "variables.json"
+
+
+def load_variables() -> dict:
+    """Variable elements and how often they appear: edit variables.json to change them."""
+    return json.loads(VARIABLES_FILE.read_text(encoding="utf-8"))
+
+
+def draw_variables(persona: dict, config: dict, rng: random.Random = random) -> list[dict]:
+    """Pick this interview's variable elements, following the rules in variables.json.
+
+    Some interviews get none (1 - chance_of_any_variable). The rest get between 1 and
+    max_variables elements, drawn from the persona's own variable (if it has one) plus
+    up to max_general_variables of the general ones, each with one option chosen.
+    """
+    rules = config["rules"]
+    if rng.random() >= rules["chance_of_any_variable"]:
+        return []
+    general = config["variables"]
+    has_own = bool(persona.get("variable"))
+    max_general = min(rules["max_general_variables"], len(general))
+    most = min(rules["max_variables"], max_general + has_own)
+    total = rng.randint(1, most)
+    # The persona's own variable is needed when the general ones can't fill the count;
+    # otherwise it's included about half the time.
+    use_own = has_own and (total > max_general or rng.random() < 0.5)
+    picked = []
+    if use_own:
+        picked.append({"name": "Persona variable", "description": persona["variable"]})
+    for v in rng.sample(general, total - use_own):
+        option = rng.choice(v["options"])
+        picked.append({"name": v["name"], "value": option["label"], "description": option["guidance"]})
+    return picked
 
 
 def now() -> str:
@@ -48,6 +84,7 @@ class InterviewState(TypedDict, total=False):
     expert_role: str
     user_outline: str  # case background: the complaint or suspected misconduct
     media: dict  # {"mode": "text"|"voice"|"face", "voice": provider, "voice_id", "face": provider}
+    debug: dict  # debugging mode only: {"persona", "variables", "picks", "twist", "skip_check", "script"}
     models: dict  # model per agent: {"witness", "checker", "criteria", "grader"} -> "provider:name"
 
     # Uploaded documents: {id, name, kind, text, check: {...}, keep, included_chars, trimmed}
@@ -71,9 +108,36 @@ class InterviewState(TypedDict, total=False):
 # Nodes
 # --------------------------------------------------------------------------
 
+def chosen_variables(persona: dict, config: dict, picks: list[dict], twist: bool) -> list[dict]:
+    """Variable elements chosen by hand in debugging mode: picks are [{name, value}]."""
+    out = []
+    if twist and persona.get("variable"):
+        out.append({"name": "Persona variable", "description": persona["variable"]})
+    by_name = {v["name"]: v for v in config["variables"]}
+    for pick in picks:
+        var = by_name.get(pick.get("name"))
+        option = next((o for o in (var or {}).get("options", []) if o["label"] == pick.get("value")), None)
+        if option:
+            out.append({"name": var["name"], "value": option["label"], "description": option["guidance"]})
+    return out
+
+
 def initialize_session(state: InterviewState) -> dict:
-    # Persona is drawn at random and kept hidden from the interviewer until grading.
-    persona = random.choice(load_personas())
+    # Persona and its variable elements are drawn at random and kept hidden from the
+    # interviewer until grading (they travel inside persona_profile). In debugging mode
+    # either can be chosen instead.
+    dbg = state.get("debug") or {}
+    personas = load_personas()
+    persona = dict(next((p for p in personas if p["name"] == dbg.get("persona")), None)
+                   or random.choice(personas))
+    variables = dbg.get("variables", "random")
+    if variables == "none":
+        persona["active_variables"] = []
+    elif variables == "choose":
+        persona["active_variables"] = chosen_variables(persona, load_variables(),
+                                                       dbg.get("picks", []), dbg.get("twist", False))
+    else:
+        persona["active_variables"] = draw_variables(persona, load_variables())
     return {
         "persona_name": persona["name"],
         "persona_profile": persona,
@@ -90,6 +154,11 @@ _rubric_jobs: dict[str, Future] = {}
 
 def verify_documents(state: InterviewState) -> dict:
     docs = state.get("documents", [])
+    if (state.get("debug") or {}).get("skip_check"):
+        skipped = {"relevant": True, "category": "relevant",
+                   "summary": "(Not checked: the document check was skipped for debugging.)",
+                   "reason": "Skipped in debugging mode."}
+        return {"documents": [{**d, "check": skipped} for d in docs]}
     checks = list(_executor.map(
         lambda d: agents.check_document(d, state["expert_name"], state.get("expert_role", ""),
                                         state.get("user_outline", ""), state["models"]["checker"]),
@@ -113,13 +182,23 @@ def review_documents(state: InterviewState) -> dict:
     by_id = {n["id"]: n for n in notes}
     docs = [{**d, **by_id.get(d["id"], {})} for d in docs]
 
-    _rubric_jobs[state["session_id"]] = _executor.submit(
-        agents.create_rubric, state["expert_name"], state.get("user_outline", ""), context,
-        state["models"]["criteria"])
+    # Interviews are graded with rubric v2.2. Debugging mode can ask for the previous
+    # rubric (rubric.json) instead, for comparison; only that one needs the Criteria
+    # agent's look-fors, which it starts on now, in the background.
+    if _uses_previous_rubric(state):
+        _rubric_jobs[state["session_id"]] = _executor.submit(
+            agents.create_rubric, state["expert_name"], state.get("user_outline", ""), context,
+            state["models"]["criteria"])
     return {"documents": docs, "document_context": context, "status": "starting_interview"}
 
 
+def _uses_previous_rubric(state: InterviewState) -> bool:
+    return (state.get("debug") or {}).get("rubric") == "previous"
+
+
 def generate_rubric(state: InterviewState) -> dict:
+    if not _uses_previous_rubric(state):
+        return {"rubric": grading_v2.load_rubric()}
     job = _rubric_jobs.pop(state["session_id"], None)
     try:
         rubric = job.result()  # waits only if the interview was shorter than rubric generation
@@ -145,10 +224,13 @@ def _reply(state: InterviewState, transcript: list) -> dict:
 
 
 def start_interview(state: InterviewState) -> dict:
+    # A debugging script may have loaded a transcript already: pick up from there
+    # instead of generating an opening line.
+    opening = [] if state.get("transcript") else [_reply(state, [])]
     return {
         "interview_started": True,
         "status": "interviewing",
-        "transcript": [_reply(state, [])],
+        "transcript": opening,
     }
 
 
@@ -165,6 +247,12 @@ def expert_response(state: InterviewState) -> dict:
 
 
 def grade_interview(state: InterviewState) -> dict:
+    if not _uses_previous_rubric(state):
+        assessment = grading_v2.grade(
+            state["rubric"], state["transcript"], state["expert_name"],
+            state.get("user_outline", ""), state.get("document_context", ""),
+            state["persona_profile"], state["models"]["grader"])
+        return {"final_assessment": {**assessment, "models": state["models"]}}
     assessment = agents.grade_interview(
         state["rubric"], state["transcript"], state["expert_name"],
         state.get("user_outline", ""), state.get("document_context", ""), state["persona_profile"],

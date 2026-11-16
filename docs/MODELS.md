@@ -18,7 +18,7 @@ Expert Interviewer runs on an AI **model**, the "engine" that checks your docume
 
    Each entry shows its company and a rough cost per interview.
 2. **If a model isn't set up yet**, it's marked "needs setup". When you pick it, the page shows step-by-step instructions for exactly what's missing, such as getting an API key, adding it to the settings file, installing an add-on, or downloading a local model. After following them, click **Check again**. A newly saved API key works without restarting the app.
-3. **Optional: use different models for different jobs.** Open **Use different models for different jobs** to pick a separate model for the witness, the document checker, the grading notes, and the grader. A good money-saver is a cheap model for the witness, which answers every question, and a strong one for the grader.
+3. **Optional: use different models for different jobs.** Open **Use different models for different jobs** to pick a separate model for the witness, the document checker, the grading notes (used only with the previous rubric on the debug page), and the grader. A good money-saver is a cheap model for the witness, which answers every question, and a strong one for the grader.
 4. Click **Check documents & start interview.** The button is disabled until every chosen model is set up.
 
 The results page shows which models played the witness and did the grading.

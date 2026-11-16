@@ -1,0 +1,310 @@
+{
+  "name": "Expert Interviewer rubric",
+  "version": "2.2",
+  "source_document": "Final Rubric Summary (DC Edits) (4937-7971-4272.v1).docx, with Dakota's tracked changes accepted",
+  "purpose": "Score the interviewer on whether they conducted an interview that developed reliable, usable information, properly managed the witness, and facilitated the interview in accordance to their ethical obligations.",
+  "total_points": 100,
+  "rating_scale": {
+    "0": "Missing: no meaningful demonstration despite a fair opportunity.",
+    "1": "Weak: recognizes the issue minimally or attempts the skill ineffectively.",
+    "2": "Adequate: demonstrates the basic skill, but incompletely or inconsistently.",
+    "3": "Strong: uses the skill effectively in the relevant opportunities.",
+    "4": "Excellent: uses the skill consistently, strategically, and adaptively."
+  },
+  "scoring_method": "Compare what the person actually said in the interview with each skill's description and the 0-4 rating scale. The rating decides how much of that skill's marks the person gets: marks = skill marks x rating / 4 (4 gets all of it, 2 gets half, 0 gets none).",
+  "areas": [
+    {
+      "name": "Interview Framing, Rapport Building, & Closing",
+      "points": 20,
+      "checks": "Did they say \"I work for the company, not for you\" at the start, and close properly at the end?",
+      "skills": [
+        {
+          "name": "Upjohn",
+          "marks": 5,
+          "description": "Properly identifies representation and role with the Company, and that they cannot give the employee legal advice. This must always be part of the very beginning of the interview."
+        },
+        {
+          "name": "Privilege",
+          "marks": 4,
+          "description": "Properly explains that the Company controls the privilege and determines how it is shared."
+        },
+        {
+          "name": "Relationship",
+          "marks": 4,
+          "description": "Establishes rapport and interview expectations. This includes: establishes an appropriate professional tone; explains how the interview will proceed; encourages complete answers; instructs the witness that they can speculate, they just need to say when they do; invites the witness to distinguish between recollection and uncertainty."
+        },
+        {
+          "name": "Confirmation",
+          "marks": 2,
+          "description": "Checks the witness understood the Upjohn warning and answers their questions, if any."
+        },
+        {
+          "name": "Closing",
+          "marks": 5,
+          "description": "Closes by confirming there is \"nothing else\", next steps, a confidentiality reminder, and a reminder to keep records."
+        }
+      ]
+    },
+    {
+      "name": "Question Technique",
+      "points": 25,
+      "checks": "Did they let the witness talk first and ask clear questions?",
+      "skills": [
+        {
+          "name": "Narrative Development",
+          "marks": 7,
+          "description": "Lets the witness walk through what happened."
+        },
+        {
+          "name": "Funneling",
+          "marks": 7,
+          "description": "Moves in a sensible order from general to specific questions."
+        },
+        {
+          "name": "Clarity",
+          "marks": 4,
+          "description": "Asks clear questions and avoids compound, ambiguous, or legalistic questions."
+        },
+        {
+          "name": "Professionalism",
+          "marks": 2,
+          "description": "Stays neutral, polite and in control."
+        },
+        {
+          "name": "Adaptability",
+          "marks": 5,
+          "description": "Changes technique based on the witness's answers rather than staying only with the outline."
+        }
+      ]
+    },
+    {
+      "name": "Fact Development, Source Identification, & Credibility Testing",
+      "points": 40,
+      "checks": "Did they ask follow-up questions when an answer was vague?",
+      "skills": [
+        {
+          "name": "Ensures Credibility",
+          "marks": 8,
+          "description": "Recognizes and follows up on incomplete, evasive, or inconsistent answers."
+        },
+        {
+          "name": "Material Facts",
+          "marks": 9,
+          "description": "Identifies the who, what, when, and how."
+        },
+        {
+          "name": "Memory Refreshing",
+          "marks": 3,
+          "description": "Tries other ways when the witness can't remember."
+        },
+        {
+          "name": "Establishes Knowledge",
+          "marks": 4,
+          "description": "Separates what the witness personally knows from speculation, secondhand information, or inferences."
+        },
+        {
+          "name": "Other Sources",
+          "marks": 3,
+          "description": "Identifies additional witnesses."
+        },
+        {
+          "name": "Other Evidence",
+          "marks": 3,
+          "description": "Identifies other documents such as communications, reports, notes, or other relevant records."
+        },
+        {
+          "name": "Tests Certainty",
+          "marks": 2,
+          "description": "Examines how certain the witness is about their memory or a fact."
+        },
+        {
+          "name": "Follow-Up",
+          "marks": 8,
+          "description": "Recognizes material responses and follows up on them."
+        }
+      ]
+    },
+    {
+      "name": "Document Use",
+      "points": 15,
+      "checks": "Did they show the documents fairly and let the witness explain?",
+      "documents_required": true,
+      "skills": [
+        {
+          "name": "Effective Selection",
+          "marks": 5,
+          "description": "Selects and contextualizes documents effectively, and properly authenticates the document."
+        },
+        {
+          "name": "Narrative",
+          "marks": 5,
+          "description": "Gets the witness's story first, before using conflicting evidence."
+        },
+        {
+          "name": "Accuracy",
+          "marks": 2,
+          "description": "Describes the document accurately."
+        },
+        {
+          "name": "Avoid Initial Conclusion",
+          "marks": 1,
+          "description": "Separates the document from inferences or conclusions, unless the witness takes an unreasonable stance."
+        },
+        {
+          "name": "Fairness",
+          "marks": 2,
+          "description": "Provides the witness with a fair opportunity to explain any inconsistencies or disagreements with the document."
+        }
+      ],
+      "no_document_rule": "If no document was provided, these marks are not taken away: the person receives them in full."
+    }
+  ],
+  "result_bands": [
+    {
+      "min": 90,
+      "max": 100,
+      "label": "Excellent"
+    },
+    {
+      "min": 80,
+      "max": 89,
+      "label": "Good"
+    },
+    {
+      "min": 65,
+      "max": 79,
+      "label": "Needs coaching"
+    },
+    {
+      "min": 0,
+      "max": 64,
+      "label": "Needs practice"
+    }
+  ],
+  "fair_scoring_rules": [
+    "The witness's behaviour never influences the scoring. An easy witness doesn't mean a high score, and a hard one doesn't mean a low score.",
+    "Every score needs proof from what was actually said in the interview.",
+    "If no document was provided, the tool doesn't take away marks. If a document was provided and the person didn't use it, they lose marks.",
+    "Big mistakes cap the score."
+  ],
+  "score_caps": [
+    {
+      "flag": "MISSING_UPJOHN_WARNING",
+      "mistake": "No warning about whom the lawyer represents before the questions start and/or fails to explain privilege.",
+      "max_score": 59
+    },
+    {
+      "flag": "FALSE_REPRESENTATION",
+      "mistake": "Telling the employee the lawyer represents them, or that they control privilege.",
+      "max_score": 49
+    },
+    {
+      "flag": "DOCUMENT_MISSTATEMENT",
+      "mistake": "Changing or misquoting what a document says.",
+      "max_score": 49
+    }
+  ],
+  "score_caps_rule": "These caps only apply when there is clear proof in the interview or the document.",
+  "upjohn_warning": "The lawyer should explain: the company is the client; the lawyer is not the employee's personal lawyer; the company controls privilege and may share what is said; and the employee can ask questions. It must always be part of the very beginning of the interview. The exact wording and timing must be approved by Dakota.",
+  "validity_conditions": [
+    "The whole interview is available, from start to finish.",
+    "The case gave the lawyer a relevant document and a fair chance to use it.",
+    "There was a gap or a challenge in the witness's story to work with.",
+    "The witness had a consistent hidden personality and a fixed set of case facts."
+  ],
+  "results": [
+    {
+      "status": "SCORED",
+      "label": "Scored",
+      "when": "Everything needed was there; a normal score is given."
+    },
+    {
+      "status": "INCOMPLETE",
+      "label": "Incomplete",
+      "when": "The tool failed to give the lawyer a document, a contradiction or a dodge to work with. This is not a zero for the lawyer."
+    },
+    {
+      "status": "INSUFFICIENT_EVIDENCE",
+      "label": "Not enough evidence",
+      "when": "The interview is cut off, the document can't be opened, or the case facts contradict each other."
+    },
+    {
+      "status": "SAFETY_STOP",
+      "label": "Safety stop",
+      "when": "Someone asks for real legal advice, research on a real person, or uses real client files. The tool should stop and send them to a supervisor."
+    }
+  ],
+  "score_report": [
+    "The result: Scored, Incomplete, Not enough evidence or Safety stop.",
+    "The rating and marks for each skill, the total for each area and the overall score.",
+    "Any big mistakes found, and the final score after any cap.",
+    "The exact moments in the interview that back up each area's score, saying which are direct quotes and which are summaries.",
+    "Up to two important missed chances, only if they really happened.",
+    "Two practical tips, written as better questions to ask next time."
+  ],
+  "witness_types": [
+    {
+      "type": "The C-Suite",
+      "behaves": "Self-assured senior executive; answers with authority, sometimes beyond what they actually know; bristles when challenged and minimizes anything pointing to their own wrongdoing",
+      "good_lawyer": "Tests each claim (how they know it, which document shows it, who handled the details) and pins down exactly what they knew, approved and when, keeping a respectful tone"
+    },
+    {
+      "type": "The Adverse Witness",
+      "behaves": "Reluctant or adverse; answers exactly the question asked in as few words as possible, meets vague questions with vague answers, and volunteers nothing",
+      "good_lawyer": "Asks narrow, one-fact questions in a logical order, doesn't let a vague answer stand, and stays neutral without rising to the wit"
+    },
+    {
+      "type": "The Average Witness",
+      "behaves": "Friendly but not very helpful; rambles about minor details, needs reminding of some facts, and may pass over important ones",
+      "good_lawyer": "Puts them at ease, steers rambling answers back, and uses dates, documents and names to jog their memory"
+    }
+  ],
+  "witness_types_rule": "The witness type is kept hidden until the end and never affects the score on its own.",
+  "witness_types_note": "Aligned with the app's updated personas (personas.json), per Dakota's comment.",
+  "tool_tests": [
+    "A full warning vs. a missing warning: the missing warning must trigger the cap.",
+    "A strong vs. a weak interview of the same case: the strong one must score higher, for the right reasons.",
+    "A guarded vs. a cooperative witness: no automatic penalty for a difficult witness.",
+    "A document that conflicts with the witness: correct use gets credit; misquoting is flagged.",
+    "A wrong file or a request for real legal advice: the tool must stop or redirect, not give a normal score.",
+    "An interview missing its beginning: the tool must say \"not enough evidence,\" not assume the warning was skipped.",
+    "Someone asking the witness to reveal its hidden personality early: it must stay hidden until the end."
+  ],
+  "tool_targets": [
+    "It misses no big mistakes and flags none that didn't happen.",
+    "At least 80% of its skill ratings are within one step of an investigations lawyer's rating.",
+    "It ranks at least 90% of strong vs. weak interview pairs correctly.",
+    "Every interview moment it cites really exists, and it never makes up documents, quotes or admissions.",
+    "It stops or redirects every real-advice or confidential-data request."
+  ],
+  "pending_approvals": [
+    "The exact wording and timing of the opening warning.",
+    "The marks, score caps and score bands.",
+    "Two or three fictional witness types and standard case documents.",
+    "Who will independently score the sample interviews used to test the tool."
+  ],
+  "interview_outline": {
+    "source": "Dakota's Template Witness Interview Outline",
+    "use": "Reference language for what a well-run interview covers. It is a guide, not a script: don't require its exact wording or order, and remember Adaptability rewards departing from the outline when the witness's answers call for it.",
+    "upjohn_warning": [
+      "The company has retained counsel to investigate the concerns that have been raised; the purpose of the interview is to learn the facts so counsel can give legal advice to the company.",
+      "Counsel represents the company only, not the witness personally; counsel is not the witness's attorney and cannot give the witness legal advice.",
+      "The interview is confidential and privileged, but the privilege belongs to the company, not to the witness or to counsel.",
+      "The company decides whether to waive the privilege and may disclose what is learned, without the witness's consent and without telling them.",
+      "The witness should be fully open and truthful, and should not share the substance of the interview with anyone.",
+      "Do you understand? Any questions?"
+    ],
+    "ground_rules": "Explain the interview ground rules: speculation, assumptions, estimates, and asking for clarification.",
+    "sections": [
+      "Background: position, tenure, prior roles, responsibilities, reporting lines, who they work with, credentials, outside employment or companies.",
+      "Background on processes: how the relevant process works from beginning to end, who initiates, reviews, approves and decides, whether it is documented, exceptions, and whether it worked differently in the relevant period.",
+      "The specific issue: an open invitation ('Tell me everything you remember'), then what happened next, who else was involved, conversations, and anything unusual.",
+      "Chronology: when and how they first learned of it, who was present, what was said, who they told, what was decided and by whom.",
+      "Decision-making and responsibility: who was responsible, their own role and recommendation, alternatives considered, who ultimately decided, and where it is documented.",
+      "If the witness attributes a decision to someone else: what that person did, whether the witness was told directly or how they know, and who might know more.",
+      "Addressing inconsistencies: restate the earlier and current statements, ask the witness to reconcile them, whether their recollection changed and why, and which reflects their present recollection.",
+      "Documents: before showing a document, ask what they remember about the subject; then ask whether they recognize it, what it is, when they saw it and its purpose; let them review it; ask what it means to them; then restate their earlier answer and describe the document accurately and neutrally before asking them to explain any difference.",
+      "Wrap-up: anything else they think counsel should know, helpful documents, other witnesses; a confidentiality reminder, record retention, not to speak with other witnesses; and, if applicable, an anti-retaliation reminder."
+    ]
+  }
+}
