@@ -5,6 +5,7 @@ Then open http://127.0.0.1:8000
 """
 
 import base64
+from datetime import datetime, timezone
 import json
 import os
 import threading
@@ -28,6 +29,8 @@ from pydantic import BaseModel
 
 import access
 import agents
+import debug
+import grading_v2
 import documents
 import media
 import model_catalog
@@ -97,6 +100,7 @@ class CreateSession(BaseModel):
     documents: list[Upload] = []
     models: dict[str, str] = {}  # agent -> "provider:model-name"; missing agents use the .env defaults
     media: dict[str, str] = {}   # {"mode": "text"|"voice"|"face", "voice", "voice_id", "face"}
+    debug: dict = {}             # the /debug page only (never online); see debug.py
 
 
 class Message(BaseModel):
@@ -165,12 +169,15 @@ def _view(session_id: str) -> dict:
         "session_id": session_id,
         "phase": _phase(session_id),
         "documents": [_public_doc(d) for d in state.get("documents", [])],
-        "rubric": agents.load_rubric(),  # the fixed criteria; case-specific look-fors stay hidden
+        # The rubric in use (v2.2, or the previous one in debugging mode; its look-fors stay hidden).
+        "rubric": agents.load_rubric() if (state.get("debug") or {}).get("rubric") == "previous"
+        else grading_v2.load_rubric(),
         "transcript": state.get("transcript", []),
         "models": state.get("models", {}),
         "media": state.get("media", {"mode": "text"}),
         # Only when REVEAL_PERSONA=1 (testing); otherwise the persona stays secret until grading.
-        "persona": state.get("persona_profile") if _reveal_persona() else None,
+        "persona": state.get("persona_profile") if _reveal_persona() or state.get("debug") else None,
+        "debug": {"resume_hint": state["debug"].get("resume_hint", "")} if state.get("debug") else None,
     }
 
 
@@ -191,9 +198,28 @@ def index():
     return FileResponse(Path(__file__).parent / "static" / "index.html")
 
 
+@app.get("/debug")
+def debug_page():
+    """The debugging page: the setup page with the Debugging options, Enron filled in (never online)."""
+    if not debug.available():
+        raise HTTPException(404, "Debugging mode isn't available in the online version.")
+    return FileResponse(Path(__file__).parent / "static" / "index.html")
+
+
 @app.get("/config")
 def config():
-    return {"file_types": sorted(documents.SUPPORTED), "password_protected": bool(access.password())}
+    return {"file_types": sorted(documents.SUPPORTED), "password_protected": bool(access.password()),
+            "debug_available": debug.available()}
+
+
+@app.get("/debug/options")
+def debug_options():
+    """Personas, variations, and scripts for the Debugging panel (debugging mode only)."""
+    if not debug.available():
+        raise HTTPException(404, "Debugging mode isn't available in the online version.")
+    from graph import load_personas, load_variables
+    return {"personas": [p["name"] for p in load_personas()], "variables": load_variables(),
+            "cases": debug.list_cases(), "scripts": debug.list_scripts()}
 
 
 @app.get("/models")
@@ -236,10 +262,42 @@ def create_session(body: CreateSession):
     raw = [base64.b64decode(u.data_base64) for u in body.documents]
     if sum(len(r) for r in raw) > MAX_UPLOAD_BYTES:
         raise HTTPException(400, "The documents are over 25 MB in total.")
+    files = [(u.name, data) for u, data in zip(body.documents, raw)]
+    dbg, transcript = {}, []
+    if body.debug:
+        if not debug.available():
+            raise HTTPException(400, "Debugging mode isn't available in the online version.")
+        dbg = {k: body.debug[k] for k in ("persona", "variables", "picks", "twist", "skip_check", "rubric")
+               if k in body.debug}
+        if script_id := body.debug.get("script"):
+            try:
+                script = debug.load_script(script_id)
+            except (ValueError, OSError) as e:
+                raise HTTPException(400, str(e))
+            files = script["documents"] + files
+            stamp = datetime.now(timezone.utc).isoformat()
+            transcript = [{**t, "timestamp": stamp} for t in script.get("transcript", [])]
+            body.case_background = body.case_background or script["case_background"]
+            dbg.update(script=script_id, resume_hint=script.get("resume_hint", ""))
+            # The script's own persona and variations apply unless the panel chose others.
+            if script.get("persona"):
+                dbg.setdefault("persona", script["persona"])
+            if script.get("variables") and "variables" not in body.debug:
+                dbg["variables"] = script["variables"]
+        elif case_id := body.debug.get("case"):
+            # An example case: add its documents from disk (the page can't fill the file picker).
+            try:
+                case = debug.load_case(case_id)
+            except (ValueError, OSError) as e:
+                raise HTTPException(400, str(e))
+            files = case["documents"] + files
+            body.case_background = body.case_background or case["case_background"]
+            dbg["case"] = case_id
+        dbg["on"] = True
     docs = []
-    for i, (u, data) in enumerate(zip(body.documents, raw), 1):
-        kind, text = documents.extract_text(u.name, data)
-        docs.append({"id": f"d{i}", "name": u.name, "kind": kind, "text": text})
+    for i, (name, data) in enumerate(files, 1):
+        kind, text = documents.extract_text(name, data)
+        docs.append({"id": f"d{i}", "name": name, "kind": kind, "text": text})
     models = _resolve_models(body.models)
     media_choice = _resolve_media(body.media)
     if limit := access.take_interview():
@@ -256,8 +314,9 @@ def create_session(body: CreateSession):
         "user_outline": body.case_background,
         "models": models,
         "media": media_choice,
+        "debug": dbg,
         "documents": docs,
-        "transcript": [],
+        "transcript": transcript,
     }, _config(session_id))
     _persist(_state(session_id))
     return _view(session_id)

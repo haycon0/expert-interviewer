@@ -52,7 +52,22 @@
   .grid2 { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:16px; }
   @media (max-width: 760px) { .grid2 { grid-template-columns:1fr; } }
   .error { color:var(--bad); margin-top:10px; }
+  .debugbox { border:2px dashed #b08a2e; border-radius:8px; padding:12px 14px; margin-top:16px; background:#fffcf2; }
+  .debugbox h4 { margin:0 0 4px; }
   .reveal { background:var(--you); border-radius:8px; padding:10px 14px; margin-bottom:12px; }
+  .area h3 { display:flex; justify-content:space-between; gap:10px; }
+  .skill { display:grid; grid-template-columns:1fr auto; gap:2px 12px; border-top:1px solid var(--line); padding:8px 0; font-size:13px; }
+  .skill .why { grid-column:1 / -1; color:var(--muted); }
+  .dots { letter-spacing:2px; color:var(--accent); white-space:nowrap; }
+  .turn { display:inline-block; font-size:12px; font-weight:600; color:var(--accent); background:var(--you); border-radius:4px; padding:0 5px; text-decoration:none; }
+  .moments { margin:8px 0 0; padding-left:18px; font-size:13px; }
+  .moments li { margin-bottom:4px; }
+  .kind { font-size:11px; text-transform:uppercase; letter-spacing:.04em; color:var(--muted); }
+  .alert { border-left:4px solid var(--bad); background:#fbefec; border-radius:6px; padding:10px 14px; margin:10px 0; font-size:14px; }
+  .notice { border-left:4px solid #b08a2e; background:#fff3d6; border-radius:6px; padding:10px 14px; margin:10px 0; font-size:14px; }
+  #turnList { display:flex; flex-direction:column; gap:8px; }
+  #turnList .msg { scroll-margin-top:20px; }
+  #turnList .msg.hl { outline:2px solid var(--accent); }
   #review { max-width:760px; margin:0 auto; }
   .doc { border:1px solid var(--line); border-radius:8px; padding:12px 14px; margin-top:12px; }
   .doc.flagged { border-color:#e0b4a8; background:#fdf7f5; }
@@ -94,7 +109,12 @@
 <main>
   <!-- Setup -->
   <section id="setup" class="card">
-    <h2 style="margin-top:0">New witness interview</h2>
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
+      <h2 style="margin:0" id="setupTitle">New witness interview</h2>
+      <a href="/debug" id="debugLink" class="badge hidden" style="margin-left:auto">Debug page</a>
+      <a href="/" id="normalLink" class="badge hidden" style="margin-left:auto">Leave the debug page</a>
+    </div>
+    <div id="debugSetup" class="debugbox hidden"></div>
     <div id="editionNotice" class="help hidden"></div>
     <p class="traits" style="margin-top:0">You are investigating a whistleblower complaint or suspected white-collar misconduct and interviewing an expert employee inside the company.</p>
     <label for="expert">Witness name</label>
@@ -108,6 +128,7 @@
     <input type="file" id="caseFiles" multiple accept=".txt,.csv,.md,.json,.pdf,.docx">
     <div class="traits">Choose one or more files: PDF, Word (.docx), or text (.txt, .csv, .md, .json). The witness knows only the case background and the documents you keep. Each document is checked first, and you'll be asked about any that look like they don't belong.</div>
     <ul id="fileList" class="traits"></ul>
+    <ul id="debugFileList" class="traits hidden"></ul>
 
     <label for="modelMain">AI engine</label>
     <select id="modelMain"></select>
@@ -120,6 +141,8 @@
     <div id="setupHelp" class="help hidden"></div>
 
     <div id="mediaSetup"></div>
+
+
 
     <div style="margin-top:18px"><button id="startBtn">Check documents &amp; start interview</button></div>
     <div class="error" id="setupError"></div>
@@ -211,7 +234,7 @@ const CUSTOM = "__custom", SAME = "__same";
 let catalog = null, customStatus = null;
 
 const modelById = (id) => catalog.models.find(m => m.id === id);
-const labelOf = (id) => modelById(id)?.label || id;
+const labelOf = (id) => (catalog && modelById(id)?.label) || id;
 const money = (n) => `$${n.toFixed(2)}`;
 
 function optionsHtml(extra = "") {
@@ -382,8 +405,16 @@ function updateStart() {
 }
 
 async function init() {
+  const onDebugPage = location.pathname === "/debug";
   await Promise.all([loadCatalog(), Media.initSetup(updateStart)]);
-  api("/config").then(cfg => $("signOut").classList.toggle("hidden", !cfg.password_protected)).catch(() => {});
+  if (onDebugPage) initDebugPage().catch(e => {
+    $("debugSetup").innerHTML = `<div class="error">Couldn't load the debugging options: ${esc(e.message)}</div>`;
+    $("debugSetup").classList.remove("hidden");
+  });
+  api("/config").then(cfg => {
+    $("signOut").classList.toggle("hidden", !cfg.password_protected);
+    if (cfg.debug_available && !onDebugPage) $("debugLink").classList.remove("hidden");
+  }).catch(() => {});
 }
 
 function addMsg(t) {
@@ -422,6 +453,8 @@ function startInterview(data) {
   $("messages").innerHTML = "";
   data.transcript.forEach(addMsg);
   renderPersona(data.persona);
+  if (data.debug?.resume_hint) $("personaCard").insertAdjacentHTML("beforeend",
+    `<div class="k">Debug: where to pick up</div><div>${esc(data.debug.resume_hint)}</div>`);
   show("interview");
   // Voice modes: the transcript starts hidden (Show transcript brings it back) and a
   // status line takes its place. Text mode shows the transcript as always.
@@ -518,6 +551,7 @@ $("startBtn").onclick = async () => {
       case_background: background,
       models: chosenModels(),
       media: Media.choice(),
+      debug: debugChoice(),
       documents: await Promise.all(files.map(async f => ({name: f.name, data_base64: await toBase64(f)}))),
     });
     sessionId = data.session_id;
@@ -592,7 +626,77 @@ function variablesHtml(p) {
     `<li><b>${esc(v.value ? `${v.name}: ${v.value}` : "Personality twist")}</b>: ${esc(v.description)}</li>`).join("")}</ul>`;
 }
 
+// Score report for rubric v2.2 (the rubric built from the Rubric Summary). The grader
+// rates each skill 0-4; the server computes marks, area totals, caps and the band.
+function turnLink(id) {
+  return `<a href="#turn-${esc(id)}" class="turn" onclick="return showTurn('${esc(id)}')">${esc(id)}</a>`;
+}
+
+function showTurn(id) {
+  $("turnsBox").open = true;
+  const el = $(`turn-${id}`);
+  if (el) {
+    document.querySelectorAll("#turnList .hl").forEach(x => x.classList.remove("hl"));
+    el.classList.add("hl");
+    el.scrollIntoView({behavior: "smooth", block: "center"});
+  }
+  return false;
+}
+
+function renderReport(a) {
+  const scored = a.status === "SCORED";
+  const dots = r => r === null ? "" : "●".repeat(r) + "○".repeat(4 - r);
+  const headline = scored
+    ? `<div class="score"><span class="big">${a.overall_score}</span><span class="grade">${esc(a.band)}</span>
+         <span class="badge">out of 100 · interview with ${esc(expertName)}</span></div>`
+    : `<div class="score"><span class="grade">${esc(a.status_label)}</span>
+         <span class="badge">No normal score was given for this interview.</span></div>
+       <div class="notice">${esc(a.status_reason || "")}</div>`;
+  const cap = scored && a.cap
+    ? `<div class="alert"><b>Score capped at ${a.cap.max_score}.</b> ${esc(a.cap.mistake)}
+         Before the cap, the score was ${Math.round(a.score_before_cap)}.</div>` : "";
+  const mistakes = a.big_mistakes.length ? `<div class="card" style="margin-top:16px"><h3 style="color:var(--bad)">Big mistakes</h3>
+      ${a.big_mistakes.map(m => `<div class="skill"><div><b>${esc(m.mistake)}</b></div><div>Cap ${m.max_score}</div>
+        <div class="why">${turnLink(m.turn)} “${esc(m.proof)}”</div></div>`).join("")}</div>` : "";
+  const areas = a.areas.map(ar => `<div class="card area" style="margin-top:16px">
+      <h3><span>${esc(ar.name)}</span><span>${ar.total} / ${ar.points}</span></h3>
+      <div class="bar"><div style="width:${100 * ar.total / ar.points}%"></div></div>
+      ${ar.counted ? "" : `<div class="badge">No case document was provided, so these marks weren't taken away.</div>`}
+      ${ar.skills.map(sk => `<div class="skill"><div><b>${esc(sk.name)}</b> <span class="badge">${esc(sk.description)}</span></div>
+        <div>${sk.rating === null ? "" : `<span class="dots" title="${sk.rating} of 4">${dots(sk.rating)}</span> ${sk.marks} / ${sk.max_marks}`}</div>
+        <div class="why">${esc(sk.reason)}</div></div>`).join("")}
+      ${ar.moments.length ? `<div class="k">Moments that back up this score</div><ul class="moments">${ar.moments.map(m =>
+        `<li>${turnLink(m.turn)} <span class="kind">${m.kind === "quote" ? "Quote" : "Summary"}</span>
+           ${m.kind === "quote" ? `“${esc(m.text)}”` : esc(m.text)}</li>`).join("")}</ul>` : ""}
+    </div>`).join("");
+  const turns = `<details class="card" id="turnsBox" style="margin-top:16px"><summary><b>Interview transcript, with turn numbers</b></summary>
+      <div id="turnList" style="margin-top:10px">${a.turns.map(t => `<div class="msg ${t.speaker === "interviewer" ? "user" : "expert"}" id="turn-${esc(t.id)}">
+        <div class="who">${esc(t.id)} · ${t.speaker === "interviewer" ? "You" : esc(expertName)}</div>${esc(t.message)}</div>`).join("")}</div></details>`;
+  $("results").innerHTML = `
+    <div class="card">
+      ${headline}${cap}
+      <div class="reveal">Witness demeanor revealed: <b>${esc(a.persona.name)}</b>
+        <span class="badge">${esc(a.persona.traits.join(" · "))}</span>${variablesHtml(a.persona)}</div>
+      ${a.models ? `<div class="badge">AI models: witness ${esc(labelOf(a.models.witness))} · grader ${esc(labelOf(a.models.grader))}</div>` : ""}
+      <div class="badge" style="margin-top:6px">Each skill is rated 0 to 4 (● filled = rating); the rating decides how much of that skill's marks you get. Click a turn number to see it in the transcript.</div>
+    </div>
+    ${mistakes}${areas}
+    <div class="grid2">
+      <div class="card"><h3>Missed chances</h3>${list(a.missed_opportunities)}</div>
+      <div class="card"><h3>Tips: better questions for next time</h3>${list(a.tips)}</div>
+    </div>
+    ${turns}
+    ${a.evaluator_errors.length ? `<div class="badge" style="margin-top:12px">Grader notes (checked by the app): ${esc(a.evaluator_errors.join(" "))}</div>` : ""}
+    <div style="margin-top:16px"><button onclick="location.href='/'">New interview</button></div>`;
+  // Turn numbers in missed chances become links too.
+  document.querySelectorAll("#results .grid2 li").forEach(li => {
+    li.innerHTML = li.innerHTML.replace(/^(T\d+):/, (_, id) => `${turnLink(id)}`);
+  });
+  show("results");
+}
+
 function renderResults(a) {
+  if (a.rubric_version === "2.2") return renderReport(a);
   $("results").innerHTML = `
     <div class="card">
       <div class="score"><span class="big">${a.overall_score}</span><span class="grade">${esc(a.letter_grade)}</span>
@@ -612,6 +716,112 @@ function renderResults(a) {
     <div class="card" style="margin-top:16px"><h3>Coaching recommendations</h3>${list(a.coaching_recommendations)}</div>
     <div style="margin-top:16px"><button onclick="location.reload()">New interview</button></div>`;
   show("results");
+}
+
+// ---------------------------------------------------------------------------
+// The debugging page, /debug (your own computer only; never online): choose the
+// persona and variations, start from a scripted interview, skip the document check.
+// ---------------------------------------------------------------------------
+let debugOpts = null;
+
+// On /debug the Debugging options are shown and an example case is filled in
+// (the Enron/Fastow one by default).
+let debugOn = false, debugFilled = null;
+
+async function initDebugPage() {
+  debugOn = true;
+  document.title = "Expert Interviewer (debug)";
+  $("setupTitle").textContent = "New witness interview (debug)";
+  $("normalLink").classList.remove("hidden");
+  await initDebug();
+  $("debugSetup").classList.remove("hidden");
+  fillDebugCase();
+}
+
+// The selected script's case, or else the selected example case.
+function debugCase() {
+  if (!debugOpts) return null;
+  return debugOpts.scripts.find(x => x.id === $("dbgScript").value)
+      || debugOpts.cases.find(x => x.id === $("dbgCase").value) || null;
+}
+
+// Fill the witness, role, and background, and list the documents the app will add.
+function fillDebugCase() {
+  const c = debugCase();
+  clearDebugCase();
+  if (!c) return;
+  $("expert").value = c.expert_name; $("role").value = c.expert_role; $("background").value = c.case_background;
+  debugFilled = {expert: c.expert_name, role: c.expert_role, background: c.case_background};
+  $("debugFileList").innerHTML = c.documents.map(d => `<li>${esc(d)} <span class="badge">(added automatically on the debug page)</span></li>`).join("");
+  $("debugFileList").classList.toggle("hidden", !c.documents.length);
+}
+
+// Remove what the debug page filled in, leaving anything you've changed since.
+function clearDebugCase() {
+  if (debugFilled) for (const [id, value] of Object.entries(debugFilled)) if ($(id).value === value) $(id).value = "";
+  debugFilled = null;
+  $("debugFileList").innerHTML = "";
+  $("debugFileList").classList.add("hidden");
+}
+
+async function initDebug() {
+  debugOpts = await api("/debug/options");
+  const opt = (v, label) => `<option value="${esc(v)}">${esc(label)}</option>`;
+  const defaultCase = (debugOpts.cases.find(c => c.default) || debugOpts.cases[0] || {}).id || "";
+  $("debugSetup").innerHTML = `
+    <h4>Debugging</h4>
+    <div class="badge">For testing. The example case below fills in the witness, background, and documents for you, and the persona is shown in the side panel. To use the app normally, go to the <a href="/">regular page</a>.</div>
+    <label for="dbgCase">Example case</label>
+    <select id="dbgCase">${debugOpts.cases.map(c => opt(c.id, c.name)).join("")}${opt("", "None: use what I enter")}</select>
+    <label for="dbgScript">Start from a script</label>
+    <select id="dbgScript">${opt("", "None: start a new interview from the beginning")}${debugOpts.scripts.map(s => opt(s.id, `${s.name} (${s.turns} turns)`)).join("")}</select>
+    <div class="traits" id="dbgScriptInfo"></div>
+    <label for="dbgPersona">Persona</label>
+    <select id="dbgPersona">${opt("", "Random")}${debugOpts.personas.map(n => opt(n, n)).join("")}</select>
+    <label>Variations</label>
+    <div class="choice" id="dbgVarMode">
+      <label><input type="radio" name="dbgVars" value="random" checked> Random</label>
+      <label><input type="radio" name="dbgVars" value="none"> None</label>
+      <label><input type="radio" name="dbgVars" value="choose"> Choose</label>
+    </div>
+    <div id="dbgPicks" class="hidden">
+      <label style="font-weight:400"><input type="checkbox" id="dbgTwist" style="width:auto"> Include the persona's own twist</label>
+      ${debugOpts.variables.variables.map((v, i) => `<div class="agentrow"><label for="dbgVar${i}" style="margin:0;font-weight:600">${esc(v.name)}</label>
+        <select id="dbgVar${i}" data-name="${esc(v.name)}">${opt("", "Not included")}${v.options.map(o => opt(o.label, o.label)).join("")}</select></div>`).join("")}
+    </div>
+    <label style="font-weight:400;margin-top:10px"><input type="checkbox" id="dbgSkipCheck" style="width:auto"> Skip the document check (faster and cheaper)</label>
+    <label for="dbgRubric">Grading rubric</label>
+    <select id="dbgRubric">${opt("", "Rubric v2.2 (normal)")}${opt("previous", "Previous rubric (draft 2), for comparison")}</select>`;
+  $("dbgCase").value = defaultCase;
+  $("dbgVarMode").onchange = () => $("dbgPicks").classList.toggle("hidden", debugVarMode() !== "choose");
+  $("dbgCase").onchange = fillDebugCase;
+  $("dbgScript").onchange = () => {
+    const s = debugOpts.scripts.find(x => x.id === $("dbgScript").value);
+    $("dbgScriptInfo").textContent = s ? `${s.description} The script brings its own case, so the example case above isn't used.` : "";
+    $("dbgCase").disabled = Boolean(s);
+    // Preset the persona and variations a script was written for (still changeable).
+    $("dbgPersona").value = s?.persona || "";
+    const mode = document.querySelector(`input[name="dbgVars"][value="${s?.variables || "random"}"]`);
+    if (mode) { mode.checked = true; $("dbgVarMode").onchange(); }
+    fillDebugCase();
+  };
+}
+
+const debugVarMode = () => document.querySelector('input[name="dbgVars"]:checked')?.value || "random";
+
+function debugChoice() {
+  if (!debugOpts || !debugOn) return undefined;
+  const out = {variables: debugVarMode(), skip_check: $("dbgSkipCheck").checked};
+  if ($("dbgPersona").value) out.persona = $("dbgPersona").value;
+  if ($("dbgRubric").value) out.rubric = $("dbgRubric").value;
+  if ($("dbgScript").value) out.script = $("dbgScript").value;
+  else if ($("dbgCase").value) out.case = $("dbgCase").value;
+  if (out.variables === "choose") {
+    out.twist = $("dbgTwist").checked;
+    out.picks = debugOpts.variables.variables.map((v, i) => ({name: v.name, value: $(`dbgVar${i}`).value}))
+      .filter(p => p.value);
+  }
+  return out;
 }
 
 init();

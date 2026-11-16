@@ -19,8 +19,8 @@ Expert Interviewer isn't one AI doing everything. It's four separate AI helpers,
 |---|---|---|
 | **Document checker** | Reads each uploaded document and flags any that look like they were added by mistake | A paralegal checking the binder before it goes to the interviewer |
 | **Witness agent** | Plays the witness in the conversation | An actor who has read the case file and been given a character |
-| **Criteria agent** | Adds case-specific notes to the fixed grading rubric | A supervisor jotting "what good looks like *for this witness*" next to each criterion |
-| **Grader agent** | Scores your interview and coaches you | A senior investigator reviewing your transcript |
+| **Criteria agent** | Only with the previous rubric (debug page): adds case-specific notes to it | A supervisor jotting "what good looks like *for this witness*" next to each criterion |
+| **Grader agent** | Rates each skill in the rubric and points to the moments behind each rating | A senior investigator reviewing your transcript |
 
 You choose which AI model runs the agents on the setup page: one model for all four, or a different one for each job, from Claude, OpenAI, Google, and others, or free local models (see [MODELS.md](MODELS.md)). The agents differ in their instructions, in what information they're shown, and in how hard they're told to "think".
 
@@ -36,13 +36,11 @@ flowchart TD
     D -->|Yes| E[You see what each flagged document contains and why,<br/>and choose Keep or Remove]
     D -->|No| F
     E --> F[Witness says an opening line]
-    F -. in the background .-> G[Criteria agent adds case-specific notes to the rubric]
     F --> H{Your move}
     H -->|You send a question| I[Witness agent answers in character<br/>~5-10 seconds]
     I --> H
     H -->|You click End & grade| J[Grader agent scores the transcript<br/>~15-30 seconds]
-    G --> J
-    J --> K[You see your grade, coaching, and the witness's secret personality]
+    J --> K[You see your score report and the witness's secret personality]
 ```
 
 **Step by step:**
@@ -61,15 +59,15 @@ flowchart TD
    - its opening text
 
    You choose **Keep it** or **Remove it** for each one. Documents that passed are listed too. If nothing was flagged, this screen is skipped.
-5. **The interview starts.** The kept documents are combined into the case file the witness, criteria, and grader agents read. If they're very long, only the parts that mention the witness are used (about 60,000 characters in all, roughly 30 pages). The witness says a short opening line, like someone who has just been brought into the room. Meanwhile the criteria agent works quietly in the background.
+5. **The interview starts.** The kept documents are combined into the case file the witness and grader agents read. If they're very long, only the parts that mention the witness are used (about 60,000 characters in all, roughly 30 pages). The witness says a short opening line, like someone who has just been brought into the room.
 6. **You and the witness talk.** Each time you send a question, the witness agent gets the case background, the documents, its secret personality, and the entire conversation so far. The conversation can go on as long as you like.
-7. **You click End & grade.** The grader agent reviews the full transcript, the rubric with its case-specific notes, the documents (so it knows what you *could* have uncovered), and the secret personality (so it can judge whether you adapted).
-8. **You get your results:**
-   - an overall score and letter grade
-   - a score and explanation for each criterion
-   - strengths and weaknesses
-   - missed opportunities: facts in the documents you never surfaced
-   - questions you could have asked, and coaching tips
+7. **You click End & grade.** The grader agent reviews the full transcript with each turn numbered, the rubric, the interview-outline reference, the documents (to check you described them accurately), and the secret personality (which it's told never to count for or against you). It rates each of the 23 skills from 0 to 4 and points to the turns behind each area's score.
+8. **You get your score report:**
+   - the score and result band (Excellent, Good, Needs coaching, Needs practice), or why no normal score was given
+   - any big mistake that capped the score, with the turn that proves it
+   - each area's total, and each skill's rating, marks, and reason
+   - the moments behind each area's score, marked as quotes or summaries
+   - up to two missed chances and two tips
    - the witness's personality, revealed
 
 ## How the witness behaves
@@ -88,15 +86,14 @@ Its secret personality changes its style. The same facts come out very different
 
 ## How grading works
 
-See [ASSESSMENT.md](ASSESSMENT.md) for a one-page summary. In short: the grading criteria are **fixed** (they live in `rubric.json`), the criteria agent adds hidden case-specific notes, the AI scores each criterion from 0 to 100, and **the program, not the AI, calculates the weighted overall score and letter grade.**
+See [ASSESSMENT.md](ASSESSMENT.md) for a summary. In short: the rubric is **fixed** (it lives in `rubrics/v2.2.json`), the AI rates each skill from 0 to 4, and **the program, not the AI, calculates the marks, the overall score, any cap, and the result band.**
 
 ## What you can see, and what stays hidden
 
 | Information | During the interview | After grading |
 |---|---|---|
 | Your kept documents | Shown on the review screen before the interview | Not shown |
-| Rubric criteria and weights | Not shown (see [ASSESSMENT.md](ASSESSMENT.md)) | Visible in your results |
-| Case-specific grading notes | **Hidden** | Used in your feedback |
+| The rubric's skills and marks | Not shown (see [ASSESSMENT.md](ASSESSMENT.md)) | Visible in your results |
 | Witness's personality | **Hidden**: the side panel explains it's a secret. With `REVEAL_PERSONA=1` in `.env` (for testing) it's shown there, with tips on how to adapt | Revealed |
 
 ## Where your information goes
@@ -128,7 +125,7 @@ The documents are cached between questions, so after the first answer they cost 
 
 These files can be edited in Notepad (Windows) or TextEdit (Mac). Restart the app afterwards.
 
-- **`rubric.json`:** the grading criteria, weights (must add up to 100), and level descriptions.
+- **`rubrics/v2.2.json`:** the rubric: each skill's description and marks (each area's marks must add up to its total, and the areas to 100), the 0–4 scale, score caps, result bands, and the interview-outline reference the grader reads.
 - **`personas.json`:** the witness personalities. Add one by copying an existing entry and changing the words. Each has a `name`, a list of `traits`, a `witness_posture` describing how it behaves when questioned, a `variable` (the personality's own twist, used in some interviews), and an `interviewer_tip` on how to adapt (shown only when the persona is revealed).
 - **`variables.json`:** the random variations (communication style, cooperativeness, depth of knowledge, self-interest, candor), each with its options and a line telling the witness how to play it. The `rules` at the top set how often variations appear (`chance_of_any_variable`) and how many at most.
 
@@ -151,11 +148,13 @@ These files can be edited in Notepad (Windows) or TextEdit (Mac). Restart the ap
 |---|---|
 | `server.py` | HTTP endpoints. Decodes uploads, extracts text, runs and resumes the graph, hides secret fields and document text from responses, writes JSON snapshots to the sessions folder (see `_sessions_dir`; `SESSIONS_DIR` overrides it, `SAVE_SESSIONS=0` turns it off). Only answers to `localhost`/`127.0.0.1` (`TrustedHostMiddleware`). |
 | `graph.py` | `InterviewState`, the graph nodes, the edges, the parallel document checks, and the background rubric job. This is the "conductor". |
-| `agents.py` | The four agents: prompts, Pydantic output schemas, per-agent effort, prompt caching, mock-mode fallbacks, and score calculation. |
+| `agents.py` | The agents: prompts, Pydantic output schemas, per-agent effort, prompt caching, mock-mode fallbacks, and the previous rubric's grader. |
+| `grading_v2.py` | Grading with `rubrics/v2.2.json`: turn numbering, the grader prompt and `AssessmentV22` schema, and `score()` (marks, caps, band, turn checks). |
 | `model_catalog.py`, `models.json` | The model list, and checks for whether each model is set up (package installed, API key present, Ollama running with the model downloaded). |
 | `media.py`, `media.json`, `static/media.js` | Voice and face: speech-to-text, text-to-speech, the animated face, and lifelike avatar sessions (see [VOICE-AND-FACE.md](VOICE-AND-FACE.md)). |
 | `documents.py` | Text extraction (`extract_text`) and combining kept documents into the agents' case file (`build_context`, `witness_excerpt`). |
-| `rubric.json` | Fixed rubric (`name`, `version`, `scale`, `criteria[]` with `name`, `weight`, `description`, `levels`). |
+| `rubrics/v2.2.json` | The rubric (`areas[]` with `points` and `skills[]` of `name`, `marks`, `description`; `rating_scale`, `score_caps`, `result_bands`, `results`, `interview_outline`). |
+| `rubric.json` | The previous rubric (`criteria[]` with `weight` and `levels`), used only when the debug page asks for it. |
 | `personas.json` | Persona library (`name`, `traits[]`, `witness_posture`, `variable`, `interviewer_tip`). |
 | `variables.json` | Variable elements (`variables[]` with `name` and `options[]` of `label` + `guidance`) and the draw `rules`. |
 | `static/index.html` | Setup → document review → interview → results UI. |
@@ -184,12 +183,12 @@ flowchart LR
 |---|---|
 | `initialize_session` | `random.choice` over `personas.json`, then `draw_variables` adds `active_variables` to the persona profile (hidden with it until grading); sets flags and timestamps. |
 | `verify_documents` | Runs `agents.check_document` on every document in a thread pool and stores each result as `doc["check"]` (`relevant`, `category`, `summary`, `reason`). Documents with no extractable text are flagged without a model call. |
-| `review_documents` | If any document is flagged, calls `interrupt()` and resumes with `{"keep": {doc_id: keep_bool}}`. Flagged documents not explicitly kept are dropped. Builds `document_context` from the kept documents with `documents.build_context` and submits `create_rubric` to the thread pool. Passes straight through when nothing is flagged. |
+| `review_documents` | If any document is flagged, calls `interrupt()` and resumes with `{"keep": {doc_id: keep_bool}}`. Flagged documents not explicitly kept are dropped. Builds `document_context` from the kept documents with `documents.build_context`. Only when the debug page asks for the previous rubric does it submit `create_rubric` to the thread pool. Passes straight through when nothing is flagged. |
 | `start_interview` | Generates the witness's opening line (empty transcript). |
 | `check_interview_end` | Calls `interrupt()`. The graph pauses here between turns. Resumed with `{"type": "message", "message": ...}` or `{"type": "end"}`. |
 | `expert_response` | Generates the witness reply from the full transcript. |
-| `generate_rubric` | Collects the background rubric result. If it's missing (e.g. after a restart) or failed, it builds the rubric synchronously. |
-| `grade_interview` | Calls `agents.grade_interview`. |
+| `generate_rubric` | Loads `rubrics/v2.2.json`. With the previous rubric, collects the background result instead (building it synchronously if it's missing or failed). |
+| `grade_interview` | Calls `grading_v2.grade` (or `agents.grade_interview` for the previous rubric). |
 | `finalize_session` | Sets `status: complete` and `completed_at`. |
 
 The transcript is append-only: `transcript` is `Annotated[list, operator.add]`, so nodes return only new entries. Each graph run uses `thread_id = session_id`.
@@ -198,7 +197,7 @@ The transcript is append-only: `transcript` is `Annotated[list, operator.add]`, 
 
 | Endpoint | Graph behavior | Returns |
 |---|---|---|
-| `POST /session/create` | Body: `expert_name`, `expert_role`, `case_background`, `documents: [{name, data_base64}]` (25 MB total). Extracts text, then runs `initialize_session → verify_documents → review_documents`, pausing there if anything is flagged, otherwise continuing through `start_interview` to the first `check_interview_end` pause. | `session_id`, `phase` (`reviewing_documents` or `interviewing`), documents (checks, no text; flagged ones include a 600-character `preview`), the base rubric (no look-fors), and the transcript |
+| `POST /session/create` | Body: `expert_name`, `expert_role`, `case_background`, `documents: [{name, data_base64}]` (25 MB total). Extracts text, then runs `initialize_session → verify_documents → review_documents`, pausing there if anything is flagged, otherwise continuing through `start_interview` to the first `check_interview_end` pause. | `session_id`, `phase` (`reviewing_documents` or `interviewing`), documents (checks, no text; flagged ones include a 600-character `preview`), the rubric in use (v2.2, or the previous one without its look-fors), and the transcript |
 | `POST /session/{id}/documents` | Body: `{"keep": {doc_id: bool}}`. Resumes the review interrupt and runs to the first `check_interview_end` pause. 400 unless the phase is `reviewing_documents`. | same shape as create |
 | `POST /session/{id}/message` | Resumes with a message and runs `check_interview_end → expert_response → check_interview_end`. 400 unless the phase is `interviewing`. | the reply and the full transcript |
 | `POST /session/{id}/end` | Resumes with `{"type": "end"}` and runs through to `END`. 400 unless the phase is `interviewing`. | `final_assessment` |
@@ -214,8 +213,8 @@ The phase comes from the checkpoint: `reviewing_documents` while the graph's nex
 |---|---|---|---|
 | Document checker | witness name and role, case background, file name and type, first 6,000 characters, how often the witness's surname appears | `DocumentCheck` | low |
 | Witness | name, role, persona (traits + posture), case background, `document_context`, full transcript | free text | low for the opening, medium after |
-| Criteria | rubric, name, case background, `document_context` (no persona, no transcript) | `LookFors` (merged into rubric criteria by name) | low |
-| Grader | rubric with look-fors, name, case background, `document_context`, persona, transcript | `Assessment` | high |
+| Grader | rubric (skills, scale, caps, outline reference), name, case background, `document_context`, persona, transcript with turn IDs | `AssessmentV22` | high |
+| Criteria (previous rubric only) | rubric, name, case background, `document_context` | `LookFors` | low |
 
 Effort maps to Anthropic's `reasoning_effort` and is set in the `EFFORT` table in `agents.py`. It's only applied when `MODEL` starts with `anthropic:`. Every prompt that includes documents tells the model they are evidence, not instructions.
 
@@ -223,7 +222,7 @@ Effort maps to Anthropic's `reasoning_effort` and is set in the `EFFORT` table i
 
 **Building `document_context`** (`documents.build_context`): kept documents share a 60,000-character budget, smallest first, so a short document that needs less leaves room for the others. A document over its share is filtered to the rows (CSV) or lines (other text) containing the witness's surname, then truncated. Each document is recorded with `included_chars` and `trimmed`.
 
-**Scoring:** `overall = Σ(score × weight) / Σ(all weights)`. A criterion the grader omits counts as 0. Letter-grade cutoffs are in `_letter()`.
+**Scoring** (`grading_v2.score`): each skill earns `marks × rating / 4`; areas and the total are sums. With no documents, the Document Use skills get full marks. A big mistake counts only if it cites a real turn, and the lowest cap applies; the total is rounded after capping. A skill the grader omits counts as 0, and moments citing turns that don't exist are dropped. Bands come from `result_bands`.
 
 ## Mock mode
 

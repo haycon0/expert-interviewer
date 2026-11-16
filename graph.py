@@ -27,6 +27,7 @@ from langgraph.types import interrupt
 
 import agents
 import documents
+import grading_v2
 
 PERSONAS_FILE = Path(__file__).parent / "personas.json"
 
@@ -83,6 +84,7 @@ class InterviewState(TypedDict, total=False):
     expert_role: str
     user_outline: str  # case background: the complaint or suspected misconduct
     media: dict  # {"mode": "text"|"voice"|"face", "voice": provider, "voice_id", "face": provider}
+    debug: dict  # debugging mode only: {"persona", "variables", "picks", "twist", "skip_check", "script"}
     models: dict  # model per agent: {"witness", "checker", "criteria", "grader"} -> "provider:name"
 
     # Uploaded documents: {id, name, kind, text, check: {...}, keep, included_chars, trimmed}
@@ -106,11 +108,36 @@ class InterviewState(TypedDict, total=False):
 # Nodes
 # --------------------------------------------------------------------------
 
+def chosen_variables(persona: dict, config: dict, picks: list[dict], twist: bool) -> list[dict]:
+    """Variable elements chosen by hand in debugging mode: picks are [{name, value}]."""
+    out = []
+    if twist and persona.get("variable"):
+        out.append({"name": "Persona variable", "description": persona["variable"]})
+    by_name = {v["name"]: v for v in config["variables"]}
+    for pick in picks:
+        var = by_name.get(pick.get("name"))
+        option = next((o for o in (var or {}).get("options", []) if o["label"] == pick.get("value")), None)
+        if option:
+            out.append({"name": var["name"], "value": option["label"], "description": option["guidance"]})
+    return out
+
+
 def initialize_session(state: InterviewState) -> dict:
     # Persona and its variable elements are drawn at random and kept hidden from the
-    # interviewer until grading (they travel inside persona_profile).
-    persona = dict(random.choice(load_personas()))
-    persona["active_variables"] = draw_variables(persona, load_variables())
+    # interviewer until grading (they travel inside persona_profile). In debugging mode
+    # either can be chosen instead.
+    dbg = state.get("debug") or {}
+    personas = load_personas()
+    persona = dict(next((p for p in personas if p["name"] == dbg.get("persona")), None)
+                   or random.choice(personas))
+    variables = dbg.get("variables", "random")
+    if variables == "none":
+        persona["active_variables"] = []
+    elif variables == "choose":
+        persona["active_variables"] = chosen_variables(persona, load_variables(),
+                                                       dbg.get("picks", []), dbg.get("twist", False))
+    else:
+        persona["active_variables"] = draw_variables(persona, load_variables())
     return {
         "persona_name": persona["name"],
         "persona_profile": persona,
@@ -127,6 +154,11 @@ _rubric_jobs: dict[str, Future] = {}
 
 def verify_documents(state: InterviewState) -> dict:
     docs = state.get("documents", [])
+    if (state.get("debug") or {}).get("skip_check"):
+        skipped = {"relevant": True, "category": "relevant",
+                   "summary": "(Not checked: the document check was skipped for debugging.)",
+                   "reason": "Skipped in debugging mode."}
+        return {"documents": [{**d, "check": skipped} for d in docs]}
     checks = list(_executor.map(
         lambda d: agents.check_document(d, state["expert_name"], state.get("expert_role", ""),
                                         state.get("user_outline", ""), state["models"]["checker"]),
@@ -150,13 +182,23 @@ def review_documents(state: InterviewState) -> dict:
     by_id = {n["id"]: n for n in notes}
     docs = [{**d, **by_id.get(d["id"], {})} for d in docs]
 
-    _rubric_jobs[state["session_id"]] = _executor.submit(
-        agents.create_rubric, state["expert_name"], state.get("user_outline", ""), context,
-        state["models"]["criteria"])
+    # Interviews are graded with rubric v2.2. Debugging mode can ask for the previous
+    # rubric (rubric.json) instead, for comparison; only that one needs the Criteria
+    # agent's look-fors, which it starts on now, in the background.
+    if _uses_previous_rubric(state):
+        _rubric_jobs[state["session_id"]] = _executor.submit(
+            agents.create_rubric, state["expert_name"], state.get("user_outline", ""), context,
+            state["models"]["criteria"])
     return {"documents": docs, "document_context": context, "status": "starting_interview"}
 
 
+def _uses_previous_rubric(state: InterviewState) -> bool:
+    return (state.get("debug") or {}).get("rubric") == "previous"
+
+
 def generate_rubric(state: InterviewState) -> dict:
+    if not _uses_previous_rubric(state):
+        return {"rubric": grading_v2.load_rubric()}
     job = _rubric_jobs.pop(state["session_id"], None)
     try:
         rubric = job.result()  # waits only if the interview was shorter than rubric generation
@@ -182,10 +224,13 @@ def _reply(state: InterviewState, transcript: list) -> dict:
 
 
 def start_interview(state: InterviewState) -> dict:
+    # A debugging script may have loaded a transcript already: pick up from there
+    # instead of generating an opening line.
+    opening = [] if state.get("transcript") else [_reply(state, [])]
     return {
         "interview_started": True,
         "status": "interviewing",
-        "transcript": [_reply(state, [])],
+        "transcript": opening,
     }
 
 
@@ -202,6 +247,12 @@ def expert_response(state: InterviewState) -> dict:
 
 
 def grade_interview(state: InterviewState) -> dict:
+    if not _uses_previous_rubric(state):
+        assessment = grading_v2.grade(
+            state["rubric"], state["transcript"], state["expert_name"],
+            state.get("user_outline", ""), state.get("document_context", ""),
+            state["persona_profile"], state["models"]["grader"])
+        return {"final_assessment": {**assessment, "models": state["models"]}}
     assessment = agents.grade_interview(
         state["rubric"], state["transcript"], state["expert_name"],
         state.get("user_outline", ""), state.get("document_context", ""), state["persona_profile"],

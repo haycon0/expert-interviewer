@@ -156,6 +156,7 @@ It measured each step and found the biggest delay was the research agent *writin
 | User types interview goals | Removed; replaced by case background and an evidence file | Prompt 10 |
 | Any kind of expert interview | Investigation interview of an employee witness | Prompt 10 |
 | Rubric built before the interview starts | Built in the background during the interview | Faster start (Prompt 8) |
+| A customized rubric per interview | Rubric v2.2 from the supervising attorney's Rubric Summary: 23 skills rated 0–4, score caps, and a report citing turn numbers | Grading should follow an approved standard (later sessions) |
 | Microsoft's Azure AI service | Anthropic's Claude, switchable with one setting | "Whatever is fastest" (Prompt 2) |
 | Full database | Simple temporary storage | The plan itself said to start simple |
 

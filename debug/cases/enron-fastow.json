@@ -1,0 +1,9 @@
+{
+  "name": "Enron (Andrew Fastow)",
+  "description": "The Enron/Fastow practice case: Andrew Fastow, CFO, and the Special Committee's investigation of the LJM partnerships, with the Enron events log as the case document.",
+  "default": true,
+  "expert_name": "Andrew Fastow",
+  "expert_role": "Executive Vice President and CFO, Enron Corp.",
+  "case_background_file": "examples/enron-fastow/case_background.txt",
+  "documents": ["examples/enron-fastow/Enron_Sample_Events_Log.csv"]
+}

@@ -114,7 +114,7 @@ The **examples/enron-fastow** folder has a complete practice run. You interview 
 7. Click **Check documents & start interview**. The app reads each document and checks that it belongs in this case (about 10–20 seconds).
 8. **If any documents are flagged**, you'll see each one, with what it contains, why it was flagged (for example "Addressed to someone else" or "Unrelated to this case"), and its opening text. Choose **Keep it** or **Remove it** for each one, then click **Continue to interview**. If nothing is flagged, this screen is skipped.
 9. Type questions in the box at the bottom and press **Enter** to send. In a voice mode, click **Start the conversation** first, then **Talk** to ask out loud. The right side explains the witness's personality. Normally it's hidden until your grade; for testing, add `REVEAL_PERSONA=1` to `.env` to show it, with tips on how to adapt.
-10. When you're done, click **End & grade**. You get a score, feedback on each criterion, missed opportunities, and coaching. The witness's hidden personality is revealed here.
+10. When you're done, click **End & grade**. You get a score out of 100, a rating for each of 23 skills with the moments in the interview behind it, any mistakes that capped the score, up to two missed chances, and two tips. The witness's hidden personality is revealed here.
 
 ---
 
@@ -145,7 +145,7 @@ These files can be opened and edited with **Notepad** (Windows) or **TextEdit** 
 
 - **.env:** your API keys, plus which AI models the setup page starts with. See [docs/MODELS.md](docs/MODELS.md).
 - **models.json:** the list of AI models offered on the setup page, with their prices.
-- **rubric.json:** the grading criteria, their weights (must add up to 100), and what each score level means.
+- **rubrics/v2.2.json:** the grading rubric: each skill's description and marks (each area's marks must add up to its total, and the areas to 100), the score caps, and the result bands.
 - **personas.json:** the witness personalities the app picks from at random.
 
 Keep the punctuation (quotes, commas, brackets) exactly as it is; only change the words inside the quotes. If the app stops starting after an edit, download a fresh copy of the file from GitHub.
