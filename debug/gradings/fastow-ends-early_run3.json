@@ -1,0 +1,741 @@
+{
+ "script": "fastow-ends-early",
+ "run": "run3",
+ "model": "anthropic:claude-haiku-5-5",
+ "graded": "2026-11-17 13:09",
+ "seconds": 48,
+ "questions": 13,
+ "closing_added": false,
+ "report": {
+  "rubric_version": "2.2",
+  "status": "INSUFFICIENT_EVIDENCE",
+  "status_label": "Not enough evidence",
+  "status_reason": "The interviewer ended the session at T26 ('something urgent has come up') before the planned document stage, the chronology, decision-making and wrap-up. The interview is cut off, so a normal score is not valid. This is not a zero for the lawyer; the ratings below are provisional and describe only what was said.",
+  "overall_score": null,
+  "score_before_cap": null,
+  "cap": null,
+  "band": null,
+  "letter_grade": "Not enough evidence",
+  "areas": [
+   {
+    "name": "Interview Framing, Rapport Building, & Closing",
+    "points": 20,
+    "total": 18.75,
+    "counted": true,
+    "skills": [
+     {
+      "name": "Upjohn",
+      "description": "Properly identifies representation and role with the Company, and that they cannot give the employee legal advice. This must always be part of the very beginning of the interview.",
+      "max_marks": 5,
+      "rating": 4,
+      "marks": 5.0,
+      "reason": "T2 states the company is the client and that counsel does not represent the witness personally: 'we represent the Committee and the company only. We do not represent you personally, we are not your attorney, and we can't give you legal advice.' It comes at the very start, before any substantive question."
+     },
+     {
+      "name": "Privilege",
+      "description": "Properly explains that the Company controls the privilege and determines how it is shared.",
+      "max_marks": 4,
+      "rating": 4,
+      "marks": 4.0,
+      "reason": "T2 explains the privilege 'belongs to the company, not to you or to us,' that the company decides on waiver, and that it may disclose 'including to the government, without your consent and without telling you.'"
+     },
+     {
+      "name": "Relationship",
+      "description": "Establishes rapport and interview expectations. This includes: establishes an appropriate professional tone; explains how the interview will proceed; encourages complete answers; instructs the witness that they can speculate, they just need to say when they do; invites the witness to distinguish between recollection and uncertainty.",
+      "max_marks": 4,
+      "rating": 4,
+      "marks": 4.0,
+      "reason": "T6 sets out how the session will run, asks for complete answers, gives speculation ground rules, and asks the witness to separate memory from reconstruction: 'tell me whether you actually remember something or are reconstructing it.'"
+     },
+     {
+      "name": "Confirmation",
+      "description": "Checks the witness understood the Upjohn warning and answers their questions, if any.",
+      "max_marks": 2,
+      "rating": 4,
+      "marks": 2.0,
+      "reason": "T2 asks 'Do you understand? Do you have any questions?' and T4 checks the warning by asking the witness to restate who is represented and who controls privilege; the witness answers correctly at T5."
+     },
+     {
+      "name": "Closing",
+      "description": "Closes by confirming there is \"nothing else\", next steps, a confidentiality reminder, and a reminder to keep records.",
+      "max_marks": 5,
+      "rating": 3,
+      "marks": 3.75,
+      "reason": "T26 covers next steps, confidentiality, record retention and not discussing with other witnesses. It does not ask whether there is anything else, and the close was forced by an interruption."
+     }
+    ],
+    "moments": [
+     {
+      "turn": "T2",
+      "kind": "quote",
+      "text": "To be clear, we represent the Committee and the company only. We do not represent you personally, we are not your attorney, and we can't give you legal advice."
+     },
+     {
+      "turn": "T2",
+      "kind": "quote",
+      "text": "The company decides whether to waive it, and it may disclose what we learn, including to the government, without your consent and without telling you."
+     },
+     {
+      "turn": "T4",
+      "kind": "quote",
+      "text": "Before we go on, could you tell me in your own words your understanding of who we represent, and who controls the privilege?"
+     },
+     {
+      "turn": "T5",
+      "kind": "summary",
+      "text": "The witness correctly restates that the company, not the witness, is represented and that the company controls privilege."
+     },
+     {
+      "turn": "T6",
+      "kind": "quote",
+      "text": "Throughout, please tell me whether you actually remember something or are reconstructing it, and say so if you're unsure."
+     },
+     {
+      "turn": "T26",
+      "kind": "quote",
+      "text": "Please keep all related documents and notes, keep today confidential, and don't discuss it with other witnesses. We'll be in touch to schedule time to continue."
+     }
+    ]
+   },
+   {
+    "name": "Question Technique",
+    "points": 25,
+    "total": 18.75,
+    "counted": true,
+    "skills": [
+     {
+      "name": "Narrative Development",
+      "description": "Lets the witness walk through what happened.",
+      "max_marks": 7,
+      "rating": 3,
+      "marks": 5.25,
+      "reason": "T16 'Tell me everything you remember about how LJM1 came about in 1999' lets the witness give a full account at T17 without interruption."
+     },
+     {
+      "name": "Funneling",
+      "description": "Moves in a sensible order from general to specific questions.",
+      "max_marks": 7,
+      "rating": 3,
+      "marks": 5.25,
+      "reason": "The questions move from role (T8) to the Global Finance group (T10), reporting lines (T12), Kopper (T14), the open narrative (T16), then the general partner question (T18)."
+     },
+     {
+      "name": "Clarity",
+      "description": "Asks clear questions and avoids compound, ambiguous, or legalistic questions.",
+      "max_marks": 4,
+      "rating": 3,
+      "marks": 3.0,
+      "reason": "Questions are single and plain, such as 'What was Michael Kopper's role?' (T14) and 'Who first suggested that you serve as the general partner?' (T24)."
+     },
+     {
+      "name": "Professionalism",
+      "description": "Stays neutral, polite and in control.",
+      "max_marks": 2,
+      "rating": 3,
+      "marks": 1.5,
+      "reason": "The tone is polite and neutral throughout, and the interviewer stays in control when ending the session at T26."
+     },
+     {
+      "name": "Adaptability",
+      "description": "Changes technique based on the witness's answers rather than staying only with the outline.",
+      "max_marks": 5,
+      "rating": 3,
+      "marks": 3.75,
+      "reason": "T20 picks up the witness's own phrase 'made outside money comfortable' and T22 presses on the same point, departing from the outline. No document or contradiction was used because the interview ended."
+     }
+    ],
+    "moments": [
+     {
+      "turn": "T16",
+      "kind": "quote",
+      "text": "Tell me everything you remember about how LJM1 came about in 1999."
+     },
+     {
+      "turn": "T17",
+      "kind": "summary",
+      "text": "The witness gives an unprompted account of the Rhythms hedge, Skilling's request, and the design of the vehicle with Glisan."
+     },
+     {
+      "turn": "T18",
+      "kind": "quote",
+      "text": "Why did you need to be the general partner, rather than someone outside Enron?"
+     },
+     {
+      "turn": "T20",
+      "kind": "quote",
+      "text": "What do you mean when you say your involvement made outside money comfortable?"
+     }
+    ]
+   },
+   {
+    "name": "Fact Development, Source Identification, & Credibility Testing",
+    "points": 40,
+    "total": 23.5,
+    "counted": true,
+    "skills": [
+     {
+      "name": "Ensures Credibility",
+      "description": "Recognizes and follows up on incomplete, evasive, or inconsistent answers.",
+      "max_marks": 8,
+      "rating": 3,
+      "marks": 6.0,
+      "reason": "After 'my involvement is what made outside money comfortable. I didn't go looking for it' (T19), the interviewer probes at T20 and T22. It does not test the witness's later claim that the GP role was something 'the deal needed rather than something I wanted' (T25)."
+     },
+     {
+      "name": "Material Facts",
+      "description": "Identifies the who, what, when, and how.",
+      "max_marks": 9,
+      "rating": 3,
+      "marks": 6.75,
+      "reason": "T24 and T25 establish who (Lay and Skilling), what (the GP role) and when (around mid-June 1999). The how and the outcome were not reached."
+     },
+     {
+      "name": "Memory Refreshing",
+      "description": "Tries other ways when the witness can't remember.",
+      "max_marks": 3,
+      "rating": 1,
+      "marks": 0.75,
+      "reason": "No memory gap arose before the cut-off, so no alternative cue was tried. The opportunity was limited."
+     },
+     {
+      "name": "Establishes Knowledge",
+      "description": "Separates what the witness personally knows from speculation, secondhand information, or inferences.",
+      "max_marks": 4,
+      "rating": 2,
+      "marks": 2.0,
+      "reason": "The witness says investors 'trusted that I knew the assets' (T21) and that Lay and Skilling 'agreed to take it to the Board' (T25), but the interviewer does not ask how the witness knows what investors believed or what the directors decided."
+     },
+     {
+      "name": "Other Sources",
+      "description": "Identifies additional witnesses.",
+      "max_marks": 3,
+      "rating": 1,
+      "marks": 0.75,
+      "reason": "Glisan and Kopper are named at T13 and Lay and Skilling at T25, but the interviewer never asks who else was present or who else knows."
+     },
+     {
+      "name": "Other Evidence",
+      "description": "Identifies other documents such as communications, reports, notes, or other relevant records.",
+      "max_marks": 3,
+      "rating": 1,
+      "marks": 0.75,
+      "reason": "No communications, notes or records are asked about before the interruption, though the witness is asked to keep documents at T26."
+     },
+     {
+      "name": "Tests Certainty",
+      "description": "Examines how certain the witness is about their memory or a fact.",
+      "max_marks": 2,
+      "rating": 1,
+      "marks": 0.5,
+      "reason": "Only a general instruction to flag reconstruction is given at T6. No specific fact's certainty is tested."
+     },
+     {
+      "name": "Follow-Up",
+      "description": "Recognizes material responses and follows up on them.",
+      "max_marks": 8,
+      "rating": 3,
+      "marks": 6.0,
+      "reason": "The interviewer follows up material answers on investor commitments at T20 and T22."
+     }
+    ],
+    "moments": [
+     {
+      "turn": "T19",
+      "kind": "quote",
+      "text": "Frankly, my involvement is what made outside money comfortable. I didn't go looking for it."
+     },
+     {
+      "turn": "T21",
+      "kind": "quote",
+      "text": "Investors trusted that I knew the assets and could get deals done with Enron."
+     },
+     {
+      "turn": "T22",
+      "kind": "quote",
+      "text": "Did your position at Enron play a part in getting investor commitments?"
+     },
+     {
+      "turn": "T23",
+      "kind": "quote",
+      "text": "My knowledge of Enron did, certainly. That's why I was valuable to them."
+     },
+     {
+      "turn": "T24",
+      "kind": "quote",
+      "text": "Who first suggested that you serve as the general partner?"
+     },
+     {
+      "turn": "T25",
+      "kind": "quote",
+      "text": "I raised it with Ken Lay and Jeff Skilling around the middle of June 1999. I presented it as something the deal needed rather than something I wanted, and they agreed to take it to the Board."
+     }
+    ]
+   },
+   {
+    "name": "Document Use",
+    "points": 15,
+    "total": 3.75,
+    "counted": true,
+    "skills": [
+     {
+      "name": "Effective Selection",
+      "description": "Selects and contextualizes documents effectively, and properly authenticates the document.",
+      "max_marks": 5,
+      "rating": 0,
+      "marks": 0.0,
+      "reason": "No document was shown. The interviewer said 'later I'll show you some documents' at T6, but the interview ended before that stage."
+     },
+     {
+      "name": "Narrative",
+      "description": "Gets the witness's story first, before using conflicting evidence.",
+      "max_marks": 5,
+      "rating": 3,
+      "marks": 3.75,
+      "reason": "The witness's story is taken first (T16, T17) before any conflicting material is raised, which is the correct order."
+     },
+     {
+      "name": "Accuracy",
+      "description": "Describes the document accurately.",
+      "max_marks": 2,
+      "rating": 0,
+      "marks": 0.0,
+      "reason": "No document was described, so accuracy cannot be assessed."
+     },
+     {
+      "name": "Avoid Initial Conclusion",
+      "description": "Separates the document from inferences or conclusions, unless the witness takes an unreasonable stance.",
+      "max_marks": 1,
+      "rating": 0,
+      "marks": 0.0,
+      "reason": "No document was put to the witness, so this skill was not demonstrated."
+     },
+     {
+      "name": "Fairness",
+      "description": "Provides the witness with a fair opportunity to explain any inconsistencies or disagreements with the document.",
+      "max_marks": 2,
+      "rating": 0,
+      "marks": 0.0,
+      "reason": "No document was put to the witness, so no opportunity to explain an inconsistency was given."
+     }
+    ],
+    "moments": [
+     {
+      "turn": "T6",
+      "kind": "quote",
+      "text": "As I said, we can't advise you on that. Let me explain how today will go. I'll start with your background and role, then ask you to walk me through the LJM and Chewco transactions in your own words, and later I'll show you some documents."
+     },
+     {
+      "turn": "T16",
+      "kind": "summary",
+      "text": "Documents were planned for later, but the witness's narrative was taken first and no document was put to him before the interview ended at T26."
+     }
+    ]
+   }
+  ],
+  "big_mistakes": [],
+  "missed_opportunities": [
+   "T17: The witness says he and Glisan designed the vehicle to hedge Rhythms. The interviewer did not ask who else knew of the design, or what records exist of it, which would have opened the other-sources and other-evidence lines.",
+   "T23: After the witness says his knowledge of Enron was why investors valued him, the interviewer did not ask whether any investor was told of his Enron role at the time, or whether that was a condition of commitment. This was the point to test the 'didn't go looking for it' claim against what investors were actually told."
+  ],
+  "tips": [
+   "When you say investors were comfortable because of your involvement, which investors said that to you, when, and in what words, and what documents record it?",
+   "Before we move on, who else was in the room with Ken Lay and Jeff Skilling in mid-June 1999, and what notes or emails exist from that discussion?"
+  ],
+  "evaluator_errors": [],
+  "category_scores": [
+   {
+    "name": "Upjohn",
+    "score": 100,
+    "weight": 5,
+    "rationale": "T2 states the company is the client and that counsel does not represent the witness personally: 'we represent the Committee and the company only. We do not represent you personally, we are not your attorney, and we can't give you legal advice.' It comes at the very start, before any substantive question."
+   },
+   {
+    "name": "Privilege",
+    "score": 100,
+    "weight": 4,
+    "rationale": "T2 explains the privilege 'belongs to the company, not to you or to us,' that the company decides on waiver, and that it may disclose 'including to the government, without your consent and without telling you.'"
+   },
+   {
+    "name": "Relationship",
+    "score": 100,
+    "weight": 4,
+    "rationale": "T6 sets out how the session will run, asks for complete answers, gives speculation ground rules, and asks the witness to separate memory from reconstruction: 'tell me whether you actually remember something or are reconstructing it.'"
+   },
+   {
+    "name": "Confirmation",
+    "score": 100,
+    "weight": 2,
+    "rationale": "T2 asks 'Do you understand? Do you have any questions?' and T4 checks the warning by asking the witness to restate who is represented and who controls privilege; the witness answers correctly at T5."
+   },
+   {
+    "name": "Closing",
+    "score": 75,
+    "weight": 5,
+    "rationale": "T26 covers next steps, confidentiality, record retention and not discussing with other witnesses. It does not ask whether there is anything else, and the close was forced by an interruption."
+   },
+   {
+    "name": "Narrative Development",
+    "score": 75,
+    "weight": 7,
+    "rationale": "T16 'Tell me everything you remember about how LJM1 came about in 1999' lets the witness give a full account at T17 without interruption."
+   },
+   {
+    "name": "Funneling",
+    "score": 75,
+    "weight": 7,
+    "rationale": "The questions move from role (T8) to the Global Finance group (T10), reporting lines (T12), Kopper (T14), the open narrative (T16), then the general partner question (T18)."
+   },
+   {
+    "name": "Clarity",
+    "score": 75,
+    "weight": 4,
+    "rationale": "Questions are single and plain, such as 'What was Michael Kopper's role?' (T14) and 'Who first suggested that you serve as the general partner?' (T24)."
+   },
+   {
+    "name": "Professionalism",
+    "score": 75,
+    "weight": 2,
+    "rationale": "The tone is polite and neutral throughout, and the interviewer stays in control when ending the session at T26."
+   },
+   {
+    "name": "Adaptability",
+    "score": 75,
+    "weight": 5,
+    "rationale": "T20 picks up the witness's own phrase 'made outside money comfortable' and T22 presses on the same point, departing from the outline. No document or contradiction was used because the interview ended."
+   },
+   {
+    "name": "Ensures Credibility",
+    "score": 75,
+    "weight": 8,
+    "rationale": "After 'my involvement is what made outside money comfortable. I didn't go looking for it' (T19), the interviewer probes at T20 and T22. It does not test the witness's later claim that the GP role was something 'the deal needed rather than something I wanted' (T25)."
+   },
+   {
+    "name": "Material Facts",
+    "score": 75,
+    "weight": 9,
+    "rationale": "T24 and T25 establish who (Lay and Skilling), what (the GP role) and when (around mid-June 1999). The how and the outcome were not reached."
+   },
+   {
+    "name": "Memory Refreshing",
+    "score": 25,
+    "weight": 3,
+    "rationale": "No memory gap arose before the cut-off, so no alternative cue was tried. The opportunity was limited."
+   },
+   {
+    "name": "Establishes Knowledge",
+    "score": 50,
+    "weight": 4,
+    "rationale": "The witness says investors 'trusted that I knew the assets' (T21) and that Lay and Skilling 'agreed to take it to the Board' (T25), but the interviewer does not ask how the witness knows what investors believed or what the directors decided."
+   },
+   {
+    "name": "Other Sources",
+    "score": 25,
+    "weight": 3,
+    "rationale": "Glisan and Kopper are named at T13 and Lay and Skilling at T25, but the interviewer never asks who else was present or who else knows."
+   },
+   {
+    "name": "Other Evidence",
+    "score": 25,
+    "weight": 3,
+    "rationale": "No communications, notes or records are asked about before the interruption, though the witness is asked to keep documents at T26."
+   },
+   {
+    "name": "Tests Certainty",
+    "score": 25,
+    "weight": 2,
+    "rationale": "Only a general instruction to flag reconstruction is given at T6. No specific fact's certainty is tested."
+   },
+   {
+    "name": "Follow-Up",
+    "score": 75,
+    "weight": 8,
+    "rationale": "The interviewer follows up material answers on investor commitments at T20 and T22."
+   },
+   {
+    "name": "Effective Selection",
+    "score": 0,
+    "weight": 5,
+    "rationale": "No document was shown. The interviewer said 'later I'll show you some documents' at T6, but the interview ended before that stage."
+   },
+   {
+    "name": "Narrative",
+    "score": 75,
+    "weight": 5,
+    "rationale": "The witness's story is taken first (T16, T17) before any conflicting material is raised, which is the correct order."
+   },
+   {
+    "name": "Accuracy",
+    "score": 0,
+    "weight": 2,
+    "rationale": "No document was described, so accuracy cannot be assessed."
+   },
+   {
+    "name": "Avoid Initial Conclusion",
+    "score": 0,
+    "weight": 1,
+    "rationale": "No document was put to the witness, so this skill was not demonstrated."
+   },
+   {
+    "name": "Fairness",
+    "score": 0,
+    "weight": 2,
+    "rationale": "No document was put to the witness, so no opportunity to explain an inconsistency was given."
+   }
+  ],
+  "recommended_questions": [
+   "When you say investors were comfortable because of your involvement, which investors said that to you, when, and in what words, and what documents record it?",
+   "Before we move on, who else was in the room with Ken Lay and Jeff Skilling in mid-June 1999, and what notes or emails exist from that discussion?"
+  ],
+  "strengths": [],
+  "weaknesses": [],
+  "coaching_recommendations": []
+ },
+ "grader_output": {
+  "result": "INSUFFICIENT_EVIDENCE",
+  "result_reason": "The interviewer ended the session at T26 ('something urgent has come up') before the planned document stage, the chronology, decision-making and wrap-up. The interview is cut off, so a normal score is not valid. This is not a zero for the lawyer; the ratings below are provisional and describe only what was said.",
+  "skills": [
+   {
+    "name": "Upjohn",
+    "rating": 4,
+    "reason": "T2 states the company is the client and that counsel does not represent the witness personally: 'we represent the Committee and the company only. We do not represent you personally, we are not your attorney, and we can't give you legal advice.' It comes at the very start, before any substantive question."
+   },
+   {
+    "name": "Privilege",
+    "rating": 4,
+    "reason": "T2 explains the privilege 'belongs to the company, not to you or to us,' that the company decides on waiver, and that it may disclose 'including to the government, without your consent and without telling you.'"
+   },
+   {
+    "name": "Relationship",
+    "rating": 4,
+    "reason": "T6 sets out how the session will run, asks for complete answers, gives speculation ground rules, and asks the witness to separate memory from reconstruction: 'tell me whether you actually remember something or are reconstructing it.'"
+   },
+   {
+    "name": "Confirmation",
+    "rating": 4,
+    "reason": "T2 asks 'Do you understand? Do you have any questions?' and T4 checks the warning by asking the witness to restate who is represented and who controls privilege; the witness answers correctly at T5."
+   },
+   {
+    "name": "Closing",
+    "rating": 3,
+    "reason": "T26 covers next steps, confidentiality, record retention and not discussing with other witnesses. It does not ask whether there is anything else, and the close was forced by an interruption."
+   },
+   {
+    "name": "Narrative Development",
+    "rating": 3,
+    "reason": "T16 'Tell me everything you remember about how LJM1 came about in 1999' lets the witness give a full account at T17 without interruption."
+   },
+   {
+    "name": "Funneling",
+    "rating": 3,
+    "reason": "The questions move from role (T8) to the Global Finance group (T10), reporting lines (T12), Kopper (T14), the open narrative (T16), then the general partner question (T18)."
+   },
+   {
+    "name": "Clarity",
+    "rating": 3,
+    "reason": "Questions are single and plain, such as 'What was Michael Kopper's role?' (T14) and 'Who first suggested that you serve as the general partner?' (T24)."
+   },
+   {
+    "name": "Professionalism",
+    "rating": 3,
+    "reason": "The tone is polite and neutral throughout, and the interviewer stays in control when ending the session at T26."
+   },
+   {
+    "name": "Adaptability",
+    "rating": 3,
+    "reason": "T20 picks up the witness's own phrase 'made outside money comfortable' and T22 presses on the same point, departing from the outline. No document or contradiction was used because the interview ended."
+   },
+   {
+    "name": "Ensures Credibility",
+    "rating": 3,
+    "reason": "After 'my involvement is what made outside money comfortable. I didn't go looking for it' (T19), the interviewer probes at T20 and T22. It does not test the witness's later claim that the GP role was something 'the deal needed rather than something I wanted' (T25)."
+   },
+   {
+    "name": "Material Facts",
+    "rating": 3,
+    "reason": "T24 and T25 establish who (Lay and Skilling), what (the GP role) and when (around mid-June 1999). The how and the outcome were not reached."
+   },
+   {
+    "name": "Memory Refreshing",
+    "rating": 1,
+    "reason": "No memory gap arose before the cut-off, so no alternative cue was tried. The opportunity was limited."
+   },
+   {
+    "name": "Establishes Knowledge",
+    "rating": 2,
+    "reason": "The witness says investors 'trusted that I knew the assets' (T21) and that Lay and Skilling 'agreed to take it to the Board' (T25), but the interviewer does not ask how the witness knows what investors believed or what the directors decided."
+   },
+   {
+    "name": "Other Sources",
+    "rating": 1,
+    "reason": "Glisan and Kopper are named at T13 and Lay and Skilling at T25, but the interviewer never asks who else was present or who else knows."
+   },
+   {
+    "name": "Other Evidence",
+    "rating": 1,
+    "reason": "No communications, notes or records are asked about before the interruption, though the witness is asked to keep documents at T26."
+   },
+   {
+    "name": "Tests Certainty",
+    "rating": 1,
+    "reason": "Only a general instruction to flag reconstruction is given at T6. No specific fact's certainty is tested."
+   },
+   {
+    "name": "Follow-Up",
+    "rating": 3,
+    "reason": "The interviewer follows up material answers on investor commitments at T20 and T22."
+   },
+   {
+    "name": "Effective Selection",
+    "rating": 0,
+    "reason": "No document was shown. The interviewer said 'later I'll show you some documents' at T6, but the interview ended before that stage."
+   },
+   {
+    "name": "Narrative",
+    "rating": 3,
+    "reason": "The witness's story is taken first (T16, T17) before any conflicting material is raised, which is the correct order."
+   },
+   {
+    "name": "Accuracy",
+    "rating": 0,
+    "reason": "No document was described, so accuracy cannot be assessed."
+   },
+   {
+    "name": "Avoid Initial Conclusion",
+    "rating": 0,
+    "reason": "No document was put to the witness, so this skill was not demonstrated."
+   },
+   {
+    "name": "Fairness",
+    "rating": 0,
+    "reason": "No document was put to the witness, so no opportunity to explain an inconsistency was given."
+   }
+  ],
+  "area_evidence": [
+   {
+    "area": "Interview Framing, Rapport Building, & Closing",
+    "moments": [
+     {
+      "turn": "T2",
+      "kind": "quote",
+      "text": "To be clear, we represent the Committee and the company only. We do not represent you personally, we are not your attorney, and we can't give you legal advice."
+     },
+     {
+      "turn": "T2",
+      "kind": "quote",
+      "text": "The company decides whether to waive it, and it may disclose what we learn, including to the government, without your consent and without telling you."
+     },
+     {
+      "turn": "T4",
+      "kind": "quote",
+      "text": "Before we go on, could you tell me in your own words your understanding of who we represent, and who controls the privilege?"
+     },
+     {
+      "turn": "T5",
+      "kind": "summary",
+      "text": "The witness correctly restates that the company, not the witness, is represented and that the company controls privilege."
+     },
+     {
+      "turn": "T6",
+      "kind": "quote",
+      "text": "Throughout, please tell me whether you actually remember something or are reconstructing it, and say so if you're unsure."
+     },
+     {
+      "turn": "T26",
+      "kind": "quote",
+      "text": "Please keep all related documents and notes, keep today confidential, and don't discuss it with other witnesses. We'll be in touch to schedule time to continue."
+     }
+    ]
+   },
+   {
+    "area": "Question Technique",
+    "moments": [
+     {
+      "turn": "T16",
+      "kind": "quote",
+      "text": "Tell me everything you remember about how LJM1 came about in 1999."
+     },
+     {
+      "turn": "T17",
+      "kind": "summary",
+      "text": "The witness gives an unprompted account of the Rhythms hedge, Skilling's request, and the design of the vehicle with Glisan."
+     },
+     {
+      "turn": "T18",
+      "kind": "quote",
+      "text": "Why did you need to be the general partner, rather than someone outside Enron?"
+     },
+     {
+      "turn": "T20",
+      "kind": "quote",
+      "text": "What do you mean when you say your involvement made outside money comfortable?"
+     }
+    ]
+   },
+   {
+    "area": "Fact Development, Source Identification, & Credibility Testing",
+    "moments": [
+     {
+      "turn": "T19",
+      "kind": "quote",
+      "text": "Frankly, my involvement is what made outside money comfortable. I didn't go looking for it."
+     },
+     {
+      "turn": "T21",
+      "kind": "quote",
+      "text": "Investors trusted that I knew the assets and could get deals done with Enron."
+     },
+     {
+      "turn": "T22",
+      "kind": "quote",
+      "text": "Did your position at Enron play a part in getting investor commitments?"
+     },
+     {
+      "turn": "T23",
+      "kind": "quote",
+      "text": "My knowledge of Enron did, certainly. That's why I was valuable to them."
+     },
+     {
+      "turn": "T24",
+      "kind": "quote",
+      "text": "Who first suggested that you serve as the general partner?"
+     },
+     {
+      "turn": "T25",
+      "kind": "quote",
+      "text": "I raised it with Ken Lay and Jeff Skilling around the middle of June 1999. I presented it as something the deal needed rather than something I wanted, and they agreed to take it to the Board."
+     }
+    ]
+   },
+   {
+    "area": "Document Use",
+    "moments": [
+     {
+      "turn": "T6",
+      "kind": "quote",
+      "text": "As I said, we can't advise you on that. Let me explain how today will go. I'll start with your background and role, then ask you to walk me through the LJM and Chewco transactions in your own words, and later I'll show you some documents."
+     },
+     {
+      "turn": "T16",
+      "kind": "summary",
+      "text": "Documents were planned for later, but the witness's narrative was taken first and no document was put to him before the interview ended at T26."
+     }
+    ]
+   }
+  ],
+  "big_mistakes": [],
+  "missed_chances": [
+   {
+    "turn": "T17",
+    "description": "The witness says he and Glisan designed the vehicle to hedge Rhythms. The interviewer did not ask who else knew of the design, or what records exist of it, which would have opened the other-sources and other-evidence lines."
+   },
+   {
+    "turn": "T23",
+    "description": "After the witness says his knowledge of Enron was why investors valued him, the interviewer did not ask whether any investor was told of his Enron role at the time, or whether that was a condition of commitment. This was the point to test the 'didn't go looking for it' claim against what investors were actually told."
+   }
+  ],
+  "tips": [
+   "When you say investors were comfortable because of your involvement, which investors said that to you, when, and in what words, and what documents record it?",
+   "Before we move on, who else was in the room with Ken Lay and Jeff Skilling in mid-June 1999, and what notes or emails exist from that discussion?"
+  ]
+ }
+}

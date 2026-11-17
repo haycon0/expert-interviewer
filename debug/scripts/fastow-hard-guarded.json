@@ -1,0 +1,309 @@
+{
+  "name": "Fastow (Enron): test, hard (guarded witness)",
+  "description": "The same interview as the cooperative (easy) script, with a guarded Fastow: short answers, nothing volunteered. Same 34 questions as the cooperative (easy) script, word for word; only the witness's answers differ. The guarded witness gives the same facts, but only when pressed with follow-up questions. Tests the rubric rule 'no automatic penalty for a difficult witness': the two should score about the same.",
+  "persona": "The Adverse Witness",
+  "variables": "choose",
+  "picks": [
+    {
+      "name": "Cooperativeness",
+      "value": "Guarded"
+    },
+    {
+      "name": "Candor",
+      "value": "Selective"
+    },
+    {
+      "name": "Communication Style",
+      "value": "Terse"
+    },
+    {
+      "name": "Degree of Self-interest",
+      "value": "Concerned about Liability"
+    }
+  ],
+  "expert_name": "Andrew Fastow",
+  "expert_role": "Executive Vice President and CFO, Enron Corp.",
+  "case_background_file": "examples/enron-fastow/case_background.txt",
+  "documents": [
+    "examples/enron-fastow/Enron_Sample_Events_Log.csv"
+  ],
+  "resume_hint": "This interview is finished. Click End & grade.",
+  "transcript": [
+    {
+      "speaker": "expert",
+      "message": "Andy Fastow. Let's get on with it."
+    },
+    {
+      "speaker": "user",
+      "message": "Good morning, Mr. Fastow. Thank you for coming in. My name is Jordan Reyes. The Special Investigative Committee of Enron's Board has retained us to investigate the LJM and Chewco transactions and related concerns that have been raised at the company. The purpose of our interview today is to learn the facts so we can give legal advice to the company. To be clear, we represent the Committee and the company only. We do not represent you personally, we are not your attorney, and we can't give you legal advice. This interview is confidential and privileged, but that privilege belongs to the company, not to you or to us. The company decides whether to waive it, and it may disclose what we learn, including to the government, without your consent and without telling you. It's still important that you are fully open and truthful with us, and that you don't share the substance of this interview with anyone. Do you understand? Do you have any questions?"
+    },
+    {
+      "speaker": "expert",
+      "message": "Understood. You work for the company. I'll answer what I can."
+    },
+    {
+      "speaker": "user",
+      "message": "Before we go on, could you tell me in your own words your understanding of who we represent, and who controls the privilege?"
+    },
+    {
+      "speaker": "expert",
+      "message": "You represent the company. The company controls the privilege. Can we move on?"
+    },
+    {
+      "speaker": "user",
+      "message": "Thank you. You're free to consult your own lawyer at any time, and if you'd like to stop to do that, just tell me. As I said, we can't advise you on that. Let me explain how today will go. I'll start with your background and role, then ask you to walk me through the LJM and Chewco transactions in your own words, and later I'll show you some documents. Please give me complete answers, even if a detail seems minor. A few ground rules: if you're speculating, assuming, or estimating, please tell me. Throughout, please tell me whether you actually remember something or are reconstructing it, and say so if you're unsure. And if a question is unclear, ask me to clarify. Is that all right?"
+    },
+    {
+      "speaker": "expert",
+      "message": "Fine."
+    },
+    {
+      "speaker": "user",
+      "message": "Let's start with your role. As CFO, what were you responsible for?"
+    },
+    {
+      "speaker": "expert",
+      "message": "Financing the company."
+    },
+    {
+      "speaker": "user",
+      "message": "What did that include day to day?"
+    },
+    {
+      "speaker": "expert",
+      "message": "Raising capital. The balance sheet. Structured finance."
+    },
+    {
+      "speaker": "user",
+      "message": "Who reported to you in Global Finance?"
+    },
+    {
+      "speaker": "expert",
+      "message": "A lot of people. Glisan. Kopper. Others."
+    },
+    {
+      "speaker": "user",
+      "message": "Tell me everything you remember about how LJM1 came about in 1999."
+    },
+    {
+      "speaker": "expert",
+      "message": "Enron needed a hedge on its Rhythms position. LJM1 provided it."
+    },
+    {
+      "speaker": "user",
+      "message": "What else do you remember about how it was set up?"
+    },
+    {
+      "speaker": "expert",
+      "message": "I was the general partner. There were outside investors. Enron contributed stock."
+    },
+    {
+      "speaker": "user",
+      "message": "Who first suggested that you serve as the general partner?"
+    },
+    {
+      "speaker": "expert",
+      "message": "It was discussed with Ken and Jeff."
+    },
+    {
+      "speaker": "user",
+      "message": "Who raised it with them first?"
+    },
+    {
+      "speaker": "expert",
+      "message": "I did."
+    },
+    {
+      "speaker": "user",
+      "message": "At the June 28, 1999 Board meeting, what did you tell the Board about how you would be compensated?"
+    },
+    {
+      "speaker": "expert",
+      "message": "What was in the materials. That I wouldn't get value from the Enron stock."
+    },
+    {
+      "speaker": "user",
+      "message": "How sure are you that's what you told them?"
+    },
+    {
+      "speaker": "expert",
+      "message": "It's in the minutes."
+    },
+    {
+      "speaker": "user",
+      "message": "Next, the Rhythms unwind in early 2000. Who negotiated it for Enron?"
+    },
+    {
+      "speaker": "expert",
+      "message": "Causey's group."
+    },
+    {
+      "speaker": "user",
+      "message": "And for LJM1?"
+    },
+    {
+      "speaker": "expert",
+      "message": "Kopper and I."
+    },
+    {
+      "speaker": "user",
+      "message": "What do you remember about a partnership called Southampton Place?"
+    },
+    {
+      "speaker": "expert",
+      "message": "It was an investment vehicle."
+    },
+    {
+      "speaker": "user",
+      "message": "Who invested in it?"
+    },
+    {
+      "speaker": "expert",
+      "message": "Various people. My family foundation was one."
+    },
+    {
+      "speaker": "user",
+      "message": "What did the Foundation put in, and what did it receive?"
+    },
+    {
+      "speaker": "expert",
+      "message": "A small amount. It did well."
+    },
+    {
+      "speaker": "user",
+      "message": "How much did it receive?"
+    },
+    {
+      "speaker": "expert",
+      "message": "I'd have to check. Several million."
+    },
+    {
+      "speaker": "user",
+      "message": "Our information is roughly $4.5 million, about six weeks after it invested. Does that fit your memory?"
+    },
+    {
+      "speaker": "expert",
+      "message": "That sounds about right."
+    },
+    {
+      "speaker": "user",
+      "message": "How does that fit with what you told the Board about not receiving value from the Enron stock?"
+    },
+    {
+      "speaker": "expert",
+      "message": "The Foundation isn't me. What I told the Board was about my economics as general partner."
+    },
+    {
+      "speaker": "user",
+      "message": "Did you tell the Board, Mr. Lay, or Mr. Skilling about the Foundation's investment?"
+    },
+    {
+      "speaker": "expert",
+      "message": "It didn't come up."
+    },
+    {
+      "speaker": "user",
+      "message": "So that I have it right: none of them was told?"
+    },
+    {
+      "speaker": "expert",
+      "message": "Not by me."
+    },
+    {
+      "speaker": "user",
+      "message": "Let's turn to Chewco. Why was Michael Kopper chosen to manage it rather than you?"
+    },
+    {
+      "speaker": "expert",
+      "message": "Michael was suited to it."
+    },
+    {
+      "speaker": "user",
+      "message": "What else went into that choice?"
+    },
+    {
+      "speaker": "expert",
+      "message": "There were disclosure considerations."
+    },
+    {
+      "speaker": "user",
+      "message": "What were those disclosure considerations?"
+    },
+    {
+      "speaker": "expert",
+      "message": "If a senior officer were involved, it would have to be in the proxy."
+    },
+    {
+      "speaker": "user",
+      "message": "I'd like to show you the minutes of the November 5, 1997 Executive Committee meeting. Do you recognize them?"
+    },
+    {
+      "speaker": "expert",
+      "message": "They look like the Committee's minutes."
+    },
+    {
+      "speaker": "user",
+      "message": "Do they mention Mr. Kopper's role in Chewco?"
+    },
+    {
+      "speaker": "expert",
+      "message": "No."
+    },
+    {
+      "speaker": "user",
+      "message": "Turning to the LJM2 controls. How do you know Mr. Causey and Mr. Buy reviewed every LJM2 deal?"
+    },
+    {
+      "speaker": "expert",
+      "message": "That was the process."
+    },
+    {
+      "speaker": "user",
+      "message": "Did you check that it was followed?"
+    },
+    {
+      "speaker": "expert",
+      "message": "Not personally."
+    },
+    {
+      "speaker": "user",
+      "message": "Were any approval sheets signed after a deal closed?"
+    },
+    {
+      "speaker": "expert",
+      "message": "It happened."
+    },
+    {
+      "speaker": "user",
+      "message": "Which ones?"
+    },
+    {
+      "speaker": "expert",
+      "message": "Raptor I, maybe others. The sheets would show it."
+    },
+    {
+      "speaker": "user",
+      "message": "Is there anything I haven't asked about that you think the Committee should know?"
+    },
+    {
+      "speaker": "expert",
+      "message": "No."
+    },
+    {
+      "speaker": "user",
+      "message": "Who else should we speak with?"
+    },
+    {
+      "speaker": "expert",
+      "message": "Causey. Buy. Kopper."
+    },
+    {
+      "speaker": "user",
+      "message": "Thank you. Please keep all related documents and notes, keep today confidential, and don't discuss it with other witnesses. We may follow up. Anything to add or correct?"
+    },
+    {
+      "speaker": "expert",
+      "message": "Understood."
+    }
+  ]
+}

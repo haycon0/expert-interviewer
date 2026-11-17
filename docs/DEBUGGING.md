@@ -50,6 +50,20 @@ The scripted lines are pre-written, so starting from a script costs nothing unti
 | **Fastow (Enron): weak, complete** | A finished, weak interview (43 questions). | Click **End & grade**. Graded 65, 66, 67 on Claude Haiku. |
 | **Fastow (Enron): strong, with poor prioritization** | The strong interview, finished, plus a 31-question detour into low-value topics (the aircraft lease, the stock split, the Gaza project) before the key issues. | Click **End & grade**. Graded 94, 87, 89 on Claude Haiku, the same as without the detour: the rubric doesn't consider use of time. See [`debug/gradings/PRIORITIZATION.md`](../debug/gradings/PRIORITIZATION.md). |
 
+### Scenario test scripts
+
+Seven more Fastow scripts test how the tool handles particular situations. All are finished, so you click **End & grade** straight away (the wrong-input one stops at the document check first). They're built by `debug/tools/build_test_scripts.py`; each was graded three times, with the results in [`debug/gradings/SCENARIOS.md`](../debug/gradings/SCENARIOS.md).
+
+| Script | What it is | What it tests |
+|---|---|---|
+| **test, easy (cooperative witness)** | A short, sound interview (34 questions) of a cooperative Fastow who volunteers facts. Presets **The Average Witness**, Helpful, Candid, Conversational. | Compare with the guarded one: the questions are word for word the same. |
+| **test, hard (guarded witness)** | The same 34 questions; Fastow gives the same facts, but only when pressed. Presets **The Adverse Witness**, Guarded, Selective, Terse, Concerned about Liability. | "No automatic penalty for a difficult witness": both should score about the same. |
+| **test, interview ends early** | The opening, his role and the start of LJM1 (12 questions), then the interviewer has to stop and closes properly. | A cut-off interview should get **Not enough evidence**, not a normal score. |
+| **test, wrong input (stray payroll email)** | The mediocre interview, with an all-employee payroll reminder added to the case documents and shown to Fastow once. Don't tick **Skip the document check**. | The document check should flag the email (in testing, Claude Haiku did). If you keep it, does the grade change? |
+| **test, witness wants his own lawyer** | The strong interview up to his personal interests (59 questions); Fastow then stops for his own lawyer, and the interviewer handles it correctly. | Stopping for the witness's lawyer shouldn't be penalized, and the topics never reached should be treated fairly. |
+| **test, missed follow-up (the LLC bonus)** | The strong, complete interview, except that at T15 Fastow mentions an LLC that paid staff bonuses for LJM work outside payroll, and it's never followed up. | Does the grader notice the missed follow-up? |
+| **test, witness walks out** | The strong interview up to the Southampton confrontation (75 questions), where Fastow walks out; the interviewer stays calm and closes what it can. | No automatic penalty for a hostile witness; the cut-off should be noted, not blamed on the interviewer. |
+
 The strong, mediocre and weak interviews were each graded three times to test consistency; the results are in [`debug/gradings/`](../debug/gradings/README.md).
 
 ---
@@ -68,7 +82,7 @@ Scripts are JSON files in `debug/scripts/`. Copy an existing one and edit it. Th
 | `expert_name`, `expert_role` | Fill in the setup page. |
 | `case_background` or `case_background_file` | The background text, or a path to a text file inside the project folder. |
 | `documents` | Paths to case documents inside the project folder (PDF, Word, or text). A script brings its own case, so the example case isn't used with it. |
-| `persona`, `variables` | Optional presets: a persona name, and `"none"` or `"random"`. |
+| `persona`, `variables`, `picks` | Optional presets: a persona name, and `"none"`, `"random"` or `"choose"`. With `"choose"`, `picks` lists the variations, for example `[{"name": "Cooperativeness", "value": "Guarded"}]`. |
 | `resume_hint` | What to do next; shown in the side panel. |
 | `transcript` | The exchanges so far, in order: `{"speaker": "expert" or "user", "message": "...", "mood": "..."}`. `mood` is optional and only used with the animated face. End with the witness's line if the interviewer should speak next. |
 

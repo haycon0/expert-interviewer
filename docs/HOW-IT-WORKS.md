@@ -94,7 +94,7 @@ See [ASSESSMENT.md](ASSESSMENT.md) for a summary. In short: the rubric is **fixe
 |---|---|---|
 | Your kept documents | Shown on the review screen before the interview | Not shown |
 | The rubric's skills and marks | Not shown (see [ASSESSMENT.md](ASSESSMENT.md)) | Visible in your results |
-| Witness's personality | **Hidden**: the side panel explains it's a secret. With `REVEAL_PERSONA=1` in `.env` (for testing) it's shown there, with tips on how to adapt | Revealed |
+| Witness's personality | **Hidden**: the side panel explains it's a secret. Only in interviews started on the [debug page](DEBUGGING.md) is it shown there, with tips on how to adapt | Revealed |
 
 ## Where your information goes
 

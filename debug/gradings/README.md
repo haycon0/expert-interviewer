@@ -56,6 +56,10 @@ Both scripts are in `debug/scripts/` and appear in the Debugging box. They're co
 
 `fastow-poor-prioritization_run*.json` grade the strong interview with a 31-question detour into low-value topics. They scored 94, 87, 89 (average 90, the same as without the detour). See [PRIORITIZATION.md](PRIORITIZATION.md).
 
+## Scenario tests
+
+Seven more scripts (cooperative vs. guarded witness, an interview that ends early, a stray payroll email, a witness who wants his own lawyer, a missed follow-up, and a walk-out), each graded three times. See [SCENARIOS.md](SCENARIOS.md).
+
 ## Re-running
 
 From the project folder, with an API key in `.env`:
