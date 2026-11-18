@@ -1,6 +1,6 @@
 {
   "name": "Fastow (Enron): test, interview ends early",
-  "description": "The strong interview's opening (full Upjohn warning, ground rules), his role, and the start of LJM1 (12 questions), then the interviewer has to stop for the day and closes properly. None of the key issues (the Board representation, Southampton, Chewco, the controls, the Raptors) is reached. Tests how a cut-off interview is graded: the rubric says it should be 'Not enough evidence', not a normal score.",
+  "description": "The strong interview's opening (full Upjohn warning, ground rules), his role, and the start of LJM1 (12 questions), then the interviewer has to stop for the day and closes properly. None of the key issues (the Board representation, Southampton, Chewco, the controls, the Raptors) is reached. Tests the ending rule for an interviewer who ends early: Incomplete, rating only what was reached.",
   "persona": "The C-Suite",
   "variables": "none",
   "expert_name": "Andrew Fastow",

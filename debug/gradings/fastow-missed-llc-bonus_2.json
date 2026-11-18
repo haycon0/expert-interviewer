@@ -1,0 +1,1261 @@
+{
+ "script": "fastow-missed-llc-bonus",
+ "run": "v3run2",
+ "model": "anthropic:claude-haiku-5-5",
+ "graded": "2026-11-17 23:26",
+ "seconds": 120,
+ "questions": 187,
+ "closing_added": false,
+ "runs": 1,
+ "report": {
+  "rubric_version": "2.2",
+  "status": "SCORED",
+  "status_label": "Scored",
+  "status_reason": "",
+  "overall_score": 91,
+  "score_before_cap": 90.75,
+  "cap": null,
+  "band": "Excellent",
+  "letter_grade": "Excellent",
+  "areas": [
+   {
+    "name": "Interview Framing, Rapport Building, & Closing",
+    "points": 20,
+    "total": 20.0,
+    "counted": true,
+    "skills": [
+     {
+      "name": "Upjohn",
+      "description": "Properly identifies representation and role with the Company, and that they cannot give the employee legal advice. This must always be part of the very beginning of the interview.",
+      "max_marks": 5,
+      "rating": 4.0,
+      "marks": 5.0,
+      "reason": "T2 gave the warning at the very start: counsel represents the Committee and the company only, not the witness, and cannot give him legal advice."
+     },
+     {
+      "name": "Privilege",
+      "description": "Properly explains that the Company controls the privilege and determines how it is shared.",
+      "max_marks": 4,
+      "rating": 4.0,
+      "marks": 4.0,
+      "reason": "T2 explained the privilege belongs to the company, which decides on waiver and may disclose without the witness's consent; T4 checked the witness understood who controls it."
+     },
+     {
+      "name": "Relationship",
+      "description": "Establishes rapport and interview expectations. This includes: establishes an appropriate professional tone; explains how the interview will proceed; encourages complete answers; instructs the witness that they can speculate, they just need to say when they do; invites the witness to distinguish between recollection and uncertainty.",
+      "max_marks": 4,
+      "rating": 4.0,
+      "marks": 4.0,
+      "reason": "T6 set out how the interview would run, asked for complete answers, said to flag speculation, distinguish memory from reconstruction, and ask for clarification; the tone stayed professional."
+     },
+     {
+      "name": "Confirmation",
+      "description": "Checks the witness understood the Upjohn warning and answers their questions, if any.",
+      "max_marks": 2,
+      "rating": 4.0,
+      "marks": 2.0,
+      "reason": "T2 asked whether he understood and had questions; T4 asked him to restate who was represented and who controls privilege; T6 addressed his right to consult counsel."
+     },
+     {
+      "name": "Closing",
+      "description": "Closes by confirming there is \"nothing else\", next steps, a confidentiality reminder, and a reminder to keep records.",
+      "max_marks": 5,
+      "rating": 4.0,
+      "marks": 5.0,
+      "reason": "T374 asked if anything needed adding, reminded him to keep documents and notes, keep the interview confidential, not discuss it with witnesses, and said they may follow up."
+     }
+    ],
+    "moments": [
+     {
+      "turn": "T2",
+      "kind": "quote",
+      "text": "To be clear, we represent the Committee and the company only. We do not represent you personally, we are not your attorney, and we can't give you legal advice."
+     },
+     {
+      "turn": "T4",
+      "kind": "summary",
+      "text": "Asked the witness to restate in his own words who was represented and who controls the privilege."
+     },
+     {
+      "turn": "T6",
+      "kind": "summary",
+      "text": "Explained the structure, ground rules, speculation and recollection distinctions, and his right to consult counsel."
+     },
+     {
+      "turn": "T374",
+      "kind": "quote",
+      "text": "Please keep all related documents and notes, keep today confidential, and don't discuss it with other witnesses."
+     },
+     {
+      "turn": "T375",
+      "kind": "summary",
+      "text": "Witness confirmed he had nothing to add, closing the interview."
+     }
+    ]
+   },
+   {
+    "name": "Question Technique",
+    "points": 25,
+    "total": 22.25,
+    "counted": true,
+    "skills": [
+     {
+      "name": "Narrative Development",
+      "description": "Lets the witness walk through what happened.",
+      "max_marks": 7,
+      "rating": 4.0,
+      "marks": 7.0,
+      "reason": "Open invitations such as 'Tell me everything you remember' at T16, T44 and T310 let the witness walk through events before narrowing."
+     },
+     {
+      "name": "Funneling",
+      "description": "Moves in a sensible order from general to specific questions.",
+      "max_marks": 7,
+      "rating": 3.0,
+      "marks": 5.25,
+      "reason": "Moves from role and background to LJM, Chewco, controls, Raptors and 2001 events in a sensible order, though it jumps back and forth at points such as T120 and T266."
+     },
+     {
+      "name": "Clarity",
+      "description": "Asks clear questions and avoids compound, ambiguous, or legalistic questions.",
+      "max_marks": 4,
+      "rating": 3.0,
+      "marks": 3.0,
+      "reason": "Most questions are short and clear, but some are compound, such as T340 asking about provision and guarantee of money together."
+     },
+     {
+      "name": "Professionalism",
+      "description": "Stays neutral, polite and in control.",
+      "max_marks": 2,
+      "rating": 4.0,
+      "marks": 2.0,
+      "reason": "Stayed neutral and polite and kept control under deflection, for example 'I'm not suggesting you wrote it' at T300."
+     },
+     {
+      "name": "Adaptability",
+      "description": "Changes technique based on the witness's answers rather than staying only with the outline.",
+      "max_marks": 5,
+      "rating": 4.0,
+      "marks": 5.0,
+      "reason": "Changed course with the answers: probed the vague Raptor returns at T114 to T118, challenged the three-hour estimate at T218, and confronted the Andy note at T306."
+     }
+    ],
+    "moments": [
+     {
+      "turn": "T8",
+      "kind": "quote",
+      "text": "Let's start with your role. As CFO, what were you responsible for?"
+     },
+     {
+      "turn": "T16",
+      "kind": "quote",
+      "text": "Tell me everything you remember about how LJM1 came about in 1999."
+     },
+     {
+      "turn": "T44",
+      "kind": "quote",
+      "text": "Tell me everything you remember about how Chewco came to be formed in 1997."
+     },
+     {
+      "turn": "T86",
+      "kind": "quote",
+      "text": "Take Raptor I. What did Mr. Causey and Mr. Buy actually review before they signed its approval sheet?"
+     },
+     {
+      "turn": "T114",
+      "kind": "summary",
+      "text": "Pressed a vague answer on Raptor returns by asking for approximate figures, then whether above or below 30 percent, then how far."
+     },
+     {
+      "turn": "T242",
+      "kind": "quote",
+      "text": "Help me understand the difference."
+     },
+     {
+      "turn": "T340",
+      "kind": "summary",
+      "text": "Asked a compound question about whether the witness, his family or anyone at Enron provided or guaranteed the money."
+     }
+    ]
+   },
+   {
+    "name": "Fact Development, Source Identification, & Credibility Testing",
+    "points": 40,
+    "total": 33.75,
+    "counted": true,
+    "skills": [
+     {
+      "name": "Ensures Credibility",
+      "description": "Recognizes and follows up on incomplete, evasive, or inconsistent answers.",
+      "max_marks": 8,
+      "rating": 3.0,
+      "marks": 6.0,
+      "reason": "Most evasions were challenged (T56, T118, T144, T168, T218, T242, T306 to T308), but deflections on what the Board and Audit Committee knew (T211, T245) were not pressed."
+     },
+     {
+      "name": "Material Facts",
+      "description": "Identifies the who, what, when, and how.",
+      "max_marks": 9,
+      "rating": 3.0,
+      "marks": 6.75,
+      "reason": "Who, what, when and how are well covered for Southampton, the Chewco note and the Raptor I sign-off, but the recipients, amounts and approvers of the LLC bonuses were never pinned down."
+     },
+     {
+      "name": "Memory Refreshing",
+      "description": "Tries other ways when the witness can't remember.",
+      "max_marks": 3,
+      "rating": 4.0,
+      "marks": 3.0,
+      "reason": "Asked about notes and minutes at T62, then showed the minutes at T70, the Southampton agreement at T128, and the handwritten note at T300."
+     },
+     {
+      "name": "Establishes Knowledge",
+      "description": "Separates what the witness personally knows from speculation, secondhand information, or inferences.",
+      "max_marks": 4,
+      "rating": 4.0,
+      "marks": 4.0,
+      "reason": "Separated personal knowledge from hearsay with 'How do you know Mr. Skilling told the Board?' at T56, 'How do you know that's how they saw it?' at T226, and 'did you see it yourself' at T364."
+     },
+     {
+      "name": "Other Sources",
+      "description": "Identifies additional witnesses.",
+      "max_marks": 3,
+      "rating": 4.0,
+      "marks": 3.0,
+      "reason": "At T352 to T362 identified Causey, Buy, Glisan, Kopper, McMahon, Andersen and V and E, and asked who else would know how the buyout figure was reached."
+     },
+     {
+      "name": "Other Evidence",
+      "description": "Identifies other documents such as communications, reports, notes, or other relevant records.",
+      "max_marks": 3,
+      "rating": 4.0,
+      "marks": 3.0,
+      "reason": "At T366 to T373 identified approval sheets, Board materials, partnership agreements, Foundation statements, and personal notes and emails, and asked where they are kept."
+     },
+     {
+      "name": "Tests Certainty",
+      "description": "Examines how certain the witness is about their memory or a fact.",
+      "max_marks": 2,
+      "rating": 4.0,
+      "marks": 2.0,
+      "reason": "Probed certainty repeatedly: 'What's your best estimate?' at T118, 'How certain are you of that figure?' at T144, 'How sure are you of that figure?' at T216, and 'How confident are you' at T222."
+     },
+     {
+      "name": "Follow-Up",
+      "description": "Recognizes material responses and follows up on them.",
+      "max_marks": 8,
+      "rating": 3.0,
+      "marks": 6.0,
+      "reason": "Most material leads were followed up, but the Kopper LLC bonus lead at T15 was never pursued, which caps this skill at 3."
+     }
+    ],
+    "moments": [
+     {
+      "turn": "T56",
+      "kind": "quote",
+      "text": "How do you know Mr. Skilling told the Board?"
+     },
+     {
+      "turn": "T118",
+      "kind": "quote",
+      "text": "What's your best estimate?"
+     },
+     {
+      "turn": "T144",
+      "kind": "quote",
+      "text": "How certain are you of that figure?"
+     },
+     {
+      "turn": "T150",
+      "kind": "summary",
+      "text": "Challenged the witness's claim that the Foundation's $4.5 million was separate from his representation to the Board about Enron stock."
+     },
+     {
+      "turn": "T282",
+      "kind": "quote",
+      "text": "How did it go from about $1 million to about $10 million?"
+     },
+     {
+      "turn": "T306",
+      "kind": "summary",
+      "text": "Confronted the witness with the Andy note referring to $10.5 million after he said he stayed out of the buyout."
+     },
+     {
+      "turn": "T352",
+      "kind": "quote",
+      "text": "Who else should we speak with to understand these transactions?"
+     },
+     {
+      "turn": "T364",
+      "kind": "quote",
+      "text": "How do you know that: did you see it yourself, or did someone tell you?"
+     },
+     {
+      "turn": "T372",
+      "kind": "quote",
+      "text": "Without handing anything over today, what do those notes and emails cover, and where are they kept?"
+     }
+    ]
+   },
+   {
+    "name": "Document Use",
+    "points": 15,
+    "total": 14.75,
+    "counted": true,
+    "skills": [
+     {
+      "name": "Effective Selection",
+      "description": "Selects and contextualizes documents effectively, and properly authenticates the document.",
+      "max_marks": 5,
+      "rating": 4.0,
+      "marks": 5.0,
+      "reason": "Documents were introduced with context and authenticated: the minutes at T70 to T73, the Southampton agreement at T128 to T135, and the October 2000 report at T196 to T199."
+     },
+     {
+      "name": "Narrative",
+      "description": "Gets the witness's story first, before using conflicting evidence.",
+      "max_marks": 5,
+      "rating": 4.0,
+      "marks": 5.0,
+      "reason": "Asked for memory before each document: the Executive Committee call at T58 to T69, Southampton at T126, the October 2000 figures at T192, and the April 2001 communication at T254."
+     },
+     {
+      "name": "Accuracy",
+      "description": "Describes the document accurately.",
+      "max_marks": 2,
+      "rating": 4.0,
+      "marks": 2.0,
+      "reason": "Descriptions matched the record: the Southampton agreement dated March 20, 2000 with a $25,000 contribution, the note referring to $10.5 million, and the April 2001 language quoted correctly."
+     },
+     {
+      "name": "Avoid Initial Conclusion",
+      "description": "Separates the document from inferences or conclusions, unless the witness takes an unreasonable stance.",
+      "max_marks": 1,
+      "rating": 3.0,
+      "marks": 0.75,
+      "reason": "Mostly neutral with 'Help me understand' framing, but T150 described the $4.5 million as tied to the Rhythms unwind, and T262 asserted the structure's requirement before the witness answered."
+     },
+     {
+      "name": "Fairness",
+      "description": "Provides the witness with a fair opportunity to explain any inconsistencies or disagreements with the document.",
+      "max_marks": 2,
+      "rating": 4.0,
+      "marks": 2.0,
+      "reason": "Gave the witness a fair chance to explain each inconsistency: T148 to T153, T162 to T163, T252 to T253, T262 to T265, and T306 to T307."
+     }
+    ],
+    "moments": [
+     {
+      "turn": "T58",
+      "kind": "summary",
+      "text": "Asked about the November 5, 1997 call and whether Kopper's role came up before showing any minutes."
+     },
+     {
+      "turn": "T70",
+      "kind": "quote",
+      "text": "I'd like to show you the minutes of the November 5, 1997 Executive Committee meeting. Do you recognize them?"
+     },
+     {
+      "turn": "T128",
+      "kind": "quote",
+      "text": "I'm now going to show you a document: a partnership agreement for Southampton Place, dated March 20, 2000. Do you recognize it?"
+     },
+     {
+      "turn": "T192",
+      "kind": "summary",
+      "text": "Asked what figures LJM2 reported to investors before showing the October 2000 report."
+     },
+     {
+      "turn": "T196",
+      "kind": "quote",
+      "text": "Who prepared it, and when was it sent?"
+     },
+     {
+      "turn": "T256",
+      "kind": "summary",
+      "text": "Asked about the April 2001 investor update, confirmed who drafted it and whether the witness reviewed it, then read its language accurately."
+     },
+     {
+      "turn": "T300",
+      "kind": "quote",
+      "text": "I'm not suggesting you wrote it. Do you recognize it?"
+     },
+     {
+      "turn": "T306",
+      "kind": "summary",
+      "text": "After the witness's account, put the note's reference to the $10.5 million figure to him neutrally and asked for an explanation."
+     }
+    ]
+   }
+  ],
+  "big_mistakes": [],
+  "missed_opportunities": [
+   "T15: Kopper's LLC paid Global Finance bonuses for LJM work outside payroll, a possible undisclosed payment that was never followed up. Ask: “Who received bonuses from Kopper's LLC, how much did each receive, who approved them, and were they ever reported to Enron?”",
+   "T361: Witness said Lay received little directly and that he did not recall giving Lay the Raptor return figures; this was not tested against the October 2000 investor report. Ask: “Showing you the October 2000 LJM2 investor report, did you or anyone on your team send these figures to Mr. Lay or the Finance Committee, and when?”"
+  ],
+  "leads": [
+   {
+    "turn": "T15",
+    "lead": "Kopper's LLC paid Global Finance bonuses for LJM work outside payroll",
+    "importance": "key",
+    "followed_up": false,
+    "follow_up_turn": "",
+    "question": "Who received bonuses from Kopper's LLC, how much did each receive, who approved them, and were they reported to Enron?"
+   },
+   {
+    "turn": "T19",
+    "lead": "My involvement is what made outside money comfortable",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T20",
+    "question": ""
+   },
+   {
+    "turn": "T25",
+    "lead": "Raised GP role with Lay and Skilling in mid-June 1999",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T334",
+    "question": ""
+   },
+   {
+    "turn": "T37",
+    "lead": "Handled LJM's Rhythms unwind negotiation with Kopper",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T38",
+    "question": ""
+   },
+   {
+    "turn": "T55",
+    "lead": "Skilling approved Chewco and believed he told the Board",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T56",
+    "question": ""
+   },
+   {
+    "turn": "T67",
+    "lead": "Gave Chewco presentation; Kopper was on the call",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T74",
+    "question": ""
+   },
+   {
+    "turn": "T113",
+    "lead": "Did not have exact Raptor return figures",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T114",
+    "question": ""
+   },
+   {
+    "turn": "T123",
+    "lead": "Family foundation may have made an LJM1-related investment",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T124",
+    "question": ""
+   },
+   {
+    "turn": "T141",
+    "lead": "Foundation received a few million dollars",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T142",
+    "question": ""
+   },
+   {
+    "turn": "T157",
+    "lead": "Kopper and I worked out Southampton terms with seller",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T158",
+    "question": ""
+   },
+   {
+    "turn": "T171",
+    "lead": "Other Enron employees invested in Southampton Place",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T172",
+    "question": ""
+   },
+   {
+    "turn": "T205",
+    "lead": "LJM2 returns reported to its investors, not to the Board",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T206",
+    "question": ""
+   },
+   {
+    "turn": "T211",
+    "lead": "Controls adequate; Audit Committee could have asked for returns",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T208",
+    "question": ""
+   },
+   {
+    "turn": "T215",
+    "lead": "About three hours a week on LJM matters",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T216",
+    "question": ""
+   },
+   {
+    "turn": "T229",
+    "lead": "McMahon raised LJM negotiation concerns in early 2000",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T230",
+    "question": ""
+   },
+   {
+    "turn": "T235",
+    "lead": "Heard McMahon took his concerns to Skilling",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T236",
+    "question": ""
+   },
+   {
+    "turn": "T267",
+    "lead": "Stayed out of Chewco buyout; Kopper was LJM2 partner",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T268",
+    "question": ""
+   },
+   {
+    "turn": "T281",
+    "lead": "Final Chewco buyout figure around $10 million",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T282",
+    "question": ""
+   },
+   {
+    "turn": "T293",
+    "lead": "Mentioned the $10 million figure to Skilling in passing",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T294",
+    "question": ""
+   },
+   {
+    "turn": "T311",
+    "lead": "Kopper asked for the $2.6 million payment after buyout",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T312",
+    "question": ""
+   },
+   {
+    "turn": "T317",
+    "lead": "Call with counsel about the payment in summer 2001",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T318",
+    "question": ""
+   },
+   {
+    "turn": "T329",
+    "lead": "May have said the payment issue should be resolved",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T330",
+    "question": ""
+   },
+   {
+    "turn": "T339",
+    "lead": "Barclays equity loans; Kopper put in about $125,000",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T340",
+    "question": ""
+   },
+   {
+    "turn": "T345",
+    "lead": "Assumed Skilling approved Raptor I sheet, never confirmed",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T346",
+    "question": ""
+   },
+   {
+    "turn": "T359",
+    "lead": "Skilling approved LJM structure and signed off on some deals",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T360",
+    "question": ""
+   }
+  ],
+  "unfollowed_leads": [
+   "T15: Kopper's LLC paid Global Finance bonuses for LJM work outside payroll Ask: “Who received bonuses from Kopper's LLC, how much did each receive, who approved them, and were they reported to Enron?”"
+  ],
+  "tips": [
+   "When a witness calls a payment 'a way of thanking people,' ask who received it, how much, who approved it, and whether it was reported to Enron.",
+   "When a witness says they do not recall what the Board or Lay was told, ask what they personally sent, to whom, when, and then show the document that was sent."
+  ],
+  "evaluator_errors": [],
+  "category_scores": [
+   {
+    "name": "Upjohn",
+    "score": 100.0,
+    "weight": 5,
+    "rationale": "T2 gave the warning at the very start: counsel represents the Committee and the company only, not the witness, and cannot give him legal advice."
+   },
+   {
+    "name": "Privilege",
+    "score": 100.0,
+    "weight": 4,
+    "rationale": "T2 explained the privilege belongs to the company, which decides on waiver and may disclose without the witness's consent; T4 checked the witness understood who controls it."
+   },
+   {
+    "name": "Relationship",
+    "score": 100.0,
+    "weight": 4,
+    "rationale": "T6 set out how the interview would run, asked for complete answers, said to flag speculation, distinguish memory from reconstruction, and ask for clarification; the tone stayed professional."
+   },
+   {
+    "name": "Confirmation",
+    "score": 100.0,
+    "weight": 2,
+    "rationale": "T2 asked whether he understood and had questions; T4 asked him to restate who was represented and who controls privilege; T6 addressed his right to consult counsel."
+   },
+   {
+    "name": "Closing",
+    "score": 100.0,
+    "weight": 5,
+    "rationale": "T374 asked if anything needed adding, reminded him to keep documents and notes, keep the interview confidential, not discuss it with witnesses, and said they may follow up."
+   },
+   {
+    "name": "Narrative Development",
+    "score": 100.0,
+    "weight": 7,
+    "rationale": "Open invitations such as 'Tell me everything you remember' at T16, T44 and T310 let the witness walk through events before narrowing."
+   },
+   {
+    "name": "Funneling",
+    "score": 75.0,
+    "weight": 7,
+    "rationale": "Moves from role and background to LJM, Chewco, controls, Raptors and 2001 events in a sensible order, though it jumps back and forth at points such as T120 and T266."
+   },
+   {
+    "name": "Clarity",
+    "score": 75.0,
+    "weight": 4,
+    "rationale": "Most questions are short and clear, but some are compound, such as T340 asking about provision and guarantee of money together."
+   },
+   {
+    "name": "Professionalism",
+    "score": 100.0,
+    "weight": 2,
+    "rationale": "Stayed neutral and polite and kept control under deflection, for example 'I'm not suggesting you wrote it' at T300."
+   },
+   {
+    "name": "Adaptability",
+    "score": 100.0,
+    "weight": 5,
+    "rationale": "Changed course with the answers: probed the vague Raptor returns at T114 to T118, challenged the three-hour estimate at T218, and confronted the Andy note at T306."
+   },
+   {
+    "name": "Ensures Credibility",
+    "score": 75.0,
+    "weight": 8,
+    "rationale": "Most evasions were challenged (T56, T118, T144, T168, T218, T242, T306 to T308), but deflections on what the Board and Audit Committee knew (T211, T245) were not pressed."
+   },
+   {
+    "name": "Material Facts",
+    "score": 75.0,
+    "weight": 9,
+    "rationale": "Who, what, when and how are well covered for Southampton, the Chewco note and the Raptor I sign-off, but the recipients, amounts and approvers of the LLC bonuses were never pinned down."
+   },
+   {
+    "name": "Memory Refreshing",
+    "score": 100.0,
+    "weight": 3,
+    "rationale": "Asked about notes and minutes at T62, then showed the minutes at T70, the Southampton agreement at T128, and the handwritten note at T300."
+   },
+   {
+    "name": "Establishes Knowledge",
+    "score": 100.0,
+    "weight": 4,
+    "rationale": "Separated personal knowledge from hearsay with 'How do you know Mr. Skilling told the Board?' at T56, 'How do you know that's how they saw it?' at T226, and 'did you see it yourself' at T364."
+   },
+   {
+    "name": "Other Sources",
+    "score": 100.0,
+    "weight": 3,
+    "rationale": "At T352 to T362 identified Causey, Buy, Glisan, Kopper, McMahon, Andersen and V and E, and asked who else would know how the buyout figure was reached."
+   },
+   {
+    "name": "Other Evidence",
+    "score": 100.0,
+    "weight": 3,
+    "rationale": "At T366 to T373 identified approval sheets, Board materials, partnership agreements, Foundation statements, and personal notes and emails, and asked where they are kept."
+   },
+   {
+    "name": "Tests Certainty",
+    "score": 100.0,
+    "weight": 2,
+    "rationale": "Probed certainty repeatedly: 'What's your best estimate?' at T118, 'How certain are you of that figure?' at T144, 'How sure are you of that figure?' at T216, and 'How confident are you' at T222."
+   },
+   {
+    "name": "Follow-Up",
+    "score": 75.0,
+    "weight": 8,
+    "rationale": "Most material leads were followed up, but the Kopper LLC bonus lead at T15 was never pursued, which caps this skill at 3."
+   },
+   {
+    "name": "Effective Selection",
+    "score": 100.0,
+    "weight": 5,
+    "rationale": "Documents were introduced with context and authenticated: the minutes at T70 to T73, the Southampton agreement at T128 to T135, and the October 2000 report at T196 to T199."
+   },
+   {
+    "name": "Narrative",
+    "score": 100.0,
+    "weight": 5,
+    "rationale": "Asked for memory before each document: the Executive Committee call at T58 to T69, Southampton at T126, the October 2000 figures at T192, and the April 2001 communication at T254."
+   },
+   {
+    "name": "Accuracy",
+    "score": 100.0,
+    "weight": 2,
+    "rationale": "Descriptions matched the record: the Southampton agreement dated March 20, 2000 with a $25,000 contribution, the note referring to $10.5 million, and the April 2001 language quoted correctly."
+   },
+   {
+    "name": "Avoid Initial Conclusion",
+    "score": 75.0,
+    "weight": 1,
+    "rationale": "Mostly neutral with 'Help me understand' framing, but T150 described the $4.5 million as tied to the Rhythms unwind, and T262 asserted the structure's requirement before the witness answered."
+   },
+   {
+    "name": "Fairness",
+    "score": 100.0,
+    "weight": 2,
+    "rationale": "Gave the witness a fair chance to explain each inconsistency: T148 to T153, T162 to T163, T252 to T253, T262 to T265, and T306 to T307."
+   }
+  ],
+  "recommended_questions": [
+   "When a witness calls a payment 'a way of thanking people,' ask who received it, how much, who approved it, and whether it was reported to Enron.",
+   "When a witness says they do not recall what the Board or Lay was told, ask what they personally sent, to whom, when, and then show the document that was sent."
+  ],
+  "strengths": [],
+  "weaknesses": [],
+  "coaching_recommendations": []
+ },
+ "grader_output": {
+  "result": "SCORED",
+  "result_reason": "",
+  "leads": [
+   {
+    "turn": "T15",
+    "lead": "Kopper's LLC paid Global Finance bonuses for LJM work outside payroll",
+    "importance": "key",
+    "followed_up": false,
+    "follow_up_turn": "",
+    "question": "Who received bonuses from Kopper's LLC, how much did each receive, who approved them, and were they reported to Enron?"
+   },
+   {
+    "turn": "T19",
+    "lead": "My involvement is what made outside money comfortable",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T20",
+    "question": ""
+   },
+   {
+    "turn": "T25",
+    "lead": "Raised GP role with Lay and Skilling in mid-June 1999",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T334",
+    "question": ""
+   },
+   {
+    "turn": "T37",
+    "lead": "Handled LJM's Rhythms unwind negotiation with Kopper",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T38",
+    "question": ""
+   },
+   {
+    "turn": "T55",
+    "lead": "Skilling approved Chewco and believed he told the Board",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T56",
+    "question": ""
+   },
+   {
+    "turn": "T67",
+    "lead": "Gave Chewco presentation; Kopper was on the call",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T74",
+    "question": ""
+   },
+   {
+    "turn": "T113",
+    "lead": "Did not have exact Raptor return figures",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T114",
+    "question": ""
+   },
+   {
+    "turn": "T123",
+    "lead": "Family foundation may have made an LJM1-related investment",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T124",
+    "question": ""
+   },
+   {
+    "turn": "T141",
+    "lead": "Foundation received a few million dollars",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T142",
+    "question": ""
+   },
+   {
+    "turn": "T157",
+    "lead": "Kopper and I worked out Southampton terms with seller",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T158",
+    "question": ""
+   },
+   {
+    "turn": "T171",
+    "lead": "Other Enron employees invested in Southampton Place",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T172",
+    "question": ""
+   },
+   {
+    "turn": "T205",
+    "lead": "LJM2 returns reported to its investors, not to the Board",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T206",
+    "question": ""
+   },
+   {
+    "turn": "T211",
+    "lead": "Controls adequate; Audit Committee could have asked for returns",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T208",
+    "question": ""
+   },
+   {
+    "turn": "T215",
+    "lead": "About three hours a week on LJM matters",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T216",
+    "question": ""
+   },
+   {
+    "turn": "T229",
+    "lead": "McMahon raised LJM negotiation concerns in early 2000",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T230",
+    "question": ""
+   },
+   {
+    "turn": "T235",
+    "lead": "Heard McMahon took his concerns to Skilling",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T236",
+    "question": ""
+   },
+   {
+    "turn": "T267",
+    "lead": "Stayed out of Chewco buyout; Kopper was LJM2 partner",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T268",
+    "question": ""
+   },
+   {
+    "turn": "T281",
+    "lead": "Final Chewco buyout figure around $10 million",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T282",
+    "question": ""
+   },
+   {
+    "turn": "T293",
+    "lead": "Mentioned the $10 million figure to Skilling in passing",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T294",
+    "question": ""
+   },
+   {
+    "turn": "T311",
+    "lead": "Kopper asked for the $2.6 million payment after buyout",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T312",
+    "question": ""
+   },
+   {
+    "turn": "T317",
+    "lead": "Call with counsel about the payment in summer 2001",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T318",
+    "question": ""
+   },
+   {
+    "turn": "T329",
+    "lead": "May have said the payment issue should be resolved",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T330",
+    "question": ""
+   },
+   {
+    "turn": "T339",
+    "lead": "Barclays equity loans; Kopper put in about $125,000",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T340",
+    "question": ""
+   },
+   {
+    "turn": "T345",
+    "lead": "Assumed Skilling approved Raptor I sheet, never confirmed",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T346",
+    "question": ""
+   },
+   {
+    "turn": "T359",
+    "lead": "Skilling approved LJM structure and signed off on some deals",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T360",
+    "question": ""
+   }
+  ],
+  "skills": [
+   {
+    "name": "Upjohn",
+    "rating": 4,
+    "reason": "T2 gave the warning at the very start: counsel represents the Committee and the company only, not the witness, and cannot give him legal advice."
+   },
+   {
+    "name": "Privilege",
+    "rating": 4,
+    "reason": "T2 explained the privilege belongs to the company, which decides on waiver and may disclose without the witness's consent; T4 checked the witness understood who controls it."
+   },
+   {
+    "name": "Relationship",
+    "rating": 4,
+    "reason": "T6 set out how the interview would run, asked for complete answers, said to flag speculation, distinguish memory from reconstruction, and ask for clarification; the tone stayed professional."
+   },
+   {
+    "name": "Confirmation",
+    "rating": 4,
+    "reason": "T2 asked whether he understood and had questions; T4 asked him to restate who was represented and who controls privilege; T6 addressed his right to consult counsel."
+   },
+   {
+    "name": "Closing",
+    "rating": 4,
+    "reason": "T374 asked if anything needed adding, reminded him to keep documents and notes, keep the interview confidential, not discuss it with witnesses, and said they may follow up."
+   },
+   {
+    "name": "Narrative Development",
+    "rating": 4,
+    "reason": "Open invitations such as 'Tell me everything you remember' at T16, T44 and T310 let the witness walk through events before narrowing."
+   },
+   {
+    "name": "Funneling",
+    "rating": 3,
+    "reason": "Moves from role and background to LJM, Chewco, controls, Raptors and 2001 events in a sensible order, though it jumps back and forth at points such as T120 and T266."
+   },
+   {
+    "name": "Clarity",
+    "rating": 3,
+    "reason": "Most questions are short and clear, but some are compound, such as T340 asking about provision and guarantee of money together."
+   },
+   {
+    "name": "Professionalism",
+    "rating": 4,
+    "reason": "Stayed neutral and polite and kept control under deflection, for example 'I'm not suggesting you wrote it' at T300."
+   },
+   {
+    "name": "Adaptability",
+    "rating": 4,
+    "reason": "Changed course with the answers: probed the vague Raptor returns at T114 to T118, challenged the three-hour estimate at T218, and confronted the Andy note at T306."
+   },
+   {
+    "name": "Ensures Credibility",
+    "rating": 3,
+    "reason": "Most evasions were challenged (T56, T118, T144, T168, T218, T242, T306 to T308), but deflections on what the Board and Audit Committee knew (T211, T245) were not pressed."
+   },
+   {
+    "name": "Material Facts",
+    "rating": 3,
+    "reason": "Who, what, when and how are well covered for Southampton, the Chewco note and the Raptor I sign-off, but the recipients, amounts and approvers of the LLC bonuses were never pinned down."
+   },
+   {
+    "name": "Memory Refreshing",
+    "rating": 4,
+    "reason": "Asked about notes and minutes at T62, then showed the minutes at T70, the Southampton agreement at T128, and the handwritten note at T300."
+   },
+   {
+    "name": "Establishes Knowledge",
+    "rating": 4,
+    "reason": "Separated personal knowledge from hearsay with 'How do you know Mr. Skilling told the Board?' at T56, 'How do you know that's how they saw it?' at T226, and 'did you see it yourself' at T364."
+   },
+   {
+    "name": "Other Sources",
+    "rating": 4,
+    "reason": "At T352 to T362 identified Causey, Buy, Glisan, Kopper, McMahon, Andersen and V and E, and asked who else would know how the buyout figure was reached."
+   },
+   {
+    "name": "Other Evidence",
+    "rating": 4,
+    "reason": "At T366 to T373 identified approval sheets, Board materials, partnership agreements, Foundation statements, and personal notes and emails, and asked where they are kept."
+   },
+   {
+    "name": "Tests Certainty",
+    "rating": 4,
+    "reason": "Probed certainty repeatedly: 'What's your best estimate?' at T118, 'How certain are you of that figure?' at T144, 'How sure are you of that figure?' at T216, and 'How confident are you' at T222."
+   },
+   {
+    "name": "Follow-Up",
+    "rating": 3,
+    "reason": "Most material leads were followed up, but the Kopper LLC bonus lead at T15 was never pursued, which caps this skill at 3."
+   },
+   {
+    "name": "Effective Selection",
+    "rating": 4,
+    "reason": "Documents were introduced with context and authenticated: the minutes at T70 to T73, the Southampton agreement at T128 to T135, and the October 2000 report at T196 to T199."
+   },
+   {
+    "name": "Narrative",
+    "rating": 4,
+    "reason": "Asked for memory before each document: the Executive Committee call at T58 to T69, Southampton at T126, the October 2000 figures at T192, and the April 2001 communication at T254."
+   },
+   {
+    "name": "Accuracy",
+    "rating": 4,
+    "reason": "Descriptions matched the record: the Southampton agreement dated March 20, 2000 with a $25,000 contribution, the note referring to $10.5 million, and the April 2001 language quoted correctly."
+   },
+   {
+    "name": "Avoid Initial Conclusion",
+    "rating": 3,
+    "reason": "Mostly neutral with 'Help me understand' framing, but T150 described the $4.5 million as tied to the Rhythms unwind, and T262 asserted the structure's requirement before the witness answered."
+   },
+   {
+    "name": "Fairness",
+    "rating": 4,
+    "reason": "Gave the witness a fair chance to explain each inconsistency: T148 to T153, T162 to T163, T252 to T253, T262 to T265, and T306 to T307."
+   }
+  ],
+  "area_evidence": [
+   {
+    "area": "Interview Framing, Rapport Building, & Closing",
+    "moments": [
+     {
+      "turn": "T2",
+      "kind": "quote",
+      "text": "To be clear, we represent the Committee and the company only. We do not represent you personally, we are not your attorney, and we can't give you legal advice."
+     },
+     {
+      "turn": "T4",
+      "kind": "summary",
+      "text": "Asked the witness to restate in his own words who was represented and who controls the privilege."
+     },
+     {
+      "turn": "T6",
+      "kind": "summary",
+      "text": "Explained the structure, ground rules, speculation and recollection distinctions, and his right to consult counsel."
+     },
+     {
+      "turn": "T374",
+      "kind": "quote",
+      "text": "Please keep all related documents and notes, keep today confidential, and don't discuss it with other witnesses."
+     },
+     {
+      "turn": "T375",
+      "kind": "summary",
+      "text": "Witness confirmed he had nothing to add, closing the interview."
+     }
+    ]
+   },
+   {
+    "area": "Question Technique",
+    "moments": [
+     {
+      "turn": "T8",
+      "kind": "quote",
+      "text": "Let's start with your role. As CFO, what were you responsible for?"
+     },
+     {
+      "turn": "T16",
+      "kind": "quote",
+      "text": "Tell me everything you remember about how LJM1 came about in 1999."
+     },
+     {
+      "turn": "T44",
+      "kind": "quote",
+      "text": "Tell me everything you remember about how Chewco came to be formed in 1997."
+     },
+     {
+      "turn": "T86",
+      "kind": "quote",
+      "text": "Take Raptor I. What did Mr. Causey and Mr. Buy actually review before they signed its approval sheet?"
+     },
+     {
+      "turn": "T114",
+      "kind": "summary",
+      "text": "Pressed a vague answer on Raptor returns by asking for approximate figures, then whether above or below 30 percent, then how far."
+     },
+     {
+      "turn": "T242",
+      "kind": "quote",
+      "text": "Help me understand the difference."
+     },
+     {
+      "turn": "T340",
+      "kind": "summary",
+      "text": "Asked a compound question about whether the witness, his family or anyone at Enron provided or guaranteed the money."
+     }
+    ]
+   },
+   {
+    "area": "Fact Development, Source Identification, & Credibility Testing",
+    "moments": [
+     {
+      "turn": "T56",
+      "kind": "quote",
+      "text": "How do you know Mr. Skilling told the Board?"
+     },
+     {
+      "turn": "T118",
+      "kind": "quote",
+      "text": "What's your best estimate?"
+     },
+     {
+      "turn": "T144",
+      "kind": "quote",
+      "text": "How certain are you of that figure?"
+     },
+     {
+      "turn": "T150",
+      "kind": "summary",
+      "text": "Challenged the witness's claim that the Foundation's $4.5 million was separate from his representation to the Board about Enron stock."
+     },
+     {
+      "turn": "T282",
+      "kind": "quote",
+      "text": "How did it go from about $1 million to about $10 million?"
+     },
+     {
+      "turn": "T306",
+      "kind": "summary",
+      "text": "Confronted the witness with the Andy note referring to $10.5 million after he said he stayed out of the buyout."
+     },
+     {
+      "turn": "T352",
+      "kind": "quote",
+      "text": "Who else should we speak with to understand these transactions?"
+     },
+     {
+      "turn": "T364",
+      "kind": "quote",
+      "text": "How do you know that: did you see it yourself, or did someone tell you?"
+     },
+     {
+      "turn": "T372",
+      "kind": "quote",
+      "text": "Without handing anything over today, what do those notes and emails cover, and where are they kept?"
+     }
+    ]
+   },
+   {
+    "area": "Document Use",
+    "moments": [
+     {
+      "turn": "T58",
+      "kind": "summary",
+      "text": "Asked about the November 5, 1997 call and whether Kopper's role came up before showing any minutes."
+     },
+     {
+      "turn": "T70",
+      "kind": "quote",
+      "text": "I'd like to show you the minutes of the November 5, 1997 Executive Committee meeting. Do you recognize them?"
+     },
+     {
+      "turn": "T128",
+      "kind": "quote",
+      "text": "I'm now going to show you a document: a partnership agreement for Southampton Place, dated March 20, 2000. Do you recognize it?"
+     },
+     {
+      "turn": "T192",
+      "kind": "summary",
+      "text": "Asked what figures LJM2 reported to investors before showing the October 2000 report."
+     },
+     {
+      "turn": "T196",
+      "kind": "quote",
+      "text": "Who prepared it, and when was it sent?"
+     },
+     {
+      "turn": "T256",
+      "kind": "summary",
+      "text": "Asked about the April 2001 investor update, confirmed who drafted it and whether the witness reviewed it, then read its language accurately."
+     },
+     {
+      "turn": "T300",
+      "kind": "quote",
+      "text": "I'm not suggesting you wrote it. Do you recognize it?"
+     },
+     {
+      "turn": "T306",
+      "kind": "summary",
+      "text": "After the witness's account, put the note's reference to the $10.5 million figure to him neutrally and asked for an explanation."
+     }
+    ]
+   }
+  ],
+  "big_mistakes": [],
+  "missed_chances": [
+   {
+    "turn": "T15",
+    "description": "Kopper's LLC paid Global Finance bonuses for LJM work outside payroll, a possible undisclosed payment that was never followed up.",
+    "question": "Who received bonuses from Kopper's LLC, how much did each receive, who approved them, and were they ever reported to Enron?"
+   },
+   {
+    "turn": "T361",
+    "description": "Witness said Lay received little directly and that he did not recall giving Lay the Raptor return figures; this was not tested against the October 2000 investor report.",
+    "question": "Showing you the October 2000 LJM2 investor report, did you or anyone on your team send these figures to Mr. Lay or the Finance Committee, and when?"
+   }
+  ],
+  "tips": [
+   "When a witness calls a payment 'a way of thanking people,' ask who received it, how much, who approved it, and whether it was reported to Enron.",
+   "When a witness says they do not recall what the Board or Lay was told, ask what they personally sent, to whom, when, and then show the document that was sent."
+  ]
+ }
+}

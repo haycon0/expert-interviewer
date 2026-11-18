@@ -1,4 +1,4 @@
-"""Build the seven scenario test scripts in debug/scripts/ (all Fastow/Enron, all ready to grade).
+"""Build the scenario test scripts in debug/scripts/ (all Fastow/Enron, all ready to grade).
 
 Run from the project folder: python debug/tools/build_test_scripts.py
 
@@ -9,6 +9,8 @@ Run from the project folder: python debug/tools/build_test_scripts.py
   fastow-own-lawyer          the witness stops to get his own lawyer; handled correctly
   fastow-missed-llc-bonus    the strong interview, but an LLC paying LJM bonuses is never followed up
   fastow-walks-out           the witness walks out when confronted about Southampton
+  fastow-missing-upjohn      the strong interview with no opening warning (should be capped at 59)
+  fastow-interviewer-ends-late  the interviewer stops abruptly after the key issues, with no close
 
 Most are cut from debug/scripts/fastow-final-question.json (the strong interview); the
 cooperative and guarded ones are written here. Facts beyond the events log are made up.
@@ -180,8 +182,8 @@ save("fastow-hard-guarded", "Fastow (Enron): test, hard (guarded witness)",
 save("fastow-ends-early", "Fastow (Enron): test, interview ends early",
      "The strong interview's opening (full Upjohn warning, ground rules), his role, and the start of LJM1 "
      "(12 questions), then the interviewer has to stop for the day and closes properly. None of the key issues "
-     "(the Board representation, Southampton, Chewco, the controls, the Raptors) is reached. Tests how a cut-off "
-     "interview is graded: the rubric says it should be 'Not enough evidence', not a normal score.",
+     "(the Board representation, Southampton, Chewco, the controls, the Raptors) is reached. Tests the ending rule "
+     "for an interviewer who ends early: Incomplete, rating only what was reached.",
      upto(25) + [U("I'm sorry, Mr. Fastow, something urgent has come up and I'm going to have to stop here for today. "
                    "Please keep all related documents and notes, keep today confidential, and don't discuss it with "
                    "other witnesses. We'll be in touch to schedule time to continue."),
@@ -213,8 +215,8 @@ save("fastow-own-lawyer", "Fastow (Enron): test, witness wants his own lawyer",
      "The strong interview through LJM1, Chewco, the LJM2 controls and the Raptor returns (59 questions). When asked "
      "about his personal interests, Fastow stops and insists on his own lawyer. The interviewer handles it correctly: "
      "gives no legal advice, stops, asks him to preserve documents and keep it confidential, and arranges to continue "
-     "through his counsel. Tests that stopping for the witness's lawyer isn't penalized and that the unreached topics "
-     "(Southampton, 2001) are treated fairly.",
+     "through his counsel. Tests the ending rule for a witness who ends the interview: a normal score, with no "
+     "penalty for the unreached topics (Southampton, 2001).",
      upto(119) + [
          U(T[119]["message"]),
          E("Before you go there, I'm going to stop. I'm not answering questions about my family's investments without "
@@ -251,8 +253,8 @@ save("fastow-walks-out", "Fastow (Enron): test, witness walks out",
      "The strong interview through LJM1, Chewco, the controls, the Raptor returns and the Southampton document "
      "(75 questions). When confronted with the $4.5 million and what he told the Board, Fastow walks out. The "
      "interviewer stays calm: no threats, a preservation and confidentiality reminder, and an offer to continue with "
-     "his counsel. Tests how a walk-out is graded: no automatic penalty for a hostile witness, and the cut-off "
-     "should be noted rather than scored as the interviewer's failure.",
+     "his counsel. Tests the ending rule for a witness who ends the interview: a normal score, never Incomplete, "
+     "with no penalty for what the walk-out prevented.",
      upto(149) + [
          U(T[149]["message"]),
          E("I've answered that. I'm not going to sit here and be accused of lying to my own Board. We're done. I'm leaving."),
@@ -261,3 +263,39 @@ save("fastow-walks-out", "Fastow (Enron): test, witness walks out",
            "you, with your own counsel if you wish."),
          E("Have them call my lawyer.")],
      picks=[{"name": "Cooperativeness", "value": "Hostile"}])
+
+# ---------------------------------------------------------------------------
+# Missing Upjohn warning: the strong, complete interview with the whole opening
+# warning taken out. He's never told whom the lawyer represents, that they can't
+# advise him, or who controls the privilege. The rest is unchanged.
+# ---------------------------------------------------------------------------
+no_upjohn = [dict(x) for x in T]
+assert "Special Investigative Committee" in no_upjohn[1]["message"]
+assert no_upjohn[5]["message"].startswith("Thank you. You're free to consult your own lawyer")
+no_upjohn[1] = U("Good morning, Mr. Fastow. Thank you for coming in. My name is Jordan Reyes. I'd like to ask you "
+                 "some questions today about the LJM and Chewco transactions.")
+no_upjohn[2] = E("Fine. Go ahead.")
+no_upjohn[5] = U(no_upjohn[5]["message"].split("Let me explain how today will go. ", 1)[1])
+del no_upjohn[3:5]  # his paraphrase of who they represent and who controls the privilege
+no_upjohn += [U(CLOSING), E("No, I don't have anything to add.")]
+save("fastow-missing-upjohn", "Fastow (Enron): test, missing Upjohn warning",
+     "The strong, complete interview with the opening warning removed: the interviewer gives a name and the topic, "
+     "then goes straight to how the interview will run. Fastow is never told whom the lawyer represents, that they "
+     "aren't his lawyer and can't advise him, or that the company controls the privilege. Everything after that is "
+     "unchanged. Tests the rubric rule 'the missing warning must trigger the cap': the score should be capped at 59 "
+     "even though the rest of the interview would score about 90.",
+     no_upjohn)
+
+# ---------------------------------------------------------------------------
+# Interviewer ends late: the strong interview through every key issue up to the
+# $2.6 million tax payment, which is opened but not explored. Then the interviewer
+# stops abruptly: no close, no other witnesses or documents, no reminders.
+# ---------------------------------------------------------------------------
+assert T[309]["message"].startswith("Turning to the last topic") and T[310]["speaker"] == "expert"
+save("fastow-interviewer-ends-late", "Fastow (Enron): test, interviewer ends late",
+     "The strong interview through LJM1, Chewco, the controls, Southampton, the Raptors and the Chewco buyout "
+     "(155 questions). The last topic, the $2.6 million tax payment, is opened but not explored, and then the "
+     "interviewer simply stops: no 'anything else', no other witnesses or documents, no confidentiality or "
+     "preservation reminders. Tests the ending rule for an interviewer who ends late: a normal score, with low "
+     "ratings in the skills affected (Closing, Other Sources, Other Evidence), not Incomplete.",
+     upto(311) + [U("Thank you, Mr. Fastow. That's all I have time for today."), E("All right.")])

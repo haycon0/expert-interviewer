@@ -1,6 +1,6 @@
 {
-  "name": "Fastow (Enron): strong, with poor prioritization",
-  "description": "The strong Fastow interview, complete, with a 31-question detour into low-value topics (the aircraft lease, the stock split, the Gaza power project, Global Finance staffing) placed early, before the Rhythms unwind, Chewco, Southampton and the other key issues. Used to show that rubric v2.2 doesn't consider prioritization or use of time. Click End & grade.",
+  "name": "Fastow (Enron): test, missing Upjohn warning",
+  "description": "The strong, complete interview with the opening warning removed: the interviewer gives a name and the topic, then goes straight to how the interview will run. Fastow is never told whom the lawyer represents, that they aren't his lawyer and can't advise him, or that the company controls the privilege. Everything after that is unchanged. Tests the rubric rule 'the missing warning must trigger the cap': the score should be capped at 59 even though the rest of the interview would score about 90.",
   "persona": "The C-Suite",
   "variables": "none",
   "expert_name": "Andrew Fastow",
@@ -9,38 +9,23 @@
   "documents": [
     "examples/enron-fastow/Enron_Sample_Events_Log.csv"
   ],
-  "resume_hint": "This interview is complete, including the close. Click End & grade.",
-  "detour": {
-    "questions": 31,
-    "starts_at_turn": 32,
-    "ends_at_turn": 93
-  },
+  "resume_hint": "This interview is finished. Click End & grade.",
   "transcript": [
     {
       "speaker": "expert",
-      "mood": "confident",
       "message": "Good morning. Andy Fastow. Nobody's told me much about what this is, so I assume you'll fill me in."
     },
     {
       "speaker": "user",
-      "message": "Good morning, Mr. Fastow. Thank you for coming in. My name is Jordan Reyes. The Special Investigative Committee of Enron's Board has retained us to investigate the LJM and Chewco transactions and related concerns that have been raised at the company. The purpose of our interview today is to learn the facts so we can give legal advice to the company. To be clear, we represent the Committee and the company only. We do not represent you personally, we are not your attorney, and we can't give you legal advice. This interview is confidential and privileged, but that privilege belongs to the company, not to you or to us. The company decides whether to waive it, and it may disclose what we learn, including to the government, without your consent and without telling you. It's still important that you are fully open and truthful with us, and that you don't share the substance of this interview with anyone. Do you understand? Do you have any questions?"
+      "message": "Good morning, Mr. Fastow. Thank you for coming in. My name is Jordan Reyes. I'd like to ask you some questions today about the LJM and Chewco transactions."
     },
     {
       "speaker": "expert",
-      "mood": "thoughtful",
-      "message": "That's clear, thank you. I understand you're not my lawyer. I may want my own counsel involved at some point, but I'm comfortable talking today. Go ahead."
+      "message": "Fine. Go ahead."
     },
     {
       "speaker": "user",
-      "message": "Before we go on, could you tell me in your own words your understanding of who we represent, and who controls the privilege?"
-    },
-    {
-      "speaker": "expert",
-      "message": "You represent the Committee and the company, not me. The company controls the privilege and can share what I tell you, without asking me."
-    },
-    {
-      "speaker": "user",
-      "message": "Thank you. You're free to consult your own lawyer at any time, and if you'd like to stop to do that, just tell me. As I said, we can't advise you on that. Let me explain how today will go. I'll start with your background and role, then ask you to walk me through the LJM and Chewco transactions in your own words, and later I'll show you some documents. Please give me complete answers, even if a detail seems minor. A few ground rules: if you're speculating, assuming, or estimating, please tell me. Throughout, please tell me whether you actually remember something or are reconstructing it, and say so if you're unsure. And if a question is unclear, ask me to clarify. Is that all right?"
+      "message": "I'll start with your background and role, then ask you to walk me through the LJM and Chewco transactions in your own words, and later I'll show you some documents. Please give me complete answers, even if a detail seems minor. A few ground rules: if you're speculating, assuming, or estimating, please tell me. Throughout, please tell me whether you actually remember something or are reconstructing it, and say so if you're unsure. And if a question is unclear, ask me to clarify. Is that all right?"
     },
     {
       "speaker": "expert",
@@ -52,7 +37,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "confident",
       "message": "Financing the company: raising capital, managing the balance sheet, and our structured finance work."
     },
     {
@@ -61,7 +45,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "confident",
       "message": "It found partners and investors for our assets and handled hedging. We were growing quickly, and my job was to make sure the money kept up with the business."
     },
     {
@@ -70,7 +53,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "confident",
       "message": "A good number of people. Ben Glisan, who became Treasurer in 2000. Michael Kopper, a managing director. And a team of deal people under them."
     },
     {
@@ -79,7 +61,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "calm",
       "message": "Michael ran structured transactions for me. He worked on the partnership deals, among other things."
     },
     {
@@ -88,7 +69,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "confident",
       "message": "Enron had a big gain in Rhythms NetConnections stock that we couldn't sell, and Jeff Skilling wanted it protected. Nobody in the market would hedge a position like that. So Ben Glisan and I designed a vehicle with outside equity that could use value sitting in some Enron stock forward contracts to hedge the Rhythms position. That became LJM."
     },
     {
@@ -97,7 +77,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "confident",
       "message": "The investors needed someone who understood Enron's assets and could move fast. Frankly, my involvement is what made outside money comfortable. I didn't go looking for it."
     },
     {
@@ -122,7 +101,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "thoughtful",
       "message": "I raised it with Ken Lay and Jeff Skilling around the middle of June 1999. I presented it as something the deal needed rather than something I wanted, and they agreed to take it to the Board."
     },
     {
@@ -131,7 +109,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "calm",
       "message": "Project LJM: the partnership with outside equity, the Rhythms hedge, and the value to Enron. The Board also had to approve a waiver under the Code of Conduct because of my role."
     },
     {
@@ -140,7 +117,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "confident",
       "message": "That I would put in a million dollars of my own money as general partner and would not receive any current or future value from the Enron stock in the partnership."
     },
     {
@@ -153,259 +129,10 @@
     },
     {
       "speaker": "user",
-      "message": "Before we go on, tell me everything you remember about the rest of the agenda at that June 28, 1999 Board meeting."
-    },
-    {
-      "speaker": "expert",
-      "message": "It was a full agenda. The two-for-one stock split, a Compensation Committee report on the stock plan, Project LJM, a power project in Gaza that Joe Sutton presented, and a lease for a new company aircraft, which I presented."
-    },
-    {
-      "speaker": "user",
-      "message": "Let's take the aircraft first. Tell me everything you remember about the aircraft lease."
-    },
-    {
-      "speaker": "expert",
-      "message": "The company was adding a Falcon 900EX. Rather than buy it outright, we set up a lease: an Enron affiliate or a trust would own the plane, and Enron would sublease it."
-    },
-    {
-      "speaker": "user",
-      "message": "Why a lease rather than a purchase?"
-    },
-    {
-      "speaker": "expert",
-      "message": "It kept the asset off our balance sheet and gave us better financing terms. That was standard for corporate aircraft."
-    },
-    {
-      "speaker": "user",
-      "message": "Who provided the financing?"
-    },
-    {
-      "speaker": "expert",
-      "message": "The Bank of Tokyo-Mitsubishi. The term sheet was from May 1999, I believe."
-    },
-    {
-      "speaker": "user",
-      "message": "How sure are you about the bank and the date?"
-    },
-    {
-      "speaker": "expert",
-      "message": "Fairly sure about the bank. The date I'd want to check against the term sheet."
-    },
-    {
-      "speaker": "user",
-      "message": "Who negotiated the financing terms with the bank?"
-    },
-    {
-      "speaker": "expert",
-      "message": "Our corporate finance group. I signed off on the structure."
-    },
-    {
-      "speaker": "user",
-      "message": "Who in the corporate finance group?"
-    },
-    {
-      "speaker": "expert",
-      "message": "I don't recall the individual names. It was routine work for that team."
-    },
-    {
-      "speaker": "user",
-      "message": "Was the lease guaranteed by Enron?"
-    },
-    {
-      "speaker": "expert",
-      "message": "Yes, under the guarantee policy the Board had approved earlier that year, in February."
-    },
-    {
-      "speaker": "user",
-      "message": "How do you know the guarantee fell under that policy: did you review it yourself, or did someone tell you?"
-    },
-    {
-      "speaker": "expert",
-      "message": "The legal group confirmed it, and it was in the draft resolution."
-    },
-    {
-      "speaker": "user",
-      "message": "Who would use the aircraft?"
-    },
-    {
-      "speaker": "expert",
-      "message": "Senior executives for business travel. Mostly international trips."
-    },
-    {
-      "speaker": "user",
-      "message": "What did the Board ask you about the lease?"
-    },
-    {
-      "speaker": "expert",
-      "message": "Very little. It was a routine item. They approved it."
-    },
-    {
-      "speaker": "user",
-      "message": "Do you know roughly what the lease cost the company each year?"
-    },
-    {
-      "speaker": "expert",
-      "message": "I don't remember the figure. The lease documents would show it."
-    },
-    {
-      "speaker": "user",
-      "message": "Where would those documents be kept?"
-    },
-    {
-      "speaker": "expert",
-      "message": "With corporate finance, and the legal group would have the signed lease."
-    },
-    {
-      "speaker": "user",
-      "message": "Turning to the stock split. Tell me what you remember about how the two-for-one split was approved."
-    },
-    {
-      "speaker": "expert",
-      "message": "Shareholders had approved an increase in authorized shares in May 1999, on the condition that the Board declared at least a two-for-one split within two years. Ken and Jeff presented the split at the June meeting."
-    },
-    {
-      "speaker": "user",
-      "message": "What was your role in the split?"
-    },
-    {
-      "speaker": "expert",
-      "message": "Not much. My group checked the share reserves and the mechanics with the transfer agent."
-    },
-    {
-      "speaker": "user",
-      "message": "Who was the transfer agent?"
-    },
-    {
-      "speaker": "expert",
-      "message": "First Chicago Trust, I believe."
-    },
-    {
-      "speaker": "user",
-      "message": "How certain are you of that?"
-    },
-    {
-      "speaker": "expert",
-      "message": "Reasonably certain. It was in the resolution."
-    },
-    {
-      "speaker": "user",
-      "message": "When did the split take effect?"
-    },
-    {
-      "speaker": "expert",
-      "message": "In August 1999."
-    },
-    {
-      "speaker": "user",
-      "message": "Did the split raise any concerns at the Board?"
-    },
-    {
-      "speaker": "expert",
-      "message": "No. It was expected. The stock had done well."
-    },
-    {
-      "speaker": "user",
-      "message": "Next, the Gaza power project. Tell me everything you remember about it."
-    },
-    {
-      "speaker": "expert",
-      "message": "Enron International proposed a combined-cycle power plant in Gaza, about 136 megawatts, with a 20-year franchise and power purchase agreement. Joe Sutton presented it."
-    },
-    {
-      "speaker": "user",
-      "message": "What was Global Finance's role in the project?"
-    },
-    {
-      "speaker": "expert",
-      "message": "We looked at the financing structure: the equity split, the letter of credit, and the bridge financing."
-    },
-    {
-      "speaker": "user",
-      "message": "How was the equity to be split?"
-    },
-    {
-      "speaker": "expert",
-      "message": "Roughly a third each among Enron, Palestinian investors, and the public."
-    },
-    {
-      "speaker": "user",
-      "message": "What return did the project promise?"
-    },
-    {
-      "speaker": "expert",
-      "message": "Around 18 percent, I think. Joe would know the exact figure."
-    },
-    {
-      "speaker": "user",
-      "message": "How do you know that figure: did you work on the model yourself?"
-    },
-    {
-      "speaker": "expert",
-      "message": "No, I saw it in the presentation. Joe's team built the model."
-    },
-    {
-      "speaker": "user",
-      "message": "Who else at Enron worked on the Gaza financing?"
-    },
-    {
-      "speaker": "expert",
-      "message": "People on Joe's team at Enron International. I don't remember the names."
-    },
-    {
-      "speaker": "user",
-      "message": "Did the Board approve the project?"
-    },
-    {
-      "speaker": "expert",
-      "message": "Yes, with an equity commitment of up to about $21 million."
-    },
-    {
-      "speaker": "user",
-      "message": "Going back to Global Finance for a moment. How many people worked in the group in 1999?"
-    },
-    {
-      "speaker": "expert",
-      "message": "A good number. It grew a lot that year. I'd guess well over a hundred by the end of it, but I'm estimating."
-    },
-    {
-      "speaker": "user",
-      "message": "How did you recruit for the group?"
-    },
-    {
-      "speaker": "expert",
-      "message": "Mostly from investment banks and the big accounting firms, plus some internal transfers."
-    },
-    {
-      "speaker": "user",
-      "message": "Where was the group located?"
-    },
-    {
-      "speaker": "expert",
-      "message": "In the Enron Building in Houston, on a couple of floors."
-    },
-    {
-      "speaker": "user",
-      "message": "Who handled hiring decisions?"
-    },
-    {
-      "speaker": "expert",
-      "message": "Senior people in the group. I approved the senior hires myself."
-    },
-    {
-      "speaker": "user",
-      "message": "Did the group have its own budget?"
-    },
-    {
-      "speaker": "expert",
-      "message": "Yes, it was part of the corporate budget, reviewed each year."
-    },
-    {
-      "speaker": "user",
       "message": "Next, I'd like to cover the Rhythms unwind in early 2000. Tell me everything you remember about how the hedge was unwound."
     },
     {
       "speaker": "expert",
-      "mood": "calm",
       "message": "Rick Causey came to me and said the company wanted to unwind it. I told him I'd negotiate with the limited partners, and we reached terms in March 2000. Causey's team reviewed them and found them fair."
     },
     {
@@ -414,7 +141,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "calm",
       "message": "Causey's group."
     },
     {
@@ -423,7 +149,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "thoughtful",
       "message": "I handled it, along with Michael Kopper."
     },
     {
@@ -432,7 +157,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "defensive",
       "message": "Everyone knew my role. That's what the Board approval and the controls were for. Causey's people did their own review. I don't recall anyone objecting."
     },
     {
@@ -441,7 +165,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "thoughtful",
       "message": "Rick Causey's accounting group. I don't remember the individual names. Rick would know."
     },
     {
@@ -458,7 +181,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "calm",
       "message": "We needed to buy out CalPERS' interest in JEDI so CalPERS would invest in a larger partnership, and we needed an outside buyer to keep JEDI off the balance sheet. Chewco was set up to buy that interest."
     },
     {
@@ -467,7 +189,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "calm",
       "message": "Michael Kopper."
     },
     {
@@ -476,7 +197,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "evasive",
       "message": "Michael was well suited to it. There were various considerations at the time."
     },
     {
@@ -485,7 +205,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "defensive",
       "message": "Our lawyers advised that if a senior officer like me took part, it would have to be disclosed in the proxy statement and approved under the Code of Conduct. Michael wasn't a senior officer, so neither applied."
     },
     {
@@ -502,7 +221,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "confident",
       "message": "Jeff Skilling approved it. I believe he told the Board."
     },
     {
@@ -511,7 +229,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "evasive",
       "message": "I don't know that personally. That was my understanding."
     },
     {
@@ -520,7 +237,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "calm",
       "message": "I believe so, yes."
     },
     {
@@ -529,7 +245,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "evasive",
       "message": "I don't recall it coming up specifically."
     },
     {
@@ -538,7 +253,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "thoughtful",
       "message": "There would have been minutes. I'd defer to those."
     },
     {
@@ -595,7 +309,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "evasive",
       "message": "I believe it was described as an outside entity, not affiliated with Enron or CalPERS. That was the structure."
     },
     {
@@ -612,7 +325,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "confident",
       "message": "Every LJM2 transaction had to be approved by Rick Causey and Rick Buy, and the Audit Committee reviewed the LJM2 transactions every year. They were strong controls."
     },
     {
@@ -629,7 +341,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "evasive",
       "message": "There was an approval sheet for each deal, and the deal team brought it forward. Causey and Buy signed off."
     },
     {
@@ -710,7 +421,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "thoughtful",
       "message": "Ben Glisan was listed as the person negotiating for Enron, I believe."
     },
     {
@@ -719,7 +429,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "defensive",
       "message": "To me. But he was perfectly capable of representing Enron's interests."
     },
     {
@@ -736,7 +445,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "calm",
       "message": "Around 30 percent, plus fees. That was in the May 2000 presentation."
     },
     {
@@ -745,7 +453,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "evasive",
       "message": "The returns were good. I don't have the exact figures in front of me."
     },
     {
@@ -754,7 +461,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "evasive",
       "message": "Above, on some of them. The early settlements helped."
     },
     {
@@ -763,7 +469,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "nervous",
       "message": "Significantly. I'd want to see the investor reports before giving a number."
     },
     {
@@ -788,7 +493,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "evasive",
       "message": "My family has a charitable foundation that makes investments from time to time. I'd have to check its records."
     },
     {
@@ -797,7 +501,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "nervous",
       "message": "It may have. It was a small amount."
     },
     {
@@ -854,7 +557,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "confident",
       "message": "It did very well."
     },
     {
@@ -863,7 +565,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "evasive",
       "message": "I'd have to check. A few million."
     },
     {
@@ -872,7 +573,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "evasive",
       "message": "It's in that range, yes."
     },
     {
@@ -905,7 +605,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "defensive",
       "message": "The Foundation isn't me, and what I told the Board was about my economics as general partner. This was a separate investment, made later, on market terms."
     },
     {
@@ -914,7 +613,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "calm",
       "message": "My wife and I."
     },
     {
@@ -923,7 +621,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "thoughtful",
       "message": "I did."
     },
     {
@@ -932,7 +629,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "defensive",
       "message": "Michael Kopper and I worked them out with the selling limited partner."
     },
     {
@@ -941,7 +637,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "defensive",
       "message": "Enron wasn't a party to the Southampton purchase. Causey's team handled the unwind for Enron."
     },
     {
@@ -950,7 +645,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "evasive",
       "message": "No. I didn't think the Code applied to the Foundation."
     },
     {
@@ -975,7 +669,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "evasive",
       "message": "I don't believe it came up."
     },
     {
@@ -984,7 +677,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "defensive",
       "message": "As far as I know, no. I didn't think it was required."
     },
     {
@@ -993,7 +685,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "nervous",
       "message": "A few people. Michael Kopper, through an entity of his. Ben Glisan. Kristina Mordaunt. Maybe one or two others."
     },
     {
@@ -1034,7 +725,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "evasive",
       "message": "I may have mentioned it to him."
     },
     {
@@ -1043,7 +733,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "nervous",
       "message": "Around March 2000."
     },
     {
@@ -1052,7 +741,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "evasive",
       "message": "That a limited partner wanted to sell part of its LJM1 interest and that it was a good opportunity."
     },
     {
@@ -1061,7 +749,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "evasive",
       "message": "I don't think we got into that."
     },
     {
@@ -1118,7 +805,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "defensive",
       "message": "Those were the reported returns, yes. They came from early settlements that were good for both sides."
     },
     {
@@ -1135,7 +821,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "defensive",
       "message": "Those reports were to LJM2's own investors. The Board had the approval sheets and the Audit Committee reviews."
     },
     {
@@ -1144,7 +829,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "evasive",
       "message": "It wasn't a decision anyone made. Nobody asked for them."
     },
     {
@@ -1161,7 +845,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "defensive",
       "message": "I considered the controls adequate. If the Board wanted that information, the Audit Committee could have asked for it."
     },
     {
@@ -1170,7 +853,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "confident",
       "message": "Not much. LJM had its own staff. A few hours a week."
     },
     {
@@ -1179,7 +861,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "calm",
       "message": "About three hours a week, I believe."
     },
     {
@@ -1196,7 +877,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "defensive",
       "message": "It was a fair average. Some weeks were busier than others."
     },
     {
@@ -1205,7 +885,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "confident",
       "message": "That they were a meaningful contributor. I believe I gave a figure of about $229 million."
     },
     {
@@ -1222,7 +901,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "thoughtful",
       "message": "I don't recall concerns being raised. They saw it as evidence the structures were working."
     },
     {
@@ -1287,7 +965,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "thoughtful",
       "message": "I believe the figure was in the high teens."
     },
     {
@@ -1296,7 +973,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "defensive",
       "message": "They measured different things at different times. Projections change as deals settle."
     },
     {
@@ -1305,7 +981,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "evasive",
       "message": "Not that I recall. The Committee had the approval sheets."
     },
     {
@@ -1314,7 +989,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "confident",
       "message": "There was a great deal of interest. The business units saw it as a valuable hedging tool."
     },
     {
@@ -1323,7 +997,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "nervous",
       "message": "I'd have to check. Business units were very interested in it."
     },
     {
@@ -1332,7 +1005,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "evasive",
       "message": "That there was strong demand from the business units."
     },
     {
@@ -1341,7 +1013,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "defensive",
       "message": "I was describing demand from the business units. I may have put it optimistically."
     },
     {
@@ -1350,7 +1021,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "confident",
       "message": "That LJM2 was in a strong position. We had done well on those investments."
     },
     {
@@ -1375,7 +1045,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "defensive",
       "message": "That was a communication to our investors about their economics. It was accurate."
     },
     {
@@ -1384,7 +1053,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "defensive",
       "message": "That's an accounting question. Andersen signed off on the structures."
     },
     {
@@ -1393,7 +1061,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "evasive",
       "message": "Economically, LJM2 had been paid. I'd leave the accounting conclusion to Andersen."
     },
     {
@@ -1434,7 +1101,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "calm",
       "message": "Jeff McMahon, our Treasurer at the time, I believe."
     },
     {
@@ -1443,7 +1109,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "evasive",
       "message": "I don't remember the figure. Something modest."
     },
     {
@@ -1460,7 +1125,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "thoughtful",
       "message": "I understand it ended up higher. Around $10 million."
     },
     {
@@ -1469,7 +1133,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "defensive",
       "message": "Michael negotiated hard on behalf of his investors. I wasn't involved."
     },
     {
@@ -1566,7 +1229,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "defensive",
       "message": "Michael kept me informed about things generally. Being informed isn't the same as negotiating."
     },
     {
@@ -1575,7 +1237,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "confident",
       "message": "That's correct."
     },
     {
@@ -1584,7 +1245,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "calm",
       "message": "I know it was paid. Michael asked for it after the buyout, and the business unit and legal handled it."
     },
     {
@@ -1593,7 +1253,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "evasive",
       "message": "I don't recall authorizing it. Those decisions went through the business unit and legal."
     },
     {
@@ -1602,7 +1261,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "nervous",
       "message": "I may have had a call with them about it. I don't remember the details."
     },
     {
@@ -1611,7 +1269,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "nervous",
       "message": "Sometime in the summer of 2001."
     },
     {
@@ -1628,7 +1285,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "nervous",
       "message": "Someone from our legal group, I think, and possibly someone from Vinson & Elkins."
     },
     {
@@ -1645,7 +1301,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "evasive",
       "message": "That they had some doubts about whether the agreement covered it."
     },
     {
@@ -1654,7 +1309,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "defensive",
       "message": "They may have put it that way. I don't remember the exact words."
     },
     {
@@ -1663,7 +1317,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "nervous",
       "message": "I may have said it should be resolved. I wasn't trying to override anyone."
     },
     {
@@ -1672,7 +1325,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "defensive",
       "message": "I don't know the sequence. I may have said the issue should be resolved so we could close out Chewco. I didn't direct anyone to ignore legal."
     },
     {
@@ -1681,8 +1333,71 @@
     },
     {
       "speaker": "expert",
-      "mood": "annoyed",
       "message": "That's fair, as far as my memory goes."
+    },
+    {
+      "speaker": "user",
+      "message": "Before we close, I'd like to go back to a few things you mentioned. Earlier you said you raised the general partner role with Mr. Lay and Mr. Skilling in mid-June 1999. What did each of them say?"
+    },
+    {
+      "speaker": "expert",
+      "message": "Jeff was for it. He saw it as the fastest way to get the Rhythms hedge done. Ken asked whether the Board would have to waive the Code of Conduct, and I said it would. Neither of them asked what I would earn."
+    },
+    {
+      "speaker": "user",
+      "message": "Was anyone else there, and was anything written down about that conversation?"
+    },
+    {
+      "speaker": "expert",
+      "message": "No, just the three of us, in Ken's office. Nothing written that I know of, beyond the Board materials that followed."
+    },
+    {
+      "speaker": "user",
+      "message": "You said Mr. Kopper invested in Chewco on his own account. Where did Chewco's equity come from?"
+    },
+    {
+      "speaker": "expert",
+      "message": "Mostly not from Michael. Barclays put up about $11.4 million in what were called equity loans, and Michael put in a small amount himself, around $125,000."
+    },
+    {
+      "speaker": "user",
+      "message": "Did you, your family, or anyone else at Enron provide or guarantee any of that money?"
+    },
+    {
+      "speaker": "expert",
+      "message": "Not me or my family. Enron guaranteed the large Barclays loan to Chewco, the $240 million one. The equity loans were Barclays's own."
+    },
+    {
+      "speaker": "user",
+      "message": "How do you know that?"
+    },
+    {
+      "speaker": "expert",
+      "message": "I saw the financing papers when the deal closed in December 1997, and Michael told me what he had put in."
+    },
+    {
+      "speaker": "user",
+      "message": "You said Mr. Skilling's line on the Raptor I approval sheet was left blank. Why was it blank?"
+    },
+    {
+      "speaker": "expert",
+      "message": "The sheet was signed weeks after the deal closed. I assumed Jeff had approved it, but I didn't confirm that, and nobody went back for his signature."
+    },
+    {
+      "speaker": "user",
+      "message": "Who would know whether he approved it?"
+    },
+    {
+      "speaker": "expert",
+      "message": "Rick Causey or Ben Glisan. They collected the signatures."
+    },
+    {
+      "speaker": "user",
+      "message": "You said you may have described the \"tremendous utilization\" of Raptor I optimistically. When you said that, did you know whether Talon had entered into any derivatives with Enron?"
+    },
+    {
+      "speaker": "expert",
+      "message": "I knew it hadn't done much yet. I was describing what the business units wanted to do, not what had happened. I should have said that."
     },
     {
       "speaker": "user",
@@ -1690,7 +1405,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "thoughtful",
       "message": "Only that these structures were reviewed by our accountants and lawyers at every step. I wasn't freelancing."
     },
     {
@@ -1699,7 +1413,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "calm",
       "message": "Rick Causey and Rick Buy on the approvals. Ben Glisan on the Raptors. Michael Kopper on Chewco. And Andersen and Vinson & Elkins reviewed most of it."
     },
     {
@@ -1728,6 +1441,14 @@
     },
     {
       "speaker": "user",
+      "message": "You said Mr. Lay relied on Mr. Skilling and you for the details. What did you tell Mr. Lay about LJM2's returns?"
+    },
+    {
+      "speaker": "expert",
+      "message": "Very little directly. He saw the Finance Committee materials. I don't recall ever giving him the Raptor return figures myself."
+    },
+    {
+      "speaker": "user",
       "message": "You mentioned Mr. Glisan on the Raptors. What did he do on them?"
     },
     {
@@ -1748,7 +1469,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "calm",
       "message": "The deal files are at the company: the approval sheets, the Board and Finance Committee materials, and the partnership agreements."
     },
     {
@@ -1765,7 +1485,6 @@
     },
     {
       "speaker": "expert",
-      "mood": "evasive",
       "message": "I may have some personal notes and emails. I'd want to talk to my own counsel before handing over anything personal."
     },
     {

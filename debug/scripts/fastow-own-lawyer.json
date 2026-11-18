@@ -1,6 +1,6 @@
 {
   "name": "Fastow (Enron): test, witness wants his own lawyer",
-  "description": "The strong interview through LJM1, Chewco, the LJM2 controls and the Raptor returns (59 questions). When asked about his personal interests, Fastow stops and insists on his own lawyer. The interviewer handles it correctly: gives no legal advice, stops, asks him to preserve documents and keep it confidential, and arranges to continue through his counsel. Tests that stopping for the witness's lawyer isn't penalized and that the unreached topics (Southampton, 2001) are treated fairly.",
+  "description": "The strong interview through LJM1, Chewco, the LJM2 controls and the Raptor returns (59 questions). When asked about his personal interests, Fastow stops and insists on his own lawyer. The interviewer handles it correctly: gives no legal advice, stops, asks him to preserve documents and keep it confidential, and arranges to continue through his counsel. Tests the ending rule for a witness who ends the interview: a normal score, with no penalty for the unreached topics (Southampton, 2001).",
   "persona": "The C-Suite",
   "variables": "choose",
   "picks": [

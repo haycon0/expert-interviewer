@@ -1,6 +1,6 @@
 # Witness interview outline
 
-A template for planning a practice interview, based on Dakota's *Template Witness Interview Outline*. Fill in the [BRACKETED] parts for your case. It's a guide, not a script: the rubric rewards adapting to the witness's answers rather than reading straight through (see **Adaptability** in [ASSESSMENT.md](ASSESSMENT.md)).
+A template for planning a practice interview, based on the *Template Witness Interview Outline*. Fill in the [BRACKETED] parts for your case. It's a guide, not a script: the rubric rewards adapting to the witness's answers rather than reading straight through (see **Adaptability** in [ASSESSMENT.md](ASSESSMENT.md)).
 
 The grader reads a summary of this outline as reference for what a well-run interview covers. It doesn't require the exact wording or order.
 

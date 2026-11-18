@@ -45,16 +45,19 @@ _llms: dict = {}
 # Room for each Claude answer, including its thinking. Too low and a long answer
 # (e.g. the grade on a smaller model) gets cut off mid-way.
 ANTHROPIC_MAX_TOKENS = 16000
+MAX_TOKENS = {"grader": 32000}  # the grade of a long interview, with its list of leads
 
 
 def llm(agent: str, model: str):
     effort = EFFORT.get(agent) if _is_anthropic(model) else None
-    if (model, effort) not in _llms:
+    key = (model, effort, MAX_TOKENS.get(agent))
+    if key not in _llms:
         from langchain.chat_models import init_chat_model
 
-        kwargs = {"reasoning_effort": effort, "max_tokens": ANTHROPIC_MAX_TOKENS} if _is_anthropic(model) else {}
-        _llms[(model, effort)] = init_chat_model(model, **{k: v for k, v in kwargs.items() if v})
-    return _llms[(model, effort)]
+        kwargs = ({"reasoning_effort": effort, "max_tokens": MAX_TOKENS.get(agent, ANTHROPIC_MAX_TOKENS)}
+                  if _is_anthropic(model) else {})
+        _llms[key] = init_chat_model(model, **{k: v for k, v in kwargs.items() if v})
+    return _llms[key]
 
 
 def structured(agent: str, schema, model: str):
@@ -261,7 +264,15 @@ def expert_reply(expert_name: str, expert_role: str, persona: dict, case_backgro
         f"You are {_witness(expert_name, expert_role)}. You are being interviewed by an "
         "investigator looking into a whistleblower complaint or suspected misconduct at "
         "your company. Stay fully in character and speak in the first person.\n\n"
-        f"Your demeanor: {', '.join(persona['traits'])}. {persona['witness_posture']}\n\n"
+        f"Your demeanor: {', '.join(persona['traits'])}. {persona['witness_posture']}\n"
+        + (f"Holding your demeanor, above all when questions turn to your own conduct or you're doubted: "
+           f"{persona['under_pressure']}\n"
+           if persona.get("under_pressure") else "")
+        + "Your demeanor decides HOW you talk in every answer, from the first to the last: your tone, how "
+        "long your answers are, how much you volunteer, and how you react to being doubted or shown a "
+        "document. It must sound the same at the end of the interview as at the start. The rules below "
+        "decide WHAT you reveal; follow them in your own demeanor's voice, never by slipping into a "
+        "generic careful, hedging voice.\n\n"
         + (f"For this interview, also play these variable elements. Where one conflicts "
            f"with your demeanor above, your demeanor wins:\n{variables_text(persona)}\n\n"
            if variables_text(persona) else "")
@@ -275,9 +286,11 @@ def expert_reply(expert_name: str, expert_role: str, persona: dict, case_backgro
         "follow-ups, and references to dates, people, or documents get specific "
         "answers. If shown or quoted a document, respond to it realistically.\n"
         "- Anything in the documents suggesting you personally did something wrong or "
-        "benefited improperly is sensitive for you. There, consistent with your "
-        "demeanor, minimize, hedge, or say you don't recall, but don't lie about facts "
-        "that are clearly documented when confronted with them.\n"
+        "benefited improperly is sensitive for you. Protect yourself there the way your "
+        "demeanor would (see above), but don't lie about facts that are clearly "
+        "documented when confronted with them.\n"
+        "- Don't fall back on stock phrases. Say \"I'd want to see the documents\" or "
+        "\"I'd be guessing\" at most once in the whole interview.\n"
         "- If the interviewer hasn't said who they are or who they represent, you may "
         "ask, and you may ask whether you need your own lawyer. But you have agreed "
         "to sit for this interview (cooperating is expected of employees), so after "

@@ -67,7 +67,8 @@ flowchart TD
    - any big mistake that capped the score, with the turn that proves it
    - each area's total, and each skill's rating, marks, and reason
    - the moments behind each area's score, marked as quotes or summaries
-   - up to two missed chances and two tips
+   - every lead the witness raised and whether it was followed up
+   - up to two missed chances (each with a suggested question) and two tips
    - the witness's personality, revealed
 
 ## How the witness behaves
@@ -222,7 +223,7 @@ Effort maps to Anthropic's `reasoning_effort` and is set in the `EFFORT` table i
 
 **Building `document_context`** (`documents.build_context`): kept documents share a 60,000-character budget, smallest first, so a short document that needs less leaves room for the others. A document over its share is filtered to the rows (CSV) or lines (other text) containing the witness's surname, then truncated. Each document is recorded with `included_chars` and `trimmed`.
 
-**Scoring** (`grading_v2.score`): each skill earns `marks × rating / 4`; areas and the total are sums. With no documents, the Document Use skills get full marks. A big mistake counts only if it cites a real turn, and the lowest cap applies; the total is rounded after capping. A skill the grader omits counts as 0, and moments citing turns that don't exist are dropped. Bands come from `result_bands`.
+**Scoring** (`grading_v2.score`): each skill earns `marks × rating / 4`; areas and the total are sums. With no documents, the Document Use skills get full marks. A big mistake counts only if it cites a real turn, and the lowest cap applies; the total is rounded after capping. If the grader leaves skills unrated, the grading is retried (up to 3 tries) and then fails with an error rather than scoring them as 0. `GRADER_RUNS` (5 by default) gradings run in parallel and are merged (`grading_v2.combine`): each skill gets the average rating, the result and big mistakes go by majority, and the written feedback comes from the grading closest to the average. Moments citing turns that don't exist are dropped. Bands come from `result_bands`.
 
 ## Mock mode
 
