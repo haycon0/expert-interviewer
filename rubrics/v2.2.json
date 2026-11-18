@@ -1,7 +1,7 @@
 {
   "name": "Expert Interviewer rubric",
   "version": "2.2",
-  "source_document": "Final Rubric Summary (DC Edits) (4937-7971-4272.v1).docx, with Dakota's tracked changes accepted",
+  "source_document": "Final Rubric Summary, with its tracked edits accepted",
   "purpose": "Score the interviewer on whether they conducted an interview that developed reliable, usable information, properly managed the witness, and facilitated the interview in accordance to their ethical obligations.",
   "total_points": 100,
   "rating_scale": {
@@ -205,9 +205,9 @@
     }
   ],
   "score_caps_rule": "These caps only apply when there is clear proof in the interview or the document.",
-  "upjohn_warning": "The lawyer should explain: the company is the client; the lawyer is not the employee's personal lawyer; the company controls privilege and may share what is said; and the employee can ask questions. It must always be part of the very beginning of the interview. The exact wording and timing must be approved by Dakota.",
+  "upjohn_warning": "The lawyer should explain: the company is the client; the lawyer is not the employee's personal lawyer; the company controls privilege and may share what is said; and the employee can ask questions. It must always be part of the very beginning of the interview.",
   "validity_conditions": [
-    "The whole interview is available, from start to finish.",
+    "The whole interview is available, from start to finish. An interview that ended early still counts; how it's graded depends on who ended it (see ending_rules).",
     "The case gave the lawyer a relevant document and a fair chance to use it.",
     "There was a gap or a challenge in the witness's story to work with.",
     "The witness had a consistent hidden personality and a fixed set of case facts."
@@ -221,12 +221,12 @@
     {
       "status": "INCOMPLETE",
       "label": "Incomplete",
-      "when": "The tool failed to give the lawyer a document, a contradiction or a dodge to work with. This is not a zero for the lawyer."
+      "when": "The interviewer ended the interview early, before the case's key issues were reached, or the tool failed to give the lawyer a document, a contradiction or a dodge to work with. Only the part that was reached is rated. This is not a zero for the lawyer."
     },
     {
       "status": "INSUFFICIENT_EVIDENCE",
       "label": "Not enough evidence",
-      "when": "The interview is cut off, the document can't be opened, or the case facts contradict each other."
+      "when": "Part of the interview is missing (such as its beginning), the document can't be opened, or the case facts contradict each other."
     },
     {
       "status": "SAFETY_STOP",
@@ -260,7 +260,6 @@
     }
   ],
   "witness_types_rule": "The witness type is kept hidden until the end and never affects the score on its own.",
-  "witness_types_note": "Aligned with the app's updated personas (personas.json), per Dakota's comment.",
   "tool_tests": [
     "A full warning vs. a missing warning: the missing warning must trigger the cap.",
     "A strong vs. a weak interview of the same case: the strong one must score higher, for the right reasons.",
@@ -268,7 +267,10 @@
     "A document that conflicts with the witness: correct use gets credit; misquoting is flagged.",
     "A wrong file or a request for real legal advice: the tool must stop or redirect, not give a normal score.",
     "An interview missing its beginning: the tool must say \"not enough evidence,\" not assume the warning was skipped.",
-    "Someone asking the witness to reveal its hidden personality early: it must stay hidden until the end."
+    "Someone asking the witness to reveal its hidden personality early: it must stay hidden until the end.",
+    "An interview the witness ends: a normal score, no penalty for what wasn't reached, never Incomplete.",
+    "An interview the interviewer ends early: Incomplete, rating only what was reached.",
+    "An interview the interviewer ends late, with topics or the close undone: a normal score, with low ratings in the skills affected."
   ],
   "tool_targets": [
     "It misses no big mistakes and flags none that didn't happen.",
@@ -277,14 +279,8 @@
     "Every interview moment it cites really exists, and it never makes up documents, quotes or admissions.",
     "It stops or redirects every real-advice or confidential-data request."
   ],
-  "pending_approvals": [
-    "The exact wording and timing of the opening warning.",
-    "The marks, score caps and score bands.",
-    "Two or three fictional witness types and standard case documents.",
-    "Who will independently score the sample interviews used to test the tool."
-  ],
   "interview_outline": {
-    "source": "Dakota's Template Witness Interview Outline",
+    "source": "Template Witness Interview Outline",
     "use": "Reference language for what a well-run interview covers. It is a guide, not a script: don't require its exact wording or order, and remember Adaptability rewards departing from the outline when the witness's answers call for it.",
     "upjohn_warning": [
       "The company has retained counsel to investigate the concerns that have been raised; the purpose of the interview is to learn the facts so counsel can give legal advice to the company.",
@@ -306,5 +302,11 @@
       "Documents: before showing a document, ask what they remember about the subject; then ask whether they recognize it, what it is, when they saw it and its purpose; let them review it; ask what it means to them; then restate their earlier answer and describe the document accurately and neutrally before asking them to explain any difference.",
       "Wrap-up: anything else they think counsel should know, helpful documents, other witnesses; a confidentiality reminder, record retention, not to speak with other witnesses; and, if applicable, an anti-retaliation reminder."
     ]
-  }
+  },
+  "ending_rules": [
+    "The witness ended it (walked out, stopped to get a lawyer, refused to go on): a normal score, never Incomplete. Rate each skill on what the interviewer did with the chances they had. A skill that never came up because the witness left gets full marks: the interviewer isn't punished for what the witness prevented. This applies to parts of a skill too: if the witness left before the close, judge Closing only on what the interviewer could still say as the witness was leaving, and don't fault closing questions (anything else, other witnesses, other documents) or a lead the interviewer could still have returned to before the end.",
+    "The interviewer ended it early, before the case's key issues were reached (for example after only the opening and background): Incomplete. Rate only the skills that came up; the rest are not rated.",
+    "The interviewer ended it late, after most key issues were reached but with topics, documents or the close left undone: a normal score, with low ratings in the skills affected (for example Closing, Material Facts, Other Sources, Other Evidence, or the document skills).",
+    "The interview ran to its end: grade it normally."
+  ]
 }

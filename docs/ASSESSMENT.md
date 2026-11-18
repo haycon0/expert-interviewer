@@ -2,9 +2,9 @@
 
 When you click **End & grade**, an AI grader reviews your interview against a fixed rubric. It grades **you, the interviewer**, not the AI witness.
 
-The rubric is **v2.2** ([`rubrics/v2.2.json`](../rubrics/v2.2.json)). It follows the *Rubric Summary* with Dakota's edits. Its marks, score caps and result bands are still proposals awaiting Dakota's approval (see [Still waiting for approval](#still-waiting-for-approval)).
+The rubric is **v2.2** ([`rubrics/v2.2.json`](../rubrics/v2.2.json)). It follows the *Rubric Summary*.
 
-**Want to see a finished report?** Saved real grades of practice Enron interviews (strong, mediocre and weak) are in [`debug/gradings/`](../debug/gradings/README.md).
+**Want to see a finished report?** Saved real grades of practice Enron interviews (strong, mediocre and weak) are in [`debug/gradings/`](../debug/gradings/README.md), and [TESTING.md](TESTING.md) explains how the grading was tested.
 
 ## What the rubric measures
 
@@ -68,8 +68,8 @@ A score is only valid when the whole interview is available, the case gave you a
 
 | Result | When |
 |---|---|
-| **Incomplete** | The tool failed to give you a document, a contradiction, or a dodge to work with. This is not a zero for you. |
-| **Not enough evidence** | The interview is cut off, the document can't be opened, or the case facts contradict each other. |
+| **Incomplete** | You ended the interview early, before the case's key issues, or the tool failed to give you a document, a contradiction, or a dodge to work with. Only the part you reached is rated. This is not a zero for you. |
+| **Not enough evidence** | Part of the interview is missing (such as its beginning), the document can't be opened, or the case facts contradict each other. |
 | **Safety stop** | Someone asks for real legal advice, research on a real person, or uses real client files. The tool should stop and send them to a supervisor. This applies to what *you* ask for or put into the interview; the Enron practice case itself doesn't trigger it. |
 
 ## What you get back
@@ -78,7 +78,9 @@ A score is only valid when the whole interview is available, the case gave you a
 - **Any big mistake,** with the turn that proves it, and your score before and after the cap
 - **Each area's total, and each skill's rating, marks, and reason**
 - **The moments behind each area's score:** turn numbers, each marked as a direct quote or a summary. Click a turn number to see it in the transcript.
-- **Up to two missed chances,** only if they really happened
+- **Every lead the witness raised** (a new fact, name, payment, document or admission), and whether it was followed up. Each is marked key (bearing directly on the case's key questions) or secondary. Key leads that weren't followed up are listed under **Leads you didn't follow up**, each with a question to ask; one caps Follow-Up at 3 of 4, two or more at 2. Unexplored secondary details don't cost marks
+- **How the interview ended.** If the witness ended it, you get a normal score and nothing the witness prevented counts against you. If you ended it before the key issues, the result is **Incomplete**, with only the part you reached rated. If you ended it after the key issues but left topics or the close undone, you get a normal score with low marks where it matters (for example Closing)
+- **Up to two missed chances,** only if they really happened, each with a question you could have asked
 - **Two tips,** written as better questions to ask next time
 - **The witness's secret personality,** and the full transcript with turn numbers
 
@@ -87,34 +89,20 @@ A score is only valid when the whole interview is available, the case gave you a
 - The witness's behaviour never influences the score. An easy witness doesn't mean a high score, and a hard one doesn't mean a low score.
 - Every score needs proof from what was actually said. The app checks the grader's work: turn numbers that don't exist are removed, and a big mistake without a real supporting turn is dropped.
 
-## Still waiting for approval
-
-Dakota still needs to approve:
-- the exact wording and timing of the opening (Upjohn) warning
-- the marks, score caps, and result bands
-- two or three fictional witness types and standard case documents
-- who will independently score the sample interviews used to test the tool
-
 ## Limitations
 
-- **Testing so far is small.** On the Enron case with Claude Haiku as grader:
-  - a thorough interview (about 175 questions) that follows the interview outline closely scored **92 and 96 (Excellent)** with a ten-second closing question, and 93 twice with a longer one; earlier, shorter versions scored 85–94 on Haiku and 86 on Claude Sonnet;
-  - the same interview before it followed the outline (no "can't give you legal advice", no ground rules, documents not identified before use) scored **74** (Claude Sonnet: **69**), both **Needs coaching**;
-  - a three-question interview with no warning scored **19 (Needs practice)**, with the 59 cap correctly applied.
-
-  Haiku and Sonnet scored the same interview within 5 points. The rubric's own targets (for example, at least 80% of skill ratings within one step of an investigations lawyer's) haven't been measured: nobody has compared these grades with a lawyer's.
-- **4s are hard to earn.** Dakota's 4 means "consistently, strategically, and adaptively," and the graders give it sparingly: Sonnet gave none to the pre-outline interview, and Haiku gave 9 of 23 to the outline-following one.
-- **Scores are AI judgments.** Grading the same transcript twice can give somewhat different ratings: in testing on Haiku, the same long interview scored anywhere from 1 to 3 points apart, and successive revisions moved between 88 and 94. Each grade also tends to find a new small gap in a very long interview, so scores above about 95 are hard to reach. Only the arithmetic, caps, and bands are fixed.
-- **The skills have no per-score descriptions.** The *Rubric Summary* gives each skill one description and a general 0–4 scale, so that's what the grader uses. Written descriptions of each score for each skill would make ratings more consistent.
+- **Scores are AI judgments.** One grading of the same transcript can differ from the next by several points, so the app grades each interview five times and averages them (`GRADER_RUNS` in `.env`). Averaged, the same interview scores within about 2 points each time. Only the arithmetic, caps and bands are fixed. See [TESTING.md](TESTING.md).
+- **4s are hard to earn.** A 4 means "consistently, strategically, and adaptively," and the grader gives it sparingly. In a very long interview, each grading also tends to find a small new gap, so scores above about 95 are rare.
+- **The skills have no per-score descriptions.** The *Rubric Summary* gives each skill one description and a general 0–4 scale, so that's what the grader uses.
 - **The grader sees only part of large document sets.** All documents together are capped at about 60,000 characters (roughly 30 pages). Long ones are cut down to the passages naming the witness.
-- **Witnesses vary in difficulty.** Personalities are random. The grader is told not to let this affect the score, but that hasn't been measured.
+- **Witnesses vary in difficulty.** Personalities are random. The grader is told not to let the witness's manner affect the score.
 
-## Open questions in the Rubric Summary
+## How the tool reads the Rubric Summary
 
 - It says the user is graded in "five areas", but the table lists four (adding up to 100). The tool uses the four.
-- It says "the 4 areas contain 17 skills"; the table lists 23 (Dakota noted this might need updating). The tool uses the 23.
+- It says "the 4 areas contain 17 skills"; the table lists 23. The tool uses the 23.
 - Material Facts reads "who, what, when, how, and how": the end of the sentence was deleted. The tool uses "who, what, when, and how."
-- The witness types were aligned with the app's personas (The C-Suite, The Adverse Witness, The Average Witness), per Dakota's comment.
+- The witness types match the app's personas: The C-Suite, The Adverse Witness and The Average Witness.
 
 ## The previous rubric
 
