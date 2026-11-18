@@ -1,0 +1,800 @@
+{
+ "script": "fastow-easy-cooperative",
+ "run": "run1",
+ "model": "anthropic:claude-haiku-5-5",
+ "graded": "2026-11-17 13:08",
+ "seconds": 62,
+ "questions": 34,
+ "closing_added": false,
+ "report": {
+  "rubric_version": "2.2",
+  "status": "SCORED",
+  "status_label": "Scored",
+  "status_reason": "",
+  "overall_score": 75,
+  "score_before_cap": 75.0,
+  "cap": null,
+  "band": "Needs coaching",
+  "letter_grade": "Needs coaching",
+  "areas": [
+   {
+    "name": "Interview Framing, Rapport Building, & Closing",
+    "points": 20,
+    "total": 20.0,
+    "counted": true,
+    "skills": [
+     {
+      "name": "Upjohn",
+      "description": "Properly identifies representation and role with the Company, and that they cannot give the employee legal advice. This must always be part of the very beginning of the interview.",
+      "max_marks": 5,
+      "rating": 4,
+      "marks": 5.0,
+      "reason": "T2 gives the full warning at the very start: the Committee and company are the clients, counsel does not represent the witness personally and cannot give legal advice, privilege belongs to the company, and the company may disclose without consent."
+     },
+     {
+      "name": "Privilege",
+      "description": "Properly explains that the Company controls the privilege and determines how it is shared.",
+      "max_marks": 4,
+      "rating": 4,
+      "marks": 4.0,
+      "reason": "T2 explains the company decides whether to waive and may disclose, including to the government, without the witness's consent. T5 shows the witness understood it."
+     },
+     {
+      "name": "Relationship",
+      "description": "Establishes rapport and interview expectations. This includes: establishes an appropriate professional tone; explains how the interview will proceed; encourages complete answers; instructs the witness that they can speculate, they just need to say when they do; invites the witness to distinguish between recollection and uncertainty.",
+      "max_marks": 4,
+      "rating": 4,
+      "marks": 4.0,
+      "reason": "T6 sets out how the interview will proceed, asks for complete answers, explains the speculation rule, and asks the witness to say whether they remember or are reconstructing something."
+     },
+     {
+      "name": "Confirmation",
+      "description": "Checks the witness understood the Upjohn warning and answers their questions, if any.",
+      "max_marks": 2,
+      "rating": 4,
+      "marks": 2.0,
+      "reason": "T2 asks if the witness has questions, T4 asks the witness to restate who is represented and who controls privilege, and T5 confirms the answer."
+     },
+     {
+      "name": "Closing",
+      "description": "Closes by confirming there is \"nothing else\", next steps, a confidentiality reminder, and a reminder to keep records.",
+      "max_marks": 5,
+      "rating": 4,
+      "marks": 5.0,
+      "reason": "T64 asks if there is anything else the Committee should know. T68 covers document retention, confidentiality, not speaking with other witnesses, a possible follow-up, and asks for anything to add or correct."
+     }
+    ],
+    "moments": [
+     {
+      "turn": "T2",
+      "kind": "quote",
+      "text": "To be clear, we represent the Committee and the company only. We do not represent you personally, we are not your attorney, and we can't give you legal advice."
+     },
+     {
+      "turn": "T4",
+      "kind": "quote",
+      "text": "could you tell me in your own words your understanding of who we represent, and who controls the privilege?"
+     },
+     {
+      "turn": "T5",
+      "kind": "quote",
+      "text": "The company controls the privilege and can share what I tell you, without asking me."
+     },
+     {
+      "turn": "T6",
+      "kind": "quote",
+      "text": "Please give me complete answers, even if a detail seems minor."
+     },
+     {
+      "turn": "T68",
+      "kind": "quote",
+      "text": "Please keep all related documents and notes, keep today confidential, and don't discuss it with other witnesses."
+     }
+    ]
+   },
+   {
+    "name": "Question Technique",
+    "points": 25,
+    "total": 22.75,
+    "counted": true,
+    "skills": [
+     {
+      "name": "Narrative Development",
+      "description": "Lets the witness walk through what happened.",
+      "max_marks": 7,
+      "rating": 4,
+      "marks": 7.0,
+      "reason": "T14 opens with 'Tell me everything you remember' and T16 invites more detail, letting the witness walk through LJM1 before narrowing."
+     },
+     {
+      "name": "Funneling",
+      "description": "Moves in a sensible order from general to specific questions.",
+      "max_marks": 7,
+      "rating": 4,
+      "marks": 7.0,
+      "reason": "The interview moves from role (T8) to the LJM1 story (T14) to the Southampton and Chewco specifics before documents, which is a sensible general-to-specific order."
+     },
+     {
+      "name": "Clarity",
+      "description": "Asks clear questions and avoids compound, ambiguous, or legalistic questions.",
+      "max_marks": 4,
+      "rating": 3,
+      "marks": 3.0,
+      "reason": "Most questions are clear and single-focus, such as T18 and T20. Some are vague or presume answers, such as T50 'What were those disclosure considerations?' and T56."
+     },
+     {
+      "name": "Professionalism",
+      "description": "Stays neutral, polite and in control.",
+      "max_marks": 2,
+      "rating": 4,
+      "marks": 2.0,
+      "reason": "The tone is neutral and polite throughout, and the interviewer stays in control, for example by pressing on the $4.5 million figure at T38 without being accusatory."
+     },
+     {
+      "name": "Adaptability",
+      "description": "Changes technique based on the witness's answers rather than staying only with the outline.",
+      "max_marks": 5,
+      "rating": 3,
+      "marks": 3.75,
+      "reason": "The interviewer adapted after the Foundation answer at T35-T38, using outside figures and then pressing the Board nondisclosure at T40-T45. It did not adapt to the evasive answers at T49-T51 or the vague Raptor answers at T63."
+     }
+    ],
+    "moments": [
+     {
+      "turn": "T14",
+      "kind": "quote",
+      "text": "Tell me everything you remember about how LJM1 came about in 1999."
+     },
+     {
+      "turn": "T8",
+      "kind": "summary",
+      "text": "Starts with role and responsibilities before moving to the transactions, which is a sensible order."
+     },
+     {
+      "turn": "T46",
+      "kind": "quote",
+      "text": "Why was Michael Kopper chosen to manage it rather than you?"
+     },
+     {
+      "turn": "T50",
+      "kind": "summary",
+      "text": "Asks a vague follow-up about disclosure considerations after the witness gave a general answer."
+     }
+    ]
+   },
+   {
+    "name": "Fact Development, Source Identification, & Credibility Testing",
+    "points": 40,
+    "total": 25.75,
+    "counted": true,
+    "skills": [
+     {
+      "name": "Ensures Credibility",
+      "description": "Recognizes and follows up on incomplete, evasive, or inconsistent answers.",
+      "max_marks": 8,
+      "rating": 2,
+      "marks": 4.0,
+      "reason": "T40 follows up the inconsistency between the Foundation investment and the Board representation well. The evasive answers at T49-T51 ('one of the main reasons' then 'The proxy disclosure, as I said') and T63 were not pursued."
+     },
+     {
+      "name": "Material Facts",
+      "description": "Identifies the who, what, when, and how.",
+      "max_marks": 9,
+      "rating": 3,
+      "marks": 6.75,
+      "reason": "Key who, what, when and how points were identified: Glisan and Kopper as direct reports (T13), the Foundation's $25,000 and about $4.5 million on May 1, 2000 (T35), and the lack of disclosure to the Board (T43-T45)."
+     },
+     {
+      "name": "Memory Refreshing",
+      "description": "Tries other ways when the witness can't remember.",
+      "max_marks": 3,
+      "rating": 2,
+      "marks": 1.5,
+      "reason": "T38 gives the witness a specific figure to test against, which helps. The interviewer did not try other routes when the witness could not identify approval sheets (T63), the resolution or minutes he cited (T25), or the Foundation statements (T37)."
+     },
+     {
+      "name": "Establishes Knowledge",
+      "description": "Separates what the witness personally knows from speculation, secondhand information, or inferences.",
+      "max_marks": 4,
+      "rating": 3,
+      "marks": 3.0,
+      "reason": "T57-T59 separate what the witness assumed from what he checked: 'I assumed it was followed' and 'No. I didn't check each one myself.' T19-T21 also pin down who first suggested the GP role."
+     },
+     {
+      "name": "Other Sources",
+      "description": "Identifies additional witnesses.",
+      "max_marks": 3,
+      "rating": 3,
+      "marks": 2.25,
+      "reason": "T66 asks who else should be interviewed, and T67 gives five names with reasons. The interviewer did not probe how those people relate to the events."
+     },
+     {
+      "name": "Other Evidence",
+      "description": "Identifies other documents such as communications, reports, notes, or other relevant records.",
+      "max_marks": 3,
+      "rating": 1,
+      "marks": 0.75,
+      "reason": "The witness pointed to the resolution, the minutes and the Foundation's statements (T25, T37), but the interviewer did not ask for or identify them. T68 only asks generally to keep related documents."
+     },
+     {
+      "name": "Tests Certainty",
+      "description": "Examines how certain the witness is about their memory or a fact.",
+      "max_marks": 2,
+      "rating": 3,
+      "marks": 1.5,
+      "reason": "T24 asks 'How sure are you that's what you told them?' and T36-T38 test the amount received. These examine certainty about key facts."
+     },
+     {
+      "name": "Follow-Up",
+      "description": "Recognizes material responses and follows up on them.",
+      "max_marks": 8,
+      "rating": 3,
+      "marks": 6.0,
+      "reason": "The interviewer followed up the Foundation investment, the Board disclosure and the Chewco nondisclosure (T40-T45), and the approval-sheet answer (T61-T62). It left the 'main reasons' answer (T49-T51) and the Raptor I answer (T63) unexplored."
+     }
+    ],
+    "moments": [
+     {
+      "turn": "T20",
+      "kind": "quote",
+      "text": "Who raised it with them first?"
+     },
+     {
+      "turn": "T24",
+      "kind": "quote",
+      "text": "How sure are you that's what you told them?"
+     },
+     {
+      "turn": "T38",
+      "kind": "quote",
+      "text": "Our information is roughly $4.5 million, about six weeks after it invested. Does that fit your memory?"
+     },
+     {
+      "turn": "T40",
+      "kind": "quote",
+      "text": "How does that fit with what you told the Board about not receiving value from the Enron stock?"
+     },
+     {
+      "turn": "T49",
+      "kind": "quote",
+      "text": "Honestly, avoiding the proxy disclosure was one of the main reasons."
+     },
+     {
+      "turn": "T51",
+      "kind": "quote",
+      "text": "The proxy disclosure, as I said."
+     },
+     {
+      "turn": "T57",
+      "kind": "quote",
+      "text": "I don't, really. That was the requirement, and I assumed it was followed."
+     },
+     {
+      "turn": "T58",
+      "kind": "quote",
+      "text": "Did you check that it was followed?"
+     },
+     {
+      "turn": "T63",
+      "kind": "quote",
+      "text": "Raptor I is the one I remember. The sheets would show the rest."
+     },
+     {
+      "turn": "T67",
+      "kind": "quote",
+      "text": "Rick Causey and Rick Buy on the approvals, Ben Glisan on the Raptors, Michael Kopper on Chewco and Southampton, and Jeff McMahon on the negotiations."
+     }
+    ]
+   },
+   {
+    "name": "Document Use",
+    "points": 15,
+    "total": 6.5,
+    "counted": true,
+    "skills": [
+     {
+      "name": "Effective Selection",
+      "description": "Selects and contextualizes documents effectively, and properly authenticates the document.",
+      "max_marks": 5,
+      "rating": 2,
+      "marks": 2.5,
+      "reason": "The only document shown was the November 5, 1997 minutes (T52), which were authenticated through recognition (T53). The June 28, 1999 Board materials, which the witness relied on at T25, were not shown."
+     },
+     {
+      "name": "Narrative",
+      "description": "Gets the witness's story first, before using conflicting evidence.",
+      "max_marks": 5,
+      "rating": 1,
+      "marks": 1.25,
+      "reason": "The witness was not first asked what he remembered about the November 5, 1997 call. The interviewer moved directly from 'Do you recognize them?' (T52) to a question about what the minutes say (T54)."
+     },
+     {
+      "name": "Accuracy",
+      "description": "Describes the document accurately.",
+      "max_marks": 2,
+      "rating": 2,
+      "marks": 1.0,
+      "reason": "The interviewer never described the minutes before asking about them, so nothing was misstated. The description was also too thin to show what the document says."
+     },
+     {
+      "name": "Avoid Initial Conclusion",
+      "description": "Separates the document from inferences or conclusions, unless the witness takes an unreasonable stance.",
+      "max_marks": 1,
+      "rating": 3,
+      "marks": 0.75,
+      "reason": "T54 asks a neutral question about whether the minutes mention Kopper's role and does not characterize the document or draw conclusions from it."
+     },
+     {
+      "name": "Fairness",
+      "description": "Provides the witness with a fair opportunity to explain any inconsistencies or disagreements with the document.",
+      "max_marks": 2,
+      "rating": 2,
+      "marks": 1.0,
+      "reason": "After the witness said the minutes do not mention Kopper (T55), the interviewer did not put the earlier proxy-disclosure reasoning (T46-T51) to him or ask him to reconcile the two."
+     }
+    ],
+    "moments": [
+     {
+      "turn": "T52",
+      "kind": "quote",
+      "text": "I'd like to show you the minutes of the November 5, 1997 Executive Committee meeting. Do you recognize them?"
+     },
+     {
+      "turn": "T53",
+      "kind": "quote",
+      "text": "Yes, those are the Committee's minutes from that call. The Corporate Secretary's office prepared them."
+     },
+     {
+      "turn": "T54",
+      "kind": "quote",
+      "text": "Do they mention Mr. Kopper's role in Chewco?"
+     },
+     {
+      "turn": "T55",
+      "kind": "quote",
+      "text": "No, they don't. I don't recall it being discussed on the call."
+     },
+     {
+      "turn": "T25",
+      "kind": "summary",
+      "text": "The witness says the Board representation is in the resolution and minutes, but the interviewer never showed those documents."
+     }
+    ]
+   }
+  ],
+  "big_mistakes": [],
+  "missed_opportunities": [
+   "T25: The witness says the Board representation about receiving no Enron stock value is in the resolution and minutes (T23-T25). The interviewer did not put the June 28, 1999 Board materials to him or test the claim against the record."
+  ],
+  "tips": [
+   "Before showing any document, ask what you remember being told to directors about your compensation, then ask where in the resolution or minutes you believe that is recorded, and what words you recall.",
+   "You said avoiding proxy disclosure was one of the main reasons for choosing Mr. Kopper; what were the other reasons, and who besides you knew that he would be the manager in substance?"
+  ],
+  "evaluator_errors": [],
+  "category_scores": [
+   {
+    "name": "Upjohn",
+    "score": 100,
+    "weight": 5,
+    "rationale": "T2 gives the full warning at the very start: the Committee and company are the clients, counsel does not represent the witness personally and cannot give legal advice, privilege belongs to the company, and the company may disclose without consent."
+   },
+   {
+    "name": "Privilege",
+    "score": 100,
+    "weight": 4,
+    "rationale": "T2 explains the company decides whether to waive and may disclose, including to the government, without the witness's consent. T5 shows the witness understood it."
+   },
+   {
+    "name": "Relationship",
+    "score": 100,
+    "weight": 4,
+    "rationale": "T6 sets out how the interview will proceed, asks for complete answers, explains the speculation rule, and asks the witness to say whether they remember or are reconstructing something."
+   },
+   {
+    "name": "Confirmation",
+    "score": 100,
+    "weight": 2,
+    "rationale": "T2 asks if the witness has questions, T4 asks the witness to restate who is represented and who controls privilege, and T5 confirms the answer."
+   },
+   {
+    "name": "Closing",
+    "score": 100,
+    "weight": 5,
+    "rationale": "T64 asks if there is anything else the Committee should know. T68 covers document retention, confidentiality, not speaking with other witnesses, a possible follow-up, and asks for anything to add or correct."
+   },
+   {
+    "name": "Narrative Development",
+    "score": 100,
+    "weight": 7,
+    "rationale": "T14 opens with 'Tell me everything you remember' and T16 invites more detail, letting the witness walk through LJM1 before narrowing."
+   },
+   {
+    "name": "Funneling",
+    "score": 100,
+    "weight": 7,
+    "rationale": "The interview moves from role (T8) to the LJM1 story (T14) to the Southampton and Chewco specifics before documents, which is a sensible general-to-specific order."
+   },
+   {
+    "name": "Clarity",
+    "score": 75,
+    "weight": 4,
+    "rationale": "Most questions are clear and single-focus, such as T18 and T20. Some are vague or presume answers, such as T50 'What were those disclosure considerations?' and T56."
+   },
+   {
+    "name": "Professionalism",
+    "score": 100,
+    "weight": 2,
+    "rationale": "The tone is neutral and polite throughout, and the interviewer stays in control, for example by pressing on the $4.5 million figure at T38 without being accusatory."
+   },
+   {
+    "name": "Adaptability",
+    "score": 75,
+    "weight": 5,
+    "rationale": "The interviewer adapted after the Foundation answer at T35-T38, using outside figures and then pressing the Board nondisclosure at T40-T45. It did not adapt to the evasive answers at T49-T51 or the vague Raptor answers at T63."
+   },
+   {
+    "name": "Ensures Credibility",
+    "score": 50,
+    "weight": 8,
+    "rationale": "T40 follows up the inconsistency between the Foundation investment and the Board representation well. The evasive answers at T49-T51 ('one of the main reasons' then 'The proxy disclosure, as I said') and T63 were not pursued."
+   },
+   {
+    "name": "Material Facts",
+    "score": 75,
+    "weight": 9,
+    "rationale": "Key who, what, when and how points were identified: Glisan and Kopper as direct reports (T13), the Foundation's $25,000 and about $4.5 million on May 1, 2000 (T35), and the lack of disclosure to the Board (T43-T45)."
+   },
+   {
+    "name": "Memory Refreshing",
+    "score": 50,
+    "weight": 3,
+    "rationale": "T38 gives the witness a specific figure to test against, which helps. The interviewer did not try other routes when the witness could not identify approval sheets (T63), the resolution or minutes he cited (T25), or the Foundation statements (T37)."
+   },
+   {
+    "name": "Establishes Knowledge",
+    "score": 75,
+    "weight": 4,
+    "rationale": "T57-T59 separate what the witness assumed from what he checked: 'I assumed it was followed' and 'No. I didn't check each one myself.' T19-T21 also pin down who first suggested the GP role."
+   },
+   {
+    "name": "Other Sources",
+    "score": 75,
+    "weight": 3,
+    "rationale": "T66 asks who else should be interviewed, and T67 gives five names with reasons. The interviewer did not probe how those people relate to the events."
+   },
+   {
+    "name": "Other Evidence",
+    "score": 25,
+    "weight": 3,
+    "rationale": "The witness pointed to the resolution, the minutes and the Foundation's statements (T25, T37), but the interviewer did not ask for or identify them. T68 only asks generally to keep related documents."
+   },
+   {
+    "name": "Tests Certainty",
+    "score": 75,
+    "weight": 2,
+    "rationale": "T24 asks 'How sure are you that's what you told them?' and T36-T38 test the amount received. These examine certainty about key facts."
+   },
+   {
+    "name": "Follow-Up",
+    "score": 75,
+    "weight": 8,
+    "rationale": "The interviewer followed up the Foundation investment, the Board disclosure and the Chewco nondisclosure (T40-T45), and the approval-sheet answer (T61-T62). It left the 'main reasons' answer (T49-T51) and the Raptor I answer (T63) unexplored."
+   },
+   {
+    "name": "Effective Selection",
+    "score": 50,
+    "weight": 5,
+    "rationale": "The only document shown was the November 5, 1997 minutes (T52), which were authenticated through recognition (T53). The June 28, 1999 Board materials, which the witness relied on at T25, were not shown."
+   },
+   {
+    "name": "Narrative",
+    "score": 25,
+    "weight": 5,
+    "rationale": "The witness was not first asked what he remembered about the November 5, 1997 call. The interviewer moved directly from 'Do you recognize them?' (T52) to a question about what the minutes say (T54)."
+   },
+   {
+    "name": "Accuracy",
+    "score": 50,
+    "weight": 2,
+    "rationale": "The interviewer never described the minutes before asking about them, so nothing was misstated. The description was also too thin to show what the document says."
+   },
+   {
+    "name": "Avoid Initial Conclusion",
+    "score": 75,
+    "weight": 1,
+    "rationale": "T54 asks a neutral question about whether the minutes mention Kopper's role and does not characterize the document or draw conclusions from it."
+   },
+   {
+    "name": "Fairness",
+    "score": 50,
+    "weight": 2,
+    "rationale": "After the witness said the minutes do not mention Kopper (T55), the interviewer did not put the earlier proxy-disclosure reasoning (T46-T51) to him or ask him to reconcile the two."
+   }
+  ],
+  "recommended_questions": [
+   "Before showing any document, ask what you remember being told to directors about your compensation, then ask where in the resolution or minutes you believe that is recorded, and what words you recall.",
+   "You said avoiding proxy disclosure was one of the main reasons for choosing Mr. Kopper; what were the other reasons, and who besides you knew that he would be the manager in substance?"
+  ],
+  "strengths": [],
+  "weaknesses": [],
+  "coaching_recommendations": []
+ },
+ "grader_output": {
+  "result": "SCORED",
+  "result_reason": "",
+  "skills": [
+   {
+    "name": "Upjohn",
+    "rating": 4,
+    "reason": "T2 gives the full warning at the very start: the Committee and company are the clients, counsel does not represent the witness personally and cannot give legal advice, privilege belongs to the company, and the company may disclose without consent."
+   },
+   {
+    "name": "Privilege",
+    "rating": 4,
+    "reason": "T2 explains the company decides whether to waive and may disclose, including to the government, without the witness's consent. T5 shows the witness understood it."
+   },
+   {
+    "name": "Relationship",
+    "rating": 4,
+    "reason": "T6 sets out how the interview will proceed, asks for complete answers, explains the speculation rule, and asks the witness to say whether they remember or are reconstructing something."
+   },
+   {
+    "name": "Confirmation",
+    "rating": 4,
+    "reason": "T2 asks if the witness has questions, T4 asks the witness to restate who is represented and who controls privilege, and T5 confirms the answer."
+   },
+   {
+    "name": "Closing",
+    "rating": 4,
+    "reason": "T64 asks if there is anything else the Committee should know. T68 covers document retention, confidentiality, not speaking with other witnesses, a possible follow-up, and asks for anything to add or correct."
+   },
+   {
+    "name": "Narrative Development",
+    "rating": 4,
+    "reason": "T14 opens with 'Tell me everything you remember' and T16 invites more detail, letting the witness walk through LJM1 before narrowing."
+   },
+   {
+    "name": "Funneling",
+    "rating": 4,
+    "reason": "The interview moves from role (T8) to the LJM1 story (T14) to the Southampton and Chewco specifics before documents, which is a sensible general-to-specific order."
+   },
+   {
+    "name": "Clarity",
+    "rating": 3,
+    "reason": "Most questions are clear and single-focus, such as T18 and T20. Some are vague or presume answers, such as T50 'What were those disclosure considerations?' and T56."
+   },
+   {
+    "name": "Professionalism",
+    "rating": 4,
+    "reason": "The tone is neutral and polite throughout, and the interviewer stays in control, for example by pressing on the $4.5 million figure at T38 without being accusatory."
+   },
+   {
+    "name": "Adaptability",
+    "rating": 3,
+    "reason": "The interviewer adapted after the Foundation answer at T35-T38, using outside figures and then pressing the Board nondisclosure at T40-T45. It did not adapt to the evasive answers at T49-T51 or the vague Raptor answers at T63."
+   },
+   {
+    "name": "Ensures Credibility",
+    "rating": 2,
+    "reason": "T40 follows up the inconsistency between the Foundation investment and the Board representation well. The evasive answers at T49-T51 ('one of the main reasons' then 'The proxy disclosure, as I said') and T63 were not pursued."
+   },
+   {
+    "name": "Material Facts",
+    "rating": 3,
+    "reason": "Key who, what, when and how points were identified: Glisan and Kopper as direct reports (T13), the Foundation's $25,000 and about $4.5 million on May 1, 2000 (T35), and the lack of disclosure to the Board (T43-T45)."
+   },
+   {
+    "name": "Memory Refreshing",
+    "rating": 2,
+    "reason": "T38 gives the witness a specific figure to test against, which helps. The interviewer did not try other routes when the witness could not identify approval sheets (T63), the resolution or minutes he cited (T25), or the Foundation statements (T37)."
+   },
+   {
+    "name": "Establishes Knowledge",
+    "rating": 3,
+    "reason": "T57-T59 separate what the witness assumed from what he checked: 'I assumed it was followed' and 'No. I didn't check each one myself.' T19-T21 also pin down who first suggested the GP role."
+   },
+   {
+    "name": "Other Sources",
+    "rating": 3,
+    "reason": "T66 asks who else should be interviewed, and T67 gives five names with reasons. The interviewer did not probe how those people relate to the events."
+   },
+   {
+    "name": "Other Evidence",
+    "rating": 1,
+    "reason": "The witness pointed to the resolution, the minutes and the Foundation's statements (T25, T37), but the interviewer did not ask for or identify them. T68 only asks generally to keep related documents."
+   },
+   {
+    "name": "Tests Certainty",
+    "rating": 3,
+    "reason": "T24 asks 'How sure are you that's what you told them?' and T36-T38 test the amount received. These examine certainty about key facts."
+   },
+   {
+    "name": "Follow-Up",
+    "rating": 3,
+    "reason": "The interviewer followed up the Foundation investment, the Board disclosure and the Chewco nondisclosure (T40-T45), and the approval-sheet answer (T61-T62). It left the 'main reasons' answer (T49-T51) and the Raptor I answer (T63) unexplored."
+   },
+   {
+    "name": "Effective Selection",
+    "rating": 2,
+    "reason": "The only document shown was the November 5, 1997 minutes (T52), which were authenticated through recognition (T53). The June 28, 1999 Board materials, which the witness relied on at T25, were not shown."
+   },
+   {
+    "name": "Narrative",
+    "rating": 1,
+    "reason": "The witness was not first asked what he remembered about the November 5, 1997 call. The interviewer moved directly from 'Do you recognize them?' (T52) to a question about what the minutes say (T54)."
+   },
+   {
+    "name": "Accuracy",
+    "rating": 2,
+    "reason": "The interviewer never described the minutes before asking about them, so nothing was misstated. The description was also too thin to show what the document says."
+   },
+   {
+    "name": "Avoid Initial Conclusion",
+    "rating": 3,
+    "reason": "T54 asks a neutral question about whether the minutes mention Kopper's role and does not characterize the document or draw conclusions from it."
+   },
+   {
+    "name": "Fairness",
+    "rating": 2,
+    "reason": "After the witness said the minutes do not mention Kopper (T55), the interviewer did not put the earlier proxy-disclosure reasoning (T46-T51) to him or ask him to reconcile the two."
+   }
+  ],
+  "area_evidence": [
+   {
+    "area": "Interview Framing, Rapport Building, & Closing",
+    "moments": [
+     {
+      "turn": "T2",
+      "kind": "quote",
+      "text": "To be clear, we represent the Committee and the company only. We do not represent you personally, we are not your attorney, and we can't give you legal advice."
+     },
+     {
+      "turn": "T4",
+      "kind": "quote",
+      "text": "could you tell me in your own words your understanding of who we represent, and who controls the privilege?"
+     },
+     {
+      "turn": "T5",
+      "kind": "quote",
+      "text": "The company controls the privilege and can share what I tell you, without asking me."
+     },
+     {
+      "turn": "T6",
+      "kind": "quote",
+      "text": "Please give me complete answers, even if a detail seems minor."
+     },
+     {
+      "turn": "T68",
+      "kind": "quote",
+      "text": "Please keep all related documents and notes, keep today confidential, and don't discuss it with other witnesses."
+     }
+    ]
+   },
+   {
+    "area": "Question Technique",
+    "moments": [
+     {
+      "turn": "T14",
+      "kind": "quote",
+      "text": "Tell me everything you remember about how LJM1 came about in 1999."
+     },
+     {
+      "turn": "T8",
+      "kind": "summary",
+      "text": "Starts with role and responsibilities before moving to the transactions, which is a sensible order."
+     },
+     {
+      "turn": "T46",
+      "kind": "quote",
+      "text": "Why was Michael Kopper chosen to manage it rather than you?"
+     },
+     {
+      "turn": "T50",
+      "kind": "summary",
+      "text": "Asks a vague follow-up about disclosure considerations after the witness gave a general answer."
+     }
+    ]
+   },
+   {
+    "area": "Fact Development, Source Identification, & Credibility Testing",
+    "moments": [
+     {
+      "turn": "T20",
+      "kind": "quote",
+      "text": "Who raised it with them first?"
+     },
+     {
+      "turn": "T24",
+      "kind": "quote",
+      "text": "How sure are you that's what you told them?"
+     },
+     {
+      "turn": "T38",
+      "kind": "quote",
+      "text": "Our information is roughly $4.5 million, about six weeks after it invested. Does that fit your memory?"
+     },
+     {
+      "turn": "T40",
+      "kind": "quote",
+      "text": "How does that fit with what you told the Board about not receiving value from the Enron stock?"
+     },
+     {
+      "turn": "T49",
+      "kind": "quote",
+      "text": "Honestly, avoiding the proxy disclosure was one of the main reasons."
+     },
+     {
+      "turn": "T51",
+      "kind": "quote",
+      "text": "The proxy disclosure, as I said."
+     },
+     {
+      "turn": "T57",
+      "kind": "quote",
+      "text": "I don't, really. That was the requirement, and I assumed it was followed."
+     },
+     {
+      "turn": "T58",
+      "kind": "quote",
+      "text": "Did you check that it was followed?"
+     },
+     {
+      "turn": "T63",
+      "kind": "quote",
+      "text": "Raptor I is the one I remember. The sheets would show the rest."
+     },
+     {
+      "turn": "T67",
+      "kind": "quote",
+      "text": "Rick Causey and Rick Buy on the approvals, Ben Glisan on the Raptors, Michael Kopper on Chewco and Southampton, and Jeff McMahon on the negotiations."
+     }
+    ]
+   },
+   {
+    "area": "Document Use",
+    "moments": [
+     {
+      "turn": "T52",
+      "kind": "quote",
+      "text": "I'd like to show you the minutes of the November 5, 1997 Executive Committee meeting. Do you recognize them?"
+     },
+     {
+      "turn": "T53",
+      "kind": "quote",
+      "text": "Yes, those are the Committee's minutes from that call. The Corporate Secretary's office prepared them."
+     },
+     {
+      "turn": "T54",
+      "kind": "quote",
+      "text": "Do they mention Mr. Kopper's role in Chewco?"
+     },
+     {
+      "turn": "T55",
+      "kind": "quote",
+      "text": "No, they don't. I don't recall it being discussed on the call."
+     },
+     {
+      "turn": "T25",
+      "kind": "summary",
+      "text": "The witness says the Board representation is in the resolution and minutes, but the interviewer never showed those documents."
+     }
+    ]
+   }
+  ],
+  "big_mistakes": [],
+  "missed_chances": [
+   {
+    "turn": "T25",
+    "description": "The witness says the Board representation about receiving no Enron stock value is in the resolution and minutes (T23-T25). The interviewer did not put the June 28, 1999 Board materials to him or test the claim against the record."
+   },
+   {
+    "turn": "T49-T51",
+    "description": "After saying avoiding proxy disclosure was 'one of the main reasons' for using Kopper, the witness deflected with 'as I said'. The interviewer did not ask what the other reasons were or who knew Kopper was the real manager."
+   }
+  ],
+  "tips": [
+   "Before showing any document, ask what you remember being told to directors about your compensation, then ask where in the resolution or minutes you believe that is recorded, and what words you recall.",
+   "You said avoiding proxy disclosure was one of the main reasons for choosing Mr. Kopper; what were the other reasons, and who besides you knew that he would be the manager in substance?"
+  ]
+ }
+}

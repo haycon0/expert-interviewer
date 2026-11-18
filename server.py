@@ -145,18 +145,12 @@ def _public_doc(d: dict) -> dict:
 HIDDEN_UNTIL_GRADED = ("persona_name", "persona_profile", "rubric")
 
 
-def _reveal_persona() -> bool:
-    """REVEAL_PERSONA=1 in .env shows the persona during the interview, for testing.
-    Leave it out (the default) to keep the persona hidden until grading."""
-    model_catalog.reload_env()
-    return os.getenv("REVEAL_PERSONA", "").strip() == "1"
-
-
 def _public(state: dict) -> dict:
     """What the interviewer may see: persona and look-fors stay hidden until grading."""
     out = {k: v for k, v in state.items() if k != "document_context"}
     out["documents"] = [_public_doc(d) for d in state.get("documents", [])]
-    out["persona_revealed"] = state.get("persona_profile") if _reveal_persona() else None
+    # Shown during the interview only for interviews started on the debug page.
+    out["persona_revealed"] = state.get("persona_profile") if state.get("debug") else None
     if not state.get("final_assessment"):
         out = {k: v for k, v in out.items() if k not in HIDDEN_UNTIL_GRADED}
     return out
@@ -175,8 +169,8 @@ def _view(session_id: str) -> dict:
         "transcript": state.get("transcript", []),
         "models": state.get("models", {}),
         "media": state.get("media", {"mode": "text"}),
-        # Only when REVEAL_PERSONA=1 (testing); otherwise the persona stays secret until grading.
-        "persona": state.get("persona_profile") if _reveal_persona() or state.get("debug") else None,
+        # Only for interviews started on the debug page; otherwise it stays secret until grading.
+        "persona": state.get("persona_profile") if state.get("debug") else None,
         "debug": {"resume_hint": state["debug"].get("resume_hint", "")} if state.get("debug") else None,
     }
 
@@ -284,6 +278,8 @@ def create_session(body: CreateSession):
                 dbg.setdefault("persona", script["persona"])
             if script.get("variables") and "variables" not in body.debug:
                 dbg["variables"] = script["variables"]
+            if dbg.get("variables") == "choose" and "picks" not in body.debug:
+                dbg["picks"] = script.get("picks", [])
         elif case_id := body.debug.get("case"):
             # An example case: add its documents from disk (the page can't fill the file picker).
             try:

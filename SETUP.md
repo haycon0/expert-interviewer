@@ -113,7 +113,7 @@ The **examples/enron-fastow** folder has a complete practice run. You interview 
 6. **Conversation:** choose **Text**, **Voice**, or **Voice + face**. The free options (browser voice and animated face) work in Chrome or Edge with no setup. See [docs/VOICE-AND-FACE.md](docs/VOICE-AND-FACE.md).
 7. Click **Check documents & start interview**. The app reads each document and checks that it belongs in this case (about 10–20 seconds).
 8. **If any documents are flagged**, you'll see each one, with what it contains, why it was flagged (for example "Addressed to someone else" or "Unrelated to this case"), and its opening text. Choose **Keep it** or **Remove it** for each one, then click **Continue to interview**. If nothing is flagged, this screen is skipped.
-9. Type questions in the box at the bottom and press **Enter** to send. In a voice mode, click **Start the conversation** first, then **Talk** to ask out loud. The right side explains the witness's personality. Normally it's hidden until your grade; for testing, add `REVEAL_PERSONA=1` to `.env` to show it, with tips on how to adapt.
+9. Type questions in the box at the bottom and press **Enter** to send. In a voice mode, click **Start the conversation** first, then **Talk** to ask out loud. The right side explains the witness's personality. It's hidden until your grade (only the debug page shows it, for testing).
 10. When you're done, click **End & grade**. You get a score out of 100, a rating for each of 23 skills with the moments in the interview behind it, any mistakes that capped the score, up to two missed chances, and two tips. The witness's hidden personality is revealed here.
 
 ---

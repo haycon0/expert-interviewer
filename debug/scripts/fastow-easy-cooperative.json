@@ -1,0 +1,305 @@
+{
+  "name": "Fastow (Enron): test, easy (cooperative witness)",
+  "description": "A short, sound interview of a cooperative Fastow who volunteers facts and admits mistakes. Same 34 questions as the guarded (hard) script, word for word; only the witness's answers differ. The guarded witness gives the same facts, but only when pressed with follow-up questions. Tests the rubric rule 'no automatic penalty for a difficult witness': the two should score about the same.",
+  "persona": "The Average Witness",
+  "variables": "choose",
+  "picks": [
+    {
+      "name": "Cooperativeness",
+      "value": "Helpful"
+    },
+    {
+      "name": "Candor",
+      "value": "Candid"
+    },
+    {
+      "name": "Communication Style",
+      "value": "Conversational"
+    }
+  ],
+  "expert_name": "Andrew Fastow",
+  "expert_role": "Executive Vice President and CFO, Enron Corp.",
+  "case_background_file": "examples/enron-fastow/case_background.txt",
+  "documents": [
+    "examples/enron-fastow/Enron_Sample_Events_Log.csv"
+  ],
+  "resume_hint": "This interview is finished. Click End & grade.",
+  "transcript": [
+    {
+      "speaker": "expert",
+      "message": "Good morning. Andy Fastow. Happy to help however I can."
+    },
+    {
+      "speaker": "user",
+      "message": "Good morning, Mr. Fastow. Thank you for coming in. My name is Jordan Reyes. The Special Investigative Committee of Enron's Board has retained us to investigate the LJM and Chewco transactions and related concerns that have been raised at the company. The purpose of our interview today is to learn the facts so we can give legal advice to the company. To be clear, we represent the Committee and the company only. We do not represent you personally, we are not your attorney, and we can't give you legal advice. This interview is confidential and privileged, but that privilege belongs to the company, not to you or to us. The company decides whether to waive it, and it may disclose what we learn, including to the government, without your consent and without telling you. It's still important that you are fully open and truthful with us, and that you don't share the substance of this interview with anyone. Do you understand? Do you have any questions?"
+    },
+    {
+      "speaker": "expert",
+      "message": "That's clear. You represent the Committee and the company, not me, and the company decides what to share. I'm happy to help however I can."
+    },
+    {
+      "speaker": "user",
+      "message": "Before we go on, could you tell me in your own words your understanding of who we represent, and who controls the privilege?"
+    },
+    {
+      "speaker": "expert",
+      "message": "You represent the Committee and the company, not me. The company controls the privilege and can share what I tell you, without asking me."
+    },
+    {
+      "speaker": "user",
+      "message": "Thank you. You're free to consult your own lawyer at any time, and if you'd like to stop to do that, just tell me. As I said, we can't advise you on that. Let me explain how today will go. I'll start with your background and role, then ask you to walk me through the LJM and Chewco transactions in your own words, and later I'll show you some documents. Please give me complete answers, even if a detail seems minor. A few ground rules: if you're speculating, assuming, or estimating, please tell me. Throughout, please tell me whether you actually remember something or are reconstructing it, and say so if you're unsure. And if a question is unclear, ask me to clarify. Is that all right?"
+    },
+    {
+      "speaker": "expert",
+      "message": "Of course. I'll be clear about what I remember and what I'm estimating."
+    },
+    {
+      "speaker": "user",
+      "message": "Let's start with your role. As CFO, what were you responsible for?"
+    },
+    {
+      "speaker": "expert",
+      "message": "Financing the company: raising capital, managing the balance sheet, and our structured finance group, Global Finance. By 1999 that meant a lot of off-balance-sheet structures, which is how the partnerships came about."
+    },
+    {
+      "speaker": "user",
+      "message": "What did that include day to day?"
+    },
+    {
+      "speaker": "expert",
+      "message": "Capital raising, the rating agencies, and the structured deals Global Finance did with outside investors."
+    },
+    {
+      "speaker": "user",
+      "message": "Who reported to you in Global Finance?"
+    },
+    {
+      "speaker": "expert",
+      "message": "Ben Glisan, who became Treasurer in 2000. Michael Kopper, who ran structured transactions. Jeff McMahon, who was Treasurer before Ben. And a large staff under them."
+    },
+    {
+      "speaker": "user",
+      "message": "Tell me everything you remember about how LJM1 came about in 1999."
+    },
+    {
+      "speaker": "expert",
+      "message": "Enron had a big gain in Rhythms NetConnections stock that we couldn't sell, and Jeff Skilling wanted it protected. Nobody outside would hedge it, so we set up LJM1 with outside equity to do it. I raised the idea with Ken Lay and Jeff in mid-June 1999, and it went to the Board on June 28."
+    },
+    {
+      "speaker": "user",
+      "message": "What else do you remember about how it was set up?"
+    },
+    {
+      "speaker": "expert",
+      "message": "I put in a million dollars as general partner, and two outside limited partners put in more. Enron contributed restricted Enron stock, and LJM1 gave Enron a put on the Rhythms shares."
+    },
+    {
+      "speaker": "user",
+      "message": "Who first suggested that you serve as the general partner?"
+    },
+    {
+      "speaker": "expert",
+      "message": "I did. I raised it with Ken and Jeff as a way to get the deal done quickly."
+    },
+    {
+      "speaker": "user",
+      "message": "Who raised it with them first?"
+    },
+    {
+      "speaker": "expert",
+      "message": "That was me, as I said."
+    },
+    {
+      "speaker": "user",
+      "message": "At the June 28, 1999 Board meeting, what did you tell the Board about how you would be compensated?"
+    },
+    {
+      "speaker": "expert",
+      "message": "That I'd invest a million dollars as general partner and would not receive any current or future value of the Enron stock Enron contributed. The Board then waived the Code of Conduct so I could act as general partner."
+    },
+    {
+      "speaker": "user",
+      "message": "How sure are you that's what you told them?"
+    },
+    {
+      "speaker": "expert",
+      "message": "Very sure. It's in the resolution and the minutes."
+    },
+    {
+      "speaker": "user",
+      "message": "Next, the Rhythms unwind in early 2000. Who negotiated it for Enron?"
+    },
+    {
+      "speaker": "expert",
+      "message": "Rick Causey's group negotiated for Enron. Michael Kopper and I negotiated for LJM1."
+    },
+    {
+      "speaker": "user",
+      "message": "And for LJM1?"
+    },
+    {
+      "speaker": "expert",
+      "message": "As I said, Michael and me."
+    },
+    {
+      "speaker": "user",
+      "message": "What do you remember about a partnership called Southampton Place?"
+    },
+    {
+      "speaker": "expert",
+      "message": "It bought part of a limited partner's interest in LJM1 in March 2000. My family foundation invested $25,000 in it, as did Michael, Ben Glisan and a few others."
+    },
+    {
+      "speaker": "user",
+      "message": "Who invested in it?"
+    },
+    {
+      "speaker": "expert",
+      "message": "As I said: the Foundation, Michael through an entity of his, Ben Glisan, Kristina Mordaunt, and a couple of Global Finance employees."
+    },
+    {
+      "speaker": "user",
+      "message": "What did the Foundation put in, and what did it receive?"
+    },
+    {
+      "speaker": "expert",
+      "message": "$25,000, and about $4.5 million back on May 1, 2000, after the Rhythms unwind."
+    },
+    {
+      "speaker": "user",
+      "message": "How much did it receive?"
+    },
+    {
+      "speaker": "expert",
+      "message": "About $4.5 million, as I said. The Foundation's statements would have the exact figure."
+    },
+    {
+      "speaker": "user",
+      "message": "Our information is roughly $4.5 million, about six weeks after it invested. Does that fit your memory?"
+    },
+    {
+      "speaker": "expert",
+      "message": "Yes, that's right."
+    },
+    {
+      "speaker": "user",
+      "message": "How does that fit with what you told the Board about not receiving value from the Enron stock?"
+    },
+    {
+      "speaker": "expert",
+      "message": "I understand why you ask. My view at the time was that the Foundation was separate from me, and that what I told the Board was about my economics as general partner. Looking back, I should have disclosed it."
+    },
+    {
+      "speaker": "user",
+      "message": "Did you tell the Board, Mr. Lay, or Mr. Skilling about the Foundation's investment?"
+    },
+    {
+      "speaker": "expert",
+      "message": "No. I didn't think it was required. I can see now that it should have been."
+    },
+    {
+      "speaker": "user",
+      "message": "So that I have it right: none of them was told?"
+    },
+    {
+      "speaker": "expert",
+      "message": "Correct."
+    },
+    {
+      "speaker": "user",
+      "message": "Let's turn to Chewco. Why was Michael Kopper chosen to manage it rather than you?"
+    },
+    {
+      "speaker": "expert",
+      "message": "Our lawyers said that if a senior officer like me took part, it would have to be disclosed in the proxy statement. Michael wasn't a senior officer, so using him avoided that."
+    },
+    {
+      "speaker": "user",
+      "message": "What else went into that choice?"
+    },
+    {
+      "speaker": "expert",
+      "message": "Honestly, avoiding the proxy disclosure was one of the main reasons."
+    },
+    {
+      "speaker": "user",
+      "message": "What were those disclosure considerations?"
+    },
+    {
+      "speaker": "expert",
+      "message": "The proxy disclosure, as I said."
+    },
+    {
+      "speaker": "user",
+      "message": "I'd like to show you the minutes of the November 5, 1997 Executive Committee meeting. Do you recognize them?"
+    },
+    {
+      "speaker": "expert",
+      "message": "Yes, those are the Committee's minutes from that call. The Corporate Secretary's office prepared them."
+    },
+    {
+      "speaker": "user",
+      "message": "Do they mention Mr. Kopper's role in Chewco?"
+    },
+    {
+      "speaker": "expert",
+      "message": "No, they don't. I don't recall it being discussed on the call."
+    },
+    {
+      "speaker": "user",
+      "message": "Turning to the LJM2 controls. How do you know Mr. Causey and Mr. Buy reviewed every LJM2 deal?"
+    },
+    {
+      "speaker": "expert",
+      "message": "I don't, really. That was the requirement, and I assumed it was followed. Some approval sheets were signed after the deals closed."
+    },
+    {
+      "speaker": "user",
+      "message": "Did you check that it was followed?"
+    },
+    {
+      "speaker": "expert",
+      "message": "No. I didn't check each one myself."
+    },
+    {
+      "speaker": "user",
+      "message": "Were any approval sheets signed after a deal closed?"
+    },
+    {
+      "speaker": "expert",
+      "message": "Yes, a few. Raptor I closed in April 2000, and its sheet was signed weeks later."
+    },
+    {
+      "speaker": "user",
+      "message": "Which ones?"
+    },
+    {
+      "speaker": "expert",
+      "message": "Raptor I is the one I remember. The sheets would show the rest."
+    },
+    {
+      "speaker": "user",
+      "message": "Is there anything I haven't asked about that you think the Committee should know?"
+    },
+    {
+      "speaker": "expert",
+      "message": "Only that I relied on our accountants and lawyers throughout. I'll help however I can."
+    },
+    {
+      "speaker": "user",
+      "message": "Who else should we speak with?"
+    },
+    {
+      "speaker": "expert",
+      "message": "Rick Causey and Rick Buy on the approvals, Ben Glisan on the Raptors, Michael Kopper on Chewco and Southampton, and Jeff McMahon on the negotiations."
+    },
+    {
+      "speaker": "user",
+      "message": "Thank you. Please keep all related documents and notes, keep today confidential, and don't discuss it with other witnesses. We may follow up. Anything to add or correct?"
+    },
+    {
+      "speaker": "expert",
+      "message": "Understood. Nothing to add or correct. Thank you."
+    }
+  ]
+}

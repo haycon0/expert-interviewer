@@ -16,6 +16,7 @@ load_dotenv(Path.cwd() / ".env")
 import agents
 import documents
 import grading_v2
+import graph
 
 sid, label = sys.argv[1], sys.argv[2]
 model = next((a for a in sys.argv[3:] if ":" in a), "anthropic:claude-haiku-5-5")
@@ -25,11 +26,15 @@ if "--strong-closing" in sys.argv:  # the strong script leaves its closing quest
     q = script["resume_hint"].split(': "', 1)[1].split('" If his answer', 1)[0]
     transcript += [{"speaker": "user", "message": q}, {"speaker": "expert", "message": "No, I don't have anything to add."}]
 background = Path(script["case_background_file"]).read_text(encoding="utf-8")
-log = Path(script["documents"][0])
-_, text = documents.extract_text(log.name, log.read_bytes())
-context, _ = documents.build_context([{"id": "d1", "name": log.name, "text": text}], script["expert_name"])
+docs = []
+for i, rel in enumerate(script["documents"], 1):  # every document is kept, as if the user kept it at the check
+    f = Path(rel)
+    docs.append({"id": f"d{i}", "name": f.name, "text": documents.extract_text(f.name, f.read_bytes())[1]})
+context, _ = documents.build_context(docs, script["expert_name"])
 personas = json.loads(Path("personas.json").read_text(encoding="utf-8"))
-persona = {**next(p for p in personas if p["name"] == script["persona"]), "active_variables": []}
+persona = dict(next(p for p in personas if p["name"] == script["persona"]))
+persona["active_variables"] = (graph.chosen_variables(persona, graph.load_variables(), script.get("picks", []), False)
+                               if script.get("variables") == "choose" else [])
 rubric = grading_v2.load_rubric()
 turns = grading_v2.number_turns(transcript)
 t0 = time.time()

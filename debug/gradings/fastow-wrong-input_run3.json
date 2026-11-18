@@ -1,0 +1,811 @@
+{
+ "script": "fastow-wrong-input",
+ "run": "run3",
+ "model": "anthropic:claude-haiku-5-5",
+ "graded": "2026-11-17 13:10",
+ "seconds": 56,
+ "questions": 81,
+ "closing_added": false,
+ "report": {
+  "rubric_version": "2.2",
+  "status": "SCORED",
+  "status_label": "Scored",
+  "status_reason": "",
+  "overall_score": 72,
+  "score_before_cap": 71.75,
+  "cap": null,
+  "band": "Needs coaching",
+  "letter_grade": "Needs coaching",
+  "areas": [
+   {
+    "name": "Interview Framing, Rapport Building, & Closing",
+    "points": 20,
+    "total": 15.25,
+    "counted": true,
+    "skills": [
+     {
+      "name": "Upjohn",
+      "description": "Properly identifies representation and role with the Company, and that they cannot give the employee legal advice. This must always be part of the very beginning of the interview.",
+      "max_marks": 5,
+      "rating": 4,
+      "marks": 5.0,
+      "reason": "At T2, early in the interview, the lawyer said the firm represents the Committee and the company, not the witness personally, and that it cannot give legal advice. This was done at the very beginning."
+     },
+     {
+      "name": "Privilege",
+      "description": "Properly explains that the Company controls the privilege and determines how it is shared.",
+      "max_marks": 4,
+      "rating": 4,
+      "marks": 4.0,
+      "reason": "At T2 the lawyer explained that the privilege belongs to the company and that the company may decide to share what the witness says, including with the government."
+     },
+     {
+      "name": "Relationship",
+      "description": "Establishes rapport and interview expectations. This includes: establishes an appropriate professional tone; explains how the interview will proceed; encourages complete answers; instructs the witness that they can speculate, they just need to say when they do; invites the witness to distinguish between recollection and uncertainty.",
+      "max_marks": 4,
+      "rating": 1,
+      "marks": 1.0,
+      "reason": "The tone was professional, but the lawyer never explained how the interview would run, never gave ground rules on speculation or estimates, and never asked the witness to separate recollection from uncertainty."
+     },
+     {
+      "name": "Confirmation",
+      "description": "Checks the witness understood the Upjohn warning and answers their questions, if any.",
+      "max_marks": 2,
+      "rating": 3,
+      "marks": 1.5,
+      "reason": "At T2 the lawyer asked 'Any questions?' and the witness confirmed understanding at T3 ('That's clear, thank you. I understand you're not my lawyer.'). The lawyer did not check understanding beyond that single exchange."
+     },
+     {
+      "name": "Closing",
+      "description": "Closes by confirming there is \"nothing else\", next steps, a confidentiality reminder, and a reminder to keep records.",
+      "max_marks": 5,
+      "rating": 3,
+      "marks": 3.75,
+      "reason": "At T154 the lawyer asked whether there was anything else the Committee should know, and at T162 gave a confidentiality reminder and a document-retention instruction. There were no stated next steps."
+     }
+    ],
+    "moments": [
+     {
+      "turn": "T2",
+      "kind": "quote",
+      "text": "We represent the Committee and the company, not you personally. We're not your attorney and can't give you legal advice."
+     },
+     {
+      "turn": "T2",
+      "kind": "quote",
+      "text": "the privilege belongs to the company, and the company may decide to share what you tell us with others, including the government."
+     },
+     {
+      "turn": "T2",
+      "kind": "quote",
+      "text": "Any questions?"
+     },
+     {
+      "turn": "T3",
+      "kind": "quote",
+      "text": "That's clear, thank you. I understand you're not my lawyer."
+     },
+     {
+      "turn": "T4",
+      "kind": "summary",
+      "text": "Moved straight to substance after the warning, with no explanation of how the interview would proceed or of ground rules on speculation and estimates."
+     },
+     {
+      "turn": "T154",
+      "kind": "quote",
+      "text": "Is there anything I haven't asked about that you think the Committee should know?"
+     },
+     {
+      "turn": "T162",
+      "kind": "quote",
+      "text": "Please keep any documents related to this, and don't discuss this interview with anyone."
+     }
+    ]
+   },
+   {
+    "name": "Question Technique",
+    "points": 25,
+    "total": 18.75,
+    "counted": true,
+    "skills": [
+     {
+      "name": "Narrative Development",
+      "description": "Lets the witness walk through what happened.",
+      "max_marks": 7,
+      "rating": 3,
+      "marks": 5.25,
+      "reason": "The lawyer repeatedly asked the witness to 'Tell me everything you remember' (T12, T32, T46) and let the witness walk through events before narrowing."
+     },
+     {
+      "name": "Funneling",
+      "description": "Moves in a sensible order from general to specific questions.",
+      "max_marks": 7,
+      "rating": 3,
+      "marks": 5.25,
+      "reason": "Questions generally moved from role and process (T4 to T11) to specific transactions (T12 onward) and then to specific figures and documents, in a sensible order."
+     },
+     {
+      "name": "Clarity",
+      "description": "Asks clear questions and avoids compound, ambiguous, or legalistic questions.",
+      "max_marks": 4,
+      "rating": 3,
+      "marks": 3.0,
+      "reason": "Most questions were short and clear. A few were compound or loosely framed, such as T160 ('personal files, notes, or emails about LJM, Chewco, or Southampton'), and T146 was somewhat leading."
+     },
+     {
+      "name": "Professionalism",
+      "description": "Stays neutral, polite and in control.",
+      "max_marks": 2,
+      "rating": 3,
+      "marks": 1.5,
+      "reason": "The lawyer stayed polite and in control, even when the witness deflected (T61 to T65, T131 to T137). The tone was neutral throughout."
+     },
+     {
+      "name": "Adaptability",
+      "description": "Changes technique based on the witness's answers rather than staying only with the outline.",
+      "max_marks": 5,
+      "rating": 3,
+      "marks": 3.75,
+      "reason": "The lawyer adjusted to answers in several places: after the witness hedged on the foundation (T69), the lawyer asked what investments the foundation made (T70) and then pinned down the amount (T76 to T80). After the witness said he stayed out of Chewco (T121), the lawyer put the Kopper note to him (T132)."
+     }
+    ],
+    "moments": [
+     {
+      "turn": "T12",
+      "kind": "quote",
+      "text": "Tell me everything you remember about how LJM1 came about in 1999."
+     },
+     {
+      "turn": "T46",
+      "kind": "quote",
+      "text": "Tell me everything you remember about the controls put in place when the Board approved LJM2 in October 1999."
+     },
+     {
+      "turn": "T62",
+      "kind": "quote",
+      "text": "Approximately, then. Were they above or below the 30 percent the Board was shown?"
+     },
+     {
+      "turn": "T146",
+      "kind": "quote",
+      "text": "Did they tell you there was no basis for the payment?"
+     },
+     {
+      "turn": "T160",
+      "kind": "summary",
+      "text": "Asked a compound question covering personal files, notes and emails about LJM, Chewco and Southampton."
+     }
+    ]
+   },
+   {
+    "name": "Fact Development, Source Identification, & Credibility Testing",
+    "points": 40,
+    "total": 27.75,
+    "counted": true,
+    "skills": [
+     {
+      "name": "Ensures Credibility",
+      "description": "Recognizes and follows up on incomplete, evasive, or inconsistent answers.",
+      "max_marks": 8,
+      "rating": 3,
+      "marks": 6.0,
+      "reason": "The lawyer followed up on vague or inconsistent answers, including T62 after 'the returns were good' (T61), T80 after 'a few million' (T79), and T136 after the contradiction with the Andy note (T132 to T135). A few evasions, such as T53 and T105, were not pursued."
+     },
+     {
+      "name": "Material Facts",
+      "description": "Identifies the who, what, when, and how.",
+      "max_marks": 9,
+      "rating": 3,
+      "marks": 6.75,
+      "reason": "The lawyer covered who, what, when and how on the Rhythms unwind, Chewco and the Foundation investment, for example who decided the Foundation would invest (T86) and who set the terms (T88)."
+     },
+     {
+      "name": "Memory Refreshing",
+      "description": "Tries other ways when the witness can't remember.",
+      "max_marks": 3,
+      "rating": 2,
+      "marks": 1.5,
+      "reason": "When the witness said 'I'd have to look at the sheet' (T53) or 'I'd want to see the investor reports' (T65), the lawyer did not offer the approval sheet or other records. The only refresh was showing the LJM2 report at T98."
+     },
+     {
+      "name": "Establishes Knowledge",
+      "description": "Separates what the witness personally knows from speculation, secondhand information, or inferences.",
+      "max_marks": 4,
+      "rating": 2,
+      "marks": 2.0,
+      "reason": "The lawyer separated personal knowledge in some places (T42 to T43, T86 to T87), but did not test secondhand claims such as 'Skilling approved it. I believe he told the Board' (T41), or 'Michael asked for it... the business unit and legal handled it' (T139)."
+     },
+     {
+      "name": "Other Sources",
+      "description": "Identifies additional witnesses.",
+      "max_marks": 3,
+      "rating": 3,
+      "marks": 2.25,
+      "reason": "At T156 the lawyer asked who else to speak with, and the witness named Causey, Buy, Glisan, Kopper, Andersen and Vinson & Elkins."
+     },
+     {
+      "name": "Other Evidence",
+      "description": "Identifies other documents such as communications, reports, notes, or other relevant records.",
+      "max_marks": 3,
+      "rating": 3,
+      "marks": 2.25,
+      "reason": "At T158 and T160 the lawyer asked what documents to review and whether the witness had personal notes or emails, and the witness identified approval sheets, Board materials and partnership agreements."
+     },
+     {
+      "name": "Tests Certainty",
+      "description": "Examines how certain the witness is about their memory or a fact.",
+      "max_marks": 2,
+      "rating": 2,
+      "marks": 1.0,
+      "reason": "The lawyer tested some answers, such as T64-T65 on how far above 30 percent the returns were, but let hedges like 'I believe so, yes' (T43) and 'I believe the figure was in the high teens' (T115) pass without testing certainty."
+     },
+     {
+      "name": "Follow-Up",
+      "description": "Recognizes material responses and follows up on them.",
+      "max_marks": 8,
+      "rating": 3,
+      "marks": 6.0,
+      "reason": "The lawyer followed up on material responses, including the $229 million figure (T111 to T112), the Chewco role on the Executive Committee call (T42 to T45), and the 'Andy' note (T132 to T137)."
+     }
+    ],
+    "moments": [
+     {
+      "turn": "T45",
+      "kind": "quote",
+      "text": "I don't recall it coming up specifically."
+     },
+     {
+      "turn": "T46",
+      "kind": "summary",
+      "text": "Moved on to LJM2 controls without pressing the witness on the Kopper role after the non-recollection at T45."
+     },
+     {
+      "turn": "T53",
+      "kind": "quote",
+      "text": "Some approvals were papered after a deal closed. That happened."
+     },
+     {
+      "turn": "T54",
+      "kind": "summary",
+      "text": "Moved to Glisan without following up on the admission at T53 about approvals papered after closing."
+     },
+     {
+      "turn": "T80",
+      "kind": "quote",
+      "text": "Our information is that on May 1, 2000, about six weeks after it invested, the Foundation received roughly $4.5 million on its $25,000. Is that accurate?"
+     },
+     {
+      "turn": "T86",
+      "kind": "summary",
+      "text": "Asked who decided the Foundation would invest in Southampton; the witness answered 'I did.'"
+     },
+     {
+      "turn": "T136",
+      "kind": "quote",
+      "text": "Help me understand how those fit together."
+     }
+    ]
+   },
+   {
+    "name": "Document Use",
+    "points": 15,
+    "total": 10.0,
+    "counted": true,
+    "skills": [
+     {
+      "name": "Effective Selection",
+      "description": "Selects and contextualizes documents effectively, and properly authenticates the document.",
+      "max_marks": 5,
+      "rating": 2,
+      "marks": 2.5,
+      "reason": "The Southampton agreement (T72), LJM2 report (T98) and Kopper note (T132) were relevant and well chosen. However, the payroll email (T150) had no bearing on the matter, and the lawyer did not authenticate the documents beyond 'Here is' or 'I'd like to show you'."
+     },
+     {
+      "name": "Narrative",
+      "description": "Gets the witness's story first, before using conflicting evidence.",
+      "max_marks": 5,
+      "rating": 3,
+      "marks": 3.75,
+      "reason": "The lawyer typically got the witness's account first and then showed documents: the Foundation questions (T69 to T71) came before the Southampton agreement (T72), and the Chewco account (T121 to T131) came before the Kopper note (T132)."
+     },
+     {
+      "name": "Accuracy",
+      "description": "Describes the document accurately.",
+      "max_marks": 2,
+      "rating": 3,
+      "marks": 1.5,
+      "reason": "Descriptions matched the file: the Foundation's $25,000 contribution (T74), the roughly $4.5 million received on May 1, 2000 (T80), and the 17.95 percent versus 51 percent figures (T116). T100 omitted the projected 125 percent figure, which is a minor selectivity point."
+     },
+     {
+      "name": "Avoid Initial Conclusion",
+      "description": "Separates the document from inferences or conclusions, unless the witness takes an unreasonable stance.",
+      "max_marks": 1,
+      "rating": 3,
+      "marks": 0.75,
+      "reason": "The lawyer mostly asked open questions about documents, such as 'Help me understand how those fit together' (T136) and 'Why weren't those returns reported to the Board?' (T102), rather than drawing conclusions."
+     },
+     {
+      "name": "Fairness",
+      "description": "Provides the witness with a fair opportunity to explain any inconsistencies or disagreements with the document.",
+      "max_marks": 2,
+      "rating": 3,
+      "marks": 1.5,
+      "reason": "The lawyer gave the witness a chance to explain the discrepancies, for example on the Board reporting of the returns (T102 to T105) and the Chewco role (T136 to T137)."
+     }
+    ],
+    "moments": [
+     {
+      "turn": "T72",
+      "kind": "quote",
+      "text": "I'd like to show you the Southampton Place partnership agreement, dated March 20, 2000."
+     },
+     {
+      "turn": "T98",
+      "kind": "quote",
+      "text": "Here is LJM2's October 2000 report to its investors."
+     },
+     {
+      "turn": "T100",
+      "kind": "quote",
+      "text": "It lists returns of 193, 278, and 2,500 percent on the Raptor transactions, against the roughly 30 percent the Board was shown. Are those the figures?"
+     },
+     {
+      "turn": "T102",
+      "kind": "quote",
+      "text": "Why weren't those returns reported to the Board?"
+     },
+     {
+      "turn": "T150",
+      "kind": "quote",
+      "text": "I'd like to show you an email from Enron Payroll Services dated November 2, 2001, about direct deposit changes. Do you recognize it?"
+     },
+     {
+      "turn": "T151",
+      "kind": "summary",
+      "text": "The witness said the payroll notice had nothing to do with LJM, and the lawyer set it aside at T152 without using it."
+     }
+    ]
+   }
+  ],
+  "big_mistakes": [],
+  "missed_opportunities": [
+   "T53: The witness admitted that some approvals were papered after a deal closed. The lawyer did not ask which approvals, who decided to paper them, or how the witness knows, and moved on to Glisan.",
+   "T44: The witness confirmed he was on the November 5, 1997 call (T43) but said he did not recall Kopper's role coming up (T45). The lawyer did not test this against the call record or ask what was said about Kopper."
+  ],
+  "tips": [
+   "When you say some approvals were papered after a deal closed, which approvals were those, who decided to paper them, and how do you know that?",
+   "Before we move on, walk me through exactly what was said on the November 5, 1997 call about Mr. Kopper's role, and what you would expect the record to show about it?"
+  ],
+  "evaluator_errors": [],
+  "category_scores": [
+   {
+    "name": "Upjohn",
+    "score": 100,
+    "weight": 5,
+    "rationale": "At T2, early in the interview, the lawyer said the firm represents the Committee and the company, not the witness personally, and that it cannot give legal advice. This was done at the very beginning."
+   },
+   {
+    "name": "Privilege",
+    "score": 100,
+    "weight": 4,
+    "rationale": "At T2 the lawyer explained that the privilege belongs to the company and that the company may decide to share what the witness says, including with the government."
+   },
+   {
+    "name": "Relationship",
+    "score": 25,
+    "weight": 4,
+    "rationale": "The tone was professional, but the lawyer never explained how the interview would run, never gave ground rules on speculation or estimates, and never asked the witness to separate recollection from uncertainty."
+   },
+   {
+    "name": "Confirmation",
+    "score": 75,
+    "weight": 2,
+    "rationale": "At T2 the lawyer asked 'Any questions?' and the witness confirmed understanding at T3 ('That's clear, thank you. I understand you're not my lawyer.'). The lawyer did not check understanding beyond that single exchange."
+   },
+   {
+    "name": "Closing",
+    "score": 75,
+    "weight": 5,
+    "rationale": "At T154 the lawyer asked whether there was anything else the Committee should know, and at T162 gave a confidentiality reminder and a document-retention instruction. There were no stated next steps."
+   },
+   {
+    "name": "Narrative Development",
+    "score": 75,
+    "weight": 7,
+    "rationale": "The lawyer repeatedly asked the witness to 'Tell me everything you remember' (T12, T32, T46) and let the witness walk through events before narrowing."
+   },
+   {
+    "name": "Funneling",
+    "score": 75,
+    "weight": 7,
+    "rationale": "Questions generally moved from role and process (T4 to T11) to specific transactions (T12 onward) and then to specific figures and documents, in a sensible order."
+   },
+   {
+    "name": "Clarity",
+    "score": 75,
+    "weight": 4,
+    "rationale": "Most questions were short and clear. A few were compound or loosely framed, such as T160 ('personal files, notes, or emails about LJM, Chewco, or Southampton'), and T146 was somewhat leading."
+   },
+   {
+    "name": "Professionalism",
+    "score": 75,
+    "weight": 2,
+    "rationale": "The lawyer stayed polite and in control, even when the witness deflected (T61 to T65, T131 to T137). The tone was neutral throughout."
+   },
+   {
+    "name": "Adaptability",
+    "score": 75,
+    "weight": 5,
+    "rationale": "The lawyer adjusted to answers in several places: after the witness hedged on the foundation (T69), the lawyer asked what investments the foundation made (T70) and then pinned down the amount (T76 to T80). After the witness said he stayed out of Chewco (T121), the lawyer put the Kopper note to him (T132)."
+   },
+   {
+    "name": "Ensures Credibility",
+    "score": 75,
+    "weight": 8,
+    "rationale": "The lawyer followed up on vague or inconsistent answers, including T62 after 'the returns were good' (T61), T80 after 'a few million' (T79), and T136 after the contradiction with the Andy note (T132 to T135). A few evasions, such as T53 and T105, were not pursued."
+   },
+   {
+    "name": "Material Facts",
+    "score": 75,
+    "weight": 9,
+    "rationale": "The lawyer covered who, what, when and how on the Rhythms unwind, Chewco and the Foundation investment, for example who decided the Foundation would invest (T86) and who set the terms (T88)."
+   },
+   {
+    "name": "Memory Refreshing",
+    "score": 50,
+    "weight": 3,
+    "rationale": "When the witness said 'I'd have to look at the sheet' (T53) or 'I'd want to see the investor reports' (T65), the lawyer did not offer the approval sheet or other records. The only refresh was showing the LJM2 report at T98."
+   },
+   {
+    "name": "Establishes Knowledge",
+    "score": 50,
+    "weight": 4,
+    "rationale": "The lawyer separated personal knowledge in some places (T42 to T43, T86 to T87), but did not test secondhand claims such as 'Skilling approved it. I believe he told the Board' (T41), or 'Michael asked for it... the business unit and legal handled it' (T139)."
+   },
+   {
+    "name": "Other Sources",
+    "score": 75,
+    "weight": 3,
+    "rationale": "At T156 the lawyer asked who else to speak with, and the witness named Causey, Buy, Glisan, Kopper, Andersen and Vinson & Elkins."
+   },
+   {
+    "name": "Other Evidence",
+    "score": 75,
+    "weight": 3,
+    "rationale": "At T158 and T160 the lawyer asked what documents to review and whether the witness had personal notes or emails, and the witness identified approval sheets, Board materials and partnership agreements."
+   },
+   {
+    "name": "Tests Certainty",
+    "score": 50,
+    "weight": 2,
+    "rationale": "The lawyer tested some answers, such as T64-T65 on how far above 30 percent the returns were, but let hedges like 'I believe so, yes' (T43) and 'I believe the figure was in the high teens' (T115) pass without testing certainty."
+   },
+   {
+    "name": "Follow-Up",
+    "score": 75,
+    "weight": 8,
+    "rationale": "The lawyer followed up on material responses, including the $229 million figure (T111 to T112), the Chewco role on the Executive Committee call (T42 to T45), and the 'Andy' note (T132 to T137)."
+   },
+   {
+    "name": "Effective Selection",
+    "score": 50,
+    "weight": 5,
+    "rationale": "The Southampton agreement (T72), LJM2 report (T98) and Kopper note (T132) were relevant and well chosen. However, the payroll email (T150) had no bearing on the matter, and the lawyer did not authenticate the documents beyond 'Here is' or 'I'd like to show you'."
+   },
+   {
+    "name": "Narrative",
+    "score": 75,
+    "weight": 5,
+    "rationale": "The lawyer typically got the witness's account first and then showed documents: the Foundation questions (T69 to T71) came before the Southampton agreement (T72), and the Chewco account (T121 to T131) came before the Kopper note (T132)."
+   },
+   {
+    "name": "Accuracy",
+    "score": 75,
+    "weight": 2,
+    "rationale": "Descriptions matched the file: the Foundation's $25,000 contribution (T74), the roughly $4.5 million received on May 1, 2000 (T80), and the 17.95 percent versus 51 percent figures (T116). T100 omitted the projected 125 percent figure, which is a minor selectivity point."
+   },
+   {
+    "name": "Avoid Initial Conclusion",
+    "score": 75,
+    "weight": 1,
+    "rationale": "The lawyer mostly asked open questions about documents, such as 'Help me understand how those fit together' (T136) and 'Why weren't those returns reported to the Board?' (T102), rather than drawing conclusions."
+   },
+   {
+    "name": "Fairness",
+    "score": 75,
+    "weight": 2,
+    "rationale": "The lawyer gave the witness a chance to explain the discrepancies, for example on the Board reporting of the returns (T102 to T105) and the Chewco role (T136 to T137)."
+   }
+  ],
+  "recommended_questions": [
+   "When you say some approvals were papered after a deal closed, which approvals were those, who decided to paper them, and how do you know that?",
+   "Before we move on, walk me through exactly what was said on the November 5, 1997 call about Mr. Kopper's role, and what you would expect the record to show about it?"
+  ],
+  "strengths": [],
+  "weaknesses": [],
+  "coaching_recommendations": []
+ },
+ "grader_output": {
+  "result": "SCORED",
+  "result_reason": "",
+  "skills": [
+   {
+    "name": "Upjohn",
+    "rating": 4,
+    "reason": "At T2, early in the interview, the lawyer said the firm represents the Committee and the company, not the witness personally, and that it cannot give legal advice. This was done at the very beginning."
+   },
+   {
+    "name": "Privilege",
+    "rating": 4,
+    "reason": "At T2 the lawyer explained that the privilege belongs to the company and that the company may decide to share what the witness says, including with the government."
+   },
+   {
+    "name": "Relationship",
+    "rating": 1,
+    "reason": "The tone was professional, but the lawyer never explained how the interview would run, never gave ground rules on speculation or estimates, and never asked the witness to separate recollection from uncertainty."
+   },
+   {
+    "name": "Confirmation",
+    "rating": 3,
+    "reason": "At T2 the lawyer asked 'Any questions?' and the witness confirmed understanding at T3 ('That's clear, thank you. I understand you're not my lawyer.'). The lawyer did not check understanding beyond that single exchange."
+   },
+   {
+    "name": "Closing",
+    "rating": 3,
+    "reason": "At T154 the lawyer asked whether there was anything else the Committee should know, and at T162 gave a confidentiality reminder and a document-retention instruction. There were no stated next steps."
+   },
+   {
+    "name": "Narrative Development",
+    "rating": 3,
+    "reason": "The lawyer repeatedly asked the witness to 'Tell me everything you remember' (T12, T32, T46) and let the witness walk through events before narrowing."
+   },
+   {
+    "name": "Funneling",
+    "rating": 3,
+    "reason": "Questions generally moved from role and process (T4 to T11) to specific transactions (T12 onward) and then to specific figures and documents, in a sensible order."
+   },
+   {
+    "name": "Clarity",
+    "rating": 3,
+    "reason": "Most questions were short and clear. A few were compound or loosely framed, such as T160 ('personal files, notes, or emails about LJM, Chewco, or Southampton'), and T146 was somewhat leading."
+   },
+   {
+    "name": "Professionalism",
+    "rating": 3,
+    "reason": "The lawyer stayed polite and in control, even when the witness deflected (T61 to T65, T131 to T137). The tone was neutral throughout."
+   },
+   {
+    "name": "Adaptability",
+    "rating": 3,
+    "reason": "The lawyer adjusted to answers in several places: after the witness hedged on the foundation (T69), the lawyer asked what investments the foundation made (T70) and then pinned down the amount (T76 to T80). After the witness said he stayed out of Chewco (T121), the lawyer put the Kopper note to him (T132)."
+   },
+   {
+    "name": "Ensures Credibility",
+    "rating": 3,
+    "reason": "The lawyer followed up on vague or inconsistent answers, including T62 after 'the returns were good' (T61), T80 after 'a few million' (T79), and T136 after the contradiction with the Andy note (T132 to T135). A few evasions, such as T53 and T105, were not pursued."
+   },
+   {
+    "name": "Material Facts",
+    "rating": 3,
+    "reason": "The lawyer covered who, what, when and how on the Rhythms unwind, Chewco and the Foundation investment, for example who decided the Foundation would invest (T86) and who set the terms (T88)."
+   },
+   {
+    "name": "Memory Refreshing",
+    "rating": 2,
+    "reason": "When the witness said 'I'd have to look at the sheet' (T53) or 'I'd want to see the investor reports' (T65), the lawyer did not offer the approval sheet or other records. The only refresh was showing the LJM2 report at T98."
+   },
+   {
+    "name": "Establishes Knowledge",
+    "rating": 2,
+    "reason": "The lawyer separated personal knowledge in some places (T42 to T43, T86 to T87), but did not test secondhand claims such as 'Skilling approved it. I believe he told the Board' (T41), or 'Michael asked for it... the business unit and legal handled it' (T139)."
+   },
+   {
+    "name": "Other Sources",
+    "rating": 3,
+    "reason": "At T156 the lawyer asked who else to speak with, and the witness named Causey, Buy, Glisan, Kopper, Andersen and Vinson & Elkins."
+   },
+   {
+    "name": "Other Evidence",
+    "rating": 3,
+    "reason": "At T158 and T160 the lawyer asked what documents to review and whether the witness had personal notes or emails, and the witness identified approval sheets, Board materials and partnership agreements."
+   },
+   {
+    "name": "Tests Certainty",
+    "rating": 2,
+    "reason": "The lawyer tested some answers, such as T64-T65 on how far above 30 percent the returns were, but let hedges like 'I believe so, yes' (T43) and 'I believe the figure was in the high teens' (T115) pass without testing certainty."
+   },
+   {
+    "name": "Follow-Up",
+    "rating": 3,
+    "reason": "The lawyer followed up on material responses, including the $229 million figure (T111 to T112), the Chewco role on the Executive Committee call (T42 to T45), and the 'Andy' note (T132 to T137)."
+   },
+   {
+    "name": "Effective Selection",
+    "rating": 2,
+    "reason": "The Southampton agreement (T72), LJM2 report (T98) and Kopper note (T132) were relevant and well chosen. However, the payroll email (T150) had no bearing on the matter, and the lawyer did not authenticate the documents beyond 'Here is' or 'I'd like to show you'."
+   },
+   {
+    "name": "Narrative",
+    "rating": 3,
+    "reason": "The lawyer typically got the witness's account first and then showed documents: the Foundation questions (T69 to T71) came before the Southampton agreement (T72), and the Chewco account (T121 to T131) came before the Kopper note (T132)."
+   },
+   {
+    "name": "Accuracy",
+    "rating": 3,
+    "reason": "Descriptions matched the file: the Foundation's $25,000 contribution (T74), the roughly $4.5 million received on May 1, 2000 (T80), and the 17.95 percent versus 51 percent figures (T116). T100 omitted the projected 125 percent figure, which is a minor selectivity point."
+   },
+   {
+    "name": "Avoid Initial Conclusion",
+    "rating": 3,
+    "reason": "The lawyer mostly asked open questions about documents, such as 'Help me understand how those fit together' (T136) and 'Why weren't those returns reported to the Board?' (T102), rather than drawing conclusions."
+   },
+   {
+    "name": "Fairness",
+    "rating": 3,
+    "reason": "The lawyer gave the witness a chance to explain the discrepancies, for example on the Board reporting of the returns (T102 to T105) and the Chewco role (T136 to T137)."
+   }
+  ],
+  "area_evidence": [
+   {
+    "area": "Interview Framing, Rapport Building, & Closing",
+    "moments": [
+     {
+      "turn": "T2",
+      "kind": "quote",
+      "text": "We represent the Committee and the company, not you personally. We're not your attorney and can't give you legal advice."
+     },
+     {
+      "turn": "T2",
+      "kind": "quote",
+      "text": "the privilege belongs to the company, and the company may decide to share what you tell us with others, including the government."
+     },
+     {
+      "turn": "T2",
+      "kind": "quote",
+      "text": "Any questions?"
+     },
+     {
+      "turn": "T3",
+      "kind": "quote",
+      "text": "That's clear, thank you. I understand you're not my lawyer."
+     },
+     {
+      "turn": "T4",
+      "kind": "summary",
+      "text": "Moved straight to substance after the warning, with no explanation of how the interview would proceed or of ground rules on speculation and estimates."
+     },
+     {
+      "turn": "T154",
+      "kind": "quote",
+      "text": "Is there anything I haven't asked about that you think the Committee should know?"
+     },
+     {
+      "turn": "T162",
+      "kind": "quote",
+      "text": "Please keep any documents related to this, and don't discuss this interview with anyone."
+     }
+    ]
+   },
+   {
+    "area": "Question Technique",
+    "moments": [
+     {
+      "turn": "T12",
+      "kind": "quote",
+      "text": "Tell me everything you remember about how LJM1 came about in 1999."
+     },
+     {
+      "turn": "T46",
+      "kind": "quote",
+      "text": "Tell me everything you remember about the controls put in place when the Board approved LJM2 in October 1999."
+     },
+     {
+      "turn": "T62",
+      "kind": "quote",
+      "text": "Approximately, then. Were they above or below the 30 percent the Board was shown?"
+     },
+     {
+      "turn": "T146",
+      "kind": "quote",
+      "text": "Did they tell you there was no basis for the payment?"
+     },
+     {
+      "turn": "T160",
+      "kind": "summary",
+      "text": "Asked a compound question covering personal files, notes and emails about LJM, Chewco and Southampton."
+     }
+    ]
+   },
+   {
+    "area": "Fact Development, Source Identification, & Credibility Testing",
+    "moments": [
+     {
+      "turn": "T45",
+      "kind": "quote",
+      "text": "I don't recall it coming up specifically."
+     },
+     {
+      "turn": "T46",
+      "kind": "summary",
+      "text": "Moved on to LJM2 controls without pressing the witness on the Kopper role after the non-recollection at T45."
+     },
+     {
+      "turn": "T53",
+      "kind": "quote",
+      "text": "Some approvals were papered after a deal closed. That happened."
+     },
+     {
+      "turn": "T54",
+      "kind": "summary",
+      "text": "Moved to Glisan without following up on the admission at T53 about approvals papered after closing."
+     },
+     {
+      "turn": "T80",
+      "kind": "quote",
+      "text": "Our information is that on May 1, 2000, about six weeks after it invested, the Foundation received roughly $4.5 million on its $25,000. Is that accurate?"
+     },
+     {
+      "turn": "T86",
+      "kind": "summary",
+      "text": "Asked who decided the Foundation would invest in Southampton; the witness answered 'I did.'"
+     },
+     {
+      "turn": "T136",
+      "kind": "quote",
+      "text": "Help me understand how those fit together."
+     }
+    ]
+   },
+   {
+    "area": "Document Use",
+    "moments": [
+     {
+      "turn": "T72",
+      "kind": "quote",
+      "text": "I'd like to show you the Southampton Place partnership agreement, dated March 20, 2000."
+     },
+     {
+      "turn": "T98",
+      "kind": "quote",
+      "text": "Here is LJM2's October 2000 report to its investors."
+     },
+     {
+      "turn": "T100",
+      "kind": "quote",
+      "text": "It lists returns of 193, 278, and 2,500 percent on the Raptor transactions, against the roughly 30 percent the Board was shown. Are those the figures?"
+     },
+     {
+      "turn": "T102",
+      "kind": "quote",
+      "text": "Why weren't those returns reported to the Board?"
+     },
+     {
+      "turn": "T150",
+      "kind": "quote",
+      "text": "I'd like to show you an email from Enron Payroll Services dated November 2, 2001, about direct deposit changes. Do you recognize it?"
+     },
+     {
+      "turn": "T151",
+      "kind": "summary",
+      "text": "The witness said the payroll notice had nothing to do with LJM, and the lawyer set it aside at T152 without using it."
+     }
+    ]
+   }
+  ],
+  "big_mistakes": [],
+  "missed_chances": [
+   {
+    "turn": "T53",
+    "description": "The witness admitted that some approvals were papered after a deal closed. The lawyer did not ask which approvals, who decided to paper them, or how the witness knows, and moved on to Glisan."
+   },
+   {
+    "turn": "T44",
+    "description": "The witness confirmed he was on the November 5, 1997 call (T43) but said he did not recall Kopper's role coming up (T45). The lawyer did not test this against the call record or ask what was said about Kopper."
+   }
+  ],
+  "tips": [
+   "When you say some approvals were papered after a deal closed, which approvals were those, who decided to paper them, and how do you know that?",
+   "Before we move on, walk me through exactly what was said on the November 5, 1997 call about Mr. Kopper's role, and what you would expect the record to show about it?"
+  ]
+ }
+}

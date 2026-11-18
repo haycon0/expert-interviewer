@@ -425,7 +425,7 @@ function addMsg(t) {
   $("messages").scrollTop = $("messages").scrollHeight;
 }
 
-// The witness's persona. The server only sends it when REVEAL_PERSONA=1 (testing);
+// The witness's persona. The server only sends it for debug-page interviews;
 // otherwise the panel explains that it's hidden and revealed with the grade.
 function renderPersona(p) {
   const about = `<p class="badge" style="margin:10px 0 0">Every witness is given one of three personalities at random, and most also get a few random variations, such as how much they remember or how candid they are. These shape how they talk and how guarded they are, not the facts in the case. Part of your grade is noticing them and adjusting your approach.</p>`;
@@ -803,6 +803,9 @@ async function initDebug() {
     $("dbgPersona").value = s?.persona || "";
     const mode = document.querySelector(`input[name="dbgVars"][value="${s?.variables || "random"}"]`);
     if (mode) { mode.checked = true; $("dbgVarMode").onchange(); }
+    // A script's chosen variations, e.g. [{name: "Cooperativeness", value: "Guarded"}].
+    debugOpts.variables.variables.forEach((v, i) =>
+      $(`dbgVar${i}`).value = (s?.picks || []).find(p => p.name === v.name)?.value || "");
     fillDebugCase();
   };
 }
