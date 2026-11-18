@@ -1,6 +1,6 @@
 {
   "name": "Fastow (Enron): test, witness walks out",
-  "description": "The strong interview through LJM1, Chewco, the controls, the Raptor returns and the Southampton document (75 questions). When confronted with the $4.5 million and what he told the Board, Fastow walks out. The interviewer stays calm: no threats, a preservation and confidentiality reminder, and an offer to continue with his counsel. Tests how a walk-out is graded: no automatic penalty for a hostile witness, and the cut-off should be noted rather than scored as the interviewer's failure.",
+  "description": "The strong interview through LJM1, Chewco, the controls, the Raptor returns and the Southampton document (75 questions). When confronted with the $4.5 million and what he told the Board, Fastow walks out. The interviewer stays calm: no threats, a preservation and confidentiality reminder, and an offer to continue with his counsel. Tests the ending rule for a witness who ends the interview: a normal score, never Incomplete, with no penalty for what the walk-out prevented.",
   "persona": "The C-Suite",
   "variables": "choose",
   "picks": [

@@ -1,6 +1,6 @@
 # Practice interview: Andrew Fastow (Enron)
 
-In this practice run, you are a lawyer investigating Enron in late 2001, and you interview Andrew Fastow, the company's Chief Financial Officer. Everything you need is below: what to type into the app, which file to upload, and 31 questions to ask. The opening and closing follow Dakota's [witness interview outline](../../docs/INTERVIEW-OUTLINE.md).
+In this practice run, you are a lawyer investigating Enron in late 2001, and you interview Andrew Fastow, the company's Chief Financial Officer. Everything you need is below: what to type into the app, which file to upload, and 31 questions to ask. The opening and closing follow the [witness interview outline](../../docs/INTERVIEW-OUTLINE.md).
 
 **Before you start:** set up and open the app by following [SETUP.md](../../SETUP.md).
 
@@ -106,6 +106,6 @@ Expect 25-35 messages in total, counting follow-ups. Placeholders in [brackets] 
 ## 4. What to expect
 
 - **Opening:** if you deliver Part A as written, he will likely ask about counsel, then cooperate.
-- **Score:** following the script with real follow-ups on his vague answers should land in the **Good** band (80+): a thorough interview that follows this script and the outline scored 85–88 on Claude Haiku and 86 on Claude Sonnet, and a longer one that also chases every vague answer scored 93 (Excellent). Skipping the "can't give you legal advice" line, the ground rules, or asking whether he recognizes each document cost a similar interview about 10 points. The biggest area is Fact Development, Source Identification, & Credibility Testing (40 of the 100 marks), so your follow-ups matter most.
-- **Missed chances:** the report lists up to two, with the turn number where each came up, so you can rerun and compare.
+- **Score:** following the script with real follow-ups on his vague answers should land in the **Good** band (80+). The prepared strong interview, which follows the outline and comes back to every important lead he raises, averages **90 (Excellent)**. Skipping the "can't give you legal advice" line, the ground rules, or asking whether he recognizes each document costs points. The biggest area is Fact Development, Source Identification, & Credibility Testing (40 of the 100 marks), so your follow-ups matter most.
+- **Leads and missed chances:** the report lists any important lead he raised that you never came back to, and up to two missed chances, each with the turn number and a question you could have asked.
 - **Testing the grader:** for a low-score baseline, ask only questions 5, 9, and 13 with no opening, follow-ups, or close.

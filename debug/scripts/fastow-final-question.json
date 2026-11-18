@@ -1,6 +1,6 @@
 {
   "name": "Fastow (Enron): one question left, strong interview",
-  "description": "A near-complete, thorough interview of Andrew Fastow (about 175 questions) that follows Dakota's interview outline: the full Upjohn warning with a check of his understanding, how the interview will go and ground rules, open invitations on each topic in chronological order, LJM1 and the Board representation locked in, Chewco, LJM2 controls and late-signed approvals, the Raptor returns, Southampton Place, the 2001 Chewco buyout and tax payment, documents identified and authenticated before use, follow-up on vague answers, certainty and how he knows, other witnesses and what they'd know, and his personal records. Only the final closing question is left. Ask it, then End & grade.",
+  "description": "A near-complete, thorough interview of Andrew Fastow (about 185 questions) that follows the interview outline: the full Upjohn warning with a check of his understanding, how the interview will go and ground rules, open invitations on each topic in chronological order, LJM1 and the Board representation locked in, Chewco, LJM2 controls and late-signed approvals, the Raptor returns, Southampton Place, the 2001 Chewco buyout and tax payment, documents identified and authenticated before use, follow-up on vague answers, certainty and how he knows, other witnesses and what they'd know, and his personal records. Only the final closing question is left. Ask it, then End & grade.",
   "persona": "The C-Suite",
   "variables": "none",
   "expert_name": "Andrew Fastow",
@@ -1433,6 +1433,78 @@
     },
     {
       "speaker": "user",
+      "message": "Before we close, I'd like to go back to a few things you mentioned. Earlier you said you raised the general partner role with Mr. Lay and Mr. Skilling in mid-June 1999. What did each of them say?"
+    },
+    {
+      "speaker": "expert",
+      "mood": "thoughtful",
+      "message": "Jeff was for it. He saw it as the fastest way to get the Rhythms hedge done. Ken asked whether the Board would have to waive the Code of Conduct, and I said it would. Neither of them asked what I would earn."
+    },
+    {
+      "speaker": "user",
+      "message": "Was anyone else there, and was anything written down about that conversation?"
+    },
+    {
+      "speaker": "expert",
+      "mood": "thoughtful",
+      "message": "No, just the three of us, in Ken's office. Nothing written that I know of, beyond the Board materials that followed."
+    },
+    {
+      "speaker": "user",
+      "message": "You said Mr. Kopper invested in Chewco on his own account. Where did Chewco's equity come from?"
+    },
+    {
+      "speaker": "expert",
+      "mood": "thoughtful",
+      "message": "Mostly not from Michael. Barclays put up about $11.4 million in what were called equity loans, and Michael put in a small amount himself, around $125,000."
+    },
+    {
+      "speaker": "user",
+      "message": "Did you, your family, or anyone else at Enron provide or guarantee any of that money?"
+    },
+    {
+      "speaker": "expert",
+      "mood": "defensive",
+      "message": "Not me or my family. Enron guaranteed the large Barclays loan to Chewco, the $240 million one. The equity loans were Barclays's own."
+    },
+    {
+      "speaker": "user",
+      "message": "How do you know that?"
+    },
+    {
+      "speaker": "expert",
+      "mood": "thoughtful",
+      "message": "I saw the financing papers when the deal closed in December 1997, and Michael told me what he had put in."
+    },
+    {
+      "speaker": "user",
+      "message": "You said Mr. Skilling's line on the Raptor I approval sheet was left blank. Why was it blank?"
+    },
+    {
+      "speaker": "expert",
+      "mood": "uneasy",
+      "message": "The sheet was signed weeks after the deal closed. I assumed Jeff had approved it, but I didn't confirm that, and nobody went back for his signature."
+    },
+    {
+      "speaker": "user",
+      "message": "Who would know whether he approved it?"
+    },
+    {
+      "speaker": "expert",
+      "mood": "thoughtful",
+      "message": "Rick Causey or Ben Glisan. They collected the signatures."
+    },
+    {
+      "speaker": "user",
+      "message": "You said you may have described the \"tremendous utilization\" of Raptor I optimistically. When you said that, did you know whether Talon had entered into any derivatives with Enron?"
+    },
+    {
+      "speaker": "expert",
+      "mood": "uneasy",
+      "message": "I knew it hadn't done much yet. I was describing what the business units wanted to do, not what had happened. I should have said that."
+    },
+    {
+      "speaker": "user",
       "message": "Is there anything I haven't asked about that you think the Committee should know?"
     },
     {
@@ -1472,6 +1544,15 @@
     {
       "speaker": "expert",
       "message": "Jeff approved the LJM structure and signed off on some deals. Ken relied on Jeff and me for the details."
+    },
+    {
+      "speaker": "user",
+      "message": "You said Mr. Lay relied on Mr. Skilling and you for the details. What did you tell Mr. Lay about LJM2's returns?"
+    },
+    {
+      "speaker": "expert",
+      "mood": "thoughtful",
+      "message": "Very little directly. He saw the Finance Committee materials. I don't recall ever giving him the Raptor return figures myself."
     },
     {
       "speaker": "user",
