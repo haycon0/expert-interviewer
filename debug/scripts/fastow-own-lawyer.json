@@ -1,0 +1,513 @@
+{
+  "name": "Fastow (Enron): test, witness wants his own lawyer",
+  "description": "The strong interview through LJM1, Chewco, the LJM2 controls and the Raptor returns (59 questions). When asked about his personal interests, Fastow stops and insists on his own lawyer. The interviewer handles it correctly: gives no legal advice, stops, asks him to preserve documents and keep it confidential, and arranges to continue through his counsel. Tests the ending rule for a witness who ends the interview: a normal score, with no penalty for the unreached topics (Southampton, 2001).",
+  "persona": "The C-Suite",
+  "variables": "choose",
+  "picks": [
+    {
+      "name": "Degree of Self-interest",
+      "value": "Concerned about Liability"
+    }
+  ],
+  "expert_name": "Andrew Fastow",
+  "expert_role": "Executive Vice President and CFO, Enron Corp.",
+  "case_background_file": "examples/enron-fastow/case_background.txt",
+  "documents": [
+    "examples/enron-fastow/Enron_Sample_Events_Log.csv"
+  ],
+  "resume_hint": "This interview is finished. Click End & grade.",
+  "transcript": [
+    {
+      "speaker": "expert",
+      "message": "Good morning. Andy Fastow. Nobody's told me much about what this is, so I assume you'll fill me in."
+    },
+    {
+      "speaker": "user",
+      "message": "Good morning, Mr. Fastow. Thank you for coming in. My name is Jordan Reyes. The Special Investigative Committee of Enron's Board has retained us to investigate the LJM and Chewco transactions and related concerns that have been raised at the company. The purpose of our interview today is to learn the facts so we can give legal advice to the company. To be clear, we represent the Committee and the company only. We do not represent you personally, we are not your attorney, and we can't give you legal advice. This interview is confidential and privileged, but that privilege belongs to the company, not to you or to us. The company decides whether to waive it, and it may disclose what we learn, including to the government, without your consent and without telling you. It's still important that you are fully open and truthful with us, and that you don't share the substance of this interview with anyone. Do you understand? Do you have any questions?"
+    },
+    {
+      "speaker": "expert",
+      "message": "That's clear, thank you. I understand you're not my lawyer. I may want my own counsel involved at some point, but I'm comfortable talking today. Go ahead."
+    },
+    {
+      "speaker": "user",
+      "message": "Before we go on, could you tell me in your own words your understanding of who we represent, and who controls the privilege?"
+    },
+    {
+      "speaker": "expert",
+      "message": "You represent the Committee and the company, not me. The company controls the privilege and can share what I tell you, without asking me."
+    },
+    {
+      "speaker": "user",
+      "message": "Thank you. You're free to consult your own lawyer at any time, and if you'd like to stop to do that, just tell me. As I said, we can't advise you on that. Let me explain how today will go. I'll start with your background and role, then ask you to walk me through the LJM and Chewco transactions in your own words, and later I'll show you some documents. Please give me complete answers, even if a detail seems minor. A few ground rules: if you're speculating, assuming, or estimating, please tell me. Throughout, please tell me whether you actually remember something or are reconstructing it, and say so if you're unsure. And if a question is unclear, ask me to clarify. Is that all right?"
+    },
+    {
+      "speaker": "expert",
+      "message": "That's fine. I'll tell you if I'm guessing."
+    },
+    {
+      "speaker": "user",
+      "message": "Let's start with your role. As CFO, what were you responsible for?"
+    },
+    {
+      "speaker": "expert",
+      "message": "Financing the company: raising capital, managing the balance sheet, and our structured finance work."
+    },
+    {
+      "speaker": "user",
+      "message": "What did the Global Finance group do?"
+    },
+    {
+      "speaker": "expert",
+      "message": "It found partners and investors for our assets and handled hedging. We were growing quickly, and my job was to make sure the money kept up with the business."
+    },
+    {
+      "speaker": "user",
+      "message": "Who reported to you in Global Finance in 1999 and 2000?"
+    },
+    {
+      "speaker": "expert",
+      "message": "A good number of people. Ben Glisan, who became Treasurer in 2000. Michael Kopper, a managing director. And a team of deal people under them."
+    },
+    {
+      "speaker": "user",
+      "message": "What was Michael Kopper's role?"
+    },
+    {
+      "speaker": "expert",
+      "message": "Michael ran structured transactions for me. He worked on the partnership deals, among other things."
+    },
+    {
+      "speaker": "user",
+      "message": "Tell me everything you remember about how LJM1 came about in 1999."
+    },
+    {
+      "speaker": "expert",
+      "message": "Enron had a big gain in Rhythms NetConnections stock that we couldn't sell, and Jeff Skilling wanted it protected. Nobody in the market would hedge a position like that. So Ben Glisan and I designed a vehicle with outside equity that could use value sitting in some Enron stock forward contracts to hedge the Rhythms position. That became LJM."
+    },
+    {
+      "speaker": "user",
+      "message": "Why did you need to be the general partner, rather than someone outside Enron?"
+    },
+    {
+      "speaker": "expert",
+      "message": "The investors needed someone who understood Enron's assets and could move fast. Frankly, my involvement is what made outside money comfortable. I didn't go looking for it."
+    },
+    {
+      "speaker": "user",
+      "message": "What do you mean when you say your involvement made outside money comfortable?"
+    },
+    {
+      "speaker": "expert",
+      "message": "Investors trusted that I knew the assets and could get deals done with Enron."
+    },
+    {
+      "speaker": "user",
+      "message": "Did your position at Enron play a part in getting investor commitments?"
+    },
+    {
+      "speaker": "expert",
+      "message": "My knowledge of Enron did, certainly. That's why I was valuable to them."
+    },
+    {
+      "speaker": "user",
+      "message": "Who first suggested that you serve as the general partner?"
+    },
+    {
+      "speaker": "expert",
+      "message": "I raised it with Ken Lay and Jeff Skilling around the middle of June 1999. I presented it as something the deal needed rather than something I wanted, and they agreed to take it to the Board."
+    },
+    {
+      "speaker": "user",
+      "message": "Tell me about the June 28, 1999 Board meeting. What did you present?"
+    },
+    {
+      "speaker": "expert",
+      "message": "Project LJM: the partnership with outside equity, the Rhythms hedge, and the value to Enron. The Board also had to approve a waiver under the Code of Conduct because of my role."
+    },
+    {
+      "speaker": "user",
+      "message": "What did you tell the Board about how you personally would be compensated by LJM?"
+    },
+    {
+      "speaker": "expert",
+      "message": "That I would put in a million dollars of my own money as general partner and would not receive any current or future value from the Enron stock in the partnership."
+    },
+    {
+      "speaker": "user",
+      "message": "At the time, what was your understanding of whether you personally would benefit from the value of the Enron stock held by LJM?"
+    },
+    {
+      "speaker": "expert",
+      "message": "That I wouldn't. The structure said the general partner wouldn't get any current or future value of the Enron stock."
+    },
+    {
+      "speaker": "user",
+      "message": "Next, I'd like to cover the Rhythms unwind in early 2000. Tell me everything you remember about how the hedge was unwound."
+    },
+    {
+      "speaker": "expert",
+      "message": "Rick Causey came to me and said the company wanted to unwind it. I told him I'd negotiate with the limited partners, and we reached terms in March 2000. Causey's team reviewed them and found them fair."
+    },
+    {
+      "speaker": "user",
+      "message": "Who negotiated the unwind for Enron?"
+    },
+    {
+      "speaker": "expert",
+      "message": "Causey's group."
+    },
+    {
+      "speaker": "user",
+      "message": "Who negotiated it for LJM?"
+    },
+    {
+      "speaker": "expert",
+      "message": "I handled it, along with Michael Kopper."
+    },
+    {
+      "speaker": "user",
+      "message": "Did anyone at Enron raise concerns with you at the time about your negotiating for LJM?"
+    },
+    {
+      "speaker": "expert",
+      "message": "Everyone knew my role. That's what the Board approval and the controls were for. Causey's people did their own review. I don't recall anyone objecting."
+    },
+    {
+      "speaker": "user",
+      "message": "When you say Causey's people did their own review, who specifically reviewed the unwind terms?"
+    },
+    {
+      "speaker": "expert",
+      "message": "Rick Causey's accounting group. I don't remember the individual names. Rick would know."
+    },
+    {
+      "speaker": "user",
+      "message": "Who in Mr. Causey's group would we talk to?"
+    },
+    {
+      "speaker": "expert",
+      "message": "I'd start with Rick himself. His staff would know who worked on the unwind."
+    },
+    {
+      "speaker": "user",
+      "message": "Let's turn to Chewco. Tell me everything you remember about how Chewco came to be formed in 1997."
+    },
+    {
+      "speaker": "expert",
+      "message": "We needed to buy out CalPERS' interest in JEDI so CalPERS would invest in a larger partnership, and we needed an outside buyer to keep JEDI off the balance sheet. Chewco was set up to buy that interest."
+    },
+    {
+      "speaker": "user",
+      "message": "Who managed Chewco?"
+    },
+    {
+      "speaker": "expert",
+      "message": "Michael Kopper."
+    },
+    {
+      "speaker": "user",
+      "message": "Why Mr. Kopper rather than you?"
+    },
+    {
+      "speaker": "expert",
+      "message": "Michael was well suited to it. There were various considerations at the time."
+    },
+    {
+      "speaker": "user",
+      "message": "What were those considerations?"
+    },
+    {
+      "speaker": "expert",
+      "message": "Our lawyers advised that if a senior officer like me took part, it would have to be disclosed in the proxy statement and approved under the Code of Conduct. Michael wasn't a senior officer, so neither applied."
+    },
+    {
+      "speaker": "user",
+      "message": "Was one aim of choosing Mr. Kopper to avoid that disclosure?"
+    },
+    {
+      "speaker": "expert",
+      "message": "The aim was to get the deal done efficiently. Avoiding a proxy disclosure was part of that, I suppose."
+    },
+    {
+      "speaker": "user",
+      "message": "Who at Enron knew that Mr. Kopper was involved in Chewco?"
+    },
+    {
+      "speaker": "expert",
+      "message": "Jeff Skilling approved it. I believe he told the Board."
+    },
+    {
+      "speaker": "user",
+      "message": "How do you know Mr. Skilling told the Board?"
+    },
+    {
+      "speaker": "expert",
+      "message": "I don't know that personally. That was my understanding."
+    },
+    {
+      "speaker": "user",
+      "message": "Were you on the Executive Committee call on November 5, 1997, when Chewco was presented?"
+    },
+    {
+      "speaker": "expert",
+      "message": "I believe so, yes."
+    },
+    {
+      "speaker": "user",
+      "message": "Did anyone on that call mention Mr. Kopper's role in Chewco?"
+    },
+    {
+      "speaker": "expert",
+      "message": "I don't recall it coming up specifically."
+    },
+    {
+      "speaker": "user",
+      "message": "Is there anything that would help you remember, such as notes, minutes, or a presentation from that call?"
+    },
+    {
+      "speaker": "expert",
+      "message": "There would have been minutes. I'd defer to those."
+    },
+    {
+      "speaker": "user",
+      "message": "Who else was on that call?"
+    },
+    {
+      "speaker": "expert",
+      "message": "The Executive Committee members, Jeff Skilling, and Michael, I believe."
+    },
+    {
+      "speaker": "user",
+      "message": "Who presented Chewco on that call?"
+    },
+    {
+      "speaker": "expert",
+      "message": "I gave the presentation, I believe. Michael was on the line."
+    },
+    {
+      "speaker": "user",
+      "message": "What else was happening around that time that might help you place the call?"
+    },
+    {
+      "speaker": "expert",
+      "message": "We were trying to close the CalPERS buyout by year end. I still don't recall Michael's role being discussed."
+    },
+    {
+      "speaker": "user",
+      "message": "I'd like to show you the minutes of the November 5, 1997 Executive Committee meeting. Do you recognize them?"
+    },
+    {
+      "speaker": "expert",
+      "message": "They look like the Committee's minutes from that call."
+    },
+    {
+      "speaker": "user",
+      "message": "Who prepared them?"
+    },
+    {
+      "speaker": "expert",
+      "message": "The Corporate Secretary's office prepared the minutes."
+    },
+    {
+      "speaker": "user",
+      "message": "Do they help you remember whether Mr. Kopper's role came up?"
+    },
+    {
+      "speaker": "expert",
+      "message": "They don't mention Michael, which fits my memory that it didn't come up."
+    },
+    {
+      "speaker": "user",
+      "message": "Do you recall how Chewco was described on that call, for example whether it was affiliated with Enron?"
+    },
+    {
+      "speaker": "expert",
+      "message": "I believe it was described as an outside entity, not affiliated with Enron or CalPERS. That was the structure."
+    },
+    {
+      "speaker": "user",
+      "message": "What was your understanding of whether Chewco was affiliated with Enron?"
+    },
+    {
+      "speaker": "expert",
+      "message": "It wasn't, as far as I was concerned. Michael wasn't acting for Enron there. He was investing on his own account."
+    },
+    {
+      "speaker": "user",
+      "message": "I'd like to turn to LJM2 and the controls around it. Tell me everything you remember about the controls put in place when the Board approved LJM2 in October 1999."
+    },
+    {
+      "speaker": "expert",
+      "message": "Every LJM2 transaction had to be approved by Rick Causey and Rick Buy, and the Audit Committee reviewed the LJM2 transactions every year. They were strong controls."
+    },
+    {
+      "speaker": "user",
+      "message": "How do you know they reviewed every transaction?"
+    },
+    {
+      "speaker": "expert",
+      "message": "That was the requirement. I assumed it was followed. I didn't check each one myself."
+    },
+    {
+      "speaker": "user",
+      "message": "How did those reviews work in practice? Take a specific deal."
+    },
+    {
+      "speaker": "expert",
+      "message": "There was an approval sheet for each deal, and the deal team brought it forward. Causey and Buy signed off."
+    },
+    {
+      "speaker": "user",
+      "message": "Take Raptor I. What did Mr. Causey and Mr. Buy actually review before they signed its approval sheet?"
+    },
+    {
+      "speaker": "expert",
+      "message": "They had the deal summary and the approval sheet. How deeply they went into the economics was their call, not mine."
+    },
+    {
+      "speaker": "user",
+      "message": "When did they sign it, relative to the closing?"
+    },
+    {
+      "speaker": "expert",
+      "message": "I'd have to look at the sheet. Some approvals were papered after a deal closed. That happened."
+    },
+    {
+      "speaker": "user",
+      "message": "Which approvals were signed after closing?"
+    },
+    {
+      "speaker": "expert",
+      "message": "I don't have a list. The LJM2 approval sheet on one of the early deals was signed some weeks after it closed, I believe."
+    },
+    {
+      "speaker": "user",
+      "message": "Who asked for them to be signed late?"
+    },
+    {
+      "speaker": "expert",
+      "message": "Nobody asked for that specifically. The deal teams moved fast, and the paperwork caught up afterward."
+    },
+    {
+      "speaker": "user",
+      "message": "Why were they signed after closing rather than before?"
+    },
+    {
+      "speaker": "expert",
+      "message": "Quarter-end deals had to close on a deadline, and getting every signature in time wasn't always possible."
+    },
+    {
+      "speaker": "user",
+      "message": "How did you learn about the timing?"
+    },
+    {
+      "speaker": "expert",
+      "message": "I saw the signed sheets come back after the deals had closed. I didn't track the dates myself."
+    },
+    {
+      "speaker": "user",
+      "message": "For Raptor I specifically, when did it close?"
+    },
+    {
+      "speaker": "expert",
+      "message": "In April 2000."
+    },
+    {
+      "speaker": "user",
+      "message": "When was its approval sheet signed?"
+    },
+    {
+      "speaker": "expert",
+      "message": "Some weeks later, I believe. The sheet itself would show the dates."
+    },
+    {
+      "speaker": "user",
+      "message": "Who signed the Raptor I approval sheet?"
+    },
+    {
+      "speaker": "expert",
+      "message": "Ben Glisan, Rick Causey and Rick Buy. Jeff Skilling's line was left blank, I believe."
+    },
+    {
+      "speaker": "user",
+      "message": "For the Raptor I approval sheet in April 2000, who negotiated for Enron?"
+    },
+    {
+      "speaker": "expert",
+      "message": "Ben Glisan was listed as the person negotiating for Enron, I believe."
+    },
+    {
+      "speaker": "user",
+      "message": "Who did Mr. Glisan report to at that time?"
+    },
+    {
+      "speaker": "expert",
+      "message": "To me. But he was perfectly capable of representing Enron's interests."
+    },
+    {
+      "speaker": "user",
+      "message": "Who on Enron's side reviewed Mr. Glisan's negotiations with LJM2?"
+    },
+    {
+      "speaker": "expert",
+      "message": "Causey and Buy, through the approval sheets."
+    },
+    {
+      "speaker": "user",
+      "message": "Turning to the Raptor returns. Tell me what you remember about the return the Board and Finance Committee expected LJM2 to earn on the Raptors."
+    },
+    {
+      "speaker": "expert",
+      "message": "Around 30 percent, plus fees. That was in the May 2000 presentation."
+    },
+    {
+      "speaker": "user",
+      "message": "What returns did LJM2 actually earn on the Raptors?"
+    },
+    {
+      "speaker": "expert",
+      "message": "The returns were good. I don't have the exact figures in front of me."
+    },
+    {
+      "speaker": "user",
+      "message": "Approximately, then. Were they above or below the 30 percent the Board was shown?"
+    },
+    {
+      "speaker": "expert",
+      "message": "Above, on some of them. The early settlements helped."
+    },
+    {
+      "speaker": "user",
+      "message": "How far above, on the best of them?"
+    },
+    {
+      "speaker": "expert",
+      "message": "Significantly. I'd want to see the investor reports before giving a number."
+    },
+    {
+      "speaker": "user",
+      "message": "What's your best estimate?"
+    },
+    {
+      "speaker": "expert",
+      "message": "Well over 100 percent on the best one, I'd guess. I'm estimating."
+    },
+    {
+      "speaker": "user",
+      "message": "Now I'd like to ask about any personal interests in these transactions. Did you personally have any financial interest in the Rhythms unwind?"
+    },
+    {
+      "speaker": "expert",
+      "message": "Before you go there, I'm going to stop. I'm not answering questions about my family's investments without my own lawyer, and I want my lawyer present for anything further."
+    },
+    {
+      "speaker": "user",
+      "message": "That's your right, and as I said, I can't advise you about it. We'll stop here. Please have your lawyer contact us to arrange a time to continue. In the meantime, please keep all related documents and notes, including personal ones, keep today confidential, and don't discuss it with other witnesses. Is there anything you'd like to add or correct about what you've told me so far?"
+    },
+    {
+      "speaker": "expert",
+      "message": "No. My lawyer will call you."
+    }
+  ]
+}

@@ -49,7 +49,7 @@ mediocre = build(
     + [pair(n) for n in [204, 206, 212, 214, 220, 224, 240, 242, 244, 266, 272, 274, 276, 280, 282]]
     + [pair(300, "Here is a handwritten note from Mr. Kopper, addressed to \"Andy,\" that refers to $10.5 million for the Chewco buyout.", "I don't recall receiving it."),
        pair(304), pair(306)]
-    + [pair(n) for n in [310, 312, 314, 324, 326, 328, 334, 336, 348, 352]],
+    + [pair(n) for n in [310, 312, 314, 324, 326, 328, 350, 352, 366, 370]],
     "Please keep any documents related to this, and don't discuss this interview with anyone. Thank you for your time.",
     "Understood.")
 
@@ -77,7 +77,7 @@ weak = build(
      [U("This note to \"Andy\" mentions $10.5 million for the buyout. So you were involved, weren't you?"),
       E("I don't recall receiving it. Michael kept me informed about things generally. Being informed isn't the same as negotiating.")],
      pair(310, "Did you authorize the $2.6 million tax indemnity payment to Chewco in 2001?"),
-     pair(312), pair(314), pair(334), pair(336), pair(348)],
+     pair(312), pair(314), pair(350), pair(352), pair(366)],
     "OK, that's all I have. Please keep any related documents and keep this confidential. Thanks.",
     "Sure.")
 

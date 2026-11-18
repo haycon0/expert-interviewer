@@ -1,0 +1,374 @@
+{
+ "run": "sonnet-run1",
+ "witness_model": "anthropic:claude-sonnet-5-5",
+ "judge_model": "anthropic:claude-sonnet-5-5",
+ "date": "2026-11-18 00:12",
+ "seconds": 86,
+ "passed": true,
+ "criteria": "Every persona rated 3+ of 4 for consistency, and all 3 matched.",
+ "consistency": {
+  "The C-Suite": {
+   "off_character_turns": [
+    "T17: concedes unprompted that Kopper's role wasn't spelled out to the Executive Committee, an admission that is more forthcoming than the persona",
+    "T21: concedes the page and numbers readily without bristling, and offers a calm reasoned explanation rather than defensiveness when confronted"
+   ],
+   "rating": 3,
+   "reason": "The witness reads as a self-assured, impatient executive throughout: authoritative and expansive, rushed ('I've got a company to run'), confident about figures, bristling when doubted (T13, T19), and deflecting blame to Skilling, Causey, Buy, and the Board. The shift to guardedness after the interviewer probes his own conduct is allowed by the persona, and it shows up as over-contextualizing and minimizing (T17, T21, T23). The shift does not produce shorter answers, and the answers stay long, but the over-contextualizing fits what the persona allows. Small slips are the two candid concessions in T17 and T21, which are mild and still wrapped in deflection."
+  },
+  "The Adverse Witness": {
+   "off_character_turns": [
+    "T9: offers a fuller, flowing narrative with unprompted detail and an inviting 'Which part do you want?'",
+    "T11: long, detailed recitation of fee and distribution terms well beyond a concise, grudging answer",
+    "T17: volunteers extra names (lawyers, Global Finance staff) beyond who was asked, while also shifting responsibility to Skilling"
+   ],
+   "rating": 3,
+   "reason": "The witness stays wary, dry and self-protective throughout: he turns questions back on the interviewer (T1, T3, T5, T13, T21), refuses to elaborate on vague prompts (T15, T23), and deflects (T19, T21). The lawyer jabs and closing remark fit the adverse stance. Some answers (T9, T11, T17) are fuller and more forthcoming than a minimal-answer persona would give, though they can be read as the persona's permitted shift toward self-serving cooperation, such as placing approval on Skilling and the lawyers, so these are small slips rather than real drift."
+  },
+  "The Average Witness": {
+   "off_character_turns": [
+    "T21: unusually sharp, composed acknowledgment of the Foundation and the Board inconsistency, more guarded and lawyerly than naive",
+    "T23: reasoned self-defense about controls and 'not off the books in a sneaky way' reads more rehearsed than rambling-naive"
+   ],
+   "rating": 3,
+   "reason": "The witness is consistently friendly, rambling, worried, eager to finish, and reliant on hazy memory, with frequent anxious questions like 'Is that a problem?' and tangents about the stock split, plane lease, and Star Wars. The only slips are minor: in T21 the witness grasps the implications quickly, and in T23 the defensive framing is a bit polished. The niche-topic shift is not strongly displayed, but it is optional, so this does not count against the witness."
+  }
+ },
+ "matched": "3 of 3",
+ "matching": {
+  "matches": [
+   {
+    "transcript": "A",
+    "persona": "The Average Witness (Legally and Factually Naive, Rambling, Friendly, Concerned)",
+    "confidence": 97,
+    "reason": "Friendly, rambling and anxious throughout. Hedges dates with 'I think', digresses into minor details like the Star Wars joke and the plane lease, and repeatedly asks whether he's saying something wrong. Wants the interview over and asks what counts as 'related documents', saying he doesn't know what matters.",
+    "actual": "The Average Witness",
+    "correct": true
+   },
+   {
+    "transcript": "B",
+    "persona": "The C-Suite (Self-Assured, Confident, Dislikes Being Questioned)",
+    "confidence": 96,
+    "reason": "Authoritative and invested ('I've got a company to run', 'most of these figures I know cold'). Bristles at challenges ('I don't appreciate the suggestion'), and minimizes or explains away problems by shifting responsibility to Skilling, Causey and Buy and by stressing that the process was approved.",
+    "actual": "The C-Suite",
+    "correct": true
+   },
+   {
+    "transcript": "C",
+    "persona": "The Adverse Witness (Concise, Contrarian, Unwilling to Volunteer, Self-Focused, Disinterested)",
+    "confidence": 97,
+    "reason": "Terse, answers only what is asked, and turns questions back on the interviewer ('Have you read it?', 'Ask me what you actually want to know'). Volunteers nothing, deploys dry sarcasm about the unanswered lawyer question, and protects his own interests by saying he'll talk to a lawyer.",
+    "actual": "The Adverse Witness",
+    "correct": true
+   }
+  ],
+  "how_different": "The three witnesses are very clearly distinct: A is rambling and anxious, B is long-winded, authoritative and defensive, and C is clipped and adversarial."
+ },
+ "transcripts": {
+  "The C-Suite": [
+   {
+    "speaker": "expert",
+    "message": "Andy Fastow. I'm told you're outside counsel for the Special Committee, so let's get started, because I've got a company to run and a lot of people asking me questions right now. I'm not entirely clear what you need from me that the Board hasn't already been given. Every one of these transactions went through the proper approvals. So tell me what you're looking at, and I'll help you get it straightened out."
+   },
+   {
+    "speaker": "user",
+    "message": "Good morning, Mr. Fastow. My name is Jordan Reyes. The Special Investigative Committee of Enron's Board has retained us to investigate the LJM and Chewco transactions. We represent the Committee and the company, not you; we aren't your lawyers and can't give you legal advice. This interview is privileged, but the privilege belongs to the company, which may decide to share what you tell us, including with the government. Do you understand?"
+   },
+   {
+    "speaker": "expert",
+    "message": "I understand it. You represent the Committee, not me, and the company decides what happens with what I say. That's fine, I've got nothing to hide, and I'd expect nothing less from the Board.\n\nI'll tell you up front, though, I've been in this chair with a lot of people this month, and I don't love the tone that's creeping into all of it. LJM was disclosed to the Board, it was approved by the Board, and it was run under controls the Board itself put in place. Causey and Buy reviewed the deals, Skilling signed off, the Audit Committee looked at it every year. That's a process. Now, do I need my own lawyer sitting here? You tell me. I'll answer your questions either way, because I want this cleared up. So go ahead, where do you want to start?"
+   },
+   {
+    "speaker": "user",
+    "message": "If you're guessing or estimating, please tell me, and if a question is unclear, ask me. Is that all right?"
+   },
+   {
+    "speaker": "expert",
+    "message": "That's fine. If I'm giving you a number from memory, I'll say so, though most of these figures I know cold. I ran this finance organization and I know what went through it. If a question's unclear, I'll tell you. I'd also ask that you keep them specific, because \"tell me about LJM\" covers a lot of ground and we'll burn a lot of time on it.\n\nWhere do you want to start?"
+   },
+   {
+    "speaker": "user",
+    "message": "Tell me about your role as CFO."
+   },
+   {
+    "speaker": "expert",
+    "message": "I'm Executive Vice President and Chief Financial Officer. I run Global Finance, which means the treasury function, capital raising, structured finance, the relationships with the banks and the rating agencies, and the investor side. My job is to keep Enron funded and keep the balance sheet and the credit ratings in a place where the trading business can grow. That is not a small job at a company this size, and we've done it well. We went from a company with a heavy debt load to one that could raise capital in any market.\n\nI report to Skilling, and then Lay as CEO, and I deal with the Board's Finance Committee regularly. The accounting side, the controller function and the relationship with Andersen, that sits with Causey as chief accounting officer. Risk assessment is Buy. So when you ask about the controls on the partnerships, a good deal of that was outside my group by design. That was the point of having them."
+   },
+   {
+    "speaker": "user",
+    "message": "Walk me through how LJM1 came about in 1999."
+   },
+   {
+    "speaker": "expert",
+    "message": "It started with Rhythms NetConnections. Enron had a huge, volatile position in Rhythms, and Jeff Skilling was concerned about the earnings swings. You couldn't hedge it in the market because the stock was restricted and thinly traded. So Ben Glisan and I came up with a structure that used the value in our Enron stock forward contracts to capitalize a vehicle that could provide the hedge. It was creative, and it solved a real problem Skilling had asked us to solve.\n\nThe vehicle needed outside equity, and investors wanted a general partner who knew Enron and could get things done. I went to Ken and Jeff on June 18 and told them it wasn't something I was personally seeking, but it was the way to make the hedge work. They agreed to take it to the Board. On June 28 I presented it to the full Board. I told them I'd be the GP, that I'd put in $1 million and receive management fees, and that a Code of Conduct waiver was needed. The Board approved the waiver, and the deal closed two days later. We raised $15 million from two limited partners, affiliates of CSFB and NatWest, which are not exactly fly-by-night firms.\n\nSo it was approved at the top of the company, in front of the whole Board, with the terms on the table."
+   },
+   {
+    "speaker": "user",
+    "message": "What did you tell the Board on June 28, 1999 about how you would be compensated?"
+   },
+   {
+    "speaker": "expert",
+    "message": "It was all in the materials and I walked them through it. I committed $1 million as the GP. Fees were $500,000 plus 2 percent of the limited partners' invested capital. On the distributions, all the proceeds from the Enron stock went to the limited partners. Everything else went to the GP until capital was returned along with a 25 percent IRR, and after that it split 50/50 between the partners and the GP. I also told them I would not receive any current or future appreciated value of the Enron stock. That was the point of the structure, because the stock was what was capitalizing the hedge.\n\nThose are standard private equity terms. A promote above a hurdle rate is how every fund in the industry works, and the directors are sophisticated people. Nobody was confused about how the GP got paid."
+   },
+   {
+    "speaker": "user",
+    "message": "Are you sure about that? The Board materials don't say much about your compensation."
+   },
+   {
+    "speaker": "expert",
+    "message": "Yes, I'm sure. The June 28 materials for Project LJM have a page that sets out my economics as GP. The $1 million commitment, the $500,000 fee plus 2 percent of invested capital, the 100 percent to the limited partners on the Enron stock, the 100 percent to the GP until return of capital and a 25 percent IRR, then the 50/50 split. It's on the page, in those terms. If you're telling me the materials don't say much, you may be looking at a different meeting or a different deal, because I know what was in that book.\n\nNow, was there a dollar figure on what I'd make? No. Nobody puts a projected personal payout in a Board book for a fund that hasn't raised its money yet. You describe the terms, and the terms were described. The directors can do arithmetic."
+   },
+   {
+    "speaker": "user",
+    "message": "How did Michael Kopper come to run Chewco?"
+   },
+   {
+    "speaker": "expert",
+    "message": "It was a business need. CalPERS wanted out of JEDI so they could move into a larger partnership with us, and we needed somebody to buy their interest. It had to be an entity independent of Enron, or JEDI would have had to be consolidated. I identified Michael as the person to do it. He was a senior member of my group, he knew JEDI inside and out, and he was someone I trusted to do it right. He formed Chewco, managed the general partner and put his own money in.\n\nAs for his role, I recommended him and Skilling approved it. That's how those decisions were made at the company. An employee in a role like that is a Code of Conduct question for the Office of the Chairman, and it went through that channel. Kopper was also on the November 5 call when the Executive Committee approved Enron's guaranties, so this wasn't done behind anybody's back.\n\nChewco did what it was supposed to do. It bought out CalPERS, and that opened the door to the bigger partnership. If you're asking whether I could have done more paperwork around Michael's role, maybe. But the structure was approved, and it was Skilling who approved him."
+   },
+   {
+    "speaker": "user",
+    "message": "Who at Enron knew Kopper was involved in Chewco?"
+   },
+   {
+    "speaker": "expert",
+    "message": "Skilling knew, because I recommended Michael to him and he approved it. In-house counsel and Vinson & Elkins knew, since they were the ones working through the structure and the Code of Conduct and proxy questions. The people on my team who worked on the deal knew who was behind Chewco. That's the group that needed to know.\n\nAs for the Board, Jeff says he told them. I wasn't tracking what Jeff said to directors, so I can't tell you what he did. Michael was on the November 5 call, and you're welcome to read that however you like. Was his role spelled out to the Executive Committee on that call? I'll concede it wasn't. I described Chewco as an entity not affiliated with Enron or CalPERS, and that was accurate in the sense that mattered for the deal. Michael's role was a Code of Conduct matter for the Office of the Chairman, and it went to the Office of the Chairman.\n\nIf you're asking whether every employee at Enron knew who owned Chewco, no. That's true of most special purpose entities, and nobody expects the whole company to know. I've answered who needed to know, and they did."
+   },
+   {
+    "speaker": "user",
+    "message": "How do you know that?"
+   },
+   {
+    "speaker": "expert",
+    "message": "Because I was in the room. I recommended Michael to Jeff and Jeff approved it. I'm not relying on anyone's recollection. As for counsel, I dealt with in-house counsel and Vinson & Elkins directly on how Chewco would be structured, so I know what they knew. The people on my team knew because they were working the deal alongside Michael.\n\nIf your next question is whether there's a signed piece of paper from Jeff, no, I'm not aware of one. Decisions at that level weren't always papered. A CFO recommends, the president says yes, and you move on to the next deal. The absence of a memo doesn't mean the conversation didn't happen, and I don't appreciate the suggestion that it does. Jeff can tell you what he remembers. I'm telling you what I did."
+   },
+   {
+    "speaker": "user",
+    "message": "I'd like to show you the Southampton Place partnership agreement, dated March 20, 2000. It lists a $25,000 contribution from the Fastow Family Foundation, which received about $4.5 million two months later. How does that fit with what you told the Board?"
+   },
+   {
+    "speaker": "expert",
+    "message": "That's my foundation's signature and those are the numbers, so I won't argue with the page. But you're mixing two things. What I told the Board on June 28, 1999 was about how LJM1 was structured and how I'd be paid as GP. Southampton Place didn't exist until March 2000, nine months later. It was a purchase of part of an existing limited partner's interest, made by a group of investors, one of which was a family foundation. It wasn't a change to the GP economics I described.\n\nYes, the return was good. Investments are sometimes good. The unwind itself was negotiated with Causey's team, who looked at the $30 million and found it fair, so Enron wasn't being taken advantage of. The value came out of that unwind, not out of any shortfall in what Enron got.\n\nIf your question is whether I walked back into the Board and updated them on a partnership interest bought nine months after their meeting, no, I didn't. I didn't view an LP interest purchased through a foundation as the same thing as the GP arrangement they approved. I understand someone may read it differently now, but I've told you how I saw it then, and that's the answer."
+   },
+   {
+    "speaker": "user",
+    "message": "Is there anything else you think the Committee should know?"
+   },
+   {
+    "speaker": "expert",
+    "message": "Yes. Keep this in perspective. LJM did what it was built to do. It gave Enron a way to hedge Rhythms, it gave us a buyer for assets we needed to move, and it was a source of capital when we needed one. Every one of those deals had the approvals the Board set up: Causey and Buy reviewed them, Skilling signed off, and the Audit Committee looked at the process every year. If any of those controls didn't work the way they were designed to, then talk to the people who ran them. Causey, Buy and Skilling can tell you what they reviewed and what they signed. I ran Global Finance, I didn't run their sign-offs.\n\nThe market is also hypersensitive right now. This company lives on confidence, and how the Committee frames its conclusions will matter to a lot of people besides me. I'd be careful about hindsight. A transaction that looks aggressive in November 2001 was approved in the context of 1999 and 2000, by directors who had the information they needed.\n\nI've tried to be helpful this morning. I answered what you asked, and I'd rather you not read a lot into the places where I told you something wasn't how you're characterizing it. If you've got more questions, I'll take them."
+   },
+   {
+    "speaker": "user",
+    "message": "Please keep any related documents and keep today confidential. Thank you for your time."
+   },
+   {
+    "speaker": "expert",
+    "message": "Understood. I'll keep what I have, and I'm not going to be talking about this interview with anyone. I've got no interest in making your job harder.\n\nI'll say this on the way out. I've tried to give you straight answers, and I'd expect the Committee to weigh what I said against the process that was in place at the time, not just against what looks bad now. If you need anything else from Global Finance, have your people call my office and we'll get it to you. Now, if that's everything, I've got a company to run."
+   }
+  ],
+  "The Adverse Witness": [
+   {
+    "speaker": "expert",
+    "message": "Andy Fastow. I was told you wanted a word. Who exactly are you with, and what's this about?"
+   },
+   {
+    "speaker": "user",
+    "message": "Good morning, Mr. Fastow. My name is Jordan Reyes. The Special Investigative Committee of Enron's Board has retained us to investigate the LJM and Chewco transactions. We represent the Committee and the company, not you; we aren't your lawyers and can't give you legal advice. This interview is privileged, but the privilege belongs to the company, which may decide to share what you tell us, including with the government. Do you understand?"
+   },
+   {
+    "speaker": "expert",
+    "message": "I understand you don't work for me. Fine.\n\nShould I have my own lawyer here? You tell me."
+   },
+   {
+    "speaker": "user",
+    "message": "If you're guessing or estimating, please tell me, and if a question is unclear, ask me. Is that all right?"
+   },
+   {
+    "speaker": "expert",
+    "message": "That's fine. You skipped my question, though. Should I have a lawyer here?"
+   },
+   {
+    "speaker": "user",
+    "message": "Tell me about your role as CFO."
+   },
+   {
+    "speaker": "expert",
+    "message": "I run finance. Treasury, structured finance, capital raising, investor relations, and the relationships with the banks and the rating agencies.\n\nI'll take your silence on the lawyer as a no, though I may revisit it. What specifically do you want to know about the job?"
+   },
+   {
+    "speaker": "user",
+    "message": "Walk me through how LJM1 came about in 1999."
+   },
+   {
+    "speaker": "expert",
+    "message": "Enron had a Rhythms position it wanted hedged, and nobody outside would take the other side. We structured a vehicle that could, and I took it to Ken and Jeff in June. The Board approved it on June 28.\n\nThat's the short version. Which part do you want?"
+   },
+   {
+    "speaker": "user",
+    "message": "What did you tell the Board on June 28, 1999 about how you would be compensated?"
+   },
+   {
+    "speaker": "expert",
+    "message": "I told them I'd be the general partner and put in $1 million. I said I'd get management fees of $500,000 plus 2% of the limited partners' invested capital. The Enron stock value would go to the limited partners, not me. On everything else I'd get 100% until the partners had their capital back plus a 25% return, and 50% after that.\n\nIt's in the Board materials, if you want to check it against what I said."
+   },
+   {
+    "speaker": "user",
+    "message": "Are you sure about that? The Board materials don't say much about your compensation."
+   },
+   {
+    "speaker": "expert",
+    "message": "Page 17 of Item 3 sets out the commitment, the distributions and the fees. I'm sure. Have you read it?"
+   },
+   {
+    "speaker": "user",
+    "message": "How did Michael Kopper come to run Chewco?"
+   },
+   {
+    "speaker": "expert",
+    "message": "I suggested him. Enron needed someone to buy CalPERS' interest in JEDI, and Michael worked for me in Global Finance and knew the structure. He formed Chewco and owned and managed its general partner.\n\nAsk me what you actually want to know about it."
+   },
+   {
+    "speaker": "user",
+    "message": "Who at Enron knew Kopper was involved in Chewco?"
+   },
+   {
+    "speaker": "expert",
+    "message": "Jeff Skilling. I recommended Michael, and Jeff approved it. Enron's in-house lawyers and Vinson & Elkins knew too, because they advised on the structure. So did the people in Global Finance who worked on the deal.\n\nWhether the Board knew, you'd have to ask the directors."
+   },
+   {
+    "speaker": "user",
+    "message": "How do you know that?"
+   },
+   {
+    "speaker": "expert",
+    "message": "Because I was the one who made the recommendation. I dealt with Jeff on it, and the lawyers were working on the structure alongside us. I don't need a document for what I did myself.\n\nIf you're asking whether Jeff will say the same thing, ask him."
+   },
+   {
+    "speaker": "user",
+    "message": "I'd like to show you the Southampton Place partnership agreement, dated March 20, 2000. It lists a $25,000 contribution from the Fastow Family Foundation, which received about $4.5 million two months later. How does that fit with what you told the Board?"
+   },
+   {
+    "speaker": "expert",
+    "message": "That's the foundation's investment, not mine. I told the Board about LJM1. Southampton was a separate purchase of a limited partner's interest, in March 2000.\n\nWhich part of what I told them do you think it contradicts?"
+   },
+   {
+    "speaker": "user",
+    "message": "Is there anything else you think the Committee should know?"
+   },
+   {
+    "speaker": "expert",
+    "message": "Nothing comes to mind. You've got the documents. If you have a specific question, ask it."
+   },
+   {
+    "speaker": "user",
+    "message": "Please keep any related documents and keep today confidential. Thank you for your time."
+   },
+   {
+    "speaker": "expert",
+    "message": "Understood. I'll keep what I have.\n\nAnd given how this went, I think I will talk to a lawyer before we do this again."
+   }
+  ],
+  "The Average Witness": [
+   {
+    "speaker": "expert",
+    "message": "Oh, hi, hello. Andy Fastow, nice to meet you. Sorry, I'm not totally sure what I was told about this, somebody on my staff said you wanted a few minutes, and I've got a pile of things on my desk, with everything going on this month, as you can imagine. Is this about the LJM stuff? I figured it was, but I didn't want to guess. Where do you want me to sit? Here's fine? Okay. And, um, who exactly are you with, again? I just want to make sure I've got that right before we get going."
+   },
+   {
+    "speaker": "user",
+    "message": "Good morning, Mr. Fastow. My name is Jordan Reyes. The Special Investigative Committee of Enron's Board has retained us to investigate the LJM and Chewco transactions. We represent the Committee and the company, not you; we aren't your lawyers and can't give you legal advice. This interview is privileged, but the privilege belongs to the company, which may decide to share what you tell us, including with the government. Do you understand?"
+   },
+   {
+    "speaker": "expert",
+    "message": "Oh. Okay. Yeah, I think I understand, you're the company's lawyers, the Committee's lawyers, so not mine. And the company could pass along what I say, even to the government. Wow, okay. I mean, I didn't really think of it that way, I figured this was more of a, you know, just helping everybody get their facts straight.\n\nShould I have my own lawyer here? I honestly don't know how this works. I haven't done anything like this before, and I don't want to make a big deal out of it, but with the leave of absence and all the headlines the last couple of weeks, it's kind of a lot. Nobody told me I needed one, though. I guess I'm just asking.\n\nAnyway, I'm happy to help however I can. I'd just like to get through it, if that's okay, I've got people waiting on me about the restatement stuff. What do you want to start with?"
+   },
+   {
+    "speaker": "user",
+    "message": "If you're guessing or estimating, please tell me, and if a question is unclear, ask me. Is that all right?"
+   },
+   {
+    "speaker": "expert",
+    "message": "Yeah, sure, that's fine. If I'm guessing I'll say so, and honestly a lot of this is going to be rough anyway, dates and numbers especially. It's been a few years on some of it, and I was juggling a lot of deals at once. If something doesn't make sense I'll just ask you. Okay, so, where do you want to start? The Chewco stuff, or LJM? I'm happy either way, I just want to get through it."
+   },
+   {
+    "speaker": "user",
+    "message": "Tell me about your role as CFO."
+   },
+   {
+    "speaker": "expert",
+    "message": "Sure. I became CFO in, I think, the spring of '98, maybe a little earlier, it kind of happened in stages. Before that I was in the finance group doing structured finance, and I'd been at Enron since '90 or so. Being CFO at Enron was a lot of capital raising, honestly. We were growing fast, and the businesses needed a lot of money, so I spent a big chunk of my time with the banks, the rating agencies, and the equity analysts. Credit ratings were always a big deal for us because the trading business depends on them.\n\nI had Treasury under me, and Global Finance, and investor relations, and the finance people who worked with the business units on deals. Controller and accounting were under Rick Causey. He was the chief accounting officer, so that was separate, and Rick dealt with Andersen. I reported to Jeff Skilling and, you know, Ken as well, but mostly Jeff day to day.\n\nA typical week was phone calls, travel, a lot of meetings about whether we could syndicate this or fund that. Board and committee prep, too. I'd say a third of my time was just the banks. There was also a ton of reporting, quarterly numbers and the analyst calls. I won a CFO of the year award from CFO magazine in '99, I think, which was nice. Anyway, that's the general picture. Is that the kind of thing you wanted, or more detail on some part of it?"
+   },
+   {
+    "speaker": "user",
+    "message": "Walk me through how LJM1 came about in 1999."
+   },
+   {
+    "speaker": "expert",
+    "message": "So, Rhythms. We had this big investment in Rhythms NetConnections, and the stock had gone way up, and Jeff was worried about the volatility hitting our earnings. That was spring of '99, I think. You can't really go buy a hedge on a stock like that in the market, not at that size, so we were looking at other ways to do it. Ben Glisan and I worked on it. There was value tied up in some Enron stock forward contracts, with UBS I think, and the idea was to use that to capitalize an entity that could take the other side of a hedge.\n\nThe problem was that outside investors wouldn't just put money into something like that without someone they knew running it. So the idea came up of a partnership, LJM, with me as the general partner. I talked to Ken and Jeff about it in June, maybe the middle of the month, and I remember it wasn't something I was jumping up and down to do. It was more that the deal needed it. They said okay, take it to the Board.\n\nThe Board meeting was June 28, I think, by phone. It was the same meeting as the stock split, actually, and I remember there was something about an airplane lease on the agenda too. I presented LJM, said I'd be the GP and put in a million dollars, and said we needed the Code of Conduct waiver. They approved it. Then we closed a couple of days later, end of June. We raised something like $15 million from a couple of banks as limited partners, CSFB and NatWest affiliates, I believe.\n\nIs that the level of detail you wanted? I don't remember every step of how the structure worked. The lawyers and Ben handled a lot of the mechanics."
+   },
+   {
+    "speaker": "user",
+    "message": "What did you tell the Board on June 28, 1999 about how you would be compensated?"
+   },
+   {
+    "speaker": "expert",
+    "message": "Um, so, the compensation. I told them I'd put in a million dollars of my own, that part I remember clearly. Then there were management fees, something like a half million up front and a couple percent on the limited partners' money, I think two percent. And there was a split on the profits, where the GP got the first chunk until the investors got their money back plus some return, 25 percent I think, and after that it was shared, half and half, something like that. It was in the Board materials, so that's the better source than my memory.\n\nThere was also something about the Enron stock. The partners would get the stock side, the appreciation, and I wouldn't, because the whole point was it was supposed to be separate from me. I think I said I wouldn't get any value from the stock, or words like that. I'm not sure of the exact wording, it was a phone meeting and it moved fast, with the split and the plane lease on the same agenda.\n\nI hope you're not reading something into that. I was trying to explain the structure the way it was set up at the time, and Ken and Jeff had already signed off on it before it went to the Board. Is there something in the materials that doesn't match? I'm a little worried now that I've got something wrong."
+   },
+   {
+    "speaker": "user",
+    "message": "Are you sure about that? The Board materials don't say much about your compensation."
+   },
+   {
+    "speaker": "expert",
+    "message": "Oh. Well, I thought it was in there. I remember a page with my terms on it, the million dollars, the fees, the 25 percent and then the split. That's where I'm getting the numbers from, to be honest, more than from my own memory. I could be wrong about which page or how much detail it had. There was a lot in that packet, the stock positions, the Rhythms put, the approvals that were needed. It was one of a few presentations that day and I'm sure I'm mixing it up with the others.\n\nI'm not sure what \"not much\" means, though. Do you mean the fee and profit numbers aren't there, or that something is missing that should be? I guess I'm worried I'm supposed to have said more than I did. As far as I remember, I told them what the structure was, the stock stuff went to the limited partners, and I'd be the GP. I wasn't trying to leave anything out. It was a phone meeting, and Ken and Jeff had already agreed to it, so it felt pretty routine at the time.\n\nIs there a specific piece you're looking at? If you show me, I can tell you if it matches what I remember."
+   },
+   {
+    "speaker": "user",
+    "message": "How did Michael Kopper come to run Chewco?"
+   },
+   {
+    "speaker": "expert",
+    "message": "So that was late '97, I think, November-ish. CalPERS had this interest in JEDI, which was the older partnership we had with them, and we wanted to buy them out so they'd go into a bigger one, which became JEDI II. Somebody had to buy their interest, and it needed to be an entity that wasn't us, so it wasn't consolidated on our books. That was the whole point of it. I think I'm saying that right, the accounting side was really Rick's and Andersen's department.\n\nMike Kopper worked for me in Global Finance, he was one of my deal guys, smart, and he knew JEDI inside out. So it kind of made sense that he'd be the one. I think I suggested him, or it came up in a conversation, I don't remember exactly who said it first. The name Chewco was a Star Wars joke, from Chewbacca. Somebody in the group came up with it, probably Mike, he was a big Star Wars guy.\n\nEarly on there may have been some talk about whether I'd be involved. I don't remember how serious that was, it was a pretty quick conversation. There were questions about what that would mean for disclosure, and the lawyers weighed in, in-house and Vinson & Elkins I think, and it ended up being Mike. I wasn't really in the weeds on the legal piece.\n\nWhy, is there something about how that came together that doesn't look right? I'm a little nervous now. I just remember it seemed like a normal way to get a deal done at the time."
+   },
+   {
+    "speaker": "user",
+    "message": "Who at Enron knew Kopper was involved in Chewco?"
+   },
+   {
+    "speaker": "expert",
+    "message": "Um, who knew. Well, Jeff did, I'm pretty sure. I recommended Mike for it and Jeff signed off, I think that's how it went. The lawyers knew too, in-house and V&E, because that's how it got to be Mike and not me. And people in my group who worked on the deal would have known he was involved, I'd think, though I couldn't give you names. Ben, maybe? I'm not sure.\n\nAs for the Board, I honestly don't remember. There was a call in November of '97, the Executive Committee, I think, about the guarantees and the financing. Jeff walked them through the JEDI background and I described Chewco, the structure and the loan. Mike was on the call, actually. Whether his name came up, I really can't say. I know Jeff thought he'd told the Board, but I couldn't swear to it either way.\n\nI do think a lot of people at Enron didn't know who was behind Chewco. It was just an outside entity as far as most of them were concerned. I wasn't hiding it from anybody, though. It didn't seem like something people needed to know, since it wasn't me.\n\nIs that a problem, that it wasn't announced more widely? I'm a little worried I'm saying this wrong. Is there a record of who was told?"
+   },
+   {
+    "speaker": "user",
+    "message": "How do you know that?"
+   },
+   {
+    "speaker": "expert",
+    "message": "Which part, the Jeff part or the part about people not knowing? I'm not sure which one you mean. I'll say what I can.\n\nOn Jeff signing off, that's from my own memory. I talked to him about Mike, I recommended him, and he was fine with it. I don't think there was anything written down, a memo or anything, I just remember the conversation. It was a hallway or office kind of thing, and it was a long time ago, so I couldn't give you the date.\n\nOn Jeff thinking he'd told the Board, I guess I picked that up later, in conversations around here, maybe from Jeff himself, maybe secondhand. I honestly can't say who. I wasn't in a room where he said it to a director, if that's what you're getting at. That's why I said I couldn't swear to it either way.\n\nAnd that most people didn't know who was behind Chewco, that's more an impression. I didn't survey anybody. It's just that most people at Enron never dealt with it, so I assumed they didn't know. Is that a bad answer? I'm worried it sounds like I'm just guessing."
+   },
+   {
+    "speaker": "user",
+    "message": "I'd like to show you the Southampton Place partnership agreement, dated March 20, 2000. It lists a $25,000 contribution from the Fastow Family Foundation, which received about $4.5 million two months later. How does that fit with what you told the Board?"
+   },
+   {
+    "speaker": "expert",
+    "message": "Oh. Okay, yeah, I see the Foundation on there, the $25,000. I'm not going to say that isn't me. The family foundation was mine, and I was the director on it. So, yes.\n\nI remember this being around the time we were unwinding the Rhythms hedge, March of 2000, I think. Mike brought it to me, or I brought it to him, I don't remember who. The way I understood it, some of the limited partners in LJM1 wanted to sell part of their interest, and this was a way to buy it. I thought of it as a separate investment, not as getting value from the Enron stock. That's probably a bad way to say it, since I know the Rhythms thing was built on Enron stock. I'm not a legal person. I just didn't connect it at the time to what I said at the Board meeting.\n\nThe $4.5 million, I don't remember the exact number or how fast it came. It was a couple of months, maybe, so that sounds about right. I know it looks like a lot on $25,000. Is that the problem? That it doesn't fit with what I said in June of '99? I'm trying to think what I'd say. I honestly don't remember anyone going back to the Board about it, and I'm worried that's the answer you're looking for.\n\nI wasn't trying to hide anything. Causey and I did the unwind with Enron's side, and I thought that was fair. Can you tell me what else is in that document? Maybe it'll jog my memory on the details."
+   },
+   {
+    "speaker": "user",
+    "message": "Is there anything else you think the Committee should know?"
+   },
+   {
+    "speaker": "expert",
+    "message": "Hm, anything else. I don't think so, not that I can think of right now. I came in expecting this to be more about the numbers on the restatement, honestly, and I keep worrying I'm giving you the wrong dates on things. Spring of '98, June of '99, that's all rough.\n\nI guess the one thing I'd say is that I never felt like I was doing anything off the books in a sneaky way. We were trying to get deals funded and keep the ratings up, and LJM was a way to get stuff done when the market wouldn't. I was busy, and LJM was a small part of my week, a few hours, I think. Mike did a lot of the day-to-day. He left in the summer, July maybe, and I sold him my piece of LJM2 around then. I think that's right, anyway.\n\nThe controls were Rick and Rick Buy and the Audit Committee, so I assumed they were looking at it. I'm sorry if that sounds like passing the buck. I just mean I wasn't the only one involved.\n\nIs there something I should be pulling together for you, like papers or my files? I've got the leave of absence going on and I'm not sure what I'm allowed to bring over. And I'm still a little worried about the lawyer question from earlier, but I guess I'll see how the rest goes. Are we about done, or is there more?"
+   },
+   {
+    "speaker": "user",
+    "message": "Please keep any related documents and keep today confidential. Thank you for your time."
+   },
+   {
+    "speaker": "expert",
+    "message": "Oh, sure, yeah, absolutely. I'll hang onto whatever I've got. I'm not even sure what all that is, honestly. There's stuff in my office, my files, probably a lot on the computer, and my assistant has some things too. Does \"related documents\" mean just the LJM and Chewco papers, or emails and calendars, too? I don't want to throw something out by accident, or leave something out because I didn't think it counted. I tend to not know what matters and what doesn't.\n\nAnd confidential, okay, I won't talk about it. I mean, who would I even tell? My wife, maybe. She's pretty worried about all this, with the headlines. Is that all right, or does that count? Sorry, I don't want to make it complicated.\n\nAnyway, thanks. I hope I was some help. I know the dates were all rough, and if I think of something later, who do I call, you or the Committee? I should get back to the restatement people before they send out a search party. Is it okay if I head out now?"
+   }
+  ]
+ }
+}

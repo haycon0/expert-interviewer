@@ -17,9 +17,38 @@ It runs on your own computer, in your web browser. An interview costs roughly $0
 
 **New to this? Start here → [SETUP.md](SETUP.md).** It walks you through everything step by step, with no coding experience needed. Once it's set up, you start the app by double-clicking a file.
 
+## What's in this folder
+
+You only need the first few rows to use the app. The rest is for anyone curious about how it works or how it was tested.
+
+| If you want to… | Open |
+|---|---|
+| Install and start the app | [SETUP.md](SETUP.md), then double-click `start.command` (Mac) or `start.bat` (Windows) |
+| Try a ready-made practice interview | [examples/enron-fastow](examples/enron-fastow/README.md) |
+| Plan your own interview | [docs/INTERVIEW-OUTLINE.md](docs/INTERVIEW-OUTLINE.md) |
+| Understand how you're graded | [docs/ASSESSMENT.md](docs/ASSESSMENT.md) |
+| See how the tool was tested, and the results | [docs/TESTING.md](docs/TESTING.md) |
+| Choose a different or cheaper AI model | [docs/MODELS.md](docs/MODELS.md) |
+| Talk to the witness by voice, or see a face | [docs/VOICE-AND-FACE.md](docs/VOICE-AND-FACE.md) |
+| Learn what happens behind the scenes | [docs/HOW-IT-WORKS.md](docs/HOW-IT-WORKS.md) |
+| Use the testing (debug) page | [docs/DEBUGGING.md](docs/DEBUGGING.md) |
+| Read how the tool was built with AI | [docs/DEVELOPMENT.md](docs/DEVELOPMENT.md) |
+
+The folders:
+
+| Folder | What's in it |
+|---|---|
+| `docs/` | The guides listed above |
+| `examples/` | Practice cases you can run, with their documents |
+| `debug/` | Prepared practice interviews (`scripts/`), saved test results (`gradings/`), and the tools that create and grade them (`tools/`) |
+| `rubrics/` | The grading rubric |
+| `static/` | The app's web page |
+
+The `.py` and `.json` files at the top level are the app itself. You don't need to open them.
+
 ## Try the practice interview
 
-[`examples/enron-fastow`](examples/enron-fastow/README.md) is a ready-made practice run: you interview Andrew Fastow, Enron's former CFO. It tells you exactly what to enter and gives you 30 questions to ask.
+[`examples/enron-fastow`](examples/enron-fastow/README.md) is a ready-made practice run: you interview Andrew Fastow, Enron's former CFO. It tells you exactly what to enter and gives you 31 questions to ask.
 
 ## How it works
 
@@ -37,9 +66,11 @@ Interview by **text**, by **voice** (talk to the witness and hear it answer), or
 
 [docs/PUBLISHING.md](docs/PUBLISHING.md) walks through putting this version on the internet with Render, protected by a shared password, with daily usage limits, costs, and privacy notes.
 
-## Debugging
+## Testing
 
-For testing, click **Debug page** on the setup page (or go to `/debug`): it fills in the Enron example for you. [docs/DEBUGGING.md](docs/DEBUGGING.md) explains it: choose the witness's persona and variations, start from a scripted interview that's halfway through or one question from the end, and skip the document check.
+For testing, click **Debug page** on the setup page (or go to `/debug`): it fills in the Enron example for you. [docs/DEBUGGING.md](docs/DEBUGGING.md) explains it: choose the witness's persona and variations, start from a prepared interview that's halfway through or already finished, and skip the document check.
+
+[docs/TESTING.md](docs/TESTING.md) describes the seven tests the tool passes (witness personalities, finished and early-ending interviews, stray documents, the Upjohn warning, missed follow-ups, and grading consistency) and their results.
 
 ## How interviews are graded
 
@@ -47,7 +78,7 @@ For testing, click **Debug page** on the setup page (or go to `/debug`): it fill
 
 ## How this was built
 
-[docs/DEVELOPMENT.md](docs/DEVELOPMENT.md) tells how the tool was built entirely with AI tools and plain-English requests, starting from an AI-written plan ([docs/handoff-doc.md](docs/handoff-doc.md)). It includes every prompt used, what the AI did in response, and how to do the same yourself.
+[docs/DEVELOPMENT.md](docs/DEVELOPMENT.md) tells how the tool was built entirely with AI tools and plain-English requests, starting from an AI-written plan. It includes every prompt used, what the AI did in response, and how to do the same yourself.
 
 ---
 
@@ -58,7 +89,7 @@ A LangGraph multi-agent app (Document Checker → human review → Synthetic Exp
 - Uploaded documents (.pdf, .docx, .txt, .csv, .md, .json) are checked for relevance in parallel. If any are flagged, the graph pauses (`interrupt`) for the user to keep or remove each one.
 - The witness and grader agents read only the case background and the kept documents. There's no research step and no outside knowledge. Large sets are trimmed to about 60K characters, preferring passages that mention the witness.
 - The witness persona is drawn at random and revealed only with the grade.
-- Grading uses a fixed rubric (`rubrics/v2.2.json`). The grader only rates each skill 0–4 and cites turn numbers; `grading_v2.py` computes the marks, caps and band. The previous rubric (`rubric.json`, with the Criteria agent's case-specific look-fors) can be chosen on the debug page for comparison.
+- Grading uses a fixed rubric (`rubrics/v2.2.json`). The grader decides how the interview ended, lists the witness's leads and whether each was followed up, rates each skill 0–4 and cites turn numbers; `grading_v2.py` computes the marks, caps and band, and averages `GRADER_RUNS` gradings (5 by default). The previous rubric (`rubric.json`, with the Criteria agent's case-specific look-fors) can be chosen on the debug page for comparison.
 
 ```
 pip install -r requirements.txt
@@ -80,8 +111,7 @@ python -m uvicorn server:app --reload
 | `rubric.json` | The previous rubric (draft 2), kept for comparison on the debug page. |
 | `static/index.html` | Single-page UI: setup → interview → results. |
 | `examples/` | Worked practice interviews with case files. |
+| `debug.py`, `debug/` | The debug page's example cases and prepared interviews; `debug/tools/` builds the test interviews, grades them (`grade_script.py`) and runs the persona test (`persona_test.py`). |
 | `models.json`, `model_catalog.py` | The model list for the setup page, and setup-status checks. |
 
 **Model:** set `MODEL` in `.env` to any LangChain `init_chat_model` string (default `anthropic:claude-sonnet-5-5`). Override individual agents with `MODEL_WITNESS`, `MODEL_CHECKER`, `MODEL_CRITERIA`, or `MODEL_GRADER`. OpenAI, Azure OpenAI, Google Gemini, and Ollama packages are installed; more providers are commented out in `requirements.txt`. See [docs/MODELS.md](docs/MODELS.md).
-
-**Not yet built (from the handoff doc):** PostgreSQL/Redis persistence (sessions are in memory plus JSON files, so they're lost on restart), web research and citations, Azure services, Dataverse, voice, multi-expert panels.

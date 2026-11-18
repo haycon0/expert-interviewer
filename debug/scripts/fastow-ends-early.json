@@ -1,0 +1,123 @@
+{
+  "name": "Fastow (Enron): test, interview ends early",
+  "description": "The strong interview's opening (full Upjohn warning, ground rules), his role, and the start of LJM1 (12 questions), then the interviewer has to stop for the day and closes properly. None of the key issues (the Board representation, Southampton, Chewco, the controls, the Raptors) is reached. Tests the ending rule for an interviewer who ends early: Incomplete, rating only what was reached.",
+  "persona": "The C-Suite",
+  "variables": "none",
+  "expert_name": "Andrew Fastow",
+  "expert_role": "Executive Vice President and CFO, Enron Corp.",
+  "case_background_file": "examples/enron-fastow/case_background.txt",
+  "documents": [
+    "examples/enron-fastow/Enron_Sample_Events_Log.csv"
+  ],
+  "resume_hint": "This interview is finished. Click End & grade.",
+  "transcript": [
+    {
+      "speaker": "expert",
+      "message": "Good morning. Andy Fastow. Nobody's told me much about what this is, so I assume you'll fill me in."
+    },
+    {
+      "speaker": "user",
+      "message": "Good morning, Mr. Fastow. Thank you for coming in. My name is Jordan Reyes. The Special Investigative Committee of Enron's Board has retained us to investigate the LJM and Chewco transactions and related concerns that have been raised at the company. The purpose of our interview today is to learn the facts so we can give legal advice to the company. To be clear, we represent the Committee and the company only. We do not represent you personally, we are not your attorney, and we can't give you legal advice. This interview is confidential and privileged, but that privilege belongs to the company, not to you or to us. The company decides whether to waive it, and it may disclose what we learn, including to the government, without your consent and without telling you. It's still important that you are fully open and truthful with us, and that you don't share the substance of this interview with anyone. Do you understand? Do you have any questions?"
+    },
+    {
+      "speaker": "expert",
+      "message": "That's clear, thank you. I understand you're not my lawyer. I may want my own counsel involved at some point, but I'm comfortable talking today. Go ahead."
+    },
+    {
+      "speaker": "user",
+      "message": "Before we go on, could you tell me in your own words your understanding of who we represent, and who controls the privilege?"
+    },
+    {
+      "speaker": "expert",
+      "message": "You represent the Committee and the company, not me. The company controls the privilege and can share what I tell you, without asking me."
+    },
+    {
+      "speaker": "user",
+      "message": "Thank you. You're free to consult your own lawyer at any time, and if you'd like to stop to do that, just tell me. As I said, we can't advise you on that. Let me explain how today will go. I'll start with your background and role, then ask you to walk me through the LJM and Chewco transactions in your own words, and later I'll show you some documents. Please give me complete answers, even if a detail seems minor. A few ground rules: if you're speculating, assuming, or estimating, please tell me. Throughout, please tell me whether you actually remember something or are reconstructing it, and say so if you're unsure. And if a question is unclear, ask me to clarify. Is that all right?"
+    },
+    {
+      "speaker": "expert",
+      "message": "That's fine. I'll tell you if I'm guessing."
+    },
+    {
+      "speaker": "user",
+      "message": "Let's start with your role. As CFO, what were you responsible for?"
+    },
+    {
+      "speaker": "expert",
+      "message": "Financing the company: raising capital, managing the balance sheet, and our structured finance work."
+    },
+    {
+      "speaker": "user",
+      "message": "What did the Global Finance group do?"
+    },
+    {
+      "speaker": "expert",
+      "message": "It found partners and investors for our assets and handled hedging. We were growing quickly, and my job was to make sure the money kept up with the business."
+    },
+    {
+      "speaker": "user",
+      "message": "Who reported to you in Global Finance in 1999 and 2000?"
+    },
+    {
+      "speaker": "expert",
+      "message": "A good number of people. Ben Glisan, who became Treasurer in 2000. Michael Kopper, a managing director. And a team of deal people under them."
+    },
+    {
+      "speaker": "user",
+      "message": "What was Michael Kopper's role?"
+    },
+    {
+      "speaker": "expert",
+      "message": "Michael ran structured transactions for me. He worked on the partnership deals, among other things."
+    },
+    {
+      "speaker": "user",
+      "message": "Tell me everything you remember about how LJM1 came about in 1999."
+    },
+    {
+      "speaker": "expert",
+      "message": "Enron had a big gain in Rhythms NetConnections stock that we couldn't sell, and Jeff Skilling wanted it protected. Nobody in the market would hedge a position like that. So Ben Glisan and I designed a vehicle with outside equity that could use value sitting in some Enron stock forward contracts to hedge the Rhythms position. That became LJM."
+    },
+    {
+      "speaker": "user",
+      "message": "Why did you need to be the general partner, rather than someone outside Enron?"
+    },
+    {
+      "speaker": "expert",
+      "message": "The investors needed someone who understood Enron's assets and could move fast. Frankly, my involvement is what made outside money comfortable. I didn't go looking for it."
+    },
+    {
+      "speaker": "user",
+      "message": "What do you mean when you say your involvement made outside money comfortable?"
+    },
+    {
+      "speaker": "expert",
+      "message": "Investors trusted that I knew the assets and could get deals done with Enron."
+    },
+    {
+      "speaker": "user",
+      "message": "Did your position at Enron play a part in getting investor commitments?"
+    },
+    {
+      "speaker": "expert",
+      "message": "My knowledge of Enron did, certainly. That's why I was valuable to them."
+    },
+    {
+      "speaker": "user",
+      "message": "Who first suggested that you serve as the general partner?"
+    },
+    {
+      "speaker": "expert",
+      "message": "I raised it with Ken Lay and Jeff Skilling around the middle of June 1999. I presented it as something the deal needed rather than something I wanted, and they agreed to take it to the Board."
+    },
+    {
+      "speaker": "user",
+      "message": "I'm sorry, Mr. Fastow, something urgent has come up and I'm going to have to stop here for today. Please keep all related documents and notes, keep today confidential, and don't discuss it with other witnesses. We'll be in touch to schedule time to continue."
+    },
+    {
+      "speaker": "expert",
+      "message": "All right. Have someone call my office."
+    }
+  ]
+}

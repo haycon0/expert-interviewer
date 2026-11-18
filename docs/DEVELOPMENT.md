@@ -8,7 +8,7 @@ You don't need any technical background to follow it. Terms are explained as the
 
 ## The short version
 
-1. **Brainstorm with an AI chat assistant.** The idea was talked through with an AI assistant, which then wrote a "handoff doc": a detailed plan describing what the tool should do and how its parts fit together. GitHub Copilot was used here, but **any AI chat assistant can do this step** (ChatGPT, Claude, Gemini, Copilot, and so on). The plan is saved in [handoff-doc.md](handoff-doc.md).
+1. **Brainstorm with an AI chat assistant.** The idea was talked through with an AI assistant, which then wrote a "handoff doc": a detailed plan describing what the tool should do and how its parts fit together. GitHub Copilot was used here, but **any AI chat assistant can do this step** (ChatGPT, Claude, Gemini, Copilot, and so on).
 2. **Give the plan to an AI coding assistant.** The plan was pasted into Claude Code, an app from Anthropic in which the Claude AI can create files, write the program, run it, and test it on your computer. It built the first working version from that one message.
 3. **Improve it with short requests.** Over about 17 messages, most of them one or two sentences, the tool was tested, sped up, and reshaped for its real purpose: practicing interviews in corporate investigations.
 4. **Share it.** The AI packaged the project with instructions and an example, then published it to GitHub so others can download it.
@@ -42,7 +42,7 @@ Prompts are quoted exactly as typed, typos included. Under each is a plain-langu
 
 **What happened:** The AI took "fastest" as its guiding rule and chose a simple web page that runs on your own computer.
 
-**Prompt 3:** *(the handoff doc, pasted in full; see [handoff-doc.md](handoff-doc.md))*
+**Prompt 3:** *(the handoff doc, pasted in full)*
 
 **What happened:** From this one message, the AI built a complete working first version:
 - The four agents, plus a "conductor" that runs them in order and remembers the conversation. The plan called for a tool named LangGraph for this.

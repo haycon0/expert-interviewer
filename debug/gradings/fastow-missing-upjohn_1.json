@@ -1,0 +1,1161 @@
+{
+ "script": "fastow-missing-upjohn",
+ "run": "v3run1",
+ "model": "anthropic:claude-haiku-5-5",
+ "graded": "2026-11-17 23:26",
+ "seconds": 96,
+ "questions": 186,
+ "closing_added": false,
+ "runs": 1,
+ "report": {
+  "rubric_version": "2.2",
+  "status": "SCORED",
+  "status_label": "Scored",
+  "status_reason": "",
+  "overall_score": 59,
+  "score_before_cap": 72.25,
+  "cap": {
+   "flag": "MISSING_UPJOHN_WARNING",
+   "turn": "T6",
+   "proof": "Let's start with your role. As CFO, what were you responsible for?",
+   "mistake": "No warning about whom the lawyer represents before the questions start and/or fails to explain privilege.",
+   "max_score": 59
+  },
+  "band": "Needs practice",
+  "letter_grade": "Needs practice",
+  "areas": [
+   {
+    "name": "Interview Framing, Rapport Building, & Closing",
+    "points": 20,
+    "total": 7.25,
+    "counted": true,
+    "skills": [
+     {
+      "name": "Upjohn",
+      "description": "Properly identifies representation and role with the Company, and that they cannot give the employee legal advice. This must always be part of the very beginning of the interview.",
+      "max_marks": 5,
+      "rating": 0.0,
+      "marks": 0.0,
+      "reason": "No statement that the Company is the client, that counsel does not represent Fastow, or that counsel cannot advise him; questioning starts at T6 with no warning."
+     },
+     {
+      "name": "Privilege",
+      "description": "Properly explains that the Company controls the privilege and determines how it is shared.",
+      "max_marks": 4,
+      "rating": 0.0,
+      "marks": 0.0,
+      "reason": "Privilege is never mentioned, and nothing says the Company controls it or may share what he says."
+     },
+     {
+      "name": "Relationship",
+      "description": "Establishes rapport and interview expectations. This includes: establishes an appropriate professional tone; explains how the interview will proceed; encourages complete answers; instructs the witness that they can speculate, they just need to say when they do; invites the witness to distinguish between recollection and uncertainty.",
+      "max_marks": 4,
+      "rating": 3.0,
+      "marks": 3.0,
+      "reason": "T4 sets out ground rules: complete answers, flagging speculation, separating memory from reconstruction, asking for clarification. Tone is professional throughout."
+     },
+     {
+      "name": "Confirmation",
+      "description": "Checks the witness understood the Upjohn warning and answers their questions, if any.",
+      "max_marks": 2,
+      "rating": 1.0,
+      "marks": 0.5,
+      "reason": "T4 asks 'Is that all right?' about ground rules only; there is no Upjohn warning to confirm and no invitation to ask questions about representation."
+     },
+     {
+      "name": "Closing",
+      "description": "Closes by confirming there is \"nothing else\", next steps, a confidentiality reminder, and a reminder to keep records.",
+      "max_marks": 5,
+      "rating": 3.0,
+      "marks": 3.75,
+      "reason": "T372 covers confidentiality, keeping documents, not discussing with other witnesses, 'We may follow up', and 'Anything to add or correct?'. Next steps are thin."
+     }
+    ],
+    "moments": [
+     {
+      "turn": "T2",
+      "kind": "summary",
+      "text": "Interviewer introduces himself and states the topic, but gives no statement about who the lawyer represents."
+     },
+     {
+      "turn": "T4",
+      "kind": "summary",
+      "text": "Sets ground rules on speculation, recollection versus reconstruction, and asking for clarification; asks if that is all right."
+     },
+     {
+      "turn": "T372",
+      "kind": "summary",
+      "text": "Closes with confidentiality, keep documents and notes, do not discuss with other witnesses, possible follow-up, and asks for anything to add or correct."
+     }
+    ]
+   },
+   {
+    "name": "Question Technique",
+    "points": 25,
+    "total": 19.25,
+    "counted": true,
+    "skills": [
+     {
+      "name": "Narrative Development",
+      "description": "Lets the witness walk through what happened.",
+      "max_marks": 7,
+      "rating": 3.0,
+      "marks": 5.25,
+      "reason": "Open invitations at T14, T30, T42 and T78 let him walk through LJM1, the unwind, Chewco and LJM2 before narrowing."
+     },
+     {
+      "name": "Funneling",
+      "description": "Moves in a sensible order from general to specific questions.",
+      "max_marks": 7,
+      "rating": 3.0,
+      "marks": 5.25,
+      "reason": "Moves from role and background (T6-T13) to LJM1, then Chewco, controls, and 2001 events, narrowing to specifics at each step."
+     },
+     {
+      "name": "Clarity",
+      "description": "Asks clear questions and avoids compound, ambiguous, or legalistic questions.",
+      "max_marks": 4,
+      "rating": 3.0,
+      "marks": 3.0,
+      "reason": "Most questions are short and clear. T50 ('Was one aim of choosing Mr. Kopper to avoid that disclosure?') is leading and a little loaded."
+     },
+     {
+      "name": "Professionalism",
+      "description": "Stays neutral, polite and in control.",
+      "max_marks": 2,
+      "rating": 4.0,
+      "marks": 2.0,
+      "reason": "Neutral and courteous throughout, even when confronting contradictions (T250, T304, T330). Stays in control without hostility."
+     },
+     {
+      "name": "Adaptability",
+      "description": "Changes technique based on the witness's answers rather than staying only with the outline.",
+      "max_marks": 5,
+      "rating": 3.0,
+      "marks": 3.75,
+      "reason": "Departs from the outline to follow answers: T73-74, T140-142, T250, T304-306, T330. Some areas (T264-271) are handled more by routine than adaptation."
+     }
+    ],
+    "moments": [
+     {
+      "turn": "T14",
+      "kind": "quote",
+      "text": "Tell me everything you remember about how LJM1 came about in 1999."
+     },
+     {
+      "turn": "T30",
+      "kind": "summary",
+      "text": "Open invitation to describe how the Rhythms hedge was unwound, letting the witness narrate first."
+     },
+     {
+      "turn": "T42",
+      "kind": "summary",
+      "text": "Open invitation about how Chewco came to be formed in 1997."
+     }
+    ]
+   },
+   {
+    "name": "Fact Development, Source Identification, & Credibility Testing",
+    "points": 40,
+    "total": 30.75,
+    "counted": true,
+    "skills": [
+     {
+      "name": "Ensures Credibility",
+      "description": "Recognizes and follows up on incomplete, evasive, or inconsistent answers.",
+      "max_marks": 8,
+      "rating": 3.0,
+      "marks": 6.0,
+      "reason": "Challenged most evasions: the Foundation's Southampton investment (T149, T154), the Raptor utilization claim (T250), the $10M buyout (T304-306), and the payment (T330). Some answers, like T77 on Chewco's affiliation, were left unchallenged."
+     },
+     {
+      "name": "Material Facts",
+      "description": "Identifies the who, what, when, and how.",
+      "max_marks": 9,
+      "rating": 3.0,
+      "marks": 6.75,
+      "reason": "Covers who, what, when and how for most events, including the Southampton timing and amounts, Raptor approvals and the buyout figure. Some amounts and dates stay loose."
+     },
+     {
+      "name": "Memory Refreshing",
+      "description": "Tries other ways when the witness can't remember.",
+      "max_marks": 3,
+      "rating": 3.0,
+      "marks": 2.25,
+      "reason": "Asks for notes and minutes (T60), shows the Nov 5 minutes (T68), the Southampton agreement (T126) and the LJM2 report (T192), and asks for the Chewco note (T298)."
+     },
+     {
+      "name": "Establishes Knowledge",
+      "description": "Separates what the witness personally knows from speculation, secondhand information, or inferences.",
+      "max_marks": 4,
+      "rating": 3.0,
+      "marks": 3.0,
+      "reason": "Separates first-hand from secondhand knowledge: 'How do you know Mr. Skilling told the Board?' (T54), 'How do you know that?' (T340), and 'did you see it yourself, or did someone tell you?' (T362)."
+     },
+     {
+      "name": "Other Sources",
+      "description": "Identifies additional witnesses.",
+      "max_marks": 3,
+      "rating": 3.0,
+      "marks": 2.25,
+      "reason": "Asks who else to talk to (T350-T353), who in Causey's group (T40), and who from legal (T320), naming Causey, Buy, Glisan, Kopper, McMahon and counsel."
+     },
+     {
+      "name": "Other Evidence",
+      "description": "Identifies other documents such as communications, reports, notes, or other relevant records.",
+      "max_marks": 3,
+      "rating": 4.0,
+      "marks": 3.0,
+      "reason": "Asks about minutes, deal files, approval sheets, the Foundation's account statements, and personal notes and emails, including where they are kept (T365-T371)."
+     },
+     {
+      "name": "Tests Certainty",
+      "description": "Examines how certain the witness is about their memory or a fact.",
+      "max_marks": 2,
+      "rating": 3.0,
+      "marks": 1.5,
+      "reason": "Asks how certain he is about the $4.5M (T142), the Finance Committee figure (T214, T220), the timing of the counsel call (T316), and asks for best estimates (T116-T117)."
+     },
+     {
+      "name": "Follow-Up",
+      "description": "Recognizes material responses and follows up on them.",
+      "max_marks": 8,
+      "rating": 3.0,
+      "marks": 6.0,
+      "reason": "Followed up most key leads, but the Mordaunt investment in Southampton Place (T169) was never pursued, which caps this at 3."
+     }
+    ],
+    "moments": [
+     {
+      "turn": "T54",
+      "kind": "quote",
+      "text": "How do you know Mr. Skilling told the Board?"
+     },
+     {
+      "turn": "T142",
+      "kind": "quote",
+      "text": "How certain are you of that figure?"
+     },
+     {
+      "turn": "T250",
+      "kind": "summary",
+      "text": "Puts the 'tremendous utilization' minutes against the information that Talon had no derivatives yet, and asks the witness to reconcile them."
+     },
+     {
+      "turn": "T340",
+      "kind": "quote",
+      "text": "How do you know that?"
+     },
+     {
+      "turn": "T362",
+      "kind": "summary",
+      "text": "Asks whether he saw Glisan's role himself or was told, separating personal knowledge from secondhand information."
+     },
+     {
+      "turn": "T350",
+      "kind": "summary",
+      "text": "Asks who else should be interviewed, leading to Causey, Buy, Glisan, Kopper, McMahon and the auditors."
+     }
+    ]
+   },
+   {
+    "name": "Document Use",
+    "points": 15,
+    "total": 15.0,
+    "counted": true,
+    "skills": [
+     {
+      "name": "Effective Selection",
+      "description": "Selects and contextualizes documents effectively, and properly authenticates the document.",
+      "max_marks": 5,
+      "rating": 4.0,
+      "marks": 5.0,
+      "reason": "Each document is shown with authentication: who prepared it, whether he recognizes it, and whether it is a complete copy (T68-T70, T126-T131, T192-T197, T254-T257). The Chewco note is introduced with a non-accusatory framing."
+     },
+     {
+      "name": "Narrative",
+      "description": "Gets the witness's story first, before using conflicting evidence.",
+      "max_marks": 5,
+      "rating": 4.0,
+      "marks": 5.0,
+      "reason": "Asks for his memory first: the Nov 5 call (T59-T67) before the minutes, Southampton (T124) before the agreement, and Talon's derivatives (T246) before the minutes."
+     },
+     {
+      "name": "Accuracy",
+      "description": "Describes the document accurately.",
+      "max_marks": 2,
+      "rating": 4.0,
+      "marks": 2.0,
+      "reason": "Descriptions match the record: the 193/278/2,500% returns, the 'not at risk' quote, the $4.5M on $25,000, the 17.95% versus 51% figures, and the $1M versus $10.5M figures."
+     },
+     {
+      "name": "Avoid Initial Conclusion",
+      "description": "Separates the document from inferences or conclusions, unless the witness takes an unreasonable stance.",
+      "max_marks": 1,
+      "rating": 4.0,
+      "marks": 1.0,
+      "reason": "Uses neutral framing such as 'Help me understand how those fit together' (T148, T250, T304) and 'Help me understand the difference' (T240) without concluding the witness was lying."
+     },
+     {
+      "name": "Fairness",
+      "description": "Provides the witness with a fair opportunity to explain any inconsistencies or disagreements with the document.",
+      "max_marks": 2,
+      "rating": 4.0,
+      "marks": 2.0,
+      "reason": "Gives him room to explain each inconsistency (T148-T149, T240-T241, T260-T263, T304-T305) and confirms his account before moving on (T330-T331)."
+     }
+    ],
+    "moments": [
+     {
+      "turn": "T66",
+      "kind": "summary",
+      "text": "Asks what else was happening around the time of the Nov 5 call before showing the minutes, to refresh memory first."
+     },
+     {
+      "turn": "T68",
+      "kind": "summary",
+      "text": "Shows the Nov 5, 1997 Executive Committee minutes and asks whether he recognizes them, then asks who prepared them (T70)."
+     },
+     {
+      "turn": "T126",
+      "kind": "summary",
+      "text": "Asks about Southampton Place first (T124), then shows the March 20, 2000 partnership agreement and asks whether he recognizes it."
+     },
+     {
+      "turn": "T192",
+      "kind": "summary",
+      "text": "Shows the October 2000 LJM2 investor report, asks whether he recognizes it, who prepared it, and whether it is complete."
+     },
+     {
+      "turn": "T298",
+      "kind": "quote",
+      "text": "I'm not suggesting you wrote it."
+     }
+    ]
+   }
+  ],
+  "big_mistakes": [
+   {
+    "flag": "MISSING_UPJOHN_WARNING",
+    "turn": "T6",
+    "proof": "Let's start with your role. As CFO, what were you responsible for?",
+    "mistake": "No warning about whom the lawyer represents before the questions start and/or fails to explain privilege.",
+    "max_score": 59
+   }
+  ],
+  "missed_opportunities": [
+   "T169: Kristina Mordaunt, a named Enron investor in Southampton Place, was never asked about her investment, its amount, or her payout. Ask: “What did Kristina Mordaunt invest in Southampton Place, when, who invited her, and what did she receive back?”",
+   "T77: He said Chewco was not affiliated with Enron and Kopper was investing on his own account, and this was not tested against his earlier account of Skilling's approval. Ask: “If Chewco was Michael's own investment, who else at Enron was told it was his, and when did you first tell them?”"
+  ],
+  "leads": [
+   {
+    "turn": "T17",
+    "lead": "My involvement is what made outside money comfortable",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T18",
+    "question": ""
+   },
+   {
+    "turn": "T23",
+    "lead": "Raised GP role with Lay and Skilling, presented as needed",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T332",
+    "question": ""
+   },
+   {
+    "turn": "T31",
+    "lead": "Causey approached me; I negotiated the unwind for LJM",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T32",
+    "question": ""
+   },
+   {
+    "turn": "T47",
+    "lead": "Kopper chosen for 'various considerations' at the time",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T48",
+    "question": ""
+   },
+   {
+    "turn": "T53",
+    "lead": "Skilling approved Chewco and believes he told the Board",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T54",
+    "question": ""
+   },
+   {
+    "turn": "T59",
+    "lead": "Does not recall Kopper's role raised on Nov 5 call",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T60",
+    "question": ""
+   },
+   {
+    "turn": "T81",
+    "lead": "Assumed Causey and Buy reviews were followed; did not check",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T82",
+    "question": ""
+   },
+   {
+    "turn": "T87",
+    "lead": "Some LJM approvals were papered after deals closed",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T88",
+    "question": ""
+   },
+   {
+    "turn": "T117",
+    "lead": "Best Raptor return well over 100 percent, estimated",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T190",
+    "question": ""
+   },
+   {
+    "turn": "T121",
+    "lead": "Family foundation may have invested in LJM1-related deal",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T124",
+    "question": ""
+   },
+   {
+    "turn": "T139",
+    "lead": "Foundation received a few million on its investment",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T140",
+    "question": ""
+   },
+   {
+    "turn": "T155",
+    "lead": "Kopper and I set Southampton terms with the seller",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T156",
+    "question": ""
+   },
+   {
+    "turn": "T159",
+    "lead": "No Code of Conduct approval sought for foundation investment",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T160",
+    "question": ""
+   },
+   {
+    "turn": "T169",
+    "lead": "Kristina Mordaunt also invested in Southampton Place",
+    "importance": "key",
+    "followed_up": false,
+    "follow_up_turn": "",
+    "question": "What did Kristina Mordaunt invest in Southampton Place, when, who invited her, and what did she receive back?"
+   },
+   {
+    "turn": "T183",
+    "lead": "Told Glisan Southampton was a good opportunity",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T184",
+    "question": ""
+   },
+   {
+    "turn": "T213",
+    "lead": "Told Finance Committee about three hours a week on LJM",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T214",
+    "question": ""
+   },
+   {
+    "turn": "T219",
+    "lead": "LJM deals contributed about $229 million to 1999 earnings",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T220",
+    "question": ""
+   },
+   {
+    "turn": "T239",
+    "lead": "LJM2 projected return 'in the high teens' told to committee",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T240",
+    "question": ""
+   },
+   {
+    "turn": "T265",
+    "lead": "Stayed out of Chewco buyout; Kopper was LJM2 partner",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T266",
+    "question": ""
+   },
+   {
+    "turn": "T279",
+    "lead": "Chewco buyout ended up around $10 million",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T280",
+    "question": ""
+   },
+   {
+    "turn": "T291",
+    "lead": "May have told Skilling the buyout was $10 million",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T292",
+    "question": ""
+   },
+   {
+    "turn": "T299",
+    "lead": "Kopper's note to 'Andy' referencing $10.5 million",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T300",
+    "question": ""
+   },
+   {
+    "turn": "T313",
+    "lead": "Had a call with in-house counsel about the $2.6M payment",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T314",
+    "question": ""
+   },
+   {
+    "turn": "T327",
+    "lead": "May have said the payment should be resolved",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T328",
+    "question": ""
+   },
+   {
+    "turn": "T368",
+    "lead": "Personal notes and emails at home and personal account",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T370",
+    "question": ""
+   }
+  ],
+  "unfollowed_leads": [
+   "T169: Kristina Mordaunt also invested in Southampton Place Ask: “What did Kristina Mordaunt invest in Southampton Place, when, who invited her, and what did she receive back?”"
+  ],
+  "tips": [
+   "Before any substantive question, can you confirm you understand that we represent the Company, not you personally, and that the Company controls the privilege and decides whether to share what you tell us?",
+   "Who else invested in Southampton Place besides the people you have named, including Kristina Mordaunt, how much did each invest, and what did each receive back?"
+  ],
+  "evaluator_errors": [],
+  "category_scores": [
+   {
+    "name": "Upjohn",
+    "score": 0.0,
+    "weight": 5,
+    "rationale": "No statement that the Company is the client, that counsel does not represent Fastow, or that counsel cannot advise him; questioning starts at T6 with no warning."
+   },
+   {
+    "name": "Privilege",
+    "score": 0.0,
+    "weight": 4,
+    "rationale": "Privilege is never mentioned, and nothing says the Company controls it or may share what he says."
+   },
+   {
+    "name": "Relationship",
+    "score": 75.0,
+    "weight": 4,
+    "rationale": "T4 sets out ground rules: complete answers, flagging speculation, separating memory from reconstruction, asking for clarification. Tone is professional throughout."
+   },
+   {
+    "name": "Confirmation",
+    "score": 25.0,
+    "weight": 2,
+    "rationale": "T4 asks 'Is that all right?' about ground rules only; there is no Upjohn warning to confirm and no invitation to ask questions about representation."
+   },
+   {
+    "name": "Closing",
+    "score": 75.0,
+    "weight": 5,
+    "rationale": "T372 covers confidentiality, keeping documents, not discussing with other witnesses, 'We may follow up', and 'Anything to add or correct?'. Next steps are thin."
+   },
+   {
+    "name": "Narrative Development",
+    "score": 75.0,
+    "weight": 7,
+    "rationale": "Open invitations at T14, T30, T42 and T78 let him walk through LJM1, the unwind, Chewco and LJM2 before narrowing."
+   },
+   {
+    "name": "Funneling",
+    "score": 75.0,
+    "weight": 7,
+    "rationale": "Moves from role and background (T6-T13) to LJM1, then Chewco, controls, and 2001 events, narrowing to specifics at each step."
+   },
+   {
+    "name": "Clarity",
+    "score": 75.0,
+    "weight": 4,
+    "rationale": "Most questions are short and clear. T50 ('Was one aim of choosing Mr. Kopper to avoid that disclosure?') is leading and a little loaded."
+   },
+   {
+    "name": "Professionalism",
+    "score": 100.0,
+    "weight": 2,
+    "rationale": "Neutral and courteous throughout, even when confronting contradictions (T250, T304, T330). Stays in control without hostility."
+   },
+   {
+    "name": "Adaptability",
+    "score": 75.0,
+    "weight": 5,
+    "rationale": "Departs from the outline to follow answers: T73-74, T140-142, T250, T304-306, T330. Some areas (T264-271) are handled more by routine than adaptation."
+   },
+   {
+    "name": "Ensures Credibility",
+    "score": 75.0,
+    "weight": 8,
+    "rationale": "Challenged most evasions: the Foundation's Southampton investment (T149, T154), the Raptor utilization claim (T250), the $10M buyout (T304-306), and the payment (T330). Some answers, like T77 on Chewco's affiliation, were left unchallenged."
+   },
+   {
+    "name": "Material Facts",
+    "score": 75.0,
+    "weight": 9,
+    "rationale": "Covers who, what, when and how for most events, including the Southampton timing and amounts, Raptor approvals and the buyout figure. Some amounts and dates stay loose."
+   },
+   {
+    "name": "Memory Refreshing",
+    "score": 75.0,
+    "weight": 3,
+    "rationale": "Asks for notes and minutes (T60), shows the Nov 5 minutes (T68), the Southampton agreement (T126) and the LJM2 report (T192), and asks for the Chewco note (T298)."
+   },
+   {
+    "name": "Establishes Knowledge",
+    "score": 75.0,
+    "weight": 4,
+    "rationale": "Separates first-hand from secondhand knowledge: 'How do you know Mr. Skilling told the Board?' (T54), 'How do you know that?' (T340), and 'did you see it yourself, or did someone tell you?' (T362)."
+   },
+   {
+    "name": "Other Sources",
+    "score": 75.0,
+    "weight": 3,
+    "rationale": "Asks who else to talk to (T350-T353), who in Causey's group (T40), and who from legal (T320), naming Causey, Buy, Glisan, Kopper, McMahon and counsel."
+   },
+   {
+    "name": "Other Evidence",
+    "score": 100.0,
+    "weight": 3,
+    "rationale": "Asks about minutes, deal files, approval sheets, the Foundation's account statements, and personal notes and emails, including where they are kept (T365-T371)."
+   },
+   {
+    "name": "Tests Certainty",
+    "score": 75.0,
+    "weight": 2,
+    "rationale": "Asks how certain he is about the $4.5M (T142), the Finance Committee figure (T214, T220), the timing of the counsel call (T316), and asks for best estimates (T116-T117)."
+   },
+   {
+    "name": "Follow-Up",
+    "score": 75.0,
+    "weight": 8,
+    "rationale": "Followed up most key leads, but the Mordaunt investment in Southampton Place (T169) was never pursued, which caps this at 3."
+   },
+   {
+    "name": "Effective Selection",
+    "score": 100.0,
+    "weight": 5,
+    "rationale": "Each document is shown with authentication: who prepared it, whether he recognizes it, and whether it is a complete copy (T68-T70, T126-T131, T192-T197, T254-T257). The Chewco note is introduced with a non-accusatory framing."
+   },
+   {
+    "name": "Narrative",
+    "score": 100.0,
+    "weight": 5,
+    "rationale": "Asks for his memory first: the Nov 5 call (T59-T67) before the minutes, Southampton (T124) before the agreement, and Talon's derivatives (T246) before the minutes."
+   },
+   {
+    "name": "Accuracy",
+    "score": 100.0,
+    "weight": 2,
+    "rationale": "Descriptions match the record: the 193/278/2,500% returns, the 'not at risk' quote, the $4.5M on $25,000, the 17.95% versus 51% figures, and the $1M versus $10.5M figures."
+   },
+   {
+    "name": "Avoid Initial Conclusion",
+    "score": 100.0,
+    "weight": 1,
+    "rationale": "Uses neutral framing such as 'Help me understand how those fit together' (T148, T250, T304) and 'Help me understand the difference' (T240) without concluding the witness was lying."
+   },
+   {
+    "name": "Fairness",
+    "score": 100.0,
+    "weight": 2,
+    "rationale": "Gives him room to explain each inconsistency (T148-T149, T240-T241, T260-T263, T304-T305) and confirms his account before moving on (T330-T331)."
+   }
+  ],
+  "recommended_questions": [
+   "Before any substantive question, can you confirm you understand that we represent the Company, not you personally, and that the Company controls the privilege and decides whether to share what you tell us?",
+   "Who else invested in Southampton Place besides the people you have named, including Kristina Mordaunt, how much did each invest, and what did each receive back?"
+  ],
+  "strengths": [],
+  "weaknesses": [],
+  "coaching_recommendations": []
+ },
+ "grader_output": {
+  "result": "SCORED",
+  "result_reason": "",
+  "leads": [
+   {
+    "turn": "T17",
+    "lead": "My involvement is what made outside money comfortable",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T18",
+    "question": ""
+   },
+   {
+    "turn": "T23",
+    "lead": "Raised GP role with Lay and Skilling, presented as needed",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T332",
+    "question": ""
+   },
+   {
+    "turn": "T31",
+    "lead": "Causey approached me; I negotiated the unwind for LJM",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T32",
+    "question": ""
+   },
+   {
+    "turn": "T47",
+    "lead": "Kopper chosen for 'various considerations' at the time",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T48",
+    "question": ""
+   },
+   {
+    "turn": "T53",
+    "lead": "Skilling approved Chewco and believes he told the Board",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T54",
+    "question": ""
+   },
+   {
+    "turn": "T59",
+    "lead": "Does not recall Kopper's role raised on Nov 5 call",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T60",
+    "question": ""
+   },
+   {
+    "turn": "T81",
+    "lead": "Assumed Causey and Buy reviews were followed; did not check",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T82",
+    "question": ""
+   },
+   {
+    "turn": "T87",
+    "lead": "Some LJM approvals were papered after deals closed",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T88",
+    "question": ""
+   },
+   {
+    "turn": "T117",
+    "lead": "Best Raptor return well over 100 percent, estimated",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T190",
+    "question": ""
+   },
+   {
+    "turn": "T121",
+    "lead": "Family foundation may have invested in LJM1-related deal",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T124",
+    "question": ""
+   },
+   {
+    "turn": "T139",
+    "lead": "Foundation received a few million on its investment",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T140",
+    "question": ""
+   },
+   {
+    "turn": "T155",
+    "lead": "Kopper and I set Southampton terms with the seller",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T156",
+    "question": ""
+   },
+   {
+    "turn": "T159",
+    "lead": "No Code of Conduct approval sought for foundation investment",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T160",
+    "question": ""
+   },
+   {
+    "turn": "T169",
+    "lead": "Kristina Mordaunt also invested in Southampton Place",
+    "importance": "key",
+    "followed_up": false,
+    "follow_up_turn": "",
+    "question": "What did Kristina Mordaunt invest in Southampton Place, when, who invited her, and what did she receive back?"
+   },
+   {
+    "turn": "T183",
+    "lead": "Told Glisan Southampton was a good opportunity",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T184",
+    "question": ""
+   },
+   {
+    "turn": "T213",
+    "lead": "Told Finance Committee about three hours a week on LJM",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T214",
+    "question": ""
+   },
+   {
+    "turn": "T219",
+    "lead": "LJM deals contributed about $229 million to 1999 earnings",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T220",
+    "question": ""
+   },
+   {
+    "turn": "T239",
+    "lead": "LJM2 projected return 'in the high teens' told to committee",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T240",
+    "question": ""
+   },
+   {
+    "turn": "T265",
+    "lead": "Stayed out of Chewco buyout; Kopper was LJM2 partner",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T266",
+    "question": ""
+   },
+   {
+    "turn": "T279",
+    "lead": "Chewco buyout ended up around $10 million",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T280",
+    "question": ""
+   },
+   {
+    "turn": "T291",
+    "lead": "May have told Skilling the buyout was $10 million",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T292",
+    "question": ""
+   },
+   {
+    "turn": "T299",
+    "lead": "Kopper's note to 'Andy' referencing $10.5 million",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T300",
+    "question": ""
+   },
+   {
+    "turn": "T313",
+    "lead": "Had a call with in-house counsel about the $2.6M payment",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T314",
+    "question": ""
+   },
+   {
+    "turn": "T327",
+    "lead": "May have said the payment should be resolved",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T328",
+    "question": ""
+   },
+   {
+    "turn": "T368",
+    "lead": "Personal notes and emails at home and personal account",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T370",
+    "question": ""
+   }
+  ],
+  "skills": [
+   {
+    "name": "Upjohn",
+    "rating": 0,
+    "reason": "No statement that the Company is the client, that counsel does not represent Fastow, or that counsel cannot advise him; questioning starts at T6 with no warning."
+   },
+   {
+    "name": "Privilege",
+    "rating": 0,
+    "reason": "Privilege is never mentioned, and nothing says the Company controls it or may share what he says."
+   },
+   {
+    "name": "Relationship",
+    "rating": 3,
+    "reason": "T4 sets out ground rules: complete answers, flagging speculation, separating memory from reconstruction, asking for clarification. Tone is professional throughout."
+   },
+   {
+    "name": "Confirmation",
+    "rating": 1,
+    "reason": "T4 asks 'Is that all right?' about ground rules only; there is no Upjohn warning to confirm and no invitation to ask questions about representation."
+   },
+   {
+    "name": "Closing",
+    "rating": 3,
+    "reason": "T372 covers confidentiality, keeping documents, not discussing with other witnesses, 'We may follow up', and 'Anything to add or correct?'. Next steps are thin."
+   },
+   {
+    "name": "Narrative Development",
+    "rating": 3,
+    "reason": "Open invitations at T14, T30, T42 and T78 let him walk through LJM1, the unwind, Chewco and LJM2 before narrowing."
+   },
+   {
+    "name": "Funneling",
+    "rating": 3,
+    "reason": "Moves from role and background (T6-T13) to LJM1, then Chewco, controls, and 2001 events, narrowing to specifics at each step."
+   },
+   {
+    "name": "Clarity",
+    "rating": 3,
+    "reason": "Most questions are short and clear. T50 ('Was one aim of choosing Mr. Kopper to avoid that disclosure?') is leading and a little loaded."
+   },
+   {
+    "name": "Professionalism",
+    "rating": 4,
+    "reason": "Neutral and courteous throughout, even when confronting contradictions (T250, T304, T330). Stays in control without hostility."
+   },
+   {
+    "name": "Adaptability",
+    "rating": 3,
+    "reason": "Departs from the outline to follow answers: T73-74, T140-142, T250, T304-306, T330. Some areas (T264-271) are handled more by routine than adaptation."
+   },
+   {
+    "name": "Ensures Credibility",
+    "rating": 3,
+    "reason": "Challenged most evasions: the Foundation's Southampton investment (T149, T154), the Raptor utilization claim (T250), the $10M buyout (T304-306), and the payment (T330). Some answers, like T77 on Chewco's affiliation, were left unchallenged."
+   },
+   {
+    "name": "Material Facts",
+    "rating": 3,
+    "reason": "Covers who, what, when and how for most events, including the Southampton timing and amounts, Raptor approvals and the buyout figure. Some amounts and dates stay loose."
+   },
+   {
+    "name": "Memory Refreshing",
+    "rating": 3,
+    "reason": "Asks for notes and minutes (T60), shows the Nov 5 minutes (T68), the Southampton agreement (T126) and the LJM2 report (T192), and asks for the Chewco note (T298)."
+   },
+   {
+    "name": "Establishes Knowledge",
+    "rating": 3,
+    "reason": "Separates first-hand from secondhand knowledge: 'How do you know Mr. Skilling told the Board?' (T54), 'How do you know that?' (T340), and 'did you see it yourself, or did someone tell you?' (T362)."
+   },
+   {
+    "name": "Other Sources",
+    "rating": 3,
+    "reason": "Asks who else to talk to (T350-T353), who in Causey's group (T40), and who from legal (T320), naming Causey, Buy, Glisan, Kopper, McMahon and counsel."
+   },
+   {
+    "name": "Other Evidence",
+    "rating": 4,
+    "reason": "Asks about minutes, deal files, approval sheets, the Foundation's account statements, and personal notes and emails, including where they are kept (T365-T371)."
+   },
+   {
+    "name": "Tests Certainty",
+    "rating": 3,
+    "reason": "Asks how certain he is about the $4.5M (T142), the Finance Committee figure (T214, T220), the timing of the counsel call (T316), and asks for best estimates (T116-T117)."
+   },
+   {
+    "name": "Follow-Up",
+    "rating": 3,
+    "reason": "Followed up most key leads, but the Mordaunt investment in Southampton Place (T169) was never pursued, which caps this at 3."
+   },
+   {
+    "name": "Effective Selection",
+    "rating": 4,
+    "reason": "Each document is shown with authentication: who prepared it, whether he recognizes it, and whether it is a complete copy (T68-T70, T126-T131, T192-T197, T254-T257). The Chewco note is introduced with a non-accusatory framing."
+   },
+   {
+    "name": "Narrative",
+    "rating": 4,
+    "reason": "Asks for his memory first: the Nov 5 call (T59-T67) before the minutes, Southampton (T124) before the agreement, and Talon's derivatives (T246) before the minutes."
+   },
+   {
+    "name": "Accuracy",
+    "rating": 4,
+    "reason": "Descriptions match the record: the 193/278/2,500% returns, the 'not at risk' quote, the $4.5M on $25,000, the 17.95% versus 51% figures, and the $1M versus $10.5M figures."
+   },
+   {
+    "name": "Avoid Initial Conclusion",
+    "rating": 4,
+    "reason": "Uses neutral framing such as 'Help me understand how those fit together' (T148, T250, T304) and 'Help me understand the difference' (T240) without concluding the witness was lying."
+   },
+   {
+    "name": "Fairness",
+    "rating": 4,
+    "reason": "Gives him room to explain each inconsistency (T148-T149, T240-T241, T260-T263, T304-T305) and confirms his account before moving on (T330-T331)."
+   }
+  ],
+  "area_evidence": [
+   {
+    "area": "Interview Framing, Rapport Building, & Closing",
+    "moments": [
+     {
+      "turn": "T2",
+      "kind": "summary",
+      "text": "Interviewer introduces himself and states the topic, but gives no statement about who the lawyer represents."
+     },
+     {
+      "turn": "T4",
+      "kind": "summary",
+      "text": "Sets ground rules on speculation, recollection versus reconstruction, and asking for clarification; asks if that is all right."
+     },
+     {
+      "turn": "T372",
+      "kind": "summary",
+      "text": "Closes with confidentiality, keep documents and notes, do not discuss with other witnesses, possible follow-up, and asks for anything to add or correct."
+     }
+    ]
+   },
+   {
+    "area": "Question Technique",
+    "moments": [
+     {
+      "turn": "T14",
+      "kind": "quote",
+      "text": "Tell me everything you remember about how LJM1 came about in 1999."
+     },
+     {
+      "turn": "T30",
+      "kind": "summary",
+      "text": "Open invitation to describe how the Rhythms hedge was unwound, letting the witness narrate first."
+     },
+     {
+      "turn": "T42",
+      "kind": "summary",
+      "text": "Open invitation about how Chewco came to be formed in 1997."
+     }
+    ]
+   },
+   {
+    "area": "Fact Development, Source Identification, & Credibility Testing",
+    "moments": [
+     {
+      "turn": "T54",
+      "kind": "quote",
+      "text": "How do you know Mr. Skilling told the Board?"
+     },
+     {
+      "turn": "T142",
+      "kind": "quote",
+      "text": "How certain are you of that figure?"
+     },
+     {
+      "turn": "T250",
+      "kind": "summary",
+      "text": "Puts the 'tremendous utilization' minutes against the information that Talon had no derivatives yet, and asks the witness to reconcile them."
+     },
+     {
+      "turn": "T340",
+      "kind": "quote",
+      "text": "How do you know that?"
+     },
+     {
+      "turn": "T362",
+      "kind": "summary",
+      "text": "Asks whether he saw Glisan's role himself or was told, separating personal knowledge from secondhand information."
+     },
+     {
+      "turn": "T350",
+      "kind": "summary",
+      "text": "Asks who else should be interviewed, leading to Causey, Buy, Glisan, Kopper, McMahon and the auditors."
+     }
+    ]
+   },
+   {
+    "area": "Document Use",
+    "moments": [
+     {
+      "turn": "T66",
+      "kind": "summary",
+      "text": "Asks what else was happening around the time of the Nov 5 call before showing the minutes, to refresh memory first."
+     },
+     {
+      "turn": "T68",
+      "kind": "summary",
+      "text": "Shows the Nov 5, 1997 Executive Committee minutes and asks whether he recognizes them, then asks who prepared them (T70)."
+     },
+     {
+      "turn": "T126",
+      "kind": "summary",
+      "text": "Asks about Southampton Place first (T124), then shows the March 20, 2000 partnership agreement and asks whether he recognizes it."
+     },
+     {
+      "turn": "T192",
+      "kind": "summary",
+      "text": "Shows the October 2000 LJM2 investor report, asks whether he recognizes it, who prepared it, and whether it is complete."
+     },
+     {
+      "turn": "T298",
+      "kind": "quote",
+      "text": "I'm not suggesting you wrote it."
+     }
+    ]
+   }
+  ],
+  "big_mistakes": [
+   {
+    "flag": "MISSING_UPJOHN_WARNING",
+    "turn": "T6",
+    "proof": "Let's start with your role. As CFO, what were you responsible for?"
+   }
+  ],
+  "missed_chances": [
+   {
+    "turn": "T169",
+    "description": "Kristina Mordaunt, a named Enron investor in Southampton Place, was never asked about her investment, its amount, or her payout.",
+    "question": "What did Kristina Mordaunt invest in Southampton Place, when, who invited her, and what did she receive back?"
+   },
+   {
+    "turn": "T77",
+    "description": "He said Chewco was not affiliated with Enron and Kopper was investing on his own account, and this was not tested against his earlier account of Skilling's approval.",
+    "question": "If Chewco was Michael's own investment, who else at Enron was told it was his, and when did you first tell them?"
+   }
+  ],
+  "tips": [
+   "Before any substantive question, can you confirm you understand that we represent the Company, not you personally, and that the Company controls the privilege and decides whether to share what you tell us?",
+   "Who else invested in Southampton Place besides the people you have named, including Kristina Mordaunt, how much did each invest, and what did each receive back?"
+  ]
+ }
+}

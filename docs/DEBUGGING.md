@@ -45,12 +45,32 @@ The scripted lines are pre-written, so starting from a script costs nothing unti
 | Script | Where it starts | What to do |
 |---|---|---|
 | **Fastow (Enron): halfway** | After 8 exchanges: the opening warning, background, LJM1, and Fastow committing to what he told the Board. | Continue at question 11 of the [Fastow example](../examples/enron-fastow/README.md) (the Rhythms unwind), then confront him with Southampton Place. |
-| **Fastow (Enron): one question left** | A thorough interview of about 175 questions that closely follows the [interview outline](INTERVIEW-OUTLINE.md) (full Upjohn warning, ground rules, documents identified before use), with only the final closing question left. Presets **The C-Suite** with no variations. | Ask the closing question shown in the side panel (also saved in [`debug/scripts/fastow-final-question-closing.md`](../debug/scripts/fastow-final-question-closing.md)), then click **End & grade**. With rubric v2.2 it scored **92 and 96 (Excellent)** on Claude Haiku. If his answer to the closing question opens something new, follow it up before ending. |
-| **Fastow (Enron): mediocre, complete** | A finished, uneven interview (79 questions). | Click **End & grade**. Graded 78, 70, 69 on Claude Haiku. |
-| **Fastow (Enron): weak, complete** | A finished, weak interview (43 questions). | Click **End & grade**. Graded 65, 66, 67 on Claude Haiku. |
-| **Fastow (Enron): strong, with poor prioritization** | The strong interview, finished, plus a 31-question detour into low-value topics (the aircraft lease, the stock split, the Gaza project) before the key issues. | Click **End & grade**. Graded 94, 87, 89 on Claude Haiku, the same as without the detour: the rubric doesn't consider use of time. See [`debug/gradings/PRIORITIZATION.md`](../debug/gradings/PRIORITIZATION.md). |
+| **Fastow (Enron): one question left** | A thorough interview of about 185 questions that closely follows the [interview outline](INTERVIEW-OUTLINE.md): full Upjohn warning, ground rules, documents identified before use, and a return to every key lead before the close. Only the final closing question is left. Presets **The C-Suite** with no variations. | Ask the closing question shown in the side panel (also saved in [`debug/scripts/fastow-final-question-closing.md`](../debug/scripts/fastow-final-question-closing.md)), then click **End & grade**. It averages **90 (Excellent)**. |
+| **Fastow (Enron): mediocre, complete** | A finished, uneven interview (79 questions). | Click **End & grade**. It averages **69 (Needs coaching)**. |
+| **Fastow (Enron): weak, complete** | A finished, weak interview (43 questions). | Click **End & grade**. It averages **60 (Needs practice)**. |
 
-The strong, mediocre and weak interviews were each graded three times to test consistency; the results are in [`debug/gradings/`](../debug/gradings/README.md).
+### Test scripts
+
+These Fastow scripts each set up one situation. All are finished, so you click **End & grade** straight away (the wrong-input one stops at the document check first). They're built by `debug/tools/build_test_scripts.py`. What each test checks, and its results, are in [TESTING.md](TESTING.md).
+
+| Script | What it is | What it shows |
+|---|---|---|
+| **test, interview ends early** | The opening, his role and the start of LJM1 (13 questions), then the interviewer has to stop and closes properly. | The interviewer ending early: **Incomplete**, rating only what was reached. |
+| **test, interviewer ends late** | The strong interview through the Chewco buyout (156 questions); the last topic is opened, then the interviewer stops with no close. | The interviewer ending late: a normal score, with low Closing and related ratings. |
+| **test, witness walks out** | The strong interview up to the Southampton confrontation (76 questions), where Fastow walks out; the interviewer stays calm and closes what it can. | The witness ending it: a normal score, never Incomplete, with no penalty for what the walk-out prevented. |
+| **test, witness wants his own lawyer** | The strong interview up to his personal interests (61 questions); Fastow then stops for his own lawyer, and the interviewer handles it correctly. | The witness ending it: a normal score, with no penalty for the topics never reached. |
+| **test, wrong input (stray payroll email)** | The mediocre interview, with an all-employee payroll reminder added to the case documents and shown to Fastow once. Don't tick **Skip the document check**. | The document check flags the email before the interview starts. |
+| **test, missing Upjohn warning** | The strong, complete interview with the whole opening warning removed: no word on whom the lawyer represents, that they can't advise him, or who controls the privilege. | The missing warning caps the score at 59. |
+| **test, missed follow-up (the LLC bonus)** | The strong, complete interview, except that at T15 Fastow mentions an LLC that paid staff bonuses for LJM work outside payroll, and it's never followed up. | The bonus payments appear under **Leads you didn't follow up**, with a question to ask. |
+| **test, easy (cooperative witness)** and **test, hard (guarded witness)** | The same 34 questions, word for word. The cooperative Fastow volunteers facts; the guarded one gives the same facts only when pressed. | A side-by-side comparison of how a cooperative and a guarded witness answer the same interview. |
+
+### Persona consistency test
+
+`debug/tools/persona_test.py` checks that the three personas are noticeably different and stay in character. It puts the same 12 Fastow questions live to the witness once per persona (no variations). A judge model then rates each transcript's consistency (0–4, listing any turns that drift) and matches the three unlabeled transcripts to the persona descriptions. A run passes when every persona is rated 3 or more and all three are matched. Results go to `debug/gradings/persona-consistency_<run>.json`.
+
+```
+python debug/tools/persona_test.py 6 --witness anthropic:claude-sonnet-5-5
+```
 
 ---
 
@@ -68,7 +88,7 @@ Scripts are JSON files in `debug/scripts/`. Copy an existing one and edit it. Th
 | `expert_name`, `expert_role` | Fill in the setup page. |
 | `case_background` or `case_background_file` | The background text, or a path to a text file inside the project folder. |
 | `documents` | Paths to case documents inside the project folder (PDF, Word, or text). A script brings its own case, so the example case isn't used with it. |
-| `persona`, `variables` | Optional presets: a persona name, and `"none"` or `"random"`. |
+| `persona`, `variables`, `picks` | Optional presets: a persona name, and `"none"`, `"random"` or `"choose"`. With `"choose"`, `picks` lists the variations, for example `[{"name": "Cooperativeness", "value": "Guarded"}]`. |
 | `resume_hint` | What to do next; shown in the side panel. |
 | `transcript` | The exchanges so far, in order: `{"speaker": "expert" or "user", "message": "...", "mood": "..."}`. `mood` is optional and only used with the animated face. End with the witness's line if the interviewer should speak next. |
 

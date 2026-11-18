@@ -52,6 +52,7 @@ def _summary(p: Path) -> dict:
             "turns": len(s.get("transcript", [])), "resume_hint": s.get("resume_hint", ""),
             # The persona and variations a script was written for (preset in the panel).
             "persona": s.get("persona", ""), "variables": s.get("variables", ""),
+            "picks": s.get("picks", []),
             "default": bool(s.get("default"))}
 
 

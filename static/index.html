@@ -425,7 +425,7 @@ function addMsg(t) {
   $("messages").scrollTop = $("messages").scrollHeight;
 }
 
-// The witness's persona. The server only sends it when REVEAL_PERSONA=1 (testing);
+// The witness's persona. The server only sends it for debug-page interviews;
 // otherwise the panel explains that it's hidden and revealed with the grade.
 function renderPersona(p) {
   const about = `<p class="badge" style="margin:10px 0 0">Every witness is given one of three personalities at random, and most also get a few random variations, such as how much they remember or how candid they are. These shape how they talk and how guarded they are, not the facts in the case. Part of your grade is noticing them and adjusting your approach.</p>`;
@@ -645,13 +645,17 @@ function showTurn(id) {
 
 function renderReport(a) {
   const scored = a.status === "SCORED";
-  const dots = r => r === null ? "" : "●".repeat(r) + "○".repeat(4 - r);
+  const dots = r => r === null ? "" : "●".repeat(Math.round(r)) + "○".repeat(4 - Math.round(r));
   const headline = scored
     ? `<div class="score"><span class="big">${a.overall_score}</span><span class="grade">${esc(a.band)}</span>
          <span class="badge">out of 100 · interview with ${esc(expertName)}</span></div>`
     : `<div class="score"><span class="grade">${esc(a.status_label)}</span>
          <span class="badge">No normal score was given for this interview.</span></div>
-       <div class="notice">${esc(a.status_reason || "")}</div>`;
+       <div class="notice">${esc(a.status_reason || "")}${a.status === "INCOMPLETE" && a.ending === "interviewer_ended_early"
+         ? " The ratings below cover only the part of the interview that was reached." : ""}</div>`;
+  const ended = scored && a.ending && a.ending !== "completed"
+    ? `<div class="notice">${esc(a.ending_label)}${a.ending === "witness_ended"
+         ? " Anything the witness prevented doesn't count against you." : ""}</div>` : "";
   const cap = scored && a.cap
     ? `<div class="alert"><b>Score capped at ${a.cap.max_score}.</b> ${esc(a.cap.mistake)}
          Before the cap, the score was ${Math.round(a.score_before_cap)}.</div>` : "";
@@ -674,7 +678,7 @@ function renderReport(a) {
         <div class="who">${esc(t.id)} · ${t.speaker === "interviewer" ? "You" : esc(expertName)}</div>${esc(t.message)}</div>`).join("")}</div></details>`;
   $("results").innerHTML = `
     <div class="card">
-      ${headline}${cap}
+      ${headline}${ended}${cap}
       <div class="reveal">Witness demeanor revealed: <b>${esc(a.persona.name)}</b>
         <span class="badge">${esc(a.persona.traits.join(" · "))}</span>${variablesHtml(a.persona)}</div>
       ${a.models ? `<div class="badge">AI models: witness ${esc(labelOf(a.models.witness))} · grader ${esc(labelOf(a.models.grader))}</div>` : ""}
@@ -684,7 +688,9 @@ function renderReport(a) {
     <div class="grid2">
       <div class="card"><h3>Missed chances</h3>${list(a.missed_opportunities)}</div>
       <div class="card"><h3>Tips: better questions for next time</h3>${list(a.tips)}</div>
+      ${(a.unfollowed_leads || []).length ? `<div class="card"><h3>Leads you didn't follow up</h3>${list(a.unfollowed_leads)}</div>` : ""}
     </div>
+    ${a.grader_runs ? `<div class="badge" style="margin-top:12px">Average of ${a.grader_runs.length} gradings (${a.grader_runs.join(", ")}); ratings with decimals are averages.</div>` : ""}
     ${turns}
     ${a.evaluator_errors.length ? `<div class="badge" style="margin-top:12px">Grader notes (checked by the app): ${esc(a.evaluator_errors.join(" "))}</div>` : ""}
     <div style="margin-top:16px"><button onclick="location.href='/'">New interview</button></div>`;
@@ -803,6 +809,9 @@ async function initDebug() {
     $("dbgPersona").value = s?.persona || "";
     const mode = document.querySelector(`input[name="dbgVars"][value="${s?.variables || "random"}"]`);
     if (mode) { mode.checked = true; $("dbgVarMode").onchange(); }
+    // A script's chosen variations, e.g. [{name: "Cooperativeness", value: "Guarded"}].
+    debugOpts.variables.variables.forEach((v, i) =>
+      $(`dbgVar${i}`).value = (s?.picks || []).find(p => p.name === v.name)?.value || "");
     fillDebugCase();
   };
 }

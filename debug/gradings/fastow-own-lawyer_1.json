@@ -1,0 +1,2741 @@
+{
+ "script": "fastow-own-lawyer",
+ "run": "end5b",
+ "model": "anthropic:claude-haiku-5-5",
+ "graded": "2026-11-18 00:01",
+ "seconds": 98,
+ "questions": 61,
+ "closing_added": false,
+ "runs": 5,
+ "report": {
+  "rubric_version": "2.2",
+  "status": "SCORED",
+  "status_label": "Scored",
+  "status_reason": "",
+  "ending": "witness_ended",
+  "ending_label": "The witness ended the interview.",
+  "overall_score": 76,
+  "score_before_cap": 76.5,
+  "cap": null,
+  "band": "Needs coaching",
+  "letter_grade": "Needs coaching",
+  "areas": [
+   {
+    "name": "Interview Framing, Rapport Building, & Closing",
+    "points": 20,
+    "total": 20.0,
+    "counted": true,
+    "skills": [
+     {
+      "name": "Upjohn",
+      "description": "Properly identifies representation and role with the Company, and that they cannot give the employee legal advice. This must always be part of the very beginning of the interview.",
+      "max_marks": 5,
+      "rating": 4.0,
+      "marks": 5.0,
+      "reason": "T2 gave the full warning at the very start: the Committee and company are the clients, not the witness personally, and counsel cannot give legal advice."
+     },
+     {
+      "name": "Privilege",
+      "description": "Properly explains that the Company controls the privilege and determines how it is shared.",
+      "max_marks": 4,
+      "rating": 4.0,
+      "marks": 4.0,
+      "reason": "T2 explained the privilege belongs to the company, which may waive it and disclose what is learned, including to the government, without the witness's consent."
+     },
+     {
+      "name": "Relationship",
+      "description": "Establishes rapport and interview expectations. This includes: establishes an appropriate professional tone; explains how the interview will proceed; encourages complete answers; instructs the witness that they can speculate, they just need to say when they do; invites the witness to distinguish between recollection and uncertainty.",
+      "max_marks": 4,
+      "rating": 4.0,
+      "marks": 4.0,
+      "reason": "T2 and T6 set the purpose, confidentiality, expectations, complete answers, flagging speculation, and separating recollection from reconstruction."
+     },
+     {
+      "name": "Confirmation",
+      "description": "Checks the witness understood the Upjohn warning and answers their questions, if any.",
+      "max_marks": 2,
+      "rating": 4.0,
+      "marks": 2.0,
+      "reason": "T2 asked for questions and T4 had the witness restate who was represented and who controls privilege; the witness answered correctly at T5."
+     },
+     {
+      "name": "Closing",
+      "description": "Closes by confirming there is \"nothing else\", next steps, a confidentiality reminder, and a reminder to keep records.",
+      "max_marks": 5,
+      "rating": 4.0,
+      "marks": 5.0,
+      "reason": "Before the witness left, T122 asked for anything to add, reminded him to keep documents and notes, keep the interview confidential, not discuss it with witnesses, and set the next step of his lawyer calling."
+     }
+    ],
+    "moments": [
+     {
+      "turn": "T2",
+      "kind": "quote",
+      "text": "To be clear, we represent the Committee and the company only."
+     },
+     {
+      "turn": "T4",
+      "kind": "summary",
+      "text": "Asked the witness to restate in his own words who is represented and who controls privilege."
+     },
+     {
+      "turn": "T6",
+      "kind": "summary",
+      "text": "Explained how the interview would run, asked for complete answers, and covered speculation and clarification."
+     },
+     {
+      "turn": "T122",
+      "kind": "summary",
+      "text": "Closed with a confidentiality reminder, a document retention instruction, a bar on discussing with witnesses, and next steps via his lawyer."
+     }
+    ]
+   },
+   {
+    "name": "Question Technique",
+    "points": 25,
+    "total": 20.65,
+    "counted": true,
+    "skills": [
+     {
+      "name": "Narrative Development",
+      "description": "Lets the witness walk through what happened.",
+      "max_marks": 7,
+      "rating": 3.4,
+      "marks": 5.95,
+      "reason": "Open invitations at T16, T32, T44 and T80 let the witness walk through events before narrowing."
+     },
+     {
+      "name": "Funneling",
+      "description": "Moves in a sensible order from general to specific questions.",
+      "max_marks": 7,
+      "rating": 3.4,
+      "marks": 5.95,
+      "reason": "Moved sensibly from role and reporting lines (T8-T14) to specific transactions and then to compensation and the Chewco call."
+     },
+     {
+      "name": "Clarity",
+      "description": "Asks clear questions and avoids compound, ambiguous, or legalistic questions.",
+      "max_marks": 4,
+      "rating": 3.2,
+      "marks": 3.2,
+      "reason": "Most questions were clear and single-focus, such as T86 on what Causey and Buy actually reviewed; a few were loosely framed, such as T108."
+     },
+     {
+      "name": "Professionalism",
+      "description": "Stays neutral, polite and in control.",
+      "max_marks": 2,
+      "rating": 3.6,
+      "marks": 1.8,
+      "reason": "Neutral and polite throughout, including when pressing for estimates (T114-T118) and when the witness refused to continue at T121."
+     },
+     {
+      "name": "Adaptability",
+      "description": "Changes technique based on the witness's answers rather than staying only with the outline.",
+      "max_marks": 5,
+      "rating": 3.0,
+      "marks": 3.75,
+      "reason": "Changed course to the witness's answers: pressed on the proxy-avoidance motive (T52), the late approval sheets (T88-T97), and the return estimates (T116-T119)."
+     }
+    ],
+    "moments": [
+     {
+      "turn": "T16",
+      "kind": "quote",
+      "text": "Tell me everything you remember about how LJM1 came about in 1999."
+     },
+     {
+      "turn": "T32",
+      "kind": "quote",
+      "text": "Tell me everything you remember about how the hedge was unwound."
+     },
+     {
+      "turn": "T82",
+      "kind": "quote",
+      "text": "How do you know they reviewed every transaction?"
+     },
+     {
+      "turn": "T118",
+      "kind": "quote",
+      "text": "What's your best estimate?"
+     }
+    ]
+   },
+   {
+    "name": "Fact Development, Source Identification, & Credibility Testing",
+    "points": 40,
+    "total": 25.4,
+    "counted": true,
+    "skills": [
+     {
+      "name": "Ensures Credibility",
+      "description": "Recognizes and follows up on incomplete, evasive, or inconsistent answers.",
+      "max_marks": 8,
+      "rating": 2.0,
+      "marks": 4.0,
+      "reason": "Challenged several evasive answers (T50, T52, T56, T90, T114), but left T19 versus T25 on who initiated the GP role, and the T75 and T107 answers unchallenged."
+     },
+     {
+      "name": "Material Facts",
+      "description": "Identifies the who, what, when, and how.",
+      "max_marks": 9,
+      "rating": 3.0,
+      "marks": 6.75,
+      "reason": "Pinned down who, what and when on Chewco, the unwind and the LJM2 controls, though the amounts and dates of the Raptor returns and approvals stayed vague."
+     },
+     {
+      "name": "Memory Refreshing",
+      "description": "Tries other ways when the witness can't remember.",
+      "max_marks": 3,
+      "rating": 3.0,
+      "marks": 2.25,
+      "reason": "Offered notes and minutes (T62), gave context on the CalPERS deadline (T68), and showed the minutes after asking for recollection (T70)."
+     },
+     {
+      "name": "Establishes Knowledge",
+      "description": "Separates what the witness personally knows from speculation, secondhand information, or inferences.",
+      "max_marks": 4,
+      "rating": 3.0,
+      "marks": 3.0,
+      "reason": "Asked how the witness knew Skilling told the Board (T56), how he knew reviews happened (T82-T83), and how he learned approval timing (T96)."
+     },
+     {
+      "name": "Other Sources",
+      "description": "Identifies additional witnesses.",
+      "max_marks": 3,
+      "rating": 3.0,
+      "marks": 2.25,
+      "reason": "Asked who in Causey's group reviewed the unwind (T40-T43), but did not ask about other participants in the Chewco call or the LJM2 approvals."
+     },
+     {
+      "name": "Other Evidence",
+      "description": "Identifies other documents such as communications, reports, notes, or other relevant records.",
+      "max_marks": 3,
+      "rating": 2.2,
+      "marks": 1.65,
+      "reason": "Raised minutes, but did not follow up the approval sheets the witness said show the dates (T85, T101) or the investor reports he mentioned (T117)."
+     },
+     {
+      "name": "Tests Certainty",
+      "description": "Examines how certain the witness is about their memory or a fact.",
+      "max_marks": 2,
+      "rating": 3.0,
+      "marks": 1.5,
+      "reason": "Probed the witness's 'I don't know that personally' (T57), 'I don't recall' (T61), and asked for a best estimate, which he labelled as an estimate (T118-T119)."
+     },
+     {
+      "name": "Follow-Up",
+      "description": "Recognizes material responses and follows up on them.",
+      "max_marks": 8,
+      "rating": 2.0,
+      "marks": 4.0,
+      "reason": "Followed up many material answers, but five key leads (T25, T75, T79, T103, T107) were never followed up, which caps the rating at 2."
+     }
+    ],
+    "moments": [
+     {
+      "turn": "T49",
+      "kind": "summary",
+      "text": "Evasive reason for choosing Kopper was challenged and pursued at T50."
+     },
+     {
+      "turn": "T57",
+      "kind": "summary",
+      "text": "Witness admitted he did not personally know Skilling told the Board."
+     },
+     {
+      "turn": "T89",
+      "kind": "summary",
+      "text": "Admitted some approvals were papered after closing; the interviewer followed up on timing."
+     },
+     {
+      "turn": "T79",
+      "kind": "quote",
+      "text": "He was investing on his own account."
+     },
+     {
+      "turn": "T53",
+      "kind": "quote",
+      "text": "Avoiding a proxy disclosure was part of that, I suppose."
+     },
+     {
+      "turn": "T103",
+      "kind": "quote",
+      "text": "Jeff Skilling's line was left blank, I believe."
+     }
+    ]
+   },
+   {
+    "name": "Document Use",
+    "points": 15,
+    "total": 10.45,
+    "counted": true,
+    "skills": [
+     {
+      "name": "Effective Selection",
+      "description": "Selects and contextualizes documents effectively, and properly authenticates the document.",
+      "max_marks": 5,
+      "rating": 2.6,
+      "marks": 3.25,
+      "reason": "Asked recall and notes first (T60-T62), then asked him to recognize the minutes and who prepared them (T70-T73)."
+     },
+     {
+      "name": "Narrative",
+      "description": "Gets the witness's story first, before using conflicting evidence.",
+      "max_marks": 5,
+      "rating": 3.4,
+      "marks": 4.25,
+      "reason": "Asked the witness what he remembered about the Chewco call (T60-T69) before showing the minutes at T70."
+     },
+     {
+      "name": "Accuracy",
+      "description": "Describes the document accurately.",
+      "max_marks": 2,
+      "rating": 2.0,
+      "marks": 1.0,
+      "reason": "Identified the document as Executive Committee minutes for November 5, 1997, but never described its contents before asking what they showed."
+     },
+     {
+      "name": "Avoid Initial Conclusion",
+      "description": "Separates the document from inferences or conclusions, unless the witness takes an unreasonable stance.",
+      "max_marks": 1,
+      "rating": 3.0,
+      "marks": 0.75,
+      "reason": "Asked whether the minutes help the witness remember rather than drawing a conclusion from their silence about Kopper (T74)."
+     },
+     {
+      "name": "Fairness",
+      "description": "Provides the witness with a fair opportunity to explain any inconsistencies or disagreements with the document.",
+      "max_marks": 2,
+      "rating": 2.4,
+      "marks": 1.2,
+      "reason": "He was allowed to explain at T75, but his earlier T67 account was not restated against the minutes or reconciled with them."
+     }
+    ],
+    "moments": [
+     {
+      "turn": "T60",
+      "kind": "summary",
+      "text": "Asked whether Kopper's role was mentioned on the call before showing any document."
+     },
+     {
+      "turn": "T70",
+      "kind": "quote",
+      "text": "I'd like to show you the minutes of the November 5, 1997 Executive Committee meeting. Do you recognize them?"
+     },
+     {
+      "turn": "T72",
+      "kind": "summary",
+      "text": "Asked who prepared the minutes to authenticate them."
+     },
+     {
+      "turn": "T74",
+      "kind": "summary",
+      "text": "Asked whether the minutes help him remember whether Kopper's role came up."
+     }
+    ]
+   }
+  ],
+  "big_mistakes": [],
+  "missed_opportunities": [
+   "T79: Witness said Kopper invested in Chewco on his own account, and the interviewer moved on without asking about any personal or Fastow interest in Chewco. Ask: “Did you or anyone you know hold any interest in Chewco or in Michael's investment, and who else was invested?”",
+   "T103: Witness said Skilling's approval line was blank on the Raptor I approval sheet, and the interviewer moved on to who negotiated. Ask: “Why was Skilling's approval line blank on the Raptor I sheet, and who decided it could be signed without him?”"
+  ],
+  "leads": [
+   {
+    "turn": "T19",
+    "lead": "Involvement as GP made outside money comfortable",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T20",
+    "question": ""
+   },
+   {
+    "turn": "T25",
+    "lead": "Raised GP role with Lay and Skilling in June 1999",
+    "importance": "secondary",
+    "followed_up": false,
+    "follow_up_turn": "",
+    "question": "What did Lay and Skilling know about your personal economics when they agreed to take the GP role to the Board?"
+   },
+   {
+    "turn": "T29",
+    "lead": "Told Board he gets no current or future Enron stock value",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T30",
+    "question": ""
+   },
+   {
+    "turn": "T33",
+    "lead": "Causey's team reviewed unwind terms and found them fair",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T34",
+    "question": ""
+   },
+   {
+    "turn": "T37",
+    "lead": "Handled the unwind for LJM with Kopper",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T38",
+    "question": ""
+   },
+   {
+    "turn": "T45",
+    "lead": "Chewco kept JEDI off the balance sheet",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T46",
+    "question": ""
+   },
+   {
+    "turn": "T49",
+    "lead": "Choosing Kopper involved various considerations",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T50",
+    "question": ""
+   },
+   {
+    "turn": "T51",
+    "lead": "Lawyers said senior officer role needed proxy disclosure",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T52",
+    "question": ""
+   },
+   {
+    "turn": "T53",
+    "lead": "Avoiding proxy disclosure was part of choosing Kopper",
+    "importance": "key",
+    "followed_up": false,
+    "follow_up_turn": "",
+    "question": "Who decided that Kopper would be used so no proxy disclosure was needed, and did you approve that decision?"
+   },
+   {
+    "turn": "T55",
+    "lead": "Skilling approved Kopper's Chewco role and told the Board",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T56",
+    "question": ""
+   },
+   {
+    "turn": "T67",
+    "lead": "Presented Chewco to Executive Committee with Kopper on line",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T70",
+    "question": ""
+   },
+   {
+    "turn": "T79",
+    "lead": "Kopper was investing on his own account in Chewco",
+    "importance": "key",
+    "followed_up": false,
+    "follow_up_turn": "",
+    "question": "Did you or anyone you know hold any interest in Chewco or in Michael's investment, and who else was invested?"
+   },
+   {
+    "turn": "T89",
+    "lead": "Some approvals were papered after a deal closed",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T90",
+    "question": ""
+   },
+   {
+    "turn": "T103",
+    "lead": "Skilling's approval line left blank on Raptor I sheet",
+    "importance": "key",
+    "followed_up": false,
+    "follow_up_turn": "",
+    "question": "Why was Skilling's approval line blank on the Raptor I sheet, and who decided it could be signed without him?"
+   },
+   {
+    "turn": "T107",
+    "lead": "Glisan reported to Fastow while negotiating for Enron",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T108",
+    "question": ""
+   },
+   {
+    "turn": "T113",
+    "lead": "LJM2 returns were good but figures not known",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T114",
+    "question": ""
+   },
+   {
+    "turn": "T115",
+    "lead": "Some Raptor returns above 30 percent after early settlements",
+    "importance": "key",
+    "followed_up": true,
+    "follow_up_turn": "T116",
+    "question": ""
+   }
+  ],
+  "unfollowed_leads": [
+   "T53: Avoiding proxy disclosure was part of choosing Kopper Ask: “Who decided that Kopper would be used so no proxy disclosure was needed, and did you approve that decision?”",
+   "T79: Kopper was investing on his own account in Chewco Ask: “Did you or anyone you know hold any interest in Chewco or in Michael's investment, and who else was invested?”",
+   "T103: Skilling's approval line left blank on Raptor I sheet Ask: “Why was Skilling's approval line blank on the Raptor I sheet, and who decided it could be signed without him?”"
+  ],
+  "tips": [
+   "When you say avoiding a proxy disclosure was part of choosing Kopper, who made that decision and did you approve it?",
+   "When you say Kopper was investing on his own account, what was his stake, who funded it, and did you have any interest in it?"
+  ],
+  "evaluator_errors": [],
+  "category_scores": [
+   {
+    "name": "Upjohn",
+    "score": 100.0,
+    "weight": 5,
+    "rationale": "T2 gave the full warning at the very start: the Committee and company are the clients, not the witness personally, and counsel cannot give legal advice."
+   },
+   {
+    "name": "Privilege",
+    "score": 100.0,
+    "weight": 4,
+    "rationale": "T2 explained the privilege belongs to the company, which may waive it and disclose what is learned, including to the government, without the witness's consent."
+   },
+   {
+    "name": "Relationship",
+    "score": 100.0,
+    "weight": 4,
+    "rationale": "T2 and T6 set the purpose, confidentiality, expectations, complete answers, flagging speculation, and separating recollection from reconstruction."
+   },
+   {
+    "name": "Confirmation",
+    "score": 100.0,
+    "weight": 2,
+    "rationale": "T2 asked for questions and T4 had the witness restate who was represented and who controls privilege; the witness answered correctly at T5."
+   },
+   {
+    "name": "Closing",
+    "score": 100.0,
+    "weight": 5,
+    "rationale": "Before the witness left, T122 asked for anything to add, reminded him to keep documents and notes, keep the interview confidential, not discuss it with witnesses, and set the next step of his lawyer calling."
+   },
+   {
+    "name": "Narrative Development",
+    "score": 85.0,
+    "weight": 7,
+    "rationale": "Open invitations at T16, T32, T44 and T80 let the witness walk through events before narrowing."
+   },
+   {
+    "name": "Funneling",
+    "score": 85.0,
+    "weight": 7,
+    "rationale": "Moved sensibly from role and reporting lines (T8-T14) to specific transactions and then to compensation and the Chewco call."
+   },
+   {
+    "name": "Clarity",
+    "score": 80.0,
+    "weight": 4,
+    "rationale": "Most questions were clear and single-focus, such as T86 on what Causey and Buy actually reviewed; a few were loosely framed, such as T108."
+   },
+   {
+    "name": "Professionalism",
+    "score": 90.0,
+    "weight": 2,
+    "rationale": "Neutral and polite throughout, including when pressing for estimates (T114-T118) and when the witness refused to continue at T121."
+   },
+   {
+    "name": "Adaptability",
+    "score": 75.0,
+    "weight": 5,
+    "rationale": "Changed course to the witness's answers: pressed on the proxy-avoidance motive (T52), the late approval sheets (T88-T97), and the return estimates (T116-T119)."
+   },
+   {
+    "name": "Ensures Credibility",
+    "score": 50.0,
+    "weight": 8,
+    "rationale": "Challenged several evasive answers (T50, T52, T56, T90, T114), but left T19 versus T25 on who initiated the GP role, and the T75 and T107 answers unchallenged."
+   },
+   {
+    "name": "Material Facts",
+    "score": 75.0,
+    "weight": 9,
+    "rationale": "Pinned down who, what and when on Chewco, the unwind and the LJM2 controls, though the amounts and dates of the Raptor returns and approvals stayed vague."
+   },
+   {
+    "name": "Memory Refreshing",
+    "score": 75.0,
+    "weight": 3,
+    "rationale": "Offered notes and minutes (T62), gave context on the CalPERS deadline (T68), and showed the minutes after asking for recollection (T70)."
+   },
+   {
+    "name": "Establishes Knowledge",
+    "score": 75.0,
+    "weight": 4,
+    "rationale": "Asked how the witness knew Skilling told the Board (T56), how he knew reviews happened (T82-T83), and how he learned approval timing (T96)."
+   },
+   {
+    "name": "Other Sources",
+    "score": 75.0,
+    "weight": 3,
+    "rationale": "Asked who in Causey's group reviewed the unwind (T40-T43), but did not ask about other participants in the Chewco call or the LJM2 approvals."
+   },
+   {
+    "name": "Other Evidence",
+    "score": 55.00000000000001,
+    "weight": 3,
+    "rationale": "Raised minutes, but did not follow up the approval sheets the witness said show the dates (T85, T101) or the investor reports he mentioned (T117)."
+   },
+   {
+    "name": "Tests Certainty",
+    "score": 75.0,
+    "weight": 2,
+    "rationale": "Probed the witness's 'I don't know that personally' (T57), 'I don't recall' (T61), and asked for a best estimate, which he labelled as an estimate (T118-T119)."
+   },
+   {
+    "name": "Follow-Up",
+    "score": 50.0,
+    "weight": 8,
+    "rationale": "Followed up many material answers, but five key leads (T25, T75, T79, T103, T107) were never followed up, which caps the rating at 2."
+   },
+   {
+    "name": "Effective Selection",
+    "score": 65.0,
+    "weight": 5,
+    "rationale": "Asked recall and notes first (T60-T62), then asked him to recognize the minutes and who prepared them (T70-T73)."
+   },
+   {
+    "name": "Narrative",
+    "score": 85.0,
+    "weight": 5,
+    "rationale": "Asked the witness what he remembered about the Chewco call (T60-T69) before showing the minutes at T70."
+   },
+   {
+    "name": "Accuracy",
+    "score": 50.0,
+    "weight": 2,
+    "rationale": "Identified the document as Executive Committee minutes for November 5, 1997, but never described its contents before asking what they showed."
+   },
+   {
+    "name": "Avoid Initial Conclusion",
+    "score": 75.0,
+    "weight": 1,
+    "rationale": "Asked whether the minutes help the witness remember rather than drawing a conclusion from their silence about Kopper (T74)."
+   },
+   {
+    "name": "Fairness",
+    "score": 60.0,
+    "weight": 2,
+    "rationale": "He was allowed to explain at T75, but his earlier T67 account was not restated against the minutes or reconciled with them."
+   }
+  ],
+  "recommended_questions": [
+   "When you say avoiding a proxy disclosure was part of choosing Kopper, who made that decision and did you approve it?",
+   "When you say Kopper was investing on his own account, what was his stake, who funded it, and did you have any interest in it?"
+  ],
+  "strengths": [],
+  "weaknesses": [],
+  "coaching_recommendations": [],
+  "grader_runs": [
+   73,
+   79,
+   74,
+   80,
+   76
+  ]
+ },
+ "grader_output": [
+  {
+   "ending": "witness_ended",
+   "result": "SCORED",
+   "result_reason": "",
+   "leads": [
+    {
+     "turn": "T19",
+     "lead": "Involvement made outside money comfortable; I didn't go looking for it",
+     "importance": "key",
+     "followed_up": true,
+     "follow_up_turn": "T20",
+     "question": ""
+    },
+    {
+     "turn": "T25",
+     "lead": "Raised the GP role with Lay and Skilling in June 1999",
+     "importance": "key",
+     "followed_up": false,
+     "follow_up_turn": "",
+     "question": "You said you didn't go looking for the GP role, but you also said you raised it with Ken Lay and Jeff Skilling. What exactly did you propose, and did you tell them about your own economic interest in the Enron stock?"
+    },
+    {
+     "turn": "T37",
+     "lead": "Handled the LJM side of the unwind with Kopper",
+     "importance": "key",
+     "followed_up": true,
+     "follow_up_turn": "T38",
+     "question": ""
+    },
+    {
+     "turn": "T49",
+     "lead": "Various considerations behind choosing Kopper to manage Chewco",
+     "importance": "secondary",
+     "followed_up": true,
+     "follow_up_turn": "T50",
+     "question": ""
+    },
+    {
+     "turn": "T53",
+     "lead": "Avoiding proxy disclosure was part of the Chewco choice",
+     "importance": "key",
+     "followed_up": true,
+     "follow_up_turn": "T54",
+     "question": ""
+    },
+    {
+     "turn": "T55",
+     "lead": "Skilling approved Chewco and I believe he told the Board",
+     "importance": "key",
+     "followed_up": true,
+     "follow_up_turn": "T56",
+     "question": ""
+    },
+    {
+     "turn": "T67",
+     "lead": "Gave the Chewco presentation with Kopper on the line",
+     "importance": "key",
+     "followed_up": true,
+     "follow_up_turn": "T69",
+     "question": ""
+    },
+    {
+     "turn": "T75",
+     "lead": "Minutes omit Kopper, which fits my memory that it did not come up",
+     "importance": "key",
+     "followed_up": false,
+     "follow_up_turn": "",
+     "question": "The minutes do not mention Michael Kopper's role. Since you were on that call and presented Chewco, how can you be sure his role was not discussed, and who else would know?"
+    },
+    {
+     "turn": "T79",
+     "lead": "Kopper was investing on his own account, not for Enron",
+     "importance": "key",
+     "followed_up": false,
+     "follow_up_turn": "",
+     "question": "What did you know at the time about Michael Kopper's personal investment in Chewco, and who at Enron was told that he was on both sides?"
+    },
+    {
+     "turn": "T83",
+     "lead": "Assumed Causey and Buy reviewed every LJM2 deal; did not check",
+     "importance": "key",
+     "followed_up": true,
+     "follow_up_turn": "T84",
+     "question": ""
+    },
+    {
+     "turn": "T89",
+     "lead": "Some approvals were papered after a deal closed",
+     "importance": "key",
+     "followed_up": true,
+     "follow_up_turn": "T90",
+     "question": ""
+    },
+    {
+     "turn": "T103",
+     "lead": "Skilling's line on the Raptor I approval sheet was left blank",
+     "importance": "key",
+     "followed_up": false,
+     "follow_up_turn": "",
+     "question": "Why was Jeff Skilling's line blank on the Raptor I approval sheet, and who was responsible for deciding whether that approval was sufficient?"
+    },
+    {
+     "turn": "T107",
+     "lead": "Glisan reported to Fastow yet negotiated for Enron on Raptor I",
+     "importance": "key",
+     "followed_up": false,
+     "follow_up_turn": "",
+     "question": "Mr. Glisan reported to you but negotiated for Enron against LJM2, which you controlled. Who on the Enron side had authority to check that arrangement, and did you ever raise the conflict with anyone?"
+    },
+    {
+     "turn": "T115",
+     "lead": "Early settlements pushed some Raptor returns above the 30 percent shown",
+     "importance": "key",
+     "followed_up": true,
+     "follow_up_turn": "T116",
+     "question": ""
+    }
+   ],
+   "skills": [
+    {
+     "name": "Upjohn",
+     "rating": 4,
+     "reached": true,
+     "reason": "T2 gave the full warning at the very start: the Committee and company are the clients, not the witness personally, and counsel cannot give legal advice."
+    },
+    {
+     "name": "Privilege",
+     "rating": 4,
+     "reached": true,
+     "reason": "T2 explained the privilege belongs to the company, which may waive it and disclose what is learned, including to the government, without the witness's consent."
+    },
+    {
+     "name": "Relationship",
+     "rating": 4,
+     "reached": true,
+     "reason": "T2 and T6 set the purpose, confidentiality, expectations, complete answers, flagging speculation, and separating recollection from reconstruction."
+    },
+    {
+     "name": "Confirmation",
+     "rating": 4,
+     "reached": true,
+     "reason": "T2 asked for questions and T4 had the witness restate who was represented and who controls privilege; the witness answered correctly at T5."
+    },
+    {
+     "name": "Closing",
+     "rating": 4,
+     "reached": true,
+     "reason": "Before the witness left, T122 asked for anything to add, reminded him to keep documents and notes, keep the interview confidential, not discuss it with witnesses, and set the next step of his lawyer calling."
+    },
+    {
+     "name": "Narrative Development",
+     "rating": 3,
+     "reached": true,
+     "reason": "Open invitations at T16, T32, T44 and T80 let the witness walk through events before narrowing."
+    },
+    {
+     "name": "Funneling",
+     "rating": 3,
+     "reached": true,
+     "reason": "Moved sensibly from role and reporting lines (T8-T14) to specific transactions and then to compensation and the Chewco call."
+    },
+    {
+     "name": "Clarity",
+     "rating": 3,
+     "reached": true,
+     "reason": "Most questions were clear and single-focus, such as T86 on what Causey and Buy actually reviewed; a few were loosely framed, such as T108."
+    },
+    {
+     "name": "Professionalism",
+     "rating": 4,
+     "reached": true,
+     "reason": "Neutral and polite throughout, including when pressing for estimates (T114-T118) and when the witness refused to continue at T121."
+    },
+    {
+     "name": "Adaptability",
+     "rating": 3,
+     "reached": true,
+     "reason": "Changed course to the witness's answers: pressed on the proxy-avoidance motive (T52), the late approval sheets (T88-T97), and the return estimates (T116-T119)."
+    },
+    {
+     "name": "Ensures Credibility",
+     "rating": 2,
+     "reached": true,
+     "reason": "Challenged several evasive answers (T50, T52, T56, T90, T114), but left T19 versus T25 on who initiated the GP role, and the T75 and T107 answers unchallenged."
+    },
+    {
+     "name": "Material Facts",
+     "rating": 3,
+     "reached": true,
+     "reason": "Pinned down who, what and when on Chewco, the unwind and the LJM2 controls, though the amounts and dates of the Raptor returns and approvals stayed vague."
+    },
+    {
+     "name": "Memory Refreshing",
+     "rating": 3,
+     "reached": true,
+     "reason": "Offered notes and minutes (T62), gave context on the CalPERS deadline (T68), and showed the minutes after asking for recollection (T70)."
+    },
+    {
+     "name": "Establishes Knowledge",
+     "rating": 3,
+     "reached": true,
+     "reason": "Asked how the witness knew Skilling told the Board (T56), how he knew reviews happened (T82-T83), and how he learned approval timing (T96)."
+    },
+    {
+     "name": "Other Sources",
+     "rating": 3,
+     "reached": true,
+     "reason": "Asked who in Causey's group reviewed the unwind (T40-T43), but did not ask about other participants in the Chewco call or the LJM2 approvals."
+    },
+    {
+     "name": "Other Evidence",
+     "rating": 2,
+     "reached": true,
+     "reason": "Raised minutes, but did not follow up the approval sheets the witness said show the dates (T85, T101) or the investor reports he mentioned (T117)."
+    },
+    {
+     "name": "Tests Certainty",
+     "rating": 3,
+     "reached": true,
+     "reason": "Probed the witness's 'I don't know that personally' (T57), 'I don't recall' (T61), and asked for a best estimate, which he labelled as an estimate (T118-T119)."
+    },
+    {
+     "name": "Follow-Up",
+     "rating": 2,
+     "reached": true,
+     "reason": "Followed up many material answers, but five key leads (T25, T75, T79, T103, T107) were never followed up, which caps the rating at 2."
+    },
+    {
+     "name": "Effective Selection",
+     "rating": 2,
+     "reached": true,
+     "reason": "Showed the minutes after recollection and asked if the witness recognized them and who prepared them (T70-T72), but did not tie them to any specific point."
+    },
+    {
+     "name": "Narrative",
+     "rating": 3,
+     "reached": true,
+     "reason": "Asked the witness what he remembered about the Chewco call (T60-T69) before showing the minutes at T70."
+    },
+    {
+     "name": "Accuracy",
+     "rating": 2,
+     "reached": true,
+     "reason": "Identified the document as Executive Committee minutes for November 5, 1997, but never described its contents before asking what they showed."
+    },
+    {
+     "name": "Avoid Initial Conclusion",
+     "rating": 3,
+     "reached": true,
+     "reason": "Asked whether the minutes help the witness remember rather than drawing a conclusion from their silence about Kopper (T74)."
+    },
+    {
+     "name": "Fairness",
+     "rating": 1,
+     "reached": true,
+     "reason": "The witness said the minutes' silence 'fits my memory' (T75), but the interviewer moved on without asking him to reconcile that with the minutes or his other answers."
+    }
+   ],
+   "area_evidence": [
+    {
+     "area": "Interview Framing, Rapport Building, & Closing",
+     "moments": [
+      {
+       "turn": "T2",
+       "kind": "quote",
+       "text": "To be clear, we represent the Committee and the company only. We do not represent you personally, we are not your attorney, and we can't give you legal advice."
+      },
+      {
+       "turn": "T2",
+       "kind": "summary",
+       "text": "Explained that the privilege belongs to the company, which may waive it and disclose what is learned without the witness's consent."
+      },
+      {
+       "turn": "T4",
+       "kind": "quote",
+       "text": "could you tell me in your own words your understanding of who we represent, and who controls the privilege?"
+      },
+      {
+       "turn": "T6",
+       "kind": "summary",
+       "text": "Explained how the interview would run, asked for complete answers, and set ground rules on speculation and recollection versus reconstruction."
+      },
+      {
+       "turn": "T122",
+       "kind": "quote",
+       "text": "please keep all related documents and notes, including personal ones, keep today confidential, and don't discuss it with other witnesses."
+      }
+     ]
+    },
+    {
+     "area": "Question Technique",
+     "moments": [
+      {
+       "turn": "T16",
+       "kind": "quote",
+       "text": "Tell me everything you remember about how LJM1 came about in 1999."
+      },
+      {
+       "turn": "T84",
+       "kind": "quote",
+       "text": "How did those reviews work in practice? Take a specific deal."
+      },
+      {
+       "turn": "T86",
+       "kind": "quote",
+       "text": "Take Raptor I. What did Mr. Causey and Mr. Buy actually review before they signed its approval sheet?"
+      },
+      {
+       "turn": "T56",
+       "kind": "quote",
+       "text": "How do you know Mr. Skilling told the Board?"
+      }
+     ]
+    },
+    {
+     "area": "Fact Development, Source Identification, & Credibility Testing",
+     "moments": [
+      {
+       "turn": "T50",
+       "kind": "quote",
+       "text": "What were those considerations?"
+      },
+      {
+       "turn": "T42",
+       "kind": "quote",
+       "text": "Who in Mr. Causey's group would we talk to?"
+      },
+      {
+       "turn": "T62",
+       "kind": "quote",
+       "text": "Is there anything that would help you remember, such as notes, minutes, or a presentation from that call?"
+      },
+      {
+       "turn": "T90",
+       "kind": "quote",
+       "text": "Which approvals were signed after closing?"
+      },
+      {
+       "turn": "T118",
+       "kind": "quote",
+       "text": "What's your best estimate?"
+      },
+      {
+       "turn": "T107",
+       "kind": "summary",
+       "text": "Witness said Glisan reported to him but was perfectly capable of representing Enron; not followed up."
+      }
+     ]
+    },
+    {
+     "area": "Document Use",
+     "moments": [
+      {
+       "turn": "T70",
+       "kind": "quote",
+       "text": "I'd like to show you the minutes of the November 5, 1997 Executive Committee meeting. Do you recognize them?"
+      },
+      {
+       "turn": "T72",
+       "kind": "quote",
+       "text": "Who prepared them?"
+      },
+      {
+       "turn": "T74",
+       "kind": "quote",
+       "text": "Do they help you remember whether Mr. Kopper's role came up?"
+      },
+      {
+       "turn": "T75",
+       "kind": "summary",
+       "text": "Witness said the minutes do not mention Kopper, which fits his memory; the interviewer did not ask him to reconcile this."
+      }
+     ]
+    }
+   ],
+   "big_mistakes": [],
+   "missed_chances": [
+    {
+     "turn": "T25",
+     "description": "Witness said he 'didn't go looking' for the GP role (T19) but then said he raised it with Lay and Skilling; this was never challenged, and whether he disclosed his own interest was never asked.",
+     "question": "You said you didn't go looking for the GP role, but you also said you raised it with Ken Lay and Jeff Skilling. What did you tell them about your own economic interest when you proposed it?"
+    },
+    {
+     "turn": "T107",
+     "description": "Glisan reported to Fastow yet negotiated for Enron against LJM2, and Skilling's approval line on Raptor I was left blank (T103); neither was followed up.",
+     "question": "Who on Enron's side had authority to stop a deal in which you controlled the other side, and why was Mr. Skilling's line left blank on the Raptor I approval?"
+    }
+   ],
+   "tips": [
+    "When you said you raised the GP role with Ken Lay and Jeff Skilling, what exactly did you tell them about your own economic interest, and did anyone ask whether you would benefit from the Enron stock?",
+    "You said Mr. Glisan reported to you while negotiating for Enron; who on Enron's side could have stopped a deal you were on the other side of, and why was Mr. Skilling's line left blank?"
+   ]
+  },
+  {
+   "ending": "witness_ended",
+   "result": "SCORED",
+   "result_reason": "",
+   "leads": [
+    {
+     "turn": "T19",
+     "lead": "My involvement is what made outside money comfortable",
+     "importance": "key",
+     "followed_up": true,
+     "follow_up_turn": "T20",
+     "question": ""
+    },
+    {
+     "turn": "T25",
+     "lead": "Raised GP role with Lay and Skilling in mid-June 1999",
+     "importance": "secondary",
+     "followed_up": false,
+     "follow_up_turn": "",
+     "question": "Before the Board met, who else knew you were pressing for the GP role, and what did they say?"
+    },
+    {
+     "turn": "T33",
+     "lead": "Causey's team reviewed unwind terms and found them fair",
+     "importance": "key",
+     "followed_up": true,
+     "follow_up_turn": "T34",
+     "question": ""
+    },
+    {
+     "turn": "T37",
+     "lead": "Handled the unwind for LJM along with Kopper",
+     "importance": "key",
+     "followed_up": true,
+     "follow_up_turn": "T38",
+     "question": ""
+    },
+    {
+     "turn": "T51",
+     "lead": "Kopper used because senior-officer disclosure rules would not apply",
+     "importance": "key",
+     "followed_up": true,
+     "follow_up_turn": "T52",
+     "question": ""
+    },
+    {
+     "turn": "T53",
+     "lead": "Avoiding proxy disclosure was part of the reason",
+     "importance": "key",
+     "followed_up": false,
+     "follow_up_turn": "",
+     "question": "You said avoiding proxy disclosure was part of the reason Kopper was used. Who decided that, and what did you know about Chewco's ownership when you agreed?"
+    },
+    {
+     "turn": "T55",
+     "lead": "Skilling approved Chewco and believes he told the Board",
+     "importance": "key",
+     "followed_up": true,
+     "follow_up_turn": "T56",
+     "question": ""
+    },
+    {
+     "turn": "T67",
+     "lead": "Kopper was on the line for the November 5, 1997 call",
+     "importance": "key",
+     "followed_up": true,
+     "follow_up_turn": "T74",
+     "question": ""
+    },
+    {
+     "turn": "T83",
+     "lead": "Assumed LJM2 approvals were followed; did not check",
+     "importance": "key",
+     "followed_up": true,
+     "follow_up_turn": "T84",
+     "question": ""
+    },
+    {
+     "turn": "T89",
+     "lead": "Some approvals were papered after a deal closed",
+     "importance": "key",
+     "followed_up": true,
+     "follow_up_turn": "T90",
+     "question": ""
+    },
+    {
+     "turn": "T103",
+     "lead": "Skilling's line left blank on Raptor I approval sheet",
+     "importance": "key",
+     "followed_up": false,
+     "follow_up_turn": "",
+     "question": "Why is Jeff Skilling's line blank on the Raptor I approval sheet, and did anyone ask him to approve it before closing?"
+    },
+    {
+     "turn": "T107",
+     "lead": "Glisan reported to Fastow while negotiating for Enron",
+     "importance": "key",
+     "followed_up": true,
+     "follow_up_turn": "T108",
+     "question": ""
+    },
+    {
+     "turn": "T115",
+     "lead": "LJM2 Raptor returns above 30 percent; early settlements helped",
+     "importance": "key",
+     "followed_up": true,
+     "follow_up_turn": "T116",
+     "question": ""
+    }
+   ],
+   "skills": [
+    {
+     "name": "Upjohn",
+     "rating": 4,
+     "reached": true,
+     "reason": "T2 gives the full warning before any question: the company is the client, counsel is not the witness's lawyer, and counsel cannot give legal advice."
+    },
+    {
+     "name": "Privilege",
+     "rating": 4,
+     "reached": true,
+     "reason": "T2 explains the privilege belongs to the company, which may waive it and disclose what is learned without consent; T4 checks understanding."
+    },
+    {
+     "name": "Relationship",
+     "rating": 4,
+     "reached": true,
+     "reason": "T6 explains how the interview will run, asks for complete answers, asks the witness to flag speculation and distinguish memory from reconstruction, and invites clarification."
+    },
+    {
+     "name": "Confirmation",
+     "rating": 4,
+     "reached": true,
+     "reason": "T4 asks the witness to restate who is represented and who controls privilege, and T5 confirms it; T2 and T6 invite questions and check the process is acceptable."
+    },
+    {
+     "name": "Closing",
+     "rating": 4,
+     "reached": true,
+     "reason": "T122 asks whether there is anything to add or correct, reminds the witness of confidentiality, record retention and not discussing with witnesses, and sets next steps through counsel."
+    },
+    {
+     "name": "Narrative Development",
+     "rating": 4,
+     "reached": true,
+     "reason": "Repeated open invitations at T16, T32 and T44 let the witness walk through LJM1, the unwind and Chewco before narrowing."
+    },
+    {
+     "name": "Funneling",
+     "rating": 4,
+     "reached": true,
+     "reason": "Moved from role (T8) and Global Finance (T10) to Kopper, then to specific topics and to specific deals such as Raptor I."
+    },
+    {
+     "name": "Clarity",
+     "rating": 3,
+     "reached": true,
+     "reason": "Questions are mostly short and clear; a few are open-ended or slightly compound (T68, T76) but none are seriously ambiguous."
+    },
+    {
+     "name": "Professionalism",
+     "rating": 4,
+     "reached": true,
+     "reason": "Stays neutral, polite and in control, including when pressing on Kopper's role (T52) and approval dates (T88)."
+    },
+    {
+     "name": "Adaptability",
+     "rating": 3,
+     "reached": true,
+     "reason": "Adapted to answers: pressed the vague 'various considerations' (T50), asked for a specific deal when the answer was general (T84, T86), and chased the approval chain. Did not adapt at T53 or T103."
+    },
+    {
+     "name": "Ensures Credibility",
+     "rating": 2,
+     "reached": true,
+     "reason": "Challenged several vague answers (T50, T114, T118), but left T53 ('the aim was to get the deal done efficiently') and T79 ('Michael wasn't acting for Enron') unchallenged on key points."
+    },
+    {
+     "name": "Material Facts",
+     "rating": 3,
+     "reached": true,
+     "reason": "Good who and when for Chewco, the LJM1 unwind and the Raptor I signing; gaps on Skilling's sign-off and on how Chewco was funded."
+    },
+    {
+     "name": "Memory Refreshing",
+     "rating": 3,
+     "reached": true,
+     "reason": "Asked what could help recall (T62), asked what else placed the call (T68), and showed the November 5 minutes (T70). Did not use the approval-sheet dates the witness said would answer the timing questions."
+    },
+    {
+     "name": "Establishes Knowledge",
+     "rating": 3,
+     "reached": true,
+     "reason": "Asked how he knew Skilling told the Board (T56) and how he knew reviews happened (T82); the witness conceded the first was secondhand."
+    },
+    {
+     "name": "Other Sources",
+     "rating": 3,
+     "reached": true,
+     "reason": "Asked who in Causey's group reviewed the unwind (T42) and who was on the Chewco call (T64), but did not push to identify further witnesses on the approval chain."
+    },
+    {
+     "name": "Other Evidence",
+     "rating": 2,
+     "reached": true,
+     "reason": "Asked for notes and minutes (T62) and showed the minutes (T70), but never asked for the approval sheets or investor reports the witness said would answer his questions (T101, T117)."
+    },
+    {
+     "name": "Tests Certainty",
+     "rating": 3,
+     "reached": true,
+     "reason": "Asked for a best estimate on returns (T118) and probed recollection (T57, T61); testing of 'I believe' answers such as Skilling's sign-off (T103) was uneven."
+    },
+    {
+     "name": "Follow-Up",
+     "rating": 2,
+     "reached": true,
+     "reason": "Followed up most key leads, but two key leads (T53 on avoiding disclosure and T103 on Skilling's blank line) were never returned to, which caps the rating at 2."
+    },
+    {
+     "name": "Effective Selection",
+     "rating": 2,
+     "reached": true,
+     "reason": "Showed one document (the minutes) after the witness's recall and authenticated it (T71 to T73), but did not contextualize it or show the approval sheets the witness repeatedly referred to."
+    },
+    {
+     "name": "Narrative",
+     "rating": 4,
+     "reached": true,
+     "reason": "Obtained the witness's account of the Executive Committee call (T64 to T69) before showing the minutes at T70."
+    },
+    {
+     "name": "Accuracy",
+     "rating": 3,
+     "reached": true,
+     "reason": "Described the document accurately as the minutes of the November 5, 1997 Executive Committee meeting, without characterizing its contents."
+    },
+    {
+     "name": "Avoid Initial Conclusion",
+     "rating": 3,
+     "reached": true,
+     "reason": "Asked neutrally whether the minutes help the witness remember (T74) and did not conclude that Kopper's omission proves anything."
+    },
+    {
+     "name": "Fairness",
+     "rating": 3,
+     "reached": true,
+     "reason": "Let the witness explain the minutes' silence on Kopper (T75). It did not test that explanation against the minutes, but no inconsistency was put to him."
+    }
+   ],
+   "area_evidence": [
+    {
+     "area": "Interview Framing, Rapport Building, & Closing",
+     "moments": [
+      {
+       "turn": "T2",
+       "kind": "quote",
+       "text": "We do not represent you personally, we are not your attorney, and we can't give you legal advice."
+      },
+      {
+       "turn": "T2",
+       "kind": "quote",
+       "text": "The company decides whether to waive it, and it may disclose what we learn, including to the government, without your consent and without telling you."
+      },
+      {
+       "turn": "T5",
+       "kind": "quote",
+       "text": "The company controls the privilege and can share what I tell you, without asking me."
+      },
+      {
+       "turn": "T6",
+       "kind": "summary",
+       "text": "Explained how the interview would run, asked for complete answers, asked the witness to flag speculation and distinguish recollection from reconstruction, and invited clarification."
+      },
+      {
+       "turn": "T122",
+       "kind": "quote",
+       "text": "keep today confidential, and don't discuss it with other witnesses."
+      }
+     ]
+    },
+    {
+     "area": "Question Technique",
+     "moments": [
+      {
+       "turn": "T16",
+       "kind": "quote",
+       "text": "Tell me everything you remember about how LJM1 came about in 1999."
+      },
+      {
+       "turn": "T52",
+       "kind": "quote",
+       "text": "Was one aim of choosing Mr. Kopper to avoid that disclosure?"
+      },
+      {
+       "turn": "T84",
+       "kind": "quote",
+       "text": "Take a specific deal."
+      },
+      {
+       "turn": "T86",
+       "kind": "quote",
+       "text": "Take Raptor I. What did Mr. Causey and Mr. Buy actually review before they signed its approval sheet?"
+      }
+     ]
+    },
+    {
+     "area": "Fact Development, Source Identification, & Credibility Testing",
+     "moments": [
+      {
+       "turn": "T50",
+       "kind": "quote",
+       "text": "What were those considerations?"
+      },
+      {
+       "turn": "T53",
+       "kind": "summary",
+       "text": "Witness admitted avoiding proxy disclosure was part of the aim, then answered that the aim was to get the deal done efficiently; not pressed further."
+      },
+      {
+       "turn": "T56",
+       "kind": "quote",
+       "text": "How do you know Mr. Skilling told the Board?"
+      },
+      {
+       "turn": "T57",
+       "kind": "quote",
+       "text": "I don't know that personally."
+      },
+      {
+       "turn": "T62",
+       "kind": "quote",
+       "text": "Is there anything that would help you remember, such as notes, minutes, or a presentation from that call?"
+      },
+      {
+       "turn": "T79",
+       "kind": "quote",
+       "text": "It wasn't, as far as I was concerned. Michael wasn't acting for Enron there."
+      },
+      {
+       "turn": "T82",
+       "kind": "quote",
+       "text": "How do you know they reviewed every transaction?"
+      },
+      {
+       "turn": "T90",
+       "kind": "quote",
+       "text": "Which approvals were signed after closing?"
+      },
+      {
+       "turn": "T103",
+       "kind": "summary",
+       "text": "Witness said Skilling's line on the Raptor I approval sheet was left blank; not followed up."
+      },
+      {
+       "turn": "T118",
+       "kind": "quote",
+       "text": "What's your best estimate?"
+      }
+     ]
+    },
+    {
+     "area": "Document Use",
+     "moments": [
+      {
+       "turn": "T70",
+       "kind": "quote",
+       "text": "I'd like to show you the minutes of the November 5, 1997 Executive Committee meeting. Do you recognize them?"
+      },
+      {
+       "turn": "T71",
+       "kind": "quote",
+       "text": "They look like the Committee's minutes from that call."
+      },
+      {
+       "turn": "T72",
+       "kind": "summary",
+       "text": "Asked who prepared the minutes; witness said the Corporate Secretary's office (T73)."
+      },
+      {
+       "turn": "T74",
+       "kind": "quote",
+       "text": "Do they help you remember whether Mr. Kopper's role came up?"
+      },
+      {
+       "turn": "T75",
+       "kind": "quote",
+       "text": "They don't mention Michael, which fits my memory that it didn't come up."
+      }
+     ]
+    }
+   ],
+   "big_mistakes": [],
+   "missed_chances": [
+    {
+     "turn": "T53",
+     "description": "Witness admitted avoiding proxy disclosure was part of why Kopper was used, then said the aim was to get the deal done efficiently. This key admission was never pressed.",
+     "question": "You said avoiding proxy disclosure was part of the reason. Was it a reason, yes or no, who decided it, and what did you know about Chewco's ownership when you agreed?"
+    },
+    {
+     "turn": "T103",
+     "description": "Witness said Skilling's line on the Raptor I approval sheet was left blank. The interviewer moved on without asking why or whether Skilling was asked to sign.",
+     "question": "Why is Jeff Skilling's line blank on the Raptor I approval sheet, and did anyone ask him to approve it before closing?"
+    }
+   ],
+   "tips": [
+    "When a witness answers a yes-or-no question with 'the aim was to get the deal done efficiently,' ask: That is not my question. Was avoiding disclosure one of the reasons, yes or no, and who made that decision?",
+    "When a witness says an approval sheet would show the dates or signatures, ask: Can we look at the Raptor I approval sheet together so you can confirm when each person signed and who did not?"
+   ]
+  },
+  {
+   "ending": "witness_ended",
+   "result": "SCORED",
+   "result_reason": "",
+   "leads": [
+    {
+     "turn": "T19",
+     "lead": "Said his involvement is what made outside money comfortable",
+     "importance": "key",
+     "followed_up": true,
+     "follow_up_turn": "T20",
+     "question": ""
+    },
+    {
+     "turn": "T33",
+     "lead": "Causey asked for the unwind; he negotiated terms for LJM",
+     "importance": "key",
+     "followed_up": true,
+     "follow_up_turn": "T34",
+     "question": ""
+    },
+    {
+     "turn": "T37",
+     "lead": "Handled the unwind for LJM together with Kopper",
+     "importance": "key",
+     "followed_up": true,
+     "follow_up_turn": "T38",
+     "question": ""
+    },
+    {
+     "turn": "T39",
+     "lead": "Says no one objected to him negotiating for LJM",
+     "importance": "key",
+     "followed_up": true,
+     "follow_up_turn": "T40",
+     "question": ""
+    },
+    {
+     "turn": "T51",
+     "lead": "Lawyers said senior-officer role needed disclosure; Kopper was not senior",
+     "importance": "key",
+     "followed_up": true,
+     "follow_up_turn": "T52",
+     "question": ""
+    },
+    {
+     "turn": "T53",
+     "lead": "Avoiding proxy disclosure was part of choosing Kopper",
+     "importance": "key",
+     "followed_up": false,
+     "follow_up_turn": "",
+     "question": "Which disclosure did choosing Mr. Kopper avoid, who decided that, and is it documented?"
+    },
+    {
+     "turn": "T55",
+     "lead": "Skilling approved Chewco and he believes Skilling told the Board",
+     "importance": "key",
+     "followed_up": true,
+     "follow_up_turn": "T56",
+     "question": ""
+    },
+    {
+     "turn": "T61",
+     "lead": "Does not recall Kopper's role coming up on the November 5 call",
+     "importance": "key",
+     "followed_up": true,
+     "follow_up_turn": "T62",
+     "question": ""
+    },
+    {
+     "turn": "T67",
+     "lead": "Gave the Chewco presentation to the call; Kopper was on the line",
+     "importance": "key",
+     "followed_up": true,
+     "follow_up_turn": "T74",
+     "question": ""
+    },
+    {
+     "turn": "T79",
+     "lead": "Says Kopper was investing on his own account, not for Enron",
+     "importance": "key",
+     "followed_up": false,
+     "follow_up_turn": "",
+     "question": "How did Mr. Kopper come to manage Chewco, and do you or anyone you know hold an interest in Chewco?"
+    },
+    {
+     "turn": "T83",
+     "lead": "Assumed LJM2 transactions were reviewed; did not check himself",
+     "importance": "key",
+     "followed_up": true,
+     "follow_up_turn": "T84",
+     "question": ""
+    },
+    {
+     "turn": "T89",
+     "lead": "Some LJM2 approvals were papered after deals closed",
+     "importance": "key",
+     "followed_up": true,
+     "follow_up_turn": "T90",
+     "question": ""
+    },
+    {
+     "turn": "T103",
+     "lead": "Skilling's line was left blank on the Raptor I approval sheet",
+     "importance": "secondary",
+     "followed_up": false,
+     "follow_up_turn": "",
+     "question": "Why was Mr. Skilling's line blank on the Raptor I approval sheet, and who decided that?"
+    },
+    {
+     "turn": "T107",
+     "lead": "Glisan reported to him while negotiating for Enron against LJM2",
+     "importance": "key",
+     "followed_up": true,
+     "follow_up_turn": "T108",
+     "question": ""
+    },
+    {
+     "turn": "T115",
+     "lead": "LJM2 Raptor returns above the 30 percent on some",
+     "importance": "key",
+     "followed_up": true,
+     "follow_up_turn": "T116",
+     "question": ""
+    },
+    {
+     "turn": "T119",
+     "lead": "Estimated well over 100 percent on the best Raptor return",
+     "importance": "key",
+     "followed_up": false,
+     "follow_up_turn": "",
+     "question": "Against the 30 percent the Board was shown, what did you know at the time about LJM2's actual returns?"
+    },
+    {
+     "turn": "T121",
+     "lead": "Declined to discuss family investments in the Rhythms unwind without counsel",
+     "importance": "key",
+     "followed_up": true,
+     "follow_up_turn": "T120",
+     "question": ""
+    }
+   ],
+   "skills": [
+    {
+     "name": "Upjohn",
+     "rating": 4,
+     "reached": true,
+     "reason": "T2 gives the full warning at the very start: counsel represents the Committee and company only, not the witness, and cannot give him legal advice."
+    },
+    {
+     "name": "Privilege",
+     "rating": 4,
+     "reached": true,
+     "reason": "T2 explains the privilege belongs to the company, which may waive it and disclose what is learned, including to the government, without consent or notice."
+    },
+    {
+     "name": "Relationship",
+     "rating": 4,
+     "reached": true,
+     "reason": "T6 sets expectations: complete answers, flag speculation and estimates, separate recollection from reconstruction, and ask for clarification; tone stays professional."
+    },
+    {
+     "name": "Confirmation",
+     "rating": 4,
+     "reached": true,
+     "reason": "T4 asks him to state in his own words who is represented and who controls privilege, T5 confirms it, and T6 addresses his right to his own counsel."
+    },
+    {
+     "name": "Closing",
+     "rating": 4,
+     "reached": true,
+     "reason": "As he left, T122 asked if he had anything to add or correct, reminded him of confidentiality, document and notes retention, no discussion with witnesses, and next steps through counsel."
+    },
+    {
+     "name": "Narrative Development",
+     "rating": 3,
+     "reached": true,
+     "reason": "Open invitations at T16, T32 and T44 let him walk through LJM1, the unwind and Chewco before narrowing."
+    },
+    {
+     "name": "Funneling",
+     "rating": 3,
+     "reached": true,
+     "reason": "Moves from role and reporting lines (T8-T15) to LJM1 (T16), then to specific deals, dates and people."
+    },
+    {
+     "name": "Clarity",
+     "rating": 3,
+     "reached": true,
+     "reason": "Most questions are single and clear (T40, T94, T120), though some framing questions are long."
+    },
+    {
+     "name": "Professionalism",
+     "rating": 3,
+     "reached": true,
+     "reason": "Stays neutral and in control, pressing on answers without hostility (T84-T86, T118)."
+    },
+    {
+     "name": "Adaptability",
+     "rating": 3,
+     "reached": true,
+     "reason": "Changes approach to the answers: T56 'How do you know', T84 'Take a specific deal', T116 for magnitude, and T62 memory aids."
+    },
+    {
+     "name": "Ensures Credibility",
+     "rating": 2,
+     "reached": true,
+     "reason": "Good challenge on T49, T55-T57 and T83-T97, but the evasive answer at T53 and the contradicting claim at T79 were left unchallenged."
+    },
+    {
+     "name": "Material Facts",
+     "rating": 3,
+     "reached": true,
+     "reason": "Pins down who negotiated and signed (T34-T37, T102-T105), when approvals were signed (T98-T101) and how; leaves some gaps such as T79."
+    },
+    {
+     "name": "Memory Refreshing",
+     "rating": 3,
+     "reached": true,
+     "reason": "Prompts notes and minutes at T62, shows the November 5 minutes at T70 and asks whether they help at T74; did not use the approval sheets he said would show dates."
+    },
+    {
+     "name": "Establishes Knowledge",
+     "rating": 3,
+     "reached": true,
+     "reason": "T56-T57 separates his secondhand belief from personal knowledge; T83 flags an assumption; but T79 was accepted without testing his personal knowledge."
+    },
+    {
+     "name": "Other Sources",
+     "rating": 3,
+     "reached": true,
+     "reason": "Identifies Causey's group (T41-T43), Glisan, Kopper and call attendees (T64-T65), though it did not pursue the unnamed reviewers."
+    },
+    {
+     "name": "Other Evidence",
+     "rating": 2,
+     "reached": true,
+     "reason": "He pointed to approval sheets (T85, T101), minutes (T63) and investor reports (T117), but the interviewer never asked for these documents."
+    },
+    {
+     "name": "Tests Certainty",
+     "rating": 3,
+     "reached": true,
+     "reason": "Tests 'I don't recall' at T61 with memory aids, asks for a best estimate at T118, and follows 'I'd have to look at the sheet' at T89-T90."
+    },
+    {
+     "name": "Follow-Up",
+     "rating": 2,
+     "reached": true,
+     "reason": "Three key leads were never followed up (T53, T79, T119), which caps Follow-Up at 2."
+    },
+    {
+     "name": "Effective Selection",
+     "rating": 3,
+     "reached": true,
+     "reason": "Asked recall and notes first (T60-T62), then asked him to recognize the minutes and who prepared them (T70-T73)."
+    },
+    {
+     "name": "Narrative",
+     "rating": 3,
+     "reached": true,
+     "reason": "Got his recollection of the November 5 call (T60-T61) before showing the minutes at T70."
+    },
+    {
+     "name": "Accuracy",
+     "rating": 1,
+     "reached": true,
+     "reason": "The minutes were never described in terms of what they say; the interviewer only asked whether they helped (T74)."
+    },
+    {
+     "name": "Avoid Initial Conclusion",
+     "rating": 3,
+     "reached": true,
+     "reason": "No conclusion was drawn from the minutes; the question asked what they meant to the witness."
+    },
+    {
+     "name": "Fairness",
+     "rating": 2,
+     "reached": true,
+     "reason": "He was allowed to explain at T75, but his earlier T67 account was not restated against the minutes or reconciled with them."
+    }
+   ],
+   "area_evidence": [
+    {
+     "area": "Interview Framing, Rapport Building, & Closing",
+     "moments": [
+      {
+       "turn": "T2",
+       "kind": "quote",
+       "text": "To be clear, we represent the Committee and the company only. We do not represent you personally, we are not your attorney, and we can't give you legal advice."
+      },
+      {
+       "turn": "T4",
+       "kind": "quote",
+       "text": "Before we go on, could you tell me in your own words your understanding of who we represent, and who controls the privilege?"
+      },
+      {
+       "turn": "T6",
+       "kind": "summary",
+       "text": "Explains the interview structure, ground rules on speculation and estimates, the need to separate recollection from reconstruction, and the right to consult counsel."
+      },
+      {
+       "turn": "T122",
+       "kind": "quote",
+       "text": "Is there anything you'd like to add or correct about what you've told me so far?"
+      }
+     ]
+    },
+    {
+     "area": "Question Technique",
+     "moments": [
+      {
+       "turn": "T16",
+       "kind": "quote",
+       "text": "Tell me everything you remember about how LJM1 came about in 1999."
+      },
+      {
+       "turn": "T84",
+       "kind": "quote",
+       "text": "How did those reviews work in practice? Take a specific deal."
+      },
+      {
+       "turn": "T116",
+       "kind": "quote",
+       "text": "How far above, on the best of them?"
+      },
+      {
+       "turn": "T118",
+       "kind": "quote",
+       "text": "What's your best estimate?"
+      }
+     ]
+    },
+    {
+     "area": "Fact Development, Source Identification, & Credibility Testing",
+     "moments": [
+      {
+       "turn": "T53",
+       "kind": "quote",
+       "text": "The aim was to get the deal done efficiently. Avoiding a proxy disclosure was part of that, I suppose."
+      },
+      {
+       "turn": "T56",
+       "kind": "quote",
+       "text": "How do you know Mr. Skilling told the Board?"
+      },
+      {
+       "turn": "T57",
+       "kind": "quote",
+       "text": "I don't know that personally. That was my understanding."
+      },
+      {
+       "turn": "T62",
+       "kind": "quote",
+       "text": "Is there anything that would help you remember, such as notes, minutes, or a presentation from that call?"
+      },
+      {
+       "turn": "T42",
+       "kind": "quote",
+       "text": "Who in Mr. Causey's group would we talk to?"
+      },
+      {
+       "turn": "T90",
+       "kind": "quote",
+       "text": "Which approvals were signed after closing?"
+      }
+     ]
+    },
+    {
+     "area": "Document Use",
+     "moments": [
+      {
+       "turn": "T60",
+       "kind": "quote",
+       "text": "Did anyone on that call mention Mr. Kopper's role in Chewco?"
+      },
+      {
+       "turn": "T61",
+       "kind": "quote",
+       "text": "I don't recall it coming up specifically."
+      },
+      {
+       "turn": "T70",
+       "kind": "quote",
+       "text": "I'd like to show you the minutes of the November 5, 1997 Executive Committee meeting. Do you recognize them?"
+      },
+      {
+       "turn": "T72",
+       "kind": "quote",
+       "text": "Who prepared them?"
+      },
+      {
+       "turn": "T74",
+       "kind": "quote",
+       "text": "Do they help you remember whether Mr. Kopper's role came up?"
+      },
+      {
+       "turn": "T75",
+       "kind": "quote",
+       "text": "They don't mention Michael, which fits my memory that it didn't come up."
+      }
+     ]
+    }
+   ],
+   "big_mistakes": [],
+   "missed_chances": [
+    {
+     "turn": "T53",
+     "description": "The witness admitted avoiding a proxy disclosure was part of choosing Kopper, and the interviewer moved on without pinning it down.",
+     "question": "Which disclosure did choosing Mr. Kopper avoid, and who decided that?"
+    },
+    {
+     "turn": "T79",
+     "description": "The witness said Kopper was investing on his own account, though Fastow had identified him for the Chewco role and the interviewer did not test this claim.",
+     "question": "How did Mr. Kopper come to manage Chewco, and do you or anyone you know hold an interest in Chewco?"
+    }
+   ],
+   "tips": [
+    "When a witness says a document would answer the question, such as 'I'd have to look at the sheet', ask: 'Let's look at the sheet now. What date appears beside each signature?'",
+    "When a witness gives an explanation or estimate, ask: 'What did you personally see or do to know that, and what would change your answer?'"
+   ]
+  },
+  {
+   "ending": "witness_ended",
+   "result": "SCORED",
+   "result_reason": "",
+   "leads": [
+    {
+     "turn": "T19",
+     "lead": "Involvement made outside money comfortable; 'I didn't go looking for it'",
+     "importance": "key",
+     "followed_up": true,
+     "follow_up_turn": "T20",
+     "question": ""
+    },
+    {
+     "turn": "T25",
+     "lead": "Raised GP role with Lay and Skilling in mid-June 1999",
+     "importance": "key",
+     "followed_up": false,
+     "follow_up_turn": "",
+     "question": "What exactly did you tell Mr. Lay and Mr. Skilling in mid-June 1999 about your economics, and did anyone ask whether you would benefit from the Enron stock?"
+    },
+    {
+     "turn": "T33",
+     "lead": "Negotiated Rhythms unwind terms with LJM limited partners",
+     "importance": "key",
+     "followed_up": true,
+     "follow_up_turn": "T34",
+     "question": ""
+    },
+    {
+     "turn": "T37",
+     "lead": "Handled unwind for LJM with Kopper",
+     "importance": "key",
+     "followed_up": true,
+     "follow_up_turn": "T38",
+     "question": ""
+    },
+    {
+     "turn": "T41",
+     "lead": "Causey's accounting group reviewed unwind; names unknown",
+     "importance": "secondary",
+     "followed_up": true,
+     "follow_up_turn": "T42",
+     "question": ""
+    },
+    {
+     "turn": "T51",
+     "lead": "Lawyers said senior officer role needed proxy disclosure and Code approval",
+     "importance": "key",
+     "followed_up": true,
+     "follow_up_turn": "T52",
+     "question": ""
+    },
+    {
+     "turn": "T55",
+     "lead": "Skilling approved Chewco and believes he told the Board",
+     "importance": "key",
+     "followed_up": true,
+     "follow_up_turn": "T56",
+     "question": ""
+    },
+    {
+     "turn": "T59",
+     "lead": "Believes he was on the November 5, 1997 call",
+     "importance": "secondary",
+     "followed_up": true,
+     "follow_up_turn": "T60",
+     "question": ""
+    },
+    {
+     "turn": "T67",
+     "lead": "Gave the Chewco presentation on the November 5 call",
+     "importance": "secondary",
+     "followed_up": true,
+     "follow_up_turn": "T70",
+     "question": ""
+    },
+    {
+     "turn": "T77",
+     "lead": "Chewco described as outside entity not affiliated with Enron",
+     "importance": "key",
+     "followed_up": true,
+     "follow_up_turn": "T78",
+     "question": ""
+    },
+    {
+     "turn": "T79",
+     "lead": "Kopper invested on his own account, not acting for Enron",
+     "importance": "key",
+     "followed_up": false,
+     "follow_up_turn": "",
+     "question": "You chose Michael so no proxy disclosure would be needed; if he was investing for himself, who else stood behind his stake and did you have any interest in it?"
+    },
+    {
+     "turn": "T83",
+     "lead": "Assumed Causey and Buy review followed; did not check",
+     "importance": "key",
+     "followed_up": true,
+     "follow_up_turn": "T84",
+     "question": ""
+    },
+    {
+     "turn": "T89",
+     "lead": "Some approvals papered after deals closed",
+     "importance": "key",
+     "followed_up": true,
+     "follow_up_turn": "T90",
+     "question": ""
+    },
+    {
+     "turn": "T91",
+     "lead": "An early LJM2 approval sheet signed weeks after closing",
+     "importance": "key",
+     "followed_up": true,
+     "follow_up_turn": "T92",
+     "question": ""
+    },
+    {
+     "turn": "T103",
+     "lead": "Skilling's line left blank on Raptor I approval sheet",
+     "importance": "key",
+     "followed_up": false,
+     "follow_up_turn": "",
+     "question": "Why was Skilling's line blank on the Raptor I approval sheet, and who asked you to proceed without his signature?"
+    },
+    {
+     "turn": "T107",
+     "lead": "Glisan reported to Fastow while negotiating for Enron",
+     "importance": "key",
+     "followed_up": true,
+     "follow_up_turn": "T108",
+     "question": ""
+    },
+    {
+     "turn": "T111",
+     "lead": "Board was shown about 30 percent plus fees on Raptors",
+     "importance": "key",
+     "followed_up": true,
+     "follow_up_turn": "T112",
+     "question": ""
+    },
+    {
+     "turn": "T113",
+     "lead": "Raptor returns 'good' but no exact figures",
+     "importance": "secondary",
+     "followed_up": true,
+     "follow_up_turn": "T114",
+     "question": ""
+    },
+    {
+     "turn": "T115",
+     "lead": "Some Raptor returns above 30 percent; early settlements helped",
+     "importance": "key",
+     "followed_up": true,
+     "follow_up_turn": "T116",
+     "question": ""
+    },
+    {
+     "turn": "T17",
+     "lead": "Glisan and Fastow designed the LJM vehicle",
+     "importance": "secondary",
+     "followed_up": false,
+     "follow_up_turn": "",
+     "question": ""
+    }
+   ],
+   "skills": [
+    {
+     "name": "Upjohn",
+     "rating": 4,
+     "reached": true,
+     "reason": "At T2, before any substantive question, the lawyer said the Committee and company are the clients, not the witness, that counsel cannot give legal advice, that privilege belongs to the company, and that the company may disclose without consent, then asked if he understood."
+    },
+    {
+     "name": "Privilege",
+     "rating": 4,
+     "reached": true,
+     "reason": "T2 states the privilege belongs to the company, which decides whether to waive it and may disclose the interview, including to the government, without the witness's consent."
+    },
+    {
+     "name": "Relationship",
+     "rating": 4,
+     "reached": true,
+     "reason": "T6 explains the structure, asks for complete answers, tells the witness to flag speculation and estimates, and asks him to say whether he remembers or is reconstructing; the tone stays professional."
+    },
+    {
+     "name": "Confirmation",
+     "rating": 4,
+     "reached": true,
+     "reason": "T4 asks the witness to restate who is represented and who controls privilege; he answers correctly at T5, and the lawyer confirms at T6 that counsel can't advise him about his own lawyer."
+    },
+    {
+     "name": "Closing",
+     "rating": 4,
+     "reached": true,
+     "reason": "After the witness ended at T121, T122 asks for anything to add or correct, reminds him to keep documents, keep the interview confidential, not discuss it with witnesses, and arranges next steps through his lawyer."
+    },
+    {
+     "name": "Narrative Development",
+     "rating": 4,
+     "reached": true,
+     "reason": "Open invitations such as T16 'Tell me everything you remember' and T32 let the witness walk through LJM1, the unwind, and Chewco before any challenge."
+    },
+    {
+     "name": "Funneling",
+     "rating": 4,
+     "reached": true,
+     "reason": "Moves from role and reporting lines (T8-T15) to LJM1 (T16), then to specific deals and approval sheets (T84-T86), in a sensible order."
+    },
+    {
+     "name": "Clarity",
+     "rating": 4,
+     "reached": true,
+     "reason": "Most questions are short and unambiguous, for example T52 'Was one aim of choosing Mr. Kopper to avoid that disclosure?' and T56 'How do you know Mr. Skilling told the Board?'"
+    },
+    {
+     "name": "Professionalism",
+     "rating": 4,
+     "reached": true,
+     "reason": "Stays polite and neutral and keeps control, including when the witness deflected at T49 and T113; the lawyer pressed for specifics without hostility."
+    },
+    {
+     "name": "Adaptability",
+     "rating": 3,
+     "reached": true,
+     "reason": "Adapts well at T84 ('Take a specific deal') and T114-T118 when answers were vague, but did not change course on T79 or T103 when the witness's answers were unclear."
+    },
+    {
+     "name": "Ensures Credibility",
+     "rating": 2,
+     "reached": true,
+     "reason": "Challenged many evasive answers (T52, T56, T78, T84, T108), but left T79's claim that Kopper invested on his own account unchallenged despite T51, and did not test the blank Skilling line at T103."
+    },
+    {
+     "name": "Material Facts",
+     "rating": 3,
+     "reached": true,
+     "reason": "Established who negotiated the unwind (T34-T37), who managed Chewco (T46-T47), and when Raptor I closed and was approved (T98-T101), but did not pin down when and how Skilling was told about Chewco."
+    },
+    {
+     "name": "Memory Refreshing",
+     "rating": 3,
+     "reached": true,
+     "reason": "At T62 asked about notes, minutes, or a presentation, then showed the minutes at T70 and asked whether they helped at T74; other refreshing attempts were limited."
+    },
+    {
+     "name": "Establishes Knowledge",
+     "rating": 3,
+     "reached": true,
+     "reason": "Separated personal knowledge from hearsay: T56-T57 ('I don't know that personally') and T82-T83 ('I didn't check each one myself'), but accepted T79's account of Kopper's independence without testing its source."
+    },
+    {
+     "name": "Other Sources",
+     "rating": 3,
+     "reached": true,
+     "reason": "Asked who reviewed the unwind (T40-T42), who was on the November 5 call (T64), and who negotiated for Enron (T104-T108), but did not ask for Lay, Skilling, Buy, or Glisan as sources on Chewco or the controls."
+    },
+    {
+     "name": "Other Evidence",
+     "rating": 3,
+     "reached": true,
+     "reason": "Used the minutes (T70-T74) and raised the approval sheets and their dates (T88-T101), but did not ask for the investor reports or the Board materials on the Raptor returns."
+    },
+    {
+     "name": "Tests Certainty",
+     "rating": 3,
+     "reached": true,
+     "reason": "Tested estimates well at T113-T119 ('Approximately, then' and 'What's your best estimate?'), and asked how he knew at T56 and T82, but did not test his 'fits my memory' claim at T75."
+    },
+    {
+     "name": "Follow-Up",
+     "rating": 2,
+     "reached": true,
+     "reason": "Followed up most material answers, but three key leads were never followed up (T25 Lay and Skilling knowledge, T79 Kopper's independent stake, T103 blank Skilling approval), which caps this skill."
+    },
+    {
+     "name": "Effective Selection",
+     "rating": 3,
+     "reached": true,
+     "reason": "Introduced the Nov 5 1997 minutes at T70 with a recognition question and authenticated them at T72 ('Who prepared them?'), but gave little context beyond the title."
+    },
+    {
+     "name": "Narrative",
+     "rating": 3,
+     "reached": true,
+     "reason": "Got the witness's recollection of the Nov 5 call first (T59-T69) before showing the minutes at T70, but did not restate his earlier account before reviewing the document."
+    },
+    {
+     "name": "Accuracy",
+     "rating": 2,
+     "reached": true,
+     "reason": "The lawyer never described what the minutes say; the lawyer only asked whether they helped the witness remember Kopper's role at T74, so there was no accurate description and no misstatement."
+    },
+    {
+     "name": "Avoid Initial Conclusion",
+     "rating": 3,
+     "reached": true,
+     "reason": "Kept the document questions neutral (T70-T74) and did not draw conclusions from the minutes before hearing the witness's view."
+    },
+    {
+     "name": "Fairness",
+     "rating": 3,
+     "reached": true,
+     "reason": "Gave the witness room to respond to the minutes (T75), but accepted 'fits my memory' without asking him to explain any difference between the minutes and his account."
+    }
+   ],
+   "area_evidence": [
+    {
+     "area": "Interview Framing, Rapport Building, & Closing",
+     "moments": [
+      {
+       "turn": "T2",
+       "kind": "quote",
+       "text": "To be clear, we represent the Committee and the company only. We do not represent you personally, we are not your attorney, and we can't give you legal advice."
+      },
+      {
+       "turn": "T2",
+       "kind": "quote",
+       "text": "The company decides whether to waive it, and it may disclose what we learn, including to the government, without your consent and without telling you."
+      },
+      {
+       "turn": "T4",
+       "kind": "quote",
+       "text": "Before we go on, could you tell me in your own words your understanding of who we represent, and who controls the privilege?"
+      },
+      {
+       "turn": "T6",
+       "kind": "summary",
+       "text": "Explained the interview structure, asked for complete answers, and set ground rules: flag speculation and estimates, say whether he remembers or reconstructs, and ask for clarification."
+      },
+      {
+       "turn": "T122",
+       "kind": "quote",
+       "text": "Is there anything you'd like to add or correct about what you've told me so far?"
+      },
+      {
+       "turn": "T122",
+       "kind": "summary",
+       "text": "Confidentiality reminder, instruction to keep documents including personal ones, no discussion with other witnesses, and next steps through his lawyer."
+      }
+     ]
+    },
+    {
+     "area": "Question Technique",
+     "moments": [
+      {
+       "turn": "T16",
+       "kind": "quote",
+       "text": "Tell me everything you remember about how LJM1 came about in 1999."
+      },
+      {
+       "turn": "T32",
+       "kind": "quote",
+       "text": "Tell me everything you remember about how the hedge was unwound."
+      },
+      {
+       "turn": "T84",
+       "kind": "quote",
+       "text": "Take a specific deal."
+      },
+      {
+       "turn": "T86",
+       "kind": "quote",
+       "text": "Take Raptor I. What did Mr. Causey and Mr. Buy actually review before they signed its approval sheet?"
+      },
+      {
+       "turn": "T119",
+       "kind": "summary",
+       "text": "Moved from general questions to specific deals and approval timing; questions stayed neutral and clear throughout."
+      }
+     ]
+    },
+    {
+     "area": "Fact Development, Source Identification, & Credibility Testing",
+     "moments": [
+      {
+       "turn": "T52",
+       "kind": "quote",
+       "text": "Was one aim of choosing Mr. Kopper to avoid that disclosure?"
+      },
+      {
+       "turn": "T56",
+       "kind": "quote",
+       "text": "How do you know Mr. Skilling told the Board?"
+      },
+      {
+       "turn": "T62",
+       "kind": "quote",
+       "text": "Is there anything that would help you remember, such as notes, minutes, or a presentation from that call?"
+      },
+      {
+       "turn": "T82",
+       "kind": "quote",
+       "text": "How do you know they reviewed every transaction?"
+      },
+      {
+       "turn": "T114",
+       "kind": "quote",
+       "text": "Approximately, then. Were they above or below the 30 percent the Board was shown?"
+      },
+      {
+       "turn": "T118",
+       "kind": "quote",
+       "text": "What's your best estimate?"
+      },
+      {
+       "turn": "T79",
+       "kind": "summary",
+       "text": "Witness said Kopper invested on his own account; lawyer did not test this against the disclosure avoidance admitted at T51-T53."
+      }
+     ]
+    },
+    {
+     "area": "Document Use",
+     "moments": [
+      {
+       "turn": "T70",
+       "kind": "quote",
+       "text": "I'd like to show you the minutes of the November 5, 1997 Executive Committee meeting. Do you recognize them?"
+      },
+      {
+       "turn": "T72",
+       "kind": "quote",
+       "text": "Who prepared them?"
+      },
+      {
+       "turn": "T74",
+       "kind": "quote",
+       "text": "Do they help you remember whether Mr. Kopper's role came up?"
+      },
+      {
+       "turn": "T75",
+       "kind": "summary",
+       "text": "Witness said the minutes fit his memory that Kopper's role did not come up; the lawyer moved on without asking about any difference."
+      }
+     ]
+    }
+   ],
+   "big_mistakes": [],
+   "missed_chances": [
+    {
+     "turn": "T25",
+     "description": "Witness said he raised the GP role with Lay and Skilling in mid-June 1999; the lawyer moved to the Board meeting without asking what they were told about his economics.",
+     "question": "What exactly did you tell Mr. Lay and Mr. Skilling in mid-June 1999 about your economics, and did anyone ask whether you would benefit from the Enron stock?"
+    },
+    {
+     "turn": "T79",
+     "description": "Witness said Kopper invested on his own account and was not acting for Enron, which conflicts with his earlier account that Kopper was chosen to avoid disclosure; this was never tested.",
+     "question": "You chose Michael so no proxy disclosure would be needed; if he was investing for himself, who else stood behind his stake and did you have any interest in it?"
+    }
+   ],
+   "tips": [
+    "When you say Kopper invested on his own account, how do you reconcile that with choosing him specifically so no proxy disclosure would be needed, and who else had an interest in his stake?",
+    "Why was Skilling's line left blank on the Raptor I approval sheet, and who asked you to proceed without his signature?"
+   ]
+  },
+  {
+   "ending": "witness_ended",
+   "result": "SCORED",
+   "result_reason": "",
+   "leads": [
+    {
+     "turn": "T19",
+     "lead": "Involvement as GP made outside money comfortable",
+     "importance": "key",
+     "followed_up": true,
+     "follow_up_turn": "T20",
+     "question": ""
+    },
+    {
+     "turn": "T25",
+     "lead": "Raised GP role with Lay and Skilling in June 1999",
+     "importance": "secondary",
+     "followed_up": false,
+     "follow_up_turn": "",
+     "question": "What did Lay and Skilling know about your personal economics when they agreed to take the GP role to the Board?"
+    },
+    {
+     "turn": "T29",
+     "lead": "Told Board he gets no current or future Enron stock value",
+     "importance": "key",
+     "followed_up": true,
+     "follow_up_turn": "T30",
+     "question": ""
+    },
+    {
+     "turn": "T33",
+     "lead": "Causey's team reviewed unwind terms and found them fair",
+     "importance": "key",
+     "followed_up": true,
+     "follow_up_turn": "T34",
+     "question": ""
+    },
+    {
+     "turn": "T37",
+     "lead": "Handled the unwind for LJM with Kopper",
+     "importance": "key",
+     "followed_up": true,
+     "follow_up_turn": "T38",
+     "question": ""
+    },
+    {
+     "turn": "T45",
+     "lead": "Chewco kept JEDI off the balance sheet",
+     "importance": "key",
+     "followed_up": true,
+     "follow_up_turn": "T46",
+     "question": ""
+    },
+    {
+     "turn": "T49",
+     "lead": "Choosing Kopper involved various considerations",
+     "importance": "key",
+     "followed_up": true,
+     "follow_up_turn": "T50",
+     "question": ""
+    },
+    {
+     "turn": "T51",
+     "lead": "Lawyers said senior officer role needed proxy disclosure",
+     "importance": "key",
+     "followed_up": true,
+     "follow_up_turn": "T52",
+     "question": ""
+    },
+    {
+     "turn": "T53",
+     "lead": "Avoiding proxy disclosure was part of choosing Kopper",
+     "importance": "key",
+     "followed_up": false,
+     "follow_up_turn": "",
+     "question": "Who decided that Kopper would be used so no proxy disclosure was needed, and did you approve that decision?"
+    },
+    {
+     "turn": "T55",
+     "lead": "Skilling approved Kopper's Chewco role and told the Board",
+     "importance": "key",
+     "followed_up": true,
+     "follow_up_turn": "T56",
+     "question": ""
+    },
+    {
+     "turn": "T67",
+     "lead": "Presented Chewco to Executive Committee with Kopper on line",
+     "importance": "key",
+     "followed_up": true,
+     "follow_up_turn": "T70",
+     "question": ""
+    },
+    {
+     "turn": "T79",
+     "lead": "Kopper was investing on his own account in Chewco",
+     "importance": "key",
+     "followed_up": false,
+     "follow_up_turn": "",
+     "question": "Did you or anyone you know hold any interest in Chewco or in Michael's investment, and who else was invested?"
+    },
+    {
+     "turn": "T89",
+     "lead": "Some approvals were papered after a deal closed",
+     "importance": "key",
+     "followed_up": true,
+     "follow_up_turn": "T90",
+     "question": ""
+    },
+    {
+     "turn": "T103",
+     "lead": "Skilling's approval line left blank on Raptor I sheet",
+     "importance": "key",
+     "followed_up": false,
+     "follow_up_turn": "",
+     "question": "Why was Skilling's approval line blank on the Raptor I sheet, and who decided it could be signed without him?"
+    },
+    {
+     "turn": "T107",
+     "lead": "Glisan reported to Fastow while negotiating for Enron",
+     "importance": "key",
+     "followed_up": true,
+     "follow_up_turn": "T108",
+     "question": ""
+    },
+    {
+     "turn": "T113",
+     "lead": "LJM2 returns were good but figures not known",
+     "importance": "key",
+     "followed_up": true,
+     "follow_up_turn": "T114",
+     "question": ""
+    },
+    {
+     "turn": "T115",
+     "lead": "Some Raptor returns above 30 percent after early settlements",
+     "importance": "key",
+     "followed_up": true,
+     "follow_up_turn": "T116",
+     "question": ""
+    }
+   ],
+   "skills": [
+    {
+     "name": "Upjohn",
+     "rating": 4,
+     "reached": true,
+     "reason": "T2 explains the Committee and company are the client, not the witness, that counsel cannot advise him, and that the purpose is to give legal advice to the company. It opens the interview and asks if he understands."
+    },
+    {
+     "name": "Privilege",
+     "rating": 4,
+     "reached": true,
+     "reason": "T2 says privilege belongs to the company, which may waive it and disclose to the government without his consent or notice."
+    },
+    {
+     "name": "Relationship",
+     "rating": 4,
+     "reached": true,
+     "reason": "T6 sets out how the interview will run, asks for complete answers, and covers speculation, distinguishing recollection from reconstruction, and clarification."
+    },
+    {
+     "name": "Confirmation",
+     "rating": 4,
+     "reached": true,
+     "reason": "T2 asks if he understands and has questions; T4 asks him to restate who is represented and who controls privilege, and T5 answers correctly."
+    },
+    {
+     "name": "Closing",
+     "rating": 4,
+     "reached": true,
+     "reason": "At T122, before he left, the interviewer asked if he had anything to add, gave a confidentiality reminder, told him to keep documents and notes, barred discussion with witnesses, and set next steps via his lawyer."
+    },
+    {
+     "name": "Narrative Development",
+     "rating": 3,
+     "reached": true,
+     "reason": "Open invitations like T16 and T32 let him walk through LJM1 and the unwind, and similar prompts were used for Chewco and LJM2."
+    },
+    {
+     "name": "Funneling",
+     "rating": 3,
+     "reached": true,
+     "reason": "The order moves from role and reporting lines to general transaction history, then specific deals and documents."
+    },
+    {
+     "name": "Clarity",
+     "rating": 3,
+     "reached": true,
+     "reason": "Most questions are clear and single-barrelled, though T76 combines two questions in one."
+    },
+    {
+     "name": "Professionalism",
+     "rating": 3,
+     "reached": true,
+     "reason": "The interviewer stays polite and controlled, including when pressing for estimates and when the witness refused questions."
+    },
+    {
+     "name": "Adaptability",
+     "rating": 3,
+     "reached": true,
+     "reason": "The interviewer shifted to challenge answers, asking how he knew things (T56, T82) and pressing for specific dates and estimates (T88, T114-T118)."
+    },
+    {
+     "name": "Ensures Credibility",
+     "rating": 2,
+     "reached": true,
+     "reason": "Many evasions were challenged (T50, T57, T83, T113-T119), but his claim that Kopper invested on his own account (T79) and his admission about avoiding disclosure (T53) were left unchallenged."
+    },
+    {
+     "name": "Material Facts",
+     "rating": 3,
+     "reached": true,
+     "reason": "Good coverage of who negotiated, when deals closed, who signed, and what was approved, with dates pursued on Raptor I."
+    },
+    {
+     "name": "Memory Refreshing",
+     "rating": 3,
+     "reached": true,
+     "reason": "At T62 the interviewer asked about notes or minutes, then showed the November 1997 minutes at T70 to help him recall whether Kopper's role came up."
+    },
+    {
+     "name": "Establishes Knowledge",
+     "rating": 3,
+     "reached": true,
+     "reason": "T56-T57 established he did not personally know Skilling told the Board, and T82-T83 showed he assumed reviews happened without checking."
+    },
+    {
+     "name": "Other Sources",
+     "rating": 3,
+     "reached": true,
+     "reason": "At T42-T43 the interviewer identified Causey's group as the source for the unwind review, and T64 asked who else was on the call."
+    },
+    {
+     "name": "Other Evidence",
+     "rating": 2,
+     "reached": true,
+     "reason": "Minutes were requested and shown, but he said approval sheets show the dates (T101) and investor reports would clarify returns (T117), and the interviewer did not pursue either."
+    },
+    {
+     "name": "Tests Certainty",
+     "rating": 3,
+     "reached": true,
+     "reason": "The interviewer asked for approximate returns and a best estimate (T114, T118) and separated believed from known (T57, T59)."
+    },
+    {
+     "name": "Follow-Up",
+     "rating": 2,
+     "reached": true,
+     "reason": "Most key leads were followed, but four key leads were never followed up (T53, T79, T103, plus a secondary lead on T25), which caps this skill at 2."
+    },
+    {
+     "name": "Effective Selection",
+     "rating": 3,
+     "reached": true,
+     "reason": "The minutes were authenticated (T71-T73) and tied to the Chewco call, but only one document was used."
+    },
+    {
+     "name": "Narrative",
+     "rating": 4,
+     "reached": true,
+     "reason": "Before showing the minutes, the interviewer asked him to recall the Chewco call and Kopper's role (T60-T69)."
+    },
+    {
+     "name": "Accuracy",
+     "rating": 2,
+     "reached": true,
+     "reason": "The interviewer never described the minutes' content to the witness, so there was no accurate description, though nothing was misstated."
+    },
+    {
+     "name": "Avoid Initial Conclusion",
+     "rating": 3,
+     "reached": true,
+     "reason": "The interviewer asked what the minutes meant to him (T74) without suggesting a conclusion."
+    },
+    {
+     "name": "Fairness",
+     "rating": 3,
+     "reached": true,
+     "reason": "He was given a chance to explain the minutes' silence on Kopper (T75), but the interviewer did not put the gap to him further."
+    }
+   ],
+   "area_evidence": [
+    {
+     "area": "Interview Framing, Rapport Building, & Closing",
+     "moments": [
+      {
+       "turn": "T2",
+       "kind": "quote",
+       "text": "To be clear, we represent the Committee and the company only."
+      },
+      {
+       "turn": "T4",
+       "kind": "summary",
+       "text": "Asked the witness to restate in his own words who is represented and who controls privilege."
+      },
+      {
+       "turn": "T6",
+       "kind": "summary",
+       "text": "Explained how the interview would run, asked for complete answers, and covered speculation and clarification."
+      },
+      {
+       "turn": "T122",
+       "kind": "summary",
+       "text": "Closed with a confidentiality reminder, a document retention instruction, a bar on discussing with witnesses, and next steps via his lawyer."
+      }
+     ]
+    },
+    {
+     "area": "Question Technique",
+     "moments": [
+      {
+       "turn": "T16",
+       "kind": "quote",
+       "text": "Tell me everything you remember about how LJM1 came about in 1999."
+      },
+      {
+       "turn": "T32",
+       "kind": "quote",
+       "text": "Tell me everything you remember about how the hedge was unwound."
+      },
+      {
+       "turn": "T82",
+       "kind": "quote",
+       "text": "How do you know they reviewed every transaction?"
+      },
+      {
+       "turn": "T118",
+       "kind": "quote",
+       "text": "What's your best estimate?"
+      }
+     ]
+    },
+    {
+     "area": "Fact Development, Source Identification, & Credibility Testing",
+     "moments": [
+      {
+       "turn": "T49",
+       "kind": "summary",
+       "text": "Evasive reason for choosing Kopper was challenged and pursued at T50."
+      },
+      {
+       "turn": "T57",
+       "kind": "summary",
+       "text": "Witness admitted he did not personally know Skilling told the Board."
+      },
+      {
+       "turn": "T89",
+       "kind": "summary",
+       "text": "Admitted some approvals were papered after closing; the interviewer followed up on timing."
+      },
+      {
+       "turn": "T79",
+       "kind": "quote",
+       "text": "He was investing on his own account."
+      },
+      {
+       "turn": "T53",
+       "kind": "quote",
+       "text": "Avoiding a proxy disclosure was part of that, I suppose."
+      },
+      {
+       "turn": "T103",
+       "kind": "quote",
+       "text": "Jeff Skilling's line was left blank, I believe."
+      }
+     ]
+    },
+    {
+     "area": "Document Use",
+     "moments": [
+      {
+       "turn": "T60",
+       "kind": "summary",
+       "text": "Asked whether Kopper's role was mentioned on the call before showing any document."
+      },
+      {
+       "turn": "T70",
+       "kind": "quote",
+       "text": "I'd like to show you the minutes of the November 5, 1997 Executive Committee meeting. Do you recognize them?"
+      },
+      {
+       "turn": "T72",
+       "kind": "summary",
+       "text": "Asked who prepared the minutes to authenticate them."
+      },
+      {
+       "turn": "T74",
+       "kind": "summary",
+       "text": "Asked whether the minutes help him remember whether Kopper's role came up."
+      }
+     ]
+    }
+   ],
+   "big_mistakes": [],
+   "missed_chances": [
+    {
+     "turn": "T79",
+     "description": "Witness said Kopper invested in Chewco on his own account, and the interviewer moved on without asking about any personal or Fastow interest in Chewco.",
+     "question": "Did you or anyone you know hold any interest in Chewco or in Michael's investment, and who else was invested?"
+    },
+    {
+     "turn": "T103",
+     "description": "Witness said Skilling's approval line was blank on the Raptor I approval sheet, and the interviewer moved on to who negotiated.",
+     "question": "Why was Skilling's approval line blank on the Raptor I sheet, and who decided it could be signed without him?"
+    }
+   ],
+   "tips": [
+    "When you say avoiding a proxy disclosure was part of choosing Kopper, who made that decision and did you approve it?",
+    "When you say Kopper was investing on his own account, what was his stake, who funded it, and did you have any interest in it?"
+   ]
+  }
+ ]
+}
